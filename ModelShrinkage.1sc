@@ -1,0 +1,29 @@
+//------------------------------------------------
+//--- 010 Editor v9.0 Script File
+//
+//      File: 
+//   Authors: 
+//   Version: 
+//   Purpose: 
+//  Category: 
+//   History: 
+//------------------------------------------------
+
+int i,j,k,l;
+float vn = 0.1;
+for (i=0;i<head.boneCount;i++){
+    j=3;
+    //for(j=0;j<3;j++){
+        //for(k=3;k<4;k++){
+            lmatrices[i].c[j].r1=lmatrices[i].c[j].r1*vn;
+            amatrices[i].c[j].r1=amatrices[i].c[j].r1*vn;
+            lmatrices[i].c[j].r2=lmatrices[i].c[j].r2*vn;
+            amatrices[i].c[j].r2=amatrices[i].c[j].r2*vn;
+            lmatrices[i].c[j].r3=lmatrices[i].c[j].r3*vn;
+            amatrices[i].c[j].r3=amatrices[i].c[j].r3*vn;
+        //}
+    //}
+    for(l=0;l<5;l++){
+        bone[i].unkn2[l]=bone[i].unkn2[l]*vn;
+    }
+}

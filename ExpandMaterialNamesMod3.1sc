@@ -1,0 +1,16 @@
+//------------------------------------------------
+//--- 010 Editor v9.0 Script File
+//
+//      File: 
+//   Authors: 
+//   Version: 
+//   Purpose: 
+//  Category: 
+//   History: 
+//------------------------------------------------
+head.materialCount = head.materialCount+1;
+head.meshOffset = head.meshOffset+128;
+head.VertexOffset = head.VertexOffset+128;
+head.FacesOffset = head.FacesOffset+128;
+head.unknOffset = head.unknOffset+128;
+InsertBytes(head.materialNamesOffset+128*(head.materialCount-1),128);
