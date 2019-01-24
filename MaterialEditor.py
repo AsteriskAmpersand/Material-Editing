@@ -12,6 +12,7 @@ import MaterialListing
 import re
 import traceback
 import copy
+import ShaderListing
 from collections import OrderedDict
 remove_extension = lambda path: os.path.splitext(path)[0]
 
@@ -64,7 +65,7 @@ class Material_Library():
         for i, key in enumerate(self.library):
             print("\t%d. %s"%(i, key))
             for j, m in enumerate(self.library[key].materials):
-                print("\t\t%d. %d"%(j, m.trueId))
+                print("\t\t%d. %d"%(j, m.materialHash))
                 
     def info(self, path, material = None, encyclopaedia = None):
         if isinstance(path,int):
@@ -76,10 +77,10 @@ class Material_Library():
         if material is None:
             print(path+':')
             for j, m in enumerate(self.library[path].materials):
-                print("\t%d. %d"%(j, m.trueId)),
+                print("\t%d. %d"%(j, m.materialHash)),
                 if encyclopaedia is not None:
                     try:
-                        for string in encyclopaedia[m.trueId]:
+                        for string in encyclopaedia[m.materialHash]:
                             print("\t\t%s"%string)
                     except:
                         print("\t\tNo entry Found")
@@ -87,10 +88,10 @@ class Material_Library():
                     print()
         else:
             m = self.library[path].materials[material]
-            print("\t%d. %d"%(material, m.trueId)),
+            print("\t%d. %d"%(material, m.materialHash)),
             if encyclopaedia is not None:
                 try:
-                    for string in encyclopaedia[m.trueId]:
+                    for string in encyclopaedia[m.materialHash]:
                         print("\t\t%s"%string)
                 except:
                     print("\t\tNo entry Found")
@@ -112,7 +113,7 @@ class Material_File():
             print("\t%d. %s"%(i,t.path))
         print("MaterialList:")
         for i,  m in enumerate(self.materials):
-            print("\t%d. %d"%(i,m.trueId))
+            print("\t%d. %d"%(i,m.materialHash))
 
     def add_texture(self, texture):
         if isinstance(texture, str):
@@ -125,7 +126,7 @@ class Material_File():
         for material in materials:
             self.add_material(material)  
         for i in reversed(range(len(self.materials))):
-            if self.materials[i].trueId in self.materials[:i]:
+            if self.materials[i].materialHash in self.materials[:i]:
                 self.remove_material(i)                
     
     def add_material(self, material):
@@ -164,8 +165,14 @@ class Material_File():
         return
     
     def transfer_id(self, fromix, toix):
-        self.materials[toix].trueId = self.materials[fromix].trueId
-        self.remove_material(fromix)        
+        self.materials[toix].materialHash = self.materials[fromix].materialHash
+        self.remove_material(fromix)
+        
+    def assign_hash(self, material, string_to_hash):
+        self.materials[material].materialHash = MaterialListing.materialcrc(string_to_hash)
+        
+    def assign_general_hash(self, material, string_to_hash):
+        self.materials[material].materialHash = MaterialListing.generalhash(string_to_hash)
 
     def leak_material_textures(self, material):
         if not isinstance(material, int):
@@ -240,7 +247,7 @@ Add [M]aterial from Library File, [AL]dd mrl3 from Library File,
 Add [T]exture Path, Add [TL]exture from Library File,
 [RM]emove Material, [RT]emove Texture, [RI]eindex Material's Texture,
 [RN]ename Texture, [MRN]ass Rename Textures, 
-[TM]ransplant Material ID,
+[TM]ransplant Material ID, [GH]enerate ID from Truncated Hash, [GH*]enerate ID from Full Hash,
 [U]pdate Texture List from Material, Heuristic Texture Paths [S]ummary,
 [LMP]ist Material's Texture List Paths, [LMI]ist Material's Texture List IDx,
 [H]elp, [C]hange Mode, [Q]uit
@@ -332,11 +339,13 @@ Add [T]exture Path, Add [TL]exture from Library File,
              'RN':lambda: self.status[self.state].rename_texture(command[1],command[2]),
              'MRN':lambda: self.status[self.state].mass_rename_texture(command[1]),
              'TM':lambda: self.status[self.state].transfer_id(command[1], command[2]),
+             'GH':lambda: self.status[self.state].assign_hash(command[1], ' '.join(command[2:])),
+             'GH*':lambda: self.status[self.state].assign_general_hash(command[1], ' '.join(command[2:])),
              'RI':lambda: self.status[self.state].reindex_material(command[1], command[2], command[3:]),
              'U':lambda: self.status[self.state].leak_material_textures(command[1]),
              'S':lambda: self.status[self.state].heuristic_texture_matching(),
              'LMP':lambda: [print("\t%i. %s"%(i,p)) for i,p in enumerate(self.status[self.state].materials[command[1]].texturePaths)],
-             'LMI':lambda: [print("\t%i. %s"%(i,p.texIdx)) for i,p in enumerate(self.status[self.state].materials[command[1]].textureArguments)]
+             'LMI':lambda: [print("\t%i. %d"%(i,p.texIdx-1)) for i,p in enumerate(self.status[self.state].materials[command[1]].textureArguments)]
             }[command[0]]()
         elif self.state == 3:
             {'P':lambda: self.create_encyclopaedia(command[1] if len(command)>1 else None), 
@@ -376,7 +385,9 @@ Add [T]exture Path, Add [TL]exture from Library File,
         "[RT]emove Texture:\n\tSyntax: RT texture_index\n\tExplanation: Removes the texture_index-ith texture path from the mrl3.",
         "[RN]ename Texture:\n\tSyntax: RN texture_index new_name\n\tExplanation: Renames a texture path (and propagates the new name to all matches inside materials).",
         "[MRN]ass Rename Textures:\n\tSyntax: MRN base_path_files\n\tExplanation: Renames all textures in the mrl3 which are not in Assets to base_path_file+'_'+map_type. Will perform a summarization after renaming.",
-        "[TM]ransplant Material ID:\n\tSyntax: TM from_index to_index\n\tExplanation: Transfers the trueId from one material to another and then drops the original material.",
+        "[TM]ransplant Material ID:\n\tSyntax: TM from_index to_index\n\tExplanation: Transfers the material hash from one material to another and then drops the original material.",
+        "[GH]enerate Hash:\n\tSyntax: GH material_index material_name_to_hash\n\tExplanation: Assigns the hash of the passed string to the material id linking the material to the mod3 name."
+        "[GH*]enerate ID from Full Hash:\n\tSyntax: GH material_index material_name_to_hash\n\tExplanation: Assigns the hash of the passed string to the material id linking the material to the mod3 name."
         "[RI]eindex Material's Texture:\n\tSyntax: RI material_index new_texIdx position1 [position2..n]\n\tExplanation: Replaces the positions given in the material with the new idx.",
         "[U]pdate Texture List from Material:\n\tSyntax: U material_id\n\tExplanation: Adds a materials original texture names to the texture path list on the mrl3.",
         "Heuristic Texture Paths [S]ummary:\n\tSyntax: S\n\tExplanation: Attempts to summarise all of the materials original path names (Grouping all BML paths into 1 but keeping Assets paths unique).",

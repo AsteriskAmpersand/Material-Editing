@@ -77,8 +77,8 @@ class Material():
     size = 4+4+8+4+2+1+25+4+4
     def __init__(self, f):
         self.headId = hex_read(f,4)
-        self.trueId = hex_read(f,4)
-        self.skinid = hex_read(f,8)
+        self.materialHash = hex_read(f,4)
+        self.materialId = hex_read(f,8)
         self.matSize = hex_read(f,4)
         self.unkn4 = hex_read(f,2)
         self.parameterOffset = hex_read(f,1)
@@ -105,8 +105,8 @@ class Material():
     def serialize_header(self):
         serialization = bytearray()
         serialization += self.headId.to_bytes(4, byteorder='little')
-        serialization += self.trueId.to_bytes(4, byteorder='little')
-        serialization += self.skinid.to_bytes(8, byteorder='little')
+        serialization += self.materialHash.to_bytes(4, byteorder='little')
+        serialization += self.materialId.to_bytes(8, byteorder='little')
         serialization += self.matSize.to_bytes(4, byteorder='little')
         serialization += self.unkn4.to_bytes(2, byteorder='little')
         serialization += self.parameterOffset.to_bytes(1, byteorder='little')
