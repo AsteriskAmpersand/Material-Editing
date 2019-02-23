@@ -136,6 +136,8 @@ class Material_File():
         self.materials.pop(index)
     
     def remove_texture(self, index):
+        #ACTUALLY CLEAN REFERENCES FFS
+        
         self.textures.pop(index)
         
     def rename_texture(self, texture, newpath):
@@ -193,7 +195,7 @@ class Encyclopaedia():
     def __init__(self, path=''):
         if path == '':
             path = self.chunkPath
-        self.nameCompendium, self.idCompendium, self.nameList, self.idList, _, _ = MaterialListing.create_dbs(path)
+#        self.nameCompendium, self.idCompendium, self.nameList, self.idList, _, _ = MaterialListing.create_dbs(path)
         self.nameEquiv, self.idEquiv = MaterialListing.sibling_compendium(self.nameCompendium, self.idCompendium)
     
     def __getitem__(self,value):

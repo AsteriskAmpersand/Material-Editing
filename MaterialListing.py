@@ -24,7 +24,9 @@ generalhash =  lambda x:  CrcJamcrc.calc(x.encode())
 materialcrc = lambda x: CrcJamcrc.calc(x.encode()) & 0x7FFFFFFF
 #materialcrc = generalhash
 midway = lambda x: CrcJamcrc.calc(x.encode()) & 0x7FFFFFFF
-def create_dbs(shader_string_list=shader_strings(), chunkpath = chunkPath):
+def create_dbs(shader_string_list=None, chunkpath = chunkPath):
+    if shader_string_list is None:
+        shader_string_list = shader_strings()
     remove_extension = lambda path: os.path.splitext(path)[0]
     material_hashes_compendium = set()
     material_ids_compendium = set()
