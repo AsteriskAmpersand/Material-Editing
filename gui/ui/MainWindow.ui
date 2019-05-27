@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1400</width>
+    <height>687</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QSplitter" name="splitter">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <widget class="QFrame" name="ResourceFrame">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QFrame" name="LibraryBar">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <widget class="QLabel" name="libraryLabel">
+             <property name="text">
+              <string>Library</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="libraryAdd">
+             <property name="text">
+              <string>Add</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="libraryRemove">
+             <property name="text">
+              <string>Remove</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTreeView" name="LibraryView"/>
+        </item>
+        <item>
+         <widget class="QLabel" name="CompendiumLabel">
+          <property name="text">
+           <string>Compendium</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTreeView" name="CompendiumView"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QTabWidget" name="Mrl3EditorView">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>1210</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="elideMode">
+        <enum>Qt::ElideLeft</enum>
+       </property>
+       <property name="tabsClosable">
+        <bool>true</bool>
+       </property>
+       <property name="movable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1400</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuMrl3">
+    <property name="title">
+     <string>Mrl3</string>
+    </property>
+    <addaction name="actionNew"/>
+    <addaction name="actionOpen"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSave_As"/>
+    <addaction name="actionSave_All"/>
+    <addaction name="separator"/>
+    <addaction name="actionCreate_Restore_Point"/>
+    <addaction name="actionLoad_Restore_Point"/>
+   </widget>
+   <widget class="QMenu" name="menuLibrary">
+    <property name="title">
+     <string>Library</string>
+    </property>
+    <addaction name="actionNew_Library"/>
+    <addaction name="actionOpen_Library"/>
+    <addaction name="actionSave_Library"/>
+    <addaction name="actionSave_Library_As"/>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="menuCompendium">
+    <property name="title">
+     <string>Compendium</string>
+    </property>
+    <addaction name="actionRebase_Compendium"/>
+    <addaction name="actionExpand_Compendium"/>
+    <addaction name="actionSave_Compendium"/>
+   </widget>
+   <addaction name="menuMrl3"/>
+   <addaction name="menuLibrary"/>
+   <addaction name="menuCompendium"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionNew">
+   <property name="text">
+    <string>New</string>
+   </property>
+   <property name="toolTip">
+    <string>Create an empty Mrl3</string>
+   </property>
+   <property name="statusTip">
+    <string>Create an empty Mrl3</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open</string>
+   </property>
+   <property name="toolTip">
+    <string>Open an Mrl3</string>
+   </property>
+   <property name="statusTip">
+    <string>Open an Mrl3</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="toolTip">
+    <string>Save current Mrl3</string>
+   </property>
+   <property name="statusTip">
+    <string>Save current Mrl3</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionSave_As">
+   <property name="text">
+    <string>Save As</string>
+   </property>
+   <property name="toolTip">
+    <string>Save current Mrl3 as</string>
+   </property>
+   <property name="statusTip">
+    <string>Save current Mrl3 as</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="actionSave_All">
+   <property name="text">
+    <string>Save All</string>
+   </property>
+   <property name="statusTip">
+    <string>Save all opened Mrl3</string>
+   </property>
+   <property name="whatsThis">
+    <string>Save all opened Mrl3</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+Shift+S</string>
+   </property>
+  </action>
+  <action name="actionAdd_Resource_Path">
+   <property name="text">
+    <string>Add Resource Path</string>
+   </property>
+   <property name="statusTip">
+    <string>Add a Resource Path to the Current Material</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionReplace_Resource_Paths">
+   <property name="text">
+    <string>Replace Resource Paths</string>
+   </property>
+   <property name="toolTip">
+    <string>Performs a global replace on Resource Path Strings</string>
+   </property>
+   <property name="statusTip">
+    <string>Performs a global replace on Resource Path Strings</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="actionNew_Library">
+   <property name="text">
+    <string>New Library</string>
+   </property>
+   <property name="iconText">
+    <string>Create a New Library</string>
+   </property>
+   <property name="toolTip">
+    <string>Create a New Library</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+M</string>
+   </property>
+  </action>
+  <action name="actionOpen_Library">
+   <property name="text">
+    <string>Open Library</string>
+   </property>
+   <property name="iconText">
+    <string>Open a Material Library</string>
+   </property>
+   <property name="toolTip">
+    <string>Open a Material Library</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+U</string>
+   </property>
+  </action>
+  <action name="actionSave_Library">
+   <property name="text">
+    <string>Save Library</string>
+   </property>
+   <property name="iconText">
+    <string>Save the Material Library</string>
+   </property>
+   <property name="toolTip">
+    <string>Save the Material Library</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+D</string>
+   </property>
+  </action>
+  <action name="actionSave_Library_As">
+   <property name="text">
+    <string>Save Library As</string>
+   </property>
+   <property name="iconText">
+    <string>Save the Material Library as</string>
+   </property>
+   <property name="toolTip">
+    <string>Save the Material Library as</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+D</string>
+   </property>
+  </action>
+  <action name="actionAdd_Material">
+   <property name="text">
+    <string>Add Material</string>
+   </property>
+   <property name="iconText">
+    <string>Add a material or a complete file to the Material Library</string>
+   </property>
+   <property name="toolTip">
+    <string>Add a material or a complete file to the Material Library</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+A</string>
+   </property>
+  </action>
+  <action name="actionRebase_Compendium">
+   <property name="text">
+    <string>Rebase Compendium</string>
+   </property>
+   <property name="iconText">
+    <string>Generates a new Compendium from Scratch</string>
+   </property>
+   <property name="toolTip">
+    <string>Generates a new Compendium from Scratch</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+K</string>
+   </property>
+  </action>
+  <action name="actionExpand_Compendium">
+   <property name="text">
+    <string>Expand Compendium</string>
+   </property>
+   <property name="iconText">
+    <string>Rebases the Compendium</string>
+   </property>
+   <property name="toolTip">
+    <string>Rebases the Compendium</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="actionSave_Compendium">
+   <property name="text">
+    <string>Save Compendium</string>
+   </property>
+   <property name="iconText">
+    <string>Saves changes to the Compendium</string>
+   </property>
+   <property name="toolTip">
+    <string>Saves changes to the Compendium</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+G</string>
+   </property>
+  </action>
+  <action name="actionCopy">
+   <property name="text">
+    <string>Copy</string>
+   </property>
+   <property name="iconText">
+    <string>Copy the active selection</string>
+   </property>
+   <property name="toolTip">
+    <string>Copy the active selection</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="actionPaste">
+   <property name="text">
+    <string>Paste</string>
+   </property>
+   <property name="iconText">
+    <string>Paste from the clipboard to the active selection</string>
+   </property>
+   <property name="toolTip">
+    <string>Paste from the clipboard to the active selection</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+V</string>
+   </property>
+  </action>
+  <action name="actionDelete">
+   <property name="text">
+    <string>Delete</string>
+   </property>
+   <property name="iconText">
+    <string>Delete Active Selection</string>
+   </property>
+   <property name="toolTip">
+    <string>Delete Active Selection</string>
+   </property>
+   <property name="shortcut">
+    <string>Del</string>
+   </property>
+  </action>
+  <action name="actionCreate_Restore_Point">
+   <property name="text">
+    <string>Create Restore Point</string>
+   </property>
+  </action>
+  <action name="actionLoad_Restore_Point">
+   <property name="text">
+    <string>Load Restore Point</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

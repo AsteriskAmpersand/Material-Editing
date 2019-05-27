@@ -1,0 +1,6 @@
+"D:\Program Files (x86)\Microsoft Visual Studio\Shared\Python36_64\Scripts\pyuic5.exe" -x MainWindow.ui -o MainWindow.py
+"D:\Program Files (x86)\Microsoft Visual Studio\Shared\Python36_64\Scripts\pyuic5.exe" -x FileTab.ui -o FileTab.py
+"D:\Program Files (x86)\Microsoft Visual Studio\Shared\Python36_64\Scripts\pyuic5.exe" -x MaterialHeader.ui -o MaterialHeader.py
+"D:\Program Files (x86)\Microsoft Visual Studio\Shared\Python36_64\Scripts\pyuic5.exe" -x MaterialResources.ui -o MaterialResources.py
+"D:\Program Files (x86)\Microsoft Visual Studio\Shared\Python36_64\Scripts\pyuic5.exe" -x PopUpGlobalReplace.ui -o PopUpGlobalReplace.py
+"D:\Program Files (x86)\Microsoft Visual Studio\Shared\Python36_64\Scripts\pyuic5.exe" -x PopUpRepoint.ui -o PopUpRepoint.py
