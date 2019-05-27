@@ -13,4 +13,4 @@ Download the exe from the releases tab (this tab shows the source code, do not d
 # Acknowledgements
 * **CrazyT** - For his research into the mrl3 file format, almost the entire structure is known thanks to him. Additionaly his shader research is to credit for the labelling of the parameter sections. - [CrazyT's Github User Page](https://github.com/TheCrazyT)
 * **Vuze** - For reverse engineering the hashing algorithm (CRC-JAM) that connects materials to models. - [MHVuze Github User Page](https://github.com/mhvuze)
-* **DMQW - StageNRyue** - For his initial research into material hash swapping and texture repointing within the materials. - [DMQW MHW Modding Site](http://www.mhwmod.com/)
+* **DMQW - StageNRyu* - For his initial research into material hash swapping and texture repointing within the materials. - [DMQW MHW Modding Site](http://www.mhwmod.com/)
