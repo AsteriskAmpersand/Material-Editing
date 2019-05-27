@@ -51,17 +51,21 @@ class QList (QtCore.QAbstractListModel):
         self.dataChanged.emit(index, index)
         return True
     
-    def insertRows(self, row, count, parent=QtCore.QModelIndex()):
+    def insertRows(self, row, count, parent=QtCore.QModelIndex(), content=[]):
         if parent.isValid() or count <= 0: return False
         startingRow = max(0,row)
         endRow = min(row+count-1, len(self.list))
         self.beginInsertRows(parent, startingRow, endRow)
-        defaultClass = self.list[0].__class__ if self.default_type is DefaultType and len(self.list)>0 else self.default_type
-        self.list[startingRow:startingRow] = [defaultClass() for i in range(count)]
+        if not content:
+            defaultClass = self.list[0].__class__ if self.default_type is DefaultType and len(self.list)>0 else self.default_type           
+            content = [defaultClass() for i in range(count)]
+        self.list[startingRow:startingRow] = content
         self.endInsertRows()
         return True
     
     def removeRows(self, row, count, index=QtCore.QModelIndex()):
+        if index.isValid() or count <= 0:
+            return False
         if self.pendingRemoveRowsAfterDrop:
             self.pendingRemoveRowsAfterDrop = False
             lipos = self.lastInsert
@@ -70,8 +74,6 @@ class QList (QtCore.QAbstractListModel):
                 row = row+lilen
             self.removeRows(row,count,index)
             return True
-        if index.isValid() or count <= 0:
-            return False
         self.beginRemoveRows(QtCore.QModelIndex(), row, row + count - 1)
         self.list[row : row+count] = []
         self.endRemoveRows()

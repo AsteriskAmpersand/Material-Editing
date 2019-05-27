@@ -130,9 +130,10 @@ class EditorTab(QtWidgets.QWidget):
     def swapMaterial(self, ixFro, ixTo):
         #Materials have already been swapped, what's missing is swapping the widgets
         for listingView in [self.ui.MaterialHeaderView,self.ui.ResourceBinding,self.ui.ParameterView]:
+            print(ixFro)
             widget = listingView.widget(ixFro)
             listingView.removeWidget(widget)  
-            listingView.insertWidget(ixTo if ixTo<ixFro else ixTo-1, widget)    
+            listingView.insertWidget(ixTo if ixTo<ixFro else ixTo-1, widget)
     def texRename(self, *args):
         for resourceWidget in self.resourceWidgets():
            resourceWidget.resync()

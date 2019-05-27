@@ -227,13 +227,14 @@ class QMatList(QList):
         row = len(self) if row < 0 else row
         if qMimeData.hasFormat("custom/mrl3MaterialIndex"):
             ixFro = struct.unpack("I", qMimeData.data("custom/mrl3MaterialIndex"))[0]
-            ixTo = row
-            self.list[ixTo:ixTo]=[self.list[ixFro]]
-            self.swapOcurred.emit(ixFro,ixTo)
+            ixTo = row if row!=-1 else len(self)
+            self.insertRows(ixTo,1,content=[self.list[ixFro]])
             self.lastInsert = ixTo
             self.lastInsertLength = 1
             self.pendingRemoveRowsAfterDrop = True
-        if qMimeData.hasFormat("custom/mrl3MaterialHash"):
+            self.removeRow(ixFro)#Qt Hack to deal with dropping from elsewhere but also itself
+            self.swapOcurred.emit(ixFro,ixTo)
+        elif qMimeData.hasFormat("custom/mrl3MaterialHash"):
             path, hashes = unpackMatHashes(qMimeData.data("custom/mrl3MaterialHash"))
             hashes = set(hashes)
             mat = MRL3(resolver = self.parent.Resolver)
