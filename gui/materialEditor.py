@@ -130,7 +130,6 @@ class EditorTab(QtWidgets.QWidget):
     def swapMaterial(self, ixFro, ixTo):
         #Materials have already been swapped, what's missing is swapping the widgets
         for listingView in [self.ui.MaterialHeaderView,self.ui.ResourceBinding,self.ui.ParameterView]:
-            print(ixFro)
             widget = listingView.widget(ixFro)
             listingView.removeWidget(widget)  
             listingView.insertWidget(ixTo if ixTo<ixFro else ixTo-1, widget)
@@ -182,7 +181,6 @@ class EditorTab(QtWidgets.QWidget):
             self.oldHash = self.material.generateHash()
             return True
         except Exception as e:
-            print (e)
             error_dialog = QtWidgets.QErrorMessage()
             error_dialog.showMessage('Failed to save material file. %s'%e)
             error_dialog.exec()

@@ -30,8 +30,7 @@ class Mrl3MaterialLibrary(QtGui.QStandardItemModel):
         super().__init__(parent)
         self.resolver = resolver
         try: self.loadJson(path)
-        except Exception as e: 
-            print(str(e))
+        except Exception as e: pass
             
     def loadJson(self, lib):
         with open(lib,"r") as libFile:

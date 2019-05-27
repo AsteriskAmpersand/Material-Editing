@@ -58,7 +58,6 @@ class MaterialCompendium():
             files = list(Path(folder).rglob("*.mrl3"))#getMaterialHashes
             operator(files)
         except Exception as e:
-            print(e)
             error_dialog = QtWidgets.QErrorMessage()
             error_dialog.showMessage(errMessage)
             error_dialog.exec()

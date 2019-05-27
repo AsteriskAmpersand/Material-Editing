@@ -52,7 +52,6 @@ class RepointDialog(QtWidgets.QDialog, ui_repoint):
         self.buttonBox.rejected.connect(self.reject)
         self.From.addItems(map(str,choices))
         self.To.addItems(map(str,choices))
-        print(default)
         self.From.setCurrentIndex(default)
 
 if __name__ == '__main__':
