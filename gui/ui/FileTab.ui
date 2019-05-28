@@ -93,7 +93,7 @@
             <widget class="QListView" name="ResourceList">
              <property name="minimumSize">
               <size>
-               <width>310</width>
+               <width>100</width>
                <height>0</height>
               </size>
              </property>
@@ -147,7 +147,7 @@
             <widget class="QListView" name="MaterialSelectorView">
              <property name="minimumSize">
               <size>
-               <width>310</width>
+               <width>100</width>
                <height>0</height>
               </size>
              </property>

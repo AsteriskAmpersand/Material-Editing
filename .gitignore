@@ -1,4 +1,3 @@
-    
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -9,6 +8,7 @@ __pycache__/
 
 # Debugged Out
 OldCode/
+*Config.ini
 
 # Distribution / packaging
 .Python
@@ -127,3 +127,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+*.ini

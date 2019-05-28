@@ -53,7 +53,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.CompendiumView)
         self.Mrl3EditorView = QtWidgets.QTabWidget(self.splitter)
         self.Mrl3EditorView.setEnabled(True)
-        self.Mrl3EditorView.setMinimumSize(QtCore.QSize(1210, 0))
+        self.Mrl3EditorView.setMinimumSize(QtCore.QSize(760, 0))
         self.Mrl3EditorView.setAutoFillBackground(False)
         self.Mrl3EditorView.setElideMode(QtCore.Qt.ElideLeft)
         self.Mrl3EditorView.setTabsClosable(True)

@@ -55,6 +55,7 @@ class MRL3Texture(CS.PyCStruct):
         self.textureId = 0x241F5DEB
         self.unknArr = [0]*12
         self.path = ""
+        return self
 
     def getRole(self, role):
         if role == QtCore.Qt.DisplayRole or role == QtCore.Qt.EditRole:
@@ -64,7 +65,7 @@ class MRL3Texture(CS.PyCStruct):
         return self.path.replace("\x00","")
         
 class QTexList(QList):
-    default_type = MRL3Texture    
+    def default_type(*arg,**kwargs): return MRL3Texture().create()
     def flags(self, index):
         if index.isValid():
             return QtCore.Qt.ItemIsSelectable | QtCore.Qt.ItemIsEditable | \
@@ -343,7 +344,7 @@ class MRL3():
                 self.Textures[-1] = tex
                 self.Textures.setData(self.Textures.index(len(self.Textures)-1,0,QtCore.QModelIndex()),str(tex),QtCore.Qt.EditRole)
                 mx = len(self.Textures)
-            mapper[ix]=mx
+            mapper[ix]=mx+1
         for material in reversed(mrl3.Materials):
             for resource in material.resourceBindings:
                 resource.texIdx = mapper[resource.texIdx] if resource.texIdx in mapper else resource.texIdx
