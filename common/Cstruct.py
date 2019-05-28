@@ -103,7 +103,7 @@ class Cstruct():
                 } if base != "char" else {
                 'size': intSize*baseTypeCall[base]['size'], 
                 'deserializer': lambda x: ''.join([( baseTypeCall[base]['deserializer'](chunk) ).decode("utf-8") for chunk in chunks(x,baseTypeCall[base]['size']) ]), 
-                'serializer':   lambda x: x.encode('utf-8').ljust(intSize, b'\x00')
+                'serializer':   lambda x: x.encode('utf-8').ljust(intSize, b'\x00')[:intSize]
                 }
                 
     def __init__(self, fields):

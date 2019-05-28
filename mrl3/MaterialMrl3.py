@@ -51,6 +51,10 @@ class MRL3Texture(CS.PyCStruct):
             ("path","char[256]")    
             ])
     
+    def marshall(self,data):
+        super().marshall(data)
+        self.path = self.path.replace("\x00","")
+    
     def create(self):
         self.textureId = 0x241F5DEB
         self.unknArr = [0]*12

@@ -1,0 +1,1 @@
+py -3.6 -m PyInstaller mainWindow.spec
