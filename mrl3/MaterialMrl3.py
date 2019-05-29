@@ -341,14 +341,14 @@ class MRL3():
         for ex, tex in enumerate(mrl3.Textures):
             ix = ex+1
             try:
-                mx = currentResources.index(str(tex))
+                mx = currentResources.index(str(tex))+1
             except:
                 currentResources.append(str(tex))
                 self.Textures.insertRow(len(self.Textures))
                 self.Textures[-1] = tex
                 self.Textures.setData(self.Textures.index(len(self.Textures)-1,0,QtCore.QModelIndex()),str(tex),QtCore.Qt.EditRole)
                 mx = len(self.Textures)
-            mapper[ix]=mx+1
+            mapper[ix]=mx
         for material in reversed(mrl3.Materials):
             for resource in material.resourceBindings:
                 resource.texIdx = mapper[resource.texIdx] if resource.texIdx in mapper else resource.texIdx
