@@ -51,7 +51,9 @@ class propWidget(QtWidgets.QWidget):
             uiElement.setSizePolicy(QtWidgets.QSizePolicy.Preferred,QtWidgets.QSizePolicy.Expanding)
             uiElement.setValue(self.getter(ix))
             uiElement.setAlignment(QtCore.Qt.AlignRight)
-            uiElement.valueChanged.connect(lambda x: self.setter(ix, x))
+            def semisetter(x, index = ix):
+                return self.setter(index,x)
+            uiElement.valueChanged.connect(semisetter)
                 
 class bbool1(bbool1Form, propWidget):
     limit = uintSize
@@ -191,8 +193,8 @@ class PropertyView(QtWidgets.QWidget):
         for i in range(count):
             propertyWidget = typeToWidget[arrayType](
                                     fieldname + "[%d]"%i,
-                                    shaderParam.__getattribute__(fieldname)[i].__getitem__, 
-                                    shaderParam.__getattribute__(fieldname)[i].__setitem__,
+                                    shaderParam.__getattribute__(fieldname).__getitem__(i).__getitem__, 
+                                    shaderParam.__getattribute__(fieldname).__getitem__(i).__setitem__,
                                     self)
             collapsible.addSection(fieldname,propertyWidget)
         return collapsible
