@@ -24,9 +24,9 @@ class ReplaceDialog(QtWidgets.QDialog, ui_replace):
         operation = re.sub if regexp else lambda f, r, x: x.replace(f,r)
         candidates = []
         for string in self.previewTargets:
-            prev = string
+            prev = string.replace("\x00","")
             try:
-                new = operation(find,replace,string)
+                new = operation(find,replace,string).replace("\x00","")
             except Exception as e:
                 candidates=["Error in regular expression. %s"%e]
                 break

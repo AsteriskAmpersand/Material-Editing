@@ -111,6 +111,10 @@ class MRL3ResourceBinding(CS.PyCStruct):
         if role == QtCore.Qt.DisplayRole:
             return self.resourceTypeName+": "+self.mapTypeName.replace("__disclosure","")
         
+    def setIdx(self, value):
+        if self.resourceType == 2:
+            self.texIdx = value
+        
 
 class MRL3MaterialHeader(CS.PyCStruct):
     fields = OrderedDict([
@@ -192,7 +196,7 @@ class MRL3Material():
     def repoint(self, fromIx, toIx):
         for material in self.resourceBindings:
             idx = material.texIdx
-            material.texIdx = toIx if idx==fromIx else idx
+            material.setIdx(toIx if idx==fromIx else idx)
     
     def getAlbedoIndex(self):
         for resource in self.resourceBindings:
@@ -284,15 +288,15 @@ class MRL3():
         for material in self.Materials:
             for resource in material.resourceBindings:
                 if ix < resource.texIdx < len(self.Textures)+1:
-                    resource.texIdx += 1
+                    resource.setIdx( resource.texIdx + 1)
         self.Textures.insertRows(self.Textures.rowCount(), 1)
     def delTexture(self, ix):
         for material in self.Materials:
             for resource in material.resourceBindings:
                 if ix+1 == resource.texIdx:
-                    resource.texIdx = 0
+                    resource.setIdx( 0 )
                 elif ix+1 < resource.texIdx < len(self.Textures)+1:
-                    resource.texIdx -= 1
+                    resource.setIdx( resource.texIdx - 1 )
         self.Textures.removeRows(ix, 1, QtCore.QModelIndex())
         
     def swapTex(self, ixFro, ixTo):
@@ -301,9 +305,9 @@ class MRL3():
                 if ixFro+1 == resource.texIdx:
                     resource.texIdx = ixTo+1 if ixFro>=ixTo else ixTo
                 elif ixTo < resource.texIdx < ixFro+1:
-                    resource.texIdx += 1
+                    resource.setIdx( resource.texIdx + 1 )
                 elif ixFro+1 < resource.texIdx < ixTo+1:
-                    resource.texIdx -= 1
+                    resource.setIdx( resource.texIdx - 1 )
         
     def repointTexture(self, fro, to):
         for material in self.Materials:
@@ -351,7 +355,7 @@ class MRL3():
             mapper[ix]=mx
         for material in reversed(mrl3.Materials):
             for resource in material.resourceBindings:
-                resource.texIdx = mapper[resource.texIdx] if resource.texIdx in mapper else resource.texIdx
+                resource.setIdx( mapper[resource.texIdx] if resource.texIdx in mapper else resource.texIdx )
             material.ResourceData = self.Textures
             self.Materials.insertRow(row)
             self.Materials.setData(self.Materials.index(row,0,QtCore.QModelIndex()),material,QtCore.Qt.EditRole)
