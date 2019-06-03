@@ -112,7 +112,7 @@ class MRL3ResourceBinding(CS.PyCStruct):
             return self.resourceTypeName+": "+self.mapTypeName.replace("__disclosure","")
         
     def setIdx(self, value):
-        if self.resourceType == 2:
+        if self.resourceType&0xF == 2:
             self.texIdx = value
         
 
