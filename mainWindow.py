@@ -21,7 +21,7 @@ def functionChain(functionList):
         function()
 
 class MainWindow(QtWidgets.QMainWindow):
-    def __init__(self):
+    def __init__(self, arguments):
         super().__init__()
         
         self.Config = config.Configuration()
@@ -58,7 +58,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.connectButtons()
         
         self.ui.splitter.setSizes([10,90])
-        self.loadRecentFiles(self.Config.filepaths)
+        self.loadRecentFiles(self.Config.filepaths+arguments)
         self.show()
         
     def loadRecentFiles(self, fileList):
@@ -106,7 +106,7 @@ class MainWindow(QtWidgets.QMainWindow):
         tab = me.EditorTab(resolver = self.Compendium.resolveHashToName)
         self.ui.Mrl3EditorView.addTab(tab,"New Mrl3")
     def openTab(self):
-        path = QFileDialog.getOpenFileName()[0]
+        path = QFileDialog.getOpenFileName(None,"Open Mrl3 File",filter = "MHW Mrl3 Material File (*.mrl3)")[0]
         if not path:
             return False
         tab = me.EditorTab(path, resolver = self.Compendium.resolveHashToName)
@@ -160,5 +160,6 @@ class MainWindow(QtWidgets.QMainWindow):
 if __name__ == '__main__':
     from pathlib import Path
     app = QtWidgets.QApplication(sys.argv)
-    window = MainWindow()
+    args = app.arguments()[1:]
+    window = MainWindow(args)
     sys.exit(app.exec_())
