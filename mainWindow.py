@@ -23,6 +23,7 @@ def functionChain(functionList):
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, arguments):
         super().__init__()
+        self.setAcceptDrops(True)
         
         self.Config = config.Configuration()
         self.Compendium = mc.MaterialCompendium(self.Config)
@@ -102,11 +103,34 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.CompendiumView.setSortingEnabled(True)
         self.ui.CompendiumView.sortByColumn(0, QtCore.Qt.AscendingOrder)
         
+    def dragEnterEvent(self, event):
+        if event.mimeData().hasUrls:
+            event.accept()
+        else:
+            event.ignore()
+    def dragMoveEvent(self, event):
+        if event.mimeData().hasUrls:
+            event.setDropAction(QtCore.Qt.CopyAction)
+            event.accept()
+        else:
+            event.ignore()
+    def dropEvent(self, event):
+        if event.mimeData().hasUrls:
+            event.setDropAction(QtCore.Qt.CopyAction)
+            event.accept()
+            for url in event.mimeData().urls():
+                self._openTab(str(url.toLocalFile()))
+        else:
+            event.ignore()
+
+        
     def newTab(self):
         tab = me.EditorTab(resolver = self.Compendium.resolveHashToName)
         self.ui.Mrl3EditorView.addTab(tab,"New Mrl3")
     def openTab(self):
         path = QFileDialog.getOpenFileName(None,"Open Mrl3 File",filter = "MHW Mrl3 Material File (*.mrl3)")[0]
+        self._openTab(path)
+    def _openTab(self, path):
         if not path:
             return False
         tab = me.EditorTab(path, resolver = self.Compendium.resolveHashToName)

@@ -362,7 +362,8 @@ class MRL3():
             
     def generateHash(self):
         return hashlib.blake2b(self.serialize()).digest()
-            
+    
+"""            
 if "__main__" in __name__:
     from pathlib import Path
     testPath = Path(r"E:\MHW\Merged\Master_MtList.mrl3")
@@ -374,4 +375,4 @@ if "__main__" in __name__:
         if b!=j:
             print (ix)
             break
-    
+"""    
