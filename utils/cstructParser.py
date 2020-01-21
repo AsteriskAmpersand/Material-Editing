@@ -22,6 +22,7 @@ def parseClass(line, shaderListing):
         if "[" in varname:
             varname, arrCount = varname.replace("]","").split("[")
             typing += "[%s]"%arrCount
+        data = '\t\t("%s", "%s"),'%(varname.replace("bool","bbool"),typing)
     return data
 
 def parseStructures(inf,outf):
