@@ -18,7 +18,7 @@ class SenderObject(QtCore.QObject):
 class MaterialCompendium():
     sender = SenderObject()
     def __init__(self, config):
-        self.path = config.compendiumpath
+        self.path = config.ibcompendiumpath
         self.Mrl3Compendium = Mrl3Compendium(self.path)
         self.views = []
         self.changes = False

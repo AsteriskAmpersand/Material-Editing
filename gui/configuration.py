@@ -14,17 +14,16 @@ class Configuration():
             preconfig = self.createConfig()
         self.load(preconfig)
         
-    def save(self, libpath, filepaths):
-        if libpath: self.libpath=libpath
-        if filepaths: self.filepaths=filepaths
-        config = {"libpath" : libpath, "compendiumpath" : 'compendium.ast', "filepaths" : filepaths}
+    def save(self, iblibpath, ibfilepaths):
+        if iblibpath: self.iblibpath=iblibpath
+        if ibfilepaths: self.ibfilepaths=ibfilepaths
+        config = {"iblibpath" : iblibpath, "ibcompendiumpath" : 'ibcompendium.ast', "ibfilepaths" : ibfilepaths}
         with open("Config.ini","w") as configf:
             configf.write(json.dumps(config))
         return
     
-    
     def createConfig(self):
-        config = {"libpath" : '', "compendiumpath" : 'compendium.ast', "filepaths" : []}
+        config = {"iblibpath" : '', "ibcompendiumpath" : 'ibcompendium.ast', "ibfilepaths" : []}
         with open("Config.ini","w") as configf:
             configf.write(json.dumps(config))
         return config
@@ -32,4 +31,5 @@ class Configuration():
     def load(self, config):
         for setting in config:
             self.__setattr__(setting, config[setting])
+            
             

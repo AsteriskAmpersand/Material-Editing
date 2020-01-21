@@ -12,7 +12,7 @@ from collections import OrderedDict
 
 class MaterialLibrary():
     def __init__(self, config, resolver):
-        self.path = config.libpath
+        self.path = config.iblibpath
         self.resolver = resolver
         self.Mrl3Library = Mrl3MaterialLibrary(self.resolver, self.path)
         self.Mrl3Library.changesMade.connect(lambda: self.__setattr__("changes",True))

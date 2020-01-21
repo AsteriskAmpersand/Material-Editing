@@ -12,14 +12,22 @@ from common.FileLike import FileLike
 from common.crc import CrcJamcrc
 from common.QList import QList
 from mrl3.maptype import maptypeTranslation
-from mrl3.shadertype import shaderTranslation
+from mrl3.shadertype import shaderTranslation as shadermapTranslation
 from gui.materialMime import unpackMatHashes
 from PyQt5 import QtCore
 import re
 import struct
 import hashlib
 
-translation = lambda x: maptypeTranslation[x>>12]
+def translation(maptype):
+    localHash = maptype>>12
+    if localHash in maptypeTranslation:
+        return maptypeTranslation[localHash]
+    else:
+        return "Unknown Maptype"
+def shaderTranslation(shaderType):
+    localHash = shaderType >> 12
+    return shadermapTranslation[localHash]
 #shaderTranslation = lambda x: shadertypeTranslation[x>>12]
 intBytes = lambda x: int.from_bytes(x, byteorder='little', signed=False)
 hex_read = lambda f,x: intBytes(f.read(x))
@@ -28,6 +36,8 @@ generalhash =  lambda x:  CrcJamcrc.calc(x.encode())
 padding = lambda x: b'\x00'*((16-((x)%16))%16)
 
 class MRL3Header(CS.PyCStruct):
+    baseSignature = [11,0,0,0, -87,-68,-69,89, 0,0,0,0]
+    iceborneSignature = [12,0,0,0, 42,102,7,93, 0,0,0,0]
     fields = OrderedDict([
             ("headId","long"),
             ("unknArr","byte[12]"),
@@ -38,7 +48,7 @@ class MRL3Header(CS.PyCStruct):
             ])
     def create(self):
         self.headId = 0x4C524D
-        self.unknArr = [11,0,0,0, -87,-68,-69,89, 0,0,0,0]
+        self.unknArr = self.iceborneSignature
         self.materialCount = 0
         self.textureCount = 0
         self.textureOffset = 0x28
@@ -93,6 +103,7 @@ class QTexList(QList):
         return
 
 class MRL3ResourceBinding(CS.PyCStruct):
+    mapTypeTranslator = translation
     resourceTypes = ["cbuffer", "sampler", "texture"]
     fields = OrderedDict([
             ("resourceType","ubyte"),#[cbuffer, sampler, texture]
@@ -104,7 +115,7 @@ class MRL3ResourceBinding(CS.PyCStruct):
     
     def marshall(self, data):
         super().marshall(data)
-        self.mapTypeName = translation(self.mapType)
+        self.mapTypeName = MRL3ResourceBinding.mapTypeTranslator(self.mapType)
         self.resourceTypeName = self.resourceTypes[self.resourceType&0xF]
         
     def getRole(self, role):
@@ -149,11 +160,12 @@ class MRL3MaterialHeader(CS.PyCStruct):
         return lambda x: obj.__setitem__(ix, x)
        
 class MRL3ParameterArray():
+    shaderTranslator = shaderTranslation
     def __init__(self, resources):
         self.Parameters = []
         for binding in resources:
             if not (binding.resourceType & 0xF):
-                self.Parameters.append(shaderTranslation[binding.mapType >> 12]())
+                self.Parameters.append(MRL3ParameterArray.shaderTranslator(binding.mapType)())
     def marshall(self, data):
         for parameter in self.Parameters:
             parameter.marshall(data)
@@ -266,6 +278,8 @@ class MRL3():
     def marshall(self, file):
         if getattr(file, "skip", False) == False: file = FileLike(file.read())
         self.Header.marshall(file)
+        if self.Header.unknArr == MRL3Header.baseSignature:
+            raise ValueError("MHW Base Game Mrl3 is not compatible with the Current Editor or MHW Iceborne. Please use the updater tool first.")
         file.seek(self.Header.textureOffset)
         self.Textures = QTexList([MRL3Texture() for _ in range(self.Header.textureCount)])
         [mat.marshall(file) for mat in self.Textures]

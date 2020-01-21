@@ -59,7 +59,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.connectButtons()
         
         self.ui.splitter.setSizes([10,90])
-        self.loadRecentFiles(self.Config.filepaths+arguments)
+        self.loadRecentFiles(self.Config.ibfilepaths+arguments)
         self.show()
         
     def loadRecentFiles(self, fileList):
@@ -129,7 +129,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.Mrl3EditorView.addTab(tab,"New Mrl3")
     def openTab(self):
         path = QFileDialog.getOpenFileName(None,"Open Mrl3 File",filter = "MHW Mrl3 Material File (*.mrl3)")[0]
-        self._openTab(path)
+        try:
+            self._openTab(path)
+        except Exception as e:
+            error_dialog = QtWidgets.QErrorMessage()
+            error_dialog.showMessage('Failed to Open File: %s'%e)
+            error_dialog.exec()
+            
     def _openTab(self, path):
         if not path:
             return False
@@ -178,8 +184,8 @@ class MainWindow(QtWidgets.QMainWindow):
                 for e in events:
                     e.ignore()
                 return
-        filePaths = [self.ui.Mrl3EditorView.widget(i).path for i in range(self.ui.Mrl3EditorView.count())]
-        self.Config.save(self.Library.path, filePaths)
+        ibfilepaths = [self.ui.Mrl3EditorView.widget(i).path for i in range(self.ui.Mrl3EditorView.count())]
+        self.Config.save(self.Library.path, ibfilepaths)
 
 if __name__ == '__main__':
     from pathlib import Path
