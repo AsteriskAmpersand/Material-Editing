@@ -1,1 +1,1 @@
-py -3.6 -m PyInstaller mainWindow.spec
+py -3.7 -m PyInstaller --debug all mainWindow.spec
