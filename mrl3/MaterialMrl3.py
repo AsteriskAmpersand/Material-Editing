@@ -37,7 +37,7 @@ padding = lambda x: b'\x00'*((16-((x)%16))%16)
 
 class MRL3Header(CS.PyCStruct):
     baseSignature = [11,0,0,0, -87,-68,-69,89, 0,0,0,0]
-    iceborneSignature = [12,0,0,0, 42,102,7,93, 0,0,0,0]
+    iceborneSignature = [12,0,0,0, 80,96,-124,93, 0,0,0,0]
     fields = OrderedDict([
             ("headId","long"),
             ("unknArr","byte[12]"),

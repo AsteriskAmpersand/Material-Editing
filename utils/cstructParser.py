@@ -17,12 +17,12 @@ def parseClass(line, shaderListing):
         shaderListing.append(className)
     elif "}" in code:
         data = typeEnd
-    elif code.replace(" ",""):
+    elif code.replace(" ","") and code.replace(" ","")!="{":        
         typing, varname = code.lstrip().rstrip().replace(";","").split(" ")
         if "[" in varname:
             varname, arrCount = varname.replace("]","").split("[")
             typing += "[%s]"%arrCount
-        data = '\t\t("%s", "%s"),'%(varname.replace("bool","bbool"),typing)
+        data = '\t\t("%s", "%s"),'%(varname,typing.replace("bool","bbool"))
     return data
 
 def parseStructures(inf,outf):
@@ -71,6 +71,6 @@ shaderTranslation = {generalhash(key) & 0xFFFFF:shaderListing[key] for key in sh
         for section in sections:
             outfile.write(section+"\n")
 if __name__ in "__main__":
-    sin = r"G:\Tools\MaterialEditor\MaterialEditing\imrl3\shader_structure_ib.txt"
-    sout = r"G:\Tools\MaterialEditor\MaterialEditing\imrl3\shadertype.py"
+    sin = r"G:\Tools\MaterialEditor\MaterialEditing\utils\mhwib_structures_generated_rajang.txt"
+    sout = r"G:\Tools\MaterialEditor\MaterialEditing\mrl3\shadertype.py"
     parseStructures(sin,sout)

@@ -3,6 +3,18 @@ from common.crc import CrcJamcrc
 from common.Cstruct import ExtendedPyCStruct as EPyCStruct
 from common.Cstruct import Mod3Container, Mod3Collection
 
+if __name__=="__main__":
+    import sys, inspect
+    fieldTypes = set()
+    for name, obj in inspect.getmembers(sys.modules[__name__]):
+        if inspect.isclass(obj):
+            try:
+                fieldTypes.union(set(obj.fields.values()))
+            except:
+                pass
+    print(fieldTypes)
+
+
 class CBSnowFieldBake(EPyCStruct):
 	fields = OrderedDict([
 
@@ -14,8 +26,6 @@ class CBSnowFieldBake(EPyCStruct):
 
 class CBUpdateBufferFromMesh(EPyCStruct):
 	fields = OrderedDict([
-
-
 		("iVertexNum", "uint"),
 		("iVertexBufferOffset", "uint"),
 		("iVertexStride", "uint"),
@@ -535,11 +545,30 @@ class CBMhSkyPS(EPyCStruct):
 	])
 
 
-class CBGUIDevelop(EPyCStruct):
+class CBAtmosphere(EPyCStruct):
 	fields = OrderedDict([
 
 
-		("fGUIOverlapDrawColor", "float3"),
+		("fLightColor", "float3"),
+
+		("align0", "ubyte[4]"),
+		("fLightDir", "float3"),
+		("fEarthRadius", "float"),
+		("fHeightOffset", "float"),
+		("fAtmosphereHeight", "float"),
+		("fAtmosphereScaleHeight", "float"),
+
+		("align1", "ubyte[4]"),
+		("fAtmosphereRayleighK", "float3"),
+
+		("align2", "ubyte[4]"),
+		("fAtmospherePhaseK", "float3"),
+		("fAerosolEffect", "float"),
+		("fAerosolHeight", "float"),
+		("fAerosolScaleHeight", "float"),
+		("fAerosolMieK", "float"),
+		("fAerosolPhaseK", "float"),
+		("fAerosolEccentricity", "float2"),
 
 	])
 
@@ -729,104 +758,6 @@ class CBMhMaterialEM117Local__disclosure(EPyCStruct):
 		("align4", "ubyte[12]"),
 		("fFlowColor__uiColor", "float4"),
 		("fFlowMatControl__uiUNorm", "float4"),
-		("fFilmThickness__uiUNorm", "float"),
-		("fFilmBlend__uiUNorm", "float"),
-		("fFilmIOR__uiUNorm", "float"),
-		("fRefraction__uiUNorm", "float"),
-		("fRefractionBlend__uiUNorm", "float"),
-
-		("align5", "ubyte[12]"),
-		("fDetailBlend__uiUNorm", "float4"),
-		("fDetailTile", "float4"),
-		("fDetailA_Color__uiColor", "float4"),
-		("fDetailB_Color__uiColor", "float4"),
-		("fDetailC_Color__uiColor", "float4"),
-		("fDetailD_Color__uiColor", "float4"),
-		("fDetail_Roughness__uiUNorm", "float4"),
-		("fDetail_Metal__uiUNorm", "float4"),
-		("bAntiEmitSSS", "bbool"),
-		("fAnimEmitMin", "float"),
-		("fAnimEmitSpeed", "float"),
-		("bUseWaveEmit", "bbool"),
-		("fAnimEmitWave", "float"),
-		("fRimAlphaPower__uiSNorm", "float"),
-		("fRimTranslucency__uiUNorm", "float"),
-		("fRimNormal__uiUNorm", "float"),
-		("fSnowUVTile", "float"),
-
-		("align6", "ubyte[12]"),
-		("fSnowBlendColor__uiColor", "float4"),
-		("fSnowMatControl__uiUNorm", "float4"),
-		("fMaterialSnowBlendB", "float"),
-
-		("align7", "ubyte[12]"),
-		("fSnowControl", "float4"),
-
-	])
-
-
-class CBMhMaterialTMG001Local__disclosure(EPyCStruct):
-	fields = OrderedDict([
-
-
-		("fBaseMapFactor__uiColor", "float4"),
-		("fEmissiveMapFactor__uiColor", "float3"),
-		("fMetalic__uiUNorm", "float"),
-		("fRoughness__uiUNorm", "float"),
-		("fSpecular__uiUNorm", "float"),
-		("fSubSurfaceBlend__uiUNorm", "float"),
-		("iSubSurfaceProfile", "uint"),
-		("fTranslucency__uiUNorm", "float"),
-		("bBaseColorEmissive", "bbool"),
-		("fPaintUVTile", "float2"),
-		("fAddNormalBlend__uiUNorm", "float"),
-
-		("align0", "ubyte[12]"),
-		("fAddNormalMaskA__uiSNorm", "float4"),
-		("fAddNormalMaskB__uiSNorm", "float4"),
-		("fAddNormalMaskC__uiUNorm", "float"),
-		("fAddNormalMaskD__uiUNorm", "float"),
-		("bBackFaceShading", "bbool"),
-		("bBackFaceNormalFilp", "bbool"),
-		("fKizuColor__uiColor", "float3"),
-
-		("align1", "ubyte[4]"),
-		("fKizuUVOffset__uiUNorm", "float2"),
-		("fKizuMultiply", "float"),
-		("bLegendary", "bbool"),
-		("fLegendColor__uiColor", "float4"),
-		("fLegendMetalMask__uiUNorm", "float2"),
-		("fLegendRoughness", "float"),
-
-		("align2", "ubyte[4]"),
-		("fLegendFilm__uiUNorm", "float3"),
-		("fLegendSSSMask__uiUNorm", "float"),
-		("fLegendHSV__uiSNorm", "float3"),
-		("fLegendFilmIOR__uiUNorm", "float"),
-		("fPartsMaskA__uiUNorm", "float"),
-		("fPartsMaskB__uiUNorm", "float"),
-		("fPartsMaskC__uiUNorm", "float"),
-		("fPartsMaskD__uiUNorm", "float"),
-		("fPartsMaskX__uiUNorm", "float"),
-		("fPartsMaskY__uiUNorm", "float"),
-		("fPartsMaskZ__uiUNorm", "float"),
-		("fPartsMaskW__uiUNorm", "float"),
-		("bUseOffset", "bbool"),
-		("fOffsetScale", "float"),
-		("bTranslucentOffset", "bbool"),
-		("bAntiSSSEmit", "bbool"),
-		("fFlowDirDir__uiDirection", "float3"),
-
-		("align3", "ubyte[4]"),
-		("fFlowControl__uiUNorm", "float4"),
-		("fFlowTile", "float"),
-
-		("align4", "ubyte[12]"),
-		("fFlowColor__uiColor", "float4"),
-		("fFlowMatControl__uiUNorm", "float4"),
-		("fMaskBlend__uiUNorm", "float4"),
-		("fMaskBlend_A__uiUNorm", "float2"),
-		("fMaskBlend_B__uiUNorm", "float2"),
 		("fFilmThickness__uiUNorm", "float"),
 		("fFilmBlend__uiUNorm", "float"),
 		("fFilmIOR__uiUNorm", "float"),
@@ -1109,15 +1040,15 @@ class CBBitonicSort(EPyCStruct):
 	])
 
 
-class CBDevelopFlags(EPyCStruct):
+class CBStarrySky(EPyCStruct):
 	fields = OrderedDict([
 
 
-		("iDispChannel", "int"),
-		("iDispCubeFace", "int"),
-		("iDispMode", "int"),
-		("fDispMipLevel", "float"),
-		("fDispArraySlice", "float"),
+		("fRotMatrix", "float4x4"),
+		("fSize", "float2"),
+		("fFactor", "float"),
+		("fIntensity", "float"),
+		("fScintillation", "float"),
 
 	])
 
@@ -1373,14 +1304,15 @@ class pix_clear_constants(EPyCStruct):
 	])
 
 
-class CBPrimSystem(EPyCStruct):
+class CBGaussian(EPyCStruct):
 	fields = OrderedDict([
 
 
-		("fPrimGammaCorrect", "float"),
-		("fPrimAlphaLowerLimit", "float"),
-		("fPrimGlobalLightReflectance", "float"),
-		("iPrimSystemFalgs", "uint"),
+		("fOffset0", "float4"),
+		("fOffset1", "float4"),
+		("fWeight0", "float4"),
+		("fWeight1", "float4"),
+		("fEdgeSharpness", "float"),
 
 	])
 
@@ -1739,15 +1671,14 @@ class CBMhMaterialStdLocal__disclosure(EPyCStruct):
 	])
 
 
-class CBGaussian(EPyCStruct):
+class CBPrimSystem(EPyCStruct):
 	fields = OrderedDict([
 
 
-		("fOffset0", "float4"),
-		("fOffset1", "float4"),
-		("fWeight0", "float4"),
-		("fWeight1", "float4"),
-		("fEdgeSharpness", "float"),
+		("fPrimGammaCorrect", "float"),
+		("fPrimAlphaLowerLimit", "float"),
+		("fPrimGlobalLightReflectance", "float"),
+		("iPrimSystemFalgs", "uint"),
 
 	])
 
@@ -2331,7 +2262,7 @@ class CBConstantHaltonSequence(EPyCStruct):
 
 	])
 
-
+    
 class CBSpeedTreeLocalWindPF_SpeedTreeLocalWind(EPyCStruct):
 	fields = OrderedDict([
 
@@ -2554,153 +2485,11 @@ class CBResample(EPyCStruct):
 	])
 
 
-class CBMhMaterialPLLocal__disclosure(EPyCStruct):
+class CBGUIDevelop(EPyCStruct):
 	fields = OrderedDict([
 
 
-		("fBaseMapFactor__uiColor", "float4"),
-		("fEmissiveMapFactor__uiColor", "float3"),
-		("fMetalic__uiUNorm", "float"),
-		("fRoughness__uiUNorm", "float"),
-		("fSpecular__uiUNorm", "float"),
-		("fSubSurfaceBlend__uiUNorm", "float"),
-		("iSubSurfaceProfile", "uint"),
-		("fTranslucency__uiUNorm", "float"),
-		("bBaseColorEmissive", "bbool"),
-		("bBackFaceNormalFilp", "bbool"),
-		("fAnimEmitMin", "float"),
-		("fAnimEmitSpeed", "float"),
-		("bUseCMM", "bbool"),
-
-		("align0", "ubyte[8]"),
-		("fAddColorA__uiColor", "float4"),
-		("fAddColorB__uiColor", "float4"),
-		("fAddColorC__uiColor", "float4"),
-		("fAddColorD__uiColor", "float4"),
-		("fFurParam__uiUNorm", "float4"),
-		("fFurTile", "float"),
-
-		("align1", "ubyte[12]"),
-		("fSnowControl", "float4"),
-		("fMaterialSnowBlendA", "float"),
-		("fMaterialSnowBlendB", "float"),
-		("fSnowTile", "float"),
-
-		("align2", "ubyte[4]"),
-		("fSnowColor__uiColor", "float3"),
-
-		("align3", "ubyte[4]"),
-		("fSnowMatControl__uiUNorm", "float4"),
-		("fSnowUVOffset__uiUNorm", "float2"),
-		("fAnimEmitWave", "float"),
-		("bUseWaveEmit", "bbool"),
-		("fFilmThickness__uiUNorm", "float"),
-		("fFilmBlend__uiUNorm", "float"),
-		("fFilmIOR__uiUNorm", "float"),
-		("fRefractBlend__uiUNorm", "float"),
-		("fRefraction__uiSNorm", "float"),
-		("fPanoramaTile", "float"),
-
-		("align4", "ubyte[8]"),
-		("fEmissiveBlendColor__uiColor", "float3"),
-		("fEmissiveBlendColorBlend__uiUNorm", "float"),
-		("fEmissiveBlendRimParam", "float3"),
-		("fDetailNormalBlend__uiUNorm", "float"),
-		("fUVTransformDetailNormal", "float4"),
-
-	])
-
-
-class CBMhMaterial_EM105_EVCLocal__disclosure(EPyCStruct):
-	fields = OrderedDict([
-
-
-		("fBaseMapFactor__uiColor", "float4"),
-		("fEmissiveMapFactor__uiColor", "float3"),
-		("fMetalic__uiUNorm", "float"),
-		("fRoughness__uiUNorm", "float"),
-		("fSpecular__uiUNorm", "float"),
-		("fSubSurfaceBlend__uiUNorm", "float"),
-		("iSubSurfaceProfile", "uint"),
-		("fTranslucency__uiUNorm", "float"),
-		("bBaseColorEmissive", "bbool"),
-		("fPaintUVTile", "float2"),
-		("fAddNormalBlend__uiUNorm", "float"),
-
-		("align0", "ubyte[12]"),
-		("fAddNormalMaskA__uiSNorm", "float4"),
-		("fAddNormalMaskB__uiSNorm", "float4"),
-		("fAddNormalMaskC__uiUNorm", "float"),
-		("fAddNormalMaskD__uiUNorm", "float"),
-		("bBackFaceShading", "bbool"),
-		("bBackFaceNormalFilp", "bbool"),
-		("fKizuColor__uiColor", "float3"),
-
-		("align1", "ubyte[4]"),
-		("fKizuUVOffset__uiUNorm", "float2"),
-		("fKizuMultiply", "float"),
-		("bLegendary", "bbool"),
-		("fLegendColor__uiColor", "float4"),
-		("fLegendMetalMask__uiUNorm", "float2"),
-		("fLegendRoughness", "float"),
-
-		("align2", "ubyte[4]"),
-		("fLegendFilm__uiUNorm", "float3"),
-		("fLegendSSSMask__uiUNorm", "float"),
-		("fLegendHSV__uiSNorm", "float3"),
-		("fLegendFilmIOR__uiUNorm", "float"),
-		("fPartsMaskA__uiUNorm", "float"),
-		("fPartsMaskB__uiUNorm", "float"),
-		("fPartsMaskC__uiUNorm", "float"),
-		("fPartsMaskD__uiUNorm", "float"),
-		("fPartsMaskX__uiUNorm", "float"),
-		("fPartsMaskY__uiUNorm", "float"),
-		("fPartsMaskZ__uiUNorm", "float"),
-		("fPartsMaskW__uiUNorm", "float"),
-		("bUseOffset", "bbool"),
-		("fOffsetScale", "float"),
-		("bTranslucentOffset", "bbool"),
-		("bAntiSSSEmit", "bbool"),
-		("fFlowDirDir__uiDirection", "float3"),
-
-		("align3", "ubyte[4]"),
-		("fFlowControl__uiUNorm", "float4"),
-		("fFlowTile", "float"),
-
-		("align4", "ubyte[12]"),
-		("fFlowColor__uiColor", "float4"),
-		("fFlowMatControl__uiUNorm", "float4"),
-		("fFilmThickness__uiUNorm", "float"),
-		("fFilmBlend__uiUNorm", "float"),
-		("fFilmIOR__uiUNorm", "float"),
-		("fRefraction__uiUNorm", "float"),
-		("fRefractionBlend__uiUNorm", "float"),
-		("bUseBlendDisplace", "bbool"),
-		("fVAnimV__uiUNorm", "float"),
-		("fVAnimPosScale", "float"),
-		("bInvertX", "bbool"),
-		("fVPushScale", "float"),
-		("fVPushWave", "float"),
-		("fVPushSpeed", "float"),
-		("fVpivot", "float3"),
-		("fInnerOffsetScale", "float"),
-		("fVolumeBlend__uiSNorm", "float"),
-
-		("align5", "ubyte[12]"),
-		("fDetailEmissiveControl", "float4"),
-		("fFinWave", "float"),
-		("fFinSpeed", "float"),
-
-		("align6", "ubyte[8]"),
-		("fFinColor__uiColor", "float3"),
-		("fDetailNormalBlend__uiUNorm", "float"),
-		("fAnimEmitMin", "float"),
-		("fAnimEmitSpeed", "float"),
-		("bUseWaveEmit", "bbool"),
-		("fAnimEmitWave", "float"),
-		("fRimAlphaPower__uiSNorm", "float"),
-		("fRimTranslucency__uiUNorm", "float"),
-		("fRimNormal__uiUNorm", "float"),
+		("fGUIOverlapDrawColor", "float3"),
 
 	])
 
@@ -3213,7 +3002,6 @@ class CBLightProbes(EPyCStruct):
 
 	])
 
-
 class CBSpeedTreeGlobalWind_SpeedTreeGlobalWind(EPyCStruct):
 	fields = OrderedDict([
 
@@ -3248,7 +3036,6 @@ class CBSpeedTreeGlobalWind  (Mod3Container):
 	Mod3Class = CBSpeedTreeGlobalWind_SpeedTreeGlobalWind
 	baseCount = 160	
 
-
 class CBMhMaterialLandscapeLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
 
@@ -3282,19 +3069,6 @@ class CBMhMaterialLandscapeLocal__disclosure(EPyCStruct):
 		("bSpecialBlend", "bbool"),
 		("bWetNormalBlend", "bbool"),
 		("fWetNormalBlendRange__uiUNorm", "float2"),
-
-	])
-
-
-class CBMaterialDebug(EPyCStruct):
-	fields = OrderedDict([
-
-
-		("iMaterialDebugView", "uint"),
-		("bMaterialDebugZeroCheck", "bbool"),
-
-		("align0", "ubyte[8]"),
-		("fMaterialDebugColor", "float4"),
 
 	])
 
@@ -3672,54 +3446,11 @@ class CBSpeedTree(EPyCStruct):
 	])
 
 
-class CBMhMaterialVfxFloodLocal__disclosure(EPyCStruct):
+class CBWaterPick(EPyCStruct):
 	fields = OrderedDict([
 
 
-		("fBaseMapFactor__uiColor", "float3"),
-
-		("align0", "ubyte[4]"),
-		("fDistortionFactor__uiColor", "float3"),
-
-		("align1", "ubyte[4]"),
-		("fCubeMapFactor__uiColor", "float3"),
-		("fOpacityFactor", "float"),
-		("fMetalic__uiUNorm", "float"),
-		("fRoughness__uiUNorm", "float"),
-		("fDispFactor", "float"),
-
-		("align2", "ubyte[4]"),
-		("fUVTransformA", "float4"),
-		("fUVTransformB", "float4"),
-		("fUVTransformC", "float4"),
-		("fVolumeBlend__uiSNorm", "float"),
-		("fSpecularFactor", "float"),
-		("bSceneEnvMap", "bbool"),
-		("fRaflectionAngle__uiSNorm", "float"),
-		("fDistortionAngle", "float"),
-		("fDistortion", "float"),
-		("fTranslucency__uiUNorm", "float"),
-		("fDiffuseChroma__uiUNorm", "float"),
-		("fSpecularChroma__uiUNorm", "float"),
-		("fFlowSpeed", "float"),
-		("fFlowStrength", "float"),
-		("fWhiteWaterPow", "float"),
-		("fWhiteWater", "float"),
-		("fEdgeFoamPow", "float"),
-		("fEdgeFoamFactor", "float"),
-		("bEnableLava", "bbool"),
-		("bEnableAlbedoBlend", "bbool"),
-		("fHeat", "float"),
-		("fInnerOffsetScale", "float"),
-		("fAlbedoBlendPow", "float"),
-		("fAlbedoBlendRate", "float"),
-		("fAlbedoBlendFactor", "float"),
-
-		("align3", "ubyte[8]"),
-		("fAlbedoBlendVector", "float3"),
-		("fVelocityAttn", "float"),
-		("fNormalDecalBlend__uiUNorm", "float"),
-		("bUseUVPrimaryOM", "bbool"),
+		("iWaterAddress", "uint2"),
 
 	])
 
@@ -3918,7 +3649,6 @@ class CBWaterModel(EPyCStruct):
 		("fMWorldMat", "float4x4"),
 
 	])
-
 
 class CBLightParameters_LightParameter(EPyCStruct):
 	fields = OrderedDict([
@@ -4497,30 +4227,61 @@ class CBMhMaterialScrIceLocal__disclosure(EPyCStruct):
 	])
 
 
-class CBScreen(EPyCStruct):
+class CBVRVolumeParams_VolumeParam(EPyCStruct):
 	fields = OrderedDict([
 
-
-		("fScreenOffset", "float2"),
-		("fScreenScale", "float2"),
-		("fScreenSize", "float2"),
-		("fScreenInverseSize", "float2"),
-		("iViewOffset", "uint2"),
-		("iViewSize", "uint2"),
-		("fViewOffset", "float2"),
-		("fViewSize", "float2"),
-		("fViewInverseSize", "float2"),
-		("fContentScale", "float"),
-		("fContentScalePF", "float"),
-		("fContentScaleBase", "float"),
-		("fContentScaleActual", "float"),
-		("fContentScaleInverse", "float"),
-		("fContentScaleBaseInverse", "float"),
-		("fContentScaleActualInverse", "float"),
-		("fContentScalePassScreen", "float"),
-		("bCheckerboard", "bbool"),
+		("packedData", "uint"),
+		("emissive", "float3"),
+		("scattering", "float3"),
+		("hgEccentricity", "float"),
+		("tiling", "float3"),
+		("moveSpeed", "float"),
+		("moveDir", "float3"),
+		("dispelFactor", "float"),
 
 	])
+
+class CBVRVolumeParams_Constant(EPyCStruct):
+	fields = OrderedDict([
+
+		("limits", "float3"),
+		("extra", "uint"),
+
+	])
+
+class CBVRVolumeParams_Cuboid(EPyCStruct):
+	fields = OrderedDict([
+
+		("model", "float4x4"),
+		("modelI", "float4x4"),
+		("minAABB", "float4"),
+		("maxAABB", "float4"),
+
+	])
+
+class CBVRVolumeParams_Spherical(EPyCStruct):
+	fields = OrderedDict([
+
+		("model", "float4x4"),
+		("modelI", "float4x4"),
+		("extra", "uint4"),
+
+	])
+
+class CBVRVolumeParams_Spotlight(EPyCStruct):
+	fields = OrderedDict([
+
+		("origin", "float3"),
+		("height", "float"),
+		("dir", "float3"),
+		("cosAngle", "float"),
+
+	])
+    
+class CBVRVolumeParams  (Mod3Collection):
+    Mod3Classes = [CBVRVolumeParams_VolumeParam, CBVRVolumeParams_Constant,
+                CBVRVolumeParams_Cuboid, CBVRVolumeParams_Spherical, CBVRVolumeParams_Spotlight]
+    Mod3Counts = [128,128,128,128,128]
 
 
 class CBDecalCommon(EPyCStruct):
@@ -4676,11 +4437,96 @@ class CBMhDecalSM(EPyCStruct):
 	])
 
 
-class CBWaterPick(EPyCStruct):
+class CBMhMaterial_EM105_EVCLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
 
 
-		("iWaterAddress", "uint2"),
+		("fBaseMapFactor__uiColor", "float4"),
+		("fEmissiveMapFactor__uiColor", "float3"),
+		("fMetalic__uiUNorm", "float"),
+		("fRoughness__uiUNorm", "float"),
+		("fSpecular__uiUNorm", "float"),
+		("fSubSurfaceBlend__uiUNorm", "float"),
+		("iSubSurfaceProfile", "uint"),
+		("fTranslucency__uiUNorm", "float"),
+		("bBaseColorEmissive", "bbool"),
+		("fPaintUVTile", "float2"),
+		("fAddNormalBlend__uiUNorm", "float"),
+
+		("align0", "ubyte[12]"),
+		("fAddNormalMaskA__uiSNorm", "float4"),
+		("fAddNormalMaskB__uiSNorm", "float4"),
+		("fAddNormalMaskC__uiUNorm", "float"),
+		("fAddNormalMaskD__uiUNorm", "float"),
+		("bBackFaceShading", "bbool"),
+		("bBackFaceNormalFilp", "bbool"),
+		("fKizuColor__uiColor", "float3"),
+
+		("align1", "ubyte[4]"),
+		("fKizuUVOffset__uiUNorm", "float2"),
+		("fKizuMultiply", "float"),
+		("bLegendary", "bbool"),
+		("fLegendColor__uiColor", "float4"),
+		("fLegendMetalMask__uiUNorm", "float2"),
+		("fLegendRoughness", "float"),
+
+		("align2", "ubyte[4]"),
+		("fLegendFilm__uiUNorm", "float3"),
+		("fLegendSSSMask__uiUNorm", "float"),
+		("fLegendHSV__uiSNorm", "float3"),
+		("fLegendFilmIOR__uiUNorm", "float"),
+		("fPartsMaskA__uiUNorm", "float"),
+		("fPartsMaskB__uiUNorm", "float"),
+		("fPartsMaskC__uiUNorm", "float"),
+		("fPartsMaskD__uiUNorm", "float"),
+		("fPartsMaskX__uiUNorm", "float"),
+		("fPartsMaskY__uiUNorm", "float"),
+		("fPartsMaskZ__uiUNorm", "float"),
+		("fPartsMaskW__uiUNorm", "float"),
+		("bUseOffset", "bbool"),
+		("fOffsetScale", "float"),
+		("bTranslucentOffset", "bbool"),
+		("bAntiSSSEmit", "bbool"),
+		("fFlowDirDir__uiDirection", "float3"),
+
+		("align3", "ubyte[4]"),
+		("fFlowControl__uiUNorm", "float4"),
+		("fFlowTile", "float"),
+
+		("align4", "ubyte[12]"),
+		("fFlowColor__uiColor", "float4"),
+		("fFlowMatControl__uiUNorm", "float4"),
+		("fFilmThickness__uiUNorm", "float"),
+		("fFilmBlend__uiUNorm", "float"),
+		("fFilmIOR__uiUNorm", "float"),
+		("fRefraction__uiUNorm", "float"),
+		("fRefractionBlend__uiUNorm", "float"),
+		("bUseBlendDisplace", "bbool"),
+		("fVAnimV__uiUNorm", "float"),
+		("fVAnimPosScale", "float"),
+		("bInvertX", "bbool"),
+		("fVPushScale", "float"),
+		("fVPushWave", "float"),
+		("fVPushSpeed", "float"),
+		("fVpivot", "float3"),
+		("fInnerOffsetScale", "float"),
+		("fVolumeBlend__uiSNorm", "float"),
+
+		("align5", "ubyte[12]"),
+		("fDetailEmissiveControl", "float4"),
+		("fFinWave", "float"),
+		("fFinSpeed", "float"),
+
+		("align6", "ubyte[8]"),
+		("fFinColor__uiColor", "float3"),
+		("fDetailNormalBlend__uiUNorm", "float"),
+		("fAnimEmitMin", "float"),
+		("fAnimEmitSpeed", "float"),
+		("bUseWaveEmit", "bbool"),
+		("fAnimEmitWave", "float"),
+		("fRimAlphaPower__uiSNorm", "float"),
+		("fRimTranslucency__uiUNorm", "float"),
+		("fRimNormal__uiUNorm", "float"),
 
 	])
 
@@ -4835,7 +4681,6 @@ class CBMhMaterialPLHairLocal__disclosure(EPyCStruct):
 
 	])
 
-
 class CBSpeedTreeGlobalWindPF_SpeedTreeGlobalWind(EPyCStruct):
 	fields = OrderedDict([
 
@@ -4870,62 +4715,115 @@ class CBSpeedTreeGlobalWindPF  (Mod3Container):
 	Mod3Class = CBSpeedTreeGlobalWindPF_SpeedTreeGlobalWind
 	baseCount = 160	
 
-
-class CBVRVolumeParams_VolumeParam(EPyCStruct):
+class CBScreen(EPyCStruct):
 	fields = OrderedDict([
 
-		("packedData", "uint"),
-		("emissive", "float3"),
-		("scattering", "float3"),
-		("hgEccentricity", "float"),
-		("tiling", "float3"),
-		("moveSpeed", "float"),
-		("moveDir", "float3"),
-		("dispelFactor", "float"),
+
+		("fScreenOffset", "float2"),
+		("fScreenScale", "float2"),
+		("fScreenSize", "float2"),
+		("fScreenInverseSize", "float2"),
+		("iViewOffset", "uint2"),
+		("iViewSize", "uint2"),
+		("fViewOffset", "float2"),
+		("fViewSize", "float2"),
+		("fViewInverseSize", "float2"),
+		("fContentScale", "float"),
+		("fContentScalePF", "float"),
+		("fContentScaleBase", "float"),
+		("fContentScaleActual", "float"),
+		("fContentScaleInverse", "float"),
+		("fContentScaleBaseInverse", "float"),
+		("fContentScaleActualInverse", "float"),
+		("fContentScalePassScreen", "float"),
+		("bCheckerboard", "bbool"),
 
 	])
 
-class CBVRVolumeParams_Constant(EPyCStruct):
+
+class CBMhMaterialEM032Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
 
-		("limits", "float3"),
-		("extra", "uint"),
+
+		("fBaseMapFactor__uiColor", "float4"),
+		("fEmissiveMapFactor__uiColor", "float3"),
+		("fMetalic__uiUNorm", "float"),
+		("fRoughness__uiUNorm", "float"),
+		("fSpecular__uiUNorm", "float"),
+		("fSubSurfaceBlend__uiUNorm", "float"),
+		("iSubSurfaceProfile", "uint"),
+		("fTranslucency__uiUNorm", "float"),
+		("bBaseColorEmissive", "bbool"),
+		("fPaintUVTile", "float2"),
+		("fAddNormalBlend__uiUNorm", "float"),
+
+		("align0", "ubyte[12]"),
+		("fAddNormalMaskA__uiSNorm", "float4"),
+		("fAddNormalMaskB__uiSNorm", "float4"),
+		("fAddNormalMaskC__uiUNorm", "float"),
+		("fAddNormalMaskD__uiUNorm", "float"),
+		("bBackFaceShading", "bbool"),
+		("bBackFaceNormalFilp", "bbool"),
+		("fKizuColor__uiColor", "float3"),
+
+		("align1", "ubyte[4]"),
+		("fKizuUVOffset__uiUNorm", "float2"),
+		("fKizuMultiply", "float"),
+		("bLegendary", "bbool"),
+		("fLegendColor__uiColor", "float4"),
+		("fLegendMetalMask__uiUNorm", "float2"),
+		("fLegendRoughness", "float"),
+
+		("align2", "ubyte[4]"),
+		("fLegendFilm__uiUNorm", "float3"),
+		("fLegendSSSMask__uiUNorm", "float"),
+		("fLegendHSV__uiSNorm", "float3"),
+		("fLegendFilmIOR__uiUNorm", "float"),
+		("fPartsMaskA__uiUNorm", "float"),
+		("fPartsMaskB__uiUNorm", "float"),
+		("fPartsMaskC__uiUNorm", "float"),
+		("fPartsMaskD__uiUNorm", "float"),
+		("fPartsMaskX__uiUNorm", "float"),
+		("fPartsMaskY__uiUNorm", "float"),
+		("fPartsMaskZ__uiUNorm", "float"),
+		("fPartsMaskW__uiUNorm", "float"),
+		("bUseOffset", "bbool"),
+		("fOffsetScale", "float"),
+		("bTranslucentOffset", "bbool"),
+		("bAntiSSSEmit", "bbool"),
+		("fFlowDirDir__uiDirection", "float3"),
+
+		("align3", "ubyte[4]"),
+		("fFlowControl__uiUNorm", "float4"),
+		("fFlowTile", "float"),
+
+		("align4", "ubyte[12]"),
+		("fFlowColor__uiColor", "float4"),
+		("fFlowMatControl__uiUNorm", "float4"),
+		("fFilmThickness__uiUNorm", "float"),
+		("fFilmBlend__uiUNorm", "float"),
+		("fFilmIOR__uiUNorm", "float"),
+		("fRefraction__uiUNorm", "float"),
+		("fRefractionBlend__uiUNorm", "float"),
+		("fAnimEmitMin", "float"),
+		("fAnimEmitSpeed", "float"),
+		("bUseWaveEmit", "bbool"),
+		("fAnimEmitWave", "float"),
+
+		("align5", "ubyte[12]"),
+		("fAnimEmitControl__uiUNorm", "float4"),
+		("fRimAlphaPower__uiSNorm", "float"),
+		("fRimTranslucency__uiUNorm", "float"),
+		("fRimNormal__uiUNorm", "float"),
+		("fSnowUVTile", "float"),
+		("fSnowBlendColor__uiColor", "float4"),
+		("fSnowMatControl__uiUNorm", "float4"),
+		("fMaterialSnowBlendB", "float"),
+
+		("align6", "ubyte[12]"),
+		("fSnowControl", "float4"),
 
 	])
-
-class CBVRVolumeParams_Cuboid(EPyCStruct):
-	fields = OrderedDict([
-
-		("model", "float4x4"),
-		("modelI", "float4x4"),
-		("minAABB", "float4"),
-		("maxAABB", "float4"),
-
-	])
-
-class CBVRVolumeParams_Spherical(EPyCStruct):
-	fields = OrderedDict([
-
-		("model", "float4x4"),
-		("modelI", "float4x4"),
-		("extra", "uint4"),
-
-	])
-
-class CBVRVolumeParams_Spotlight(EPyCStruct):
-	fields = OrderedDict([
-
-		("origin", "float3"),
-		("height", "float"),
-		("dir", "float3"),
-		("cosAngle", "float"),
-
-	])
-    
-class CBVRVolumeParams  (Mod3Collection):
-    Mod3Classes = [CBVRVolumeParams_VolumeParam, CBVRVolumeParams_Constant,
-                CBVRVolumeParams_Cuboid, CBVRVolumeParams_Spherical, CBVRVolumeParams_Spotlight]
-    Mod3Counts = [128,128,128,128,128]
 
 
 class CB_BGTexture(EPyCStruct):
@@ -5748,19 +5646,6 @@ class CBCSClear(EPyCStruct):
 	])
 
 
-class CBStarrySky(EPyCStruct):
-	fields = OrderedDict([
-
-
-		("fRotMatrix", "float4x4"),
-		("fSize", "float2"),
-		("fFactor", "float"),
-		("fIntensity", "float"),
-		("fScintillation", "float"),
-
-	])
-
-
 class CBROPTest(EPyCStruct):
 	fields = OrderedDict([
 
@@ -5851,6 +5736,63 @@ class CBMhSky2GBuffer(EPyCStruct):
 
 
 		("iSkyGBufferId", "uint"),
+
+	])
+
+
+class CBMhMaterialPLLocal__disclosure(EPyCStruct):
+	fields = OrderedDict([
+
+
+		("fBaseMapFactor__uiColor", "float4"),
+		("fEmissiveMapFactor__uiColor", "float3"),
+		("fMetalic__uiUNorm", "float"),
+		("fRoughness__uiUNorm", "float"),
+		("fSpecular__uiUNorm", "float"),
+		("fSubSurfaceBlend__uiUNorm", "float"),
+		("iSubSurfaceProfile", "uint"),
+		("fTranslucency__uiUNorm", "float"),
+		("bBaseColorEmissive", "bbool"),
+		("bBackFaceNormalFilp", "bbool"),
+		("fAnimEmitMin", "float"),
+		("fAnimEmitSpeed", "float"),
+		("bUseCMM", "bbool"),
+
+		("align0", "ubyte[8]"),
+		("fAddColorA__uiColor", "float4"),
+		("fAddColorB__uiColor", "float4"),
+		("fAddColorC__uiColor", "float4"),
+		("fAddColorD__uiColor", "float4"),
+		("fFurParam__uiUNorm", "float4"),
+		("fFurTile", "float"),
+
+		("align1", "ubyte[12]"),
+		("fSnowControl", "float4"),
+		("fMaterialSnowBlendA", "float"),
+		("fMaterialSnowBlendB", "float"),
+		("fSnowTile", "float"),
+
+		("align2", "ubyte[4]"),
+		("fSnowColor__uiColor", "float3"),
+
+		("align3", "ubyte[4]"),
+		("fSnowMatControl__uiUNorm", "float4"),
+		("fSnowUVOffset__uiUNorm", "float2"),
+		("fAnimEmitWave", "float"),
+		("bUseWaveEmit", "bbool"),
+		("fFilmThickness__uiUNorm", "float"),
+		("fFilmBlend__uiUNorm", "float"),
+		("fFilmIOR__uiUNorm", "float"),
+		("fRefractBlend__uiUNorm", "float"),
+		("fRefraction__uiSNorm", "float"),
+		("fPanoramaTile", "float"),
+
+		("align4", "ubyte[8]"),
+		("fEmissiveBlendColor__uiColor", "float3"),
+		("fEmissiveBlendColorBlend__uiUNorm", "float"),
+		("fEmissiveBlendRimParam", "float3"),
+		("fDetailNormalBlend__uiUNorm", "float"),
+		("fUVTransformDetailNormal", "float4"),
 
 	])
 
@@ -6381,6 +6323,58 @@ class CBUpdateBufferFromMeshConditions(EPyCStruct):
 	])
 
 
+class CBMhMaterialVfxFloodLocal__disclosure(EPyCStruct):
+	fields = OrderedDict([
+
+
+		("fBaseMapFactor__uiColor", "float3"),
+
+		("align0", "ubyte[4]"),
+		("fDistortionFactor__uiColor", "float3"),
+
+		("align1", "ubyte[4]"),
+		("fCubeMapFactor__uiColor", "float3"),
+		("fOpacityFactor", "float"),
+		("fMetalic__uiUNorm", "float"),
+		("fRoughness__uiUNorm", "float"),
+		("fDispFactor", "float"),
+
+		("align2", "ubyte[4]"),
+		("fUVTransformA", "float4"),
+		("fUVTransformB", "float4"),
+		("fUVTransformC", "float4"),
+		("fVolumeBlend__uiSNorm", "float"),
+		("fSpecularFactor", "float"),
+		("bSceneEnvMap", "bbool"),
+		("fRaflectionAngle__uiSNorm", "float"),
+		("fDistortionAngle", "float"),
+		("fDistortion", "float"),
+		("fTranslucency__uiUNorm", "float"),
+		("fDiffuseChroma__uiUNorm", "float"),
+		("fSpecularChroma__uiUNorm", "float"),
+		("fFlowSpeed", "float"),
+		("fFlowStrength", "float"),
+		("fWhiteWaterPow", "float"),
+		("fWhiteWater", "float"),
+		("fEdgeFoamPow", "float"),
+		("fEdgeFoamFactor", "float"),
+		("bEnableLava", "bbool"),
+		("bEnableAlbedoBlend", "bbool"),
+		("fHeat", "float"),
+		("fInnerOffsetScale", "float"),
+		("fAlbedoBlendPow", "float"),
+		("fAlbedoBlendRate", "float"),
+		("fAlbedoBlendFactor", "float"),
+
+		("align3", "ubyte[8]"),
+		("fAlbedoBlendVector", "float3"),
+		("fVelocityAttn", "float"),
+		("fNormalDecalBlend__uiUNorm", "float"),
+		("bUseUVPrimaryOM", "bbool"),
+
+	])
+
+
 class CBBloom(EPyCStruct):
 	fields = OrderedDict([
 
@@ -6838,87 +6832,15 @@ class CBCAS(EPyCStruct):
 	])
 
 
-class CBMhMaterialEM032Local__disclosure(EPyCStruct):
+class CBMaterialDebug(EPyCStruct):
 	fields = OrderedDict([
 
 
-		("fBaseMapFactor__uiColor", "float4"),
-		("fEmissiveMapFactor__uiColor", "float3"),
-		("fMetalic__uiUNorm", "float"),
-		("fRoughness__uiUNorm", "float"),
-		("fSpecular__uiUNorm", "float"),
-		("fSubSurfaceBlend__uiUNorm", "float"),
-		("iSubSurfaceProfile", "uint"),
-		("fTranslucency__uiUNorm", "float"),
-		("bBaseColorEmissive", "bbool"),
-		("fPaintUVTile", "float2"),
-		("fAddNormalBlend__uiUNorm", "float"),
+		("iMaterialDebugView", "uint"),
+		("bMaterialDebugZeroCheck", "bbool"),
 
-		("align0", "ubyte[12]"),
-		("fAddNormalMaskA__uiSNorm", "float4"),
-		("fAddNormalMaskB__uiSNorm", "float4"),
-		("fAddNormalMaskC__uiUNorm", "float"),
-		("fAddNormalMaskD__uiUNorm", "float"),
-		("bBackFaceShading", "bbool"),
-		("bBackFaceNormalFilp", "bbool"),
-		("fKizuColor__uiColor", "float3"),
-
-		("align1", "ubyte[4]"),
-		("fKizuUVOffset__uiUNorm", "float2"),
-		("fKizuMultiply", "float"),
-		("bLegendary", "bbool"),
-		("fLegendColor__uiColor", "float4"),
-		("fLegendMetalMask__uiUNorm", "float2"),
-		("fLegendRoughness", "float"),
-
-		("align2", "ubyte[4]"),
-		("fLegendFilm__uiUNorm", "float3"),
-		("fLegendSSSMask__uiUNorm", "float"),
-		("fLegendHSV__uiSNorm", "float3"),
-		("fLegendFilmIOR__uiUNorm", "float"),
-		("fPartsMaskA__uiUNorm", "float"),
-		("fPartsMaskB__uiUNorm", "float"),
-		("fPartsMaskC__uiUNorm", "float"),
-		("fPartsMaskD__uiUNorm", "float"),
-		("fPartsMaskX__uiUNorm", "float"),
-		("fPartsMaskY__uiUNorm", "float"),
-		("fPartsMaskZ__uiUNorm", "float"),
-		("fPartsMaskW__uiUNorm", "float"),
-		("bUseOffset", "bbool"),
-		("fOffsetScale", "float"),
-		("bTranslucentOffset", "bbool"),
-		("bAntiSSSEmit", "bbool"),
-		("fFlowDirDir__uiDirection", "float3"),
-
-		("align3", "ubyte[4]"),
-		("fFlowControl__uiUNorm", "float4"),
-		("fFlowTile", "float"),
-
-		("align4", "ubyte[12]"),
-		("fFlowColor__uiColor", "float4"),
-		("fFlowMatControl__uiUNorm", "float4"),
-		("fFilmThickness__uiUNorm", "float"),
-		("fFilmBlend__uiUNorm", "float"),
-		("fFilmIOR__uiUNorm", "float"),
-		("fRefraction__uiUNorm", "float"),
-		("fRefractionBlend__uiUNorm", "float"),
-		("fAnimEmitMin", "float"),
-		("fAnimEmitSpeed", "float"),
-		("bUseWaveEmit", "bbool"),
-		("fAnimEmitWave", "float"),
-
-		("align5", "ubyte[12]"),
-		("fAnimEmitControl__uiUNorm", "float4"),
-		("fRimAlphaPower__uiSNorm", "float"),
-		("fRimTranslucency__uiUNorm", "float"),
-		("fRimNormal__uiUNorm", "float"),
-		("fSnowUVTile", "float"),
-		("fSnowBlendColor__uiColor", "float4"),
-		("fSnowMatControl__uiUNorm", "float4"),
-		("fMaterialSnowBlendB", "float"),
-
-		("align6", "ubyte[12]"),
-		("fSnowControl", "float4"),
+		("align0", "ubyte[8]"),
+		("fMaterialDebugColor", "float4"),
 
 	])
 
@@ -7264,30 +7186,15 @@ class CBMhMaterialEM111Local__disclosure(EPyCStruct):
 	])
 
 
-class CBAtmosphere(EPyCStruct):
+class CBDevelopFlags(EPyCStruct):
 	fields = OrderedDict([
 
 
-		("fLightColor", "float3"),
-
-		("align0", "ubyte[4]"),
-		("fLightDir", "float3"),
-		("fEarthRadius", "float"),
-		("fHeightOffset", "float"),
-		("fAtmosphereHeight", "float"),
-		("fAtmosphereScaleHeight", "float"),
-
-		("align1", "ubyte[4]"),
-		("fAtmosphereRayleighK", "float3"),
-
-		("align2", "ubyte[4]"),
-		("fAtmospherePhaseK", "float3"),
-		("fAerosolEffect", "float"),
-		("fAerosolHeight", "float"),
-		("fAerosolScaleHeight", "float"),
-		("fAerosolMieK", "float"),
-		("fAerosolPhaseK", "float"),
-		("fAerosolEccentricity", "float2"),
+		("iDispChannel", "int"),
+		("iDispCubeFace", "int"),
+		("iDispMode", "int"),
+		("fDispMipLevel", "float"),
+		("fDispArraySlice", "float"),
 
 	])
 
@@ -7754,7 +7661,6 @@ class CBMhMaterialDynamicSnow__disclosure(EPyCStruct):
 
 	])
 
-
 class CBCapsuleAOGeomParam_AOGeometryParam(EPyCStruct):
 	fields = OrderedDict([
 
@@ -7950,15 +7856,6 @@ class CB_CombinedFilter(EPyCStruct):
 		("bEnableTemporalAA", "bbool"),
 		("bEnableColorCorrect", "bbool"),
 		("bEnableImagePlane", "bbool"),
-
-	])
-
-
-class CBBloomSample(EPyCStruct):
-	fields = OrderedDict([
-
-
-		("fBloomFilterRegion", "float4"),
 
 	])
 
@@ -8525,94 +8422,11 @@ class CBMhMaterialVfxDistDispWLocal__disclosure(EPyCStruct):
 	])
 
 
-class CBMhMaterialOZK001Local__disclosure(EPyCStruct):
+class CBBloomSample(EPyCStruct):
 	fields = OrderedDict([
 
 
-		("fBaseMapFactor__uiColor", "float4"),
-		("fEmissiveMapFactor__uiColor", "float3"),
-		("fMetalic__uiUNorm", "float"),
-		("fRoughness__uiUNorm", "float"),
-		("fSpecular__uiUNorm", "float"),
-		("fSubSurfaceBlend__uiUNorm", "float"),
-		("iSubSurfaceProfile", "uint"),
-		("fTranslucency__uiUNorm", "float"),
-		("bBaseColorEmissive", "bbool"),
-		("fPaintUVTile", "float2"),
-		("fAddNormalBlend__uiUNorm", "float"),
-
-		("align0", "ubyte[12]"),
-		("fAddNormalMaskA__uiSNorm", "float4"),
-		("fAddNormalMaskB__uiSNorm", "float4"),
-		("fAddNormalMaskC__uiUNorm", "float"),
-		("fAddNormalMaskD__uiUNorm", "float"),
-		("bBackFaceShading", "bbool"),
-		("bBackFaceNormalFilp", "bbool"),
-		("fKizuColor__uiColor", "float3"),
-
-		("align1", "ubyte[4]"),
-		("fKizuUVOffset__uiUNorm", "float2"),
-		("fKizuMultiply", "float"),
-		("bLegendary", "bbool"),
-		("fLegendColor__uiColor", "float4"),
-		("fLegendMetalMask__uiUNorm", "float2"),
-		("fLegendRoughness", "float"),
-
-		("align2", "ubyte[4]"),
-		("fLegendFilm__uiUNorm", "float3"),
-		("fLegendSSSMask__uiUNorm", "float"),
-		("fLegendHSV__uiSNorm", "float3"),
-		("fLegendFilmIOR__uiUNorm", "float"),
-		("fPartsMaskA__uiUNorm", "float"),
-		("fPartsMaskB__uiUNorm", "float"),
-		("fPartsMaskC__uiUNorm", "float"),
-		("fPartsMaskD__uiUNorm", "float"),
-		("fPartsMaskX__uiUNorm", "float"),
-		("fPartsMaskY__uiUNorm", "float"),
-		("fPartsMaskZ__uiUNorm", "float"),
-		("fPartsMaskW__uiUNorm", "float"),
-		("bUseOffset", "bbool"),
-		("fOffsetScale", "float"),
-		("bTranslucentOffset", "bbool"),
-		("bAntiSSSEmit", "bbool"),
-		("fFlowDirDir__uiDirection", "float3"),
-
-		("align3", "ubyte[4]"),
-		("fFlowControl__uiUNorm", "float4"),
-		("fFlowTile", "float"),
-
-		("align4", "ubyte[12]"),
-		("fFlowColor__uiColor", "float4"),
-		("fFlowMatControl__uiUNorm", "float4"),
-		("fMaskBlend__uiUNorm", "float4"),
-		("fMaskBlend_A__uiUNorm", "float2"),
-		("fMaskBlend_B__uiUNorm", "float2"),
-		("fFilmThickness__uiUNorm", "float"),
-		("fFilmBlend__uiUNorm", "float"),
-		("fFilmIOR__uiUNorm", "float"),
-		("fRefraction__uiUNorm", "float"),
-		("fRefractionBlend__uiUNorm", "float"),
-		("bUseBlendDisplace", "bbool"),
-		("fVAnimV__uiUNorm", "float"),
-		("fVAnimPosScale", "float"),
-		("bInvertX", "bbool"),
-		("fAnimEmitMin", "float"),
-		("fAnimEmitSpeed", "float"),
-		("bUseWaveEmit", "bbool"),
-		("fAnimEmitWave", "float"),
-		("fRimAlphaPower__uiSNorm", "float"),
-		("fRimTranslucency__uiUNorm", "float"),
-		("fRimNormal__uiUNorm", "float"),
-		("bUseFullNormal", "bbool"),
-		("fSnowUVTile", "float"),
-
-		("align5", "ubyte[8]"),
-		("fSnowBlendColor__uiColor", "float4"),
-		("fSnowMatControl__uiUNorm", "float4"),
-		("fMaterialSnowBlendB", "float"),
-
-		("align6", "ubyte[12]"),
-		("fSnowControl", "float4"),
+		("fBloomFilterRegion", "float4"),
 
 	])
 
@@ -8625,313 +8439,300 @@ class CBPrimitiveMetaDataOcclusion(EPyCStruct):
 
 	])
 shaderListing = 	{"CBSnowFieldBake":CBSnowFieldBake,
-"CBUpdateBufferFromMesh":CBUpdateBufferFromMesh,
-"CBMhMaterialUberLocal__disclosure":CBMhMaterialUberLocal__disclosure,
-"CBSystemSnow":CBSystemSnow,
-"CBMhSky2SimpleGBuffer":CBMhSky2SimpleGBuffer,
-"CBWaterMaterial":CBWaterMaterial,
-"CBMhMaterialVfxTornadoLocal__disclosure":CBMhMaterialVfxTornadoLocal__disclosure,
-"CBMhMaterialIvyFloorLocal__disclosure":CBMhMaterialIvyFloorLocal__disclosure,
-"CBMhMaterialEM057Local__disclosure":CBMhMaterialEM057Local__disclosure,
-"CBDevelopColorPick":CBDevelopColorPick,
-"CBPrimGpuSystem":CBPrimGpuSystem,
-"CBRadialBlurFunction":CBRadialBlurFunction,
-"CBFilter2":CBFilter2,
-"CBMhMaterialVfxWaveLocal__disclosure":CBMhMaterialVfxWaveLocal__disclosure,
-"CBMhMaterialNPCHairLocal__disclosure":CBMhMaterialNPCHairLocal__disclosure,
-"CBGUIGBuffer":CBGUIGBuffer,
-"CBMhSkyPS":CBMhSkyPS,
-"CBGUIDevelop":CBGUIDevelop,
-"CBCubeBlend":CBCubeBlend,
-"CBCreateMipmap":CBCreateMipmap,
-"CBMhMaterialEMLocal__disclosure":CBMhMaterialEMLocal__disclosure,
-"CBMaterialCommon__disclosure":CBMaterialCommon__disclosure,
-"CBGlobalIllumination":CBGlobalIllumination,
-"CBMhMaterialEM117Local__disclosure":CBMhMaterialEM117Local__disclosure,
-"CBMhMaterialTMG001Local__disclosure":CBMhMaterialTMG001Local__disclosure,
-"CBMhMaterialSKM001Local__disclosure":CBMhMaterialSKM001Local__disclosure,
-"CBSpeedTreePrimitiveInfo":CBSpeedTreePrimitiveInfo,
-"CBMhMaterialEM100Local__disclosure":CBMhMaterialEM100Local__disclosure,
-"CBOutline":CBOutline,
-"SeaDisplacement":SeaDisplacement,
-"CBBitonicSort":CBBitonicSort,
-"CBDevelopFlags":CBDevelopFlags,
-"CBMhMaterialVfxWaterLocal__disclosure":CBMhMaterialVfxWaterLocal__disclosure,
-"cbHDAO":cbHDAO,
-"CBPartialColor":CBPartialColor,
-"CBSystemGamma":CBSystemGamma,
-"CBVRCompute":CBVRCompute,
-"CBSSSSS_Profile":CBSSSSS_Profile,
-"CBMhMaterialSlantFloorLocal__disclosure":CBMhMaterialSlantFloorLocal__disclosure,
-"CBConstant":CBConstant,
-"CBViewProjection":CBViewProjection,
-"CBMhMaterialFlowDirLocal__disclosure":CBMhMaterialFlowDirLocal__disclosure,
-"CBLGTPRBDebug":CBLGTPRBDebug,
-"CBVRCommon":CBVRCommon,
-"CB_CombinedFilter_ImagePlane":CB_CombinedFilter_ImagePlane,
-"pix_clear_constants":pix_clear_constants,
-"CBPrimSystem":CBPrimSystem,
-"CBMhMaterialEM080_01Local__disclosure":CBMhMaterialEM080_01Local__disclosure,
-"CBLuminance":CBLuminance,
-"CBMhMaterialSpeedTreeStdFurLocal__disclosure":CBMhMaterialSpeedTreeStdFurLocal__disclosure,
-"CBMhMaterialPLEditFaceLocal__disclosure":CBMhMaterialPLEditFaceLocal__disclosure,
-"CBMhMaterialNPCEditFaceLocal__disclosure":CBMhMaterialNPCEditFaceLocal__disclosure,
-"CBMhMaterialStdLocal__disclosure":CBMhMaterialStdLocal__disclosure,
-"CBGaussian":CBGaussian,
-"CBTest":CBTest,
-"CBTSAO":CBTSAO,
-"CBMhMaterialNPCFaceLocal__disclosure":CBMhMaterialNPCFaceLocal__disclosure,
-"CBGodRaysConfiguration":CBGodRaysConfiguration,
-"CBMhSky2SimpleVS":CBMhSky2SimpleVS,
-"CBNormalMerge":CBNormalMerge,
-"CBMhMaterialEC021Local__disclosure":CBMhMaterialEC021Local__disclosure,
-"CBVRGaussian":CBVRGaussian,
-"CBInstancing":CBInstancing,
-"CBSnowHeightPick":CBSnowHeightPick,
-"CBColorCorrectToneCurve":CBColorCorrectToneCurve,
-"CBShapeMesh":CBShapeMesh,
-"CB_DL":CB_DL,
-"CBMhMaterialLandscapeFlowLocal__disclosure":CBMhMaterialLandscapeFlowLocal__disclosure,
-"CBAmbientOccluder":CBAmbientOccluder,
-"CBSnowField2Material":CBSnowField2Material,
-"CBToneMappingSdrSim":CBToneMappingSdrSim,
-"CBMhMaterialSpeedTreeStdBlendLocal__disclosure":CBMhMaterialSpeedTreeStdBlendLocal__disclosure,
-"CBSSSSS":CBSSSSS,
-"CBRenderFrame":CBRenderFrame,
-"CBMhMaterialFakeEyeLocal__disclosure":CBMhMaterialFakeEyeLocal__disclosure,
-"CBSystem":CBSystem,
-"CBModelChain":CBModelChain,
-"CBPick":CBPick,
-"CBSky":CBSky,
-"CBSnowField2Debug":CBSnowField2Debug,
-"CB_TemporalAA2":CB_TemporalAA2,
-"CBLUTMaking":CBLUTMaking,
-"CBMhEmissiveFog__disclosure":CBMhEmissiveFog__disclosure,
-"CBNormalRecalc":CBNormalRecalc,
-"CBConstantHaltonSequence":CBConstantHaltonSequence,
-"CBSpeedTreeLocalWindPF":CBSpeedTreeLocalWindPF,
-"CBSpeedTreeLocalWindPF_SpeedTreeLocalWind":CBSpeedTreeLocalWindPF_SpeedTreeLocalWind,
-"CBMhMaterialFakeLensLocal__disclosure":CBMhMaterialFakeLensLocal__disclosure,
-"CBPrimGpuOcclusionVoxelSystem":CBPrimGpuOcclusionVoxelSystem,
-"CBMhMaterialVfxWave":CBMhMaterialVfxWave,
-"CBTestLight":CBTestLight,
-"CBMhMaterialFurnitureLocal__disclosure":CBMhMaterialFurnitureLocal__disclosure,
-"CBSnowFall":CBSnowFall,
-"CBSSLR":CBSSLR,
-"CBGUIIcon":CBGUIIcon,
-"CBSnowFieldGeometry":CBSnowFieldGeometry,
-"CBResample":CBResample,
-"CBMhMaterialPLLocal__disclosure":CBMhMaterialPLLocal__disclosure,
-"CBMhMaterial_EM105_EVCLocal__disclosure":CBMhMaterial_EM105_EVCLocal__disclosure,
-"CBSnowField4Geometry":CBSnowField4Geometry,
-"CBMhMaterialTestLocal__disclosure":CBMhMaterialTestLocal__disclosure,
-"CBMhDecal":CBMhDecal,
-"CBViewFrustum":CBViewFrustum,
-"CBFog":CBFog,
-"CBMhMaterialEM124Local__disclosure":CBMhMaterialEM124Local__disclosure,
-"CBVRRecompute":CBVRRecompute,
-"CBLuminanceDebugDisp":CBLuminanceDebugDisp,
-"CBLGTPRBGen":CBLGTPRBGen,
-"CBMhMaterialStdBlendLocal__disclosure":CBMhMaterialStdBlendLocal__disclosure,
-"CBBokehAutoFocus":CBBokehAutoFocus,
-"CBMotionBlur":CBMotionBlur,
-"CBMhMaterialEM103Local__disclosure":CBMhMaterialEM103Local__disclosure,
-"CBBloomSettings":CBBloomSettings,
-"CBLightProbes":CBLightProbes,
-"CBSpeedTreeGlobalWind":CBSpeedTreeGlobalWind,
-"CBSpeedTreeGlobalWind_SpeedTreeGlobalWind":CBSpeedTreeGlobalWind_SpeedTreeGlobalWind,
-"CBMhMaterialLandscapeLocal__disclosure":CBMhMaterialLandscapeLocal__disclosure,
-"CBMaterialDebug":CBMaterialDebug,
-"CBPickObject":CBPickObject,
-"CBHermiteCurveRGB":CBHermiteCurveRGB,
-"CBMhSkyVS":CBMhSkyVS,
-"CBMhMaterialIridescentBlendLocal__disclosure":CBMhMaterialIridescentBlendLocal__disclosure,
-"CBMhMaterialEM002Local__disclosure":CBMhMaterialEM002Local__disclosure,
-"CBMhMaterialEM080Local__disclosure":CBMhMaterialEM080Local__disclosure,
-"CBCapsuleAO":CBCapsuleAO,
-"CBMhMaterialFakeInnerEmitLocal__disclosure":CBMhMaterialFakeInnerEmitLocal__disclosure,
-"CBImagePlane2":CBImagePlane2,
-"CBMhMaterialNikuLocal__disclosure":CBMhMaterialNikuLocal__disclosure,
-"CBMhMaterialVfxDispWaveLocal__disclosure":CBMhMaterialVfxDispWaveLocal__disclosure,
-"CBSpeedTree":CBSpeedTree,
-"CBMhMaterialVfxFloodLocal__disclosure":CBMhMaterialVfxFloodLocal__disclosure,
-"CBPrimitiveDebug":CBPrimitiveDebug,
-"CBSystemColor":CBSystemColor,
-"CBAmbientOcclusion":CBAmbientOcclusion,
-"CBMhMaterialSlantFloor":CBMhMaterialSlantFloor,
-"CBMhMaterialScrIceBlendNoFurLocal__disclosure":CBMhMaterialScrIceBlendNoFurLocal__disclosure,
-"CBMhMaterialFlowLavaLocal__disclosure":CBMhMaterialFlowLavaLocal__disclosure,
-"CBMhMaterialSpeedTreeStdLocal__disclosure":CBMhMaterialSpeedTreeStdLocal__disclosure,
-"CBWaterModel":CBWaterModel,
-"CBLightParameters":CBLightParameters,
-"CBLightParameters_LightParameter":CBLightParameters_LightParameter,
-"CB_TemporalAA":CB_TemporalAA,
-"CB_PlantOnSurface":CB_PlantOnSurface,
-"CBImagePlane":CBImagePlane,
-"CBMhMaterialEM125Local__disclosure":CBMhMaterialEM125Local__disclosure,
-"CBPrimitiveEx":CBPrimitiveEx,
-"cbHBAO":cbHBAO,
-"CBMhMaterialNPCEyeLocal__disclosure":CBMhMaterialNPCEyeLocal__disclosure,
-"CBMhMaterialFlagWaveLocal__disclosure":CBMhMaterialFlagWaveLocal__disclosure,
-"CBMhMaterialVfxDebufBodyLocal__disclosure":CBMhMaterialVfxDebufBodyLocal__disclosure,
-"CBContactShadowInfo":CBContactShadowInfo,
-"CBSnowShoveler":CBSnowShoveler,
-"CBLUTBlending":CBLUTBlending,
-"CBPrimitive":CBPrimitive,
-"CBErrorUnit":CBErrorUnit,
-"CBMhMaterialSpeedTreeStdIceLocal__disclosure":CBMhMaterialSpeedTreeStdIceLocal__disclosure,
-"CBSnowFieldMaterial":CBSnowFieldMaterial,
-"CBWaterWaveMaterial":CBWaterWaveMaterial,
-"CBSnowPreProcess":CBSnowPreProcess,
-"CBMhMaterialFlagWaveBlendLocal__disclosure":CBMhMaterialFlagWaveBlendLocal__disclosure,
-"CBMhMaterialScrIceLocal__disclosure":CBMhMaterialScrIceLocal__disclosure,
-"CBScreen":CBScreen,
-"CBDecalCommon":CBDecalCommon,
-"CBMhMaterialVfxIceLocal__disclosure":CBMhMaterialVfxIceLocal__disclosure,
-"CBDebug":CBDebug,
-"CBMhMaterialArrayLocal__disclosure":CBMhMaterialArrayLocal__disclosure,
-"CBColorCorrectCube":CBColorCorrectCube,
-"CBMhDecalSM":CBMhDecalSM,
-"CBWaterPick":CBWaterPick,
-"CBMhMaterialEM115Local__disclosure":CBMhMaterialEM115Local__disclosure,
-"CBHeightToNormal":CBHeightToNormal,
-"CBMhMaterialPLHairLocal__disclosure":CBMhMaterialPLHairLocal__disclosure,
-"CBSpeedTreeGlobalWindPF":CBSpeedTreeGlobalWindPF,
-"CBSpeedTreeGlobalWindPF_SpeedTreeGlobalWind":CBSpeedTreeGlobalWindPF_SpeedTreeGlobalWind,
-"CBVRVolumeParams":CBVRVolumeParams,
-"CBVRVolumeParams_VolumeParam":CBVRVolumeParams_VolumeParam,
-"CBVRVolumeParams_Constant":CBVRVolumeParams_Constant,
-"CBVRVolumeParams_Cuboid":CBVRVolumeParams_Cuboid,
-"CBVRVolumeParams_Spherical":CBVRVolumeParams_Spherical,
-"CBVRVolumeParams_Spotlight":CBVRVolumeParams_Spotlight,
-"CB_BGTexture":CB_BGTexture,
-"CBHermiteCurve":CBHermiteCurve,
-"CBMhMaterialScrWaterLocal__disclosure":CBMhMaterialScrWaterLocal__disclosure,
-"CBTubeLight":CBTubeLight,
-"CBModel":CBModel,
-"CBPrimBufferDescription":CBPrimBufferDescription,
-"CBMhMaterialSZK001Local__disclosure":CBMhMaterialSZK001Local__disclosure,
-"CBGUIDistanceField":CBGUIDistanceField,
-"CBMhSky2SimplePS":CBMhSky2SimplePS,
-"CBWorkaround":CBWorkaround,
-"CBLight":CBLight,
-"CBImageEvaluator":CBImageEvaluator,
-"CBMhMaterialGlobal":CBMhMaterialGlobal,
-"CBMhMaterialScrIceBlendLocal__disclosure":CBMhMaterialScrIceBlendLocal__disclosure,
-"CBMhMaterialFurLocal__disclosure":CBMhMaterialFurLocal__disclosure,
-"CBMhMaterialNPCLocal__disclosure":CBMhMaterialNPCLocal__disclosure,
-"CBTexturePosScaleFactor":CBTexturePosScaleFactor,
-"CBNewDOFFilter":CBNewDOFFilter,
-"CBMhSkyLpPS":CBMhSkyLpPS,
-"CBMhMaterialEM024Local__disclosure":CBMhMaterialEM024Local__disclosure,
-"CBMhMaterialEM063Local__disclosure":CBMhMaterialEM063Local__disclosure,
-"CBMhMaterialEM011Local__disclosure":CBMhMaterialEM011Local__disclosure,
-"CBCSClear":CBCSClear,
-"CBStarrySky":CBStarrySky,
-"CBROPTest":CBROPTest,
-"CBMhMaterialSimpleLocal__disclosure":CBMhMaterialSimpleLocal__disclosure,
-"CBRadialBlurFilter":CBRadialBlurFilter,
-"CBMhMaterialNPCSkinLocal__disclosure":CBMhMaterialNPCSkinLocal__disclosure,
-"CBMhSky2GBuffer":CBMhSky2GBuffer,
-"CBHazeFilter":CBHazeFilter,
-"CBDOFFilter":CBDOFFilter,
-"CBGodRaysFilter":CBGodRaysFilter,
-"CBMhMaterialIvyFloor":CBMhMaterialIvyFloor,
-"CBVRFilter":CBVRFilter,
-"CBFilter":CBFilter,
-"CBMhMaterialStdBlendNoFurLocal__disclosure":CBMhMaterialStdBlendNoFurLocal__disclosure,
-"CBMhMaterialPLEyeLocal__disclosure":CBMhMaterialPLEyeLocal__disclosure,
-"CBMhMaterialEM105Local__disclosure":CBMhMaterialEM105Local__disclosure,
-"CBMhSkyGBuffer":CBMhSkyGBuffer,
-"CB_CombinedFilter_ColorCorrect":CB_CombinedFilter_ColorCorrect,
-"CBLightShaft":CBLightShaft,
-"CBWaterCustomLight":CBWaterCustomLight,
-"CBMhMaterialSpeedTreeStdSnowLocal__disclosure":CBMhMaterialSpeedTreeStdSnowLocal__disclosure,
-"CBSparkleParam":CBSparkleParam,
-"CBWaterCustom":CBWaterCustom,
-"CBMhMaterialEM036Local__disclosure":CBMhMaterialEM036Local__disclosure,
-"CBUpdateBufferFromMeshConditions":CBUpdateBufferFromMeshConditions,
-"CBBloom":CBBloom,
-"CBMhMaterialBurnLocal__disclosure":CBMhMaterialBurnLocal__disclosure,
-"CBPrimCopyState":CBPrimCopyState,
-"CBToneMapping":CBToneMapping,
-"CBMhMaterialVfxVATDistLocal__disclosure":CBMhMaterialVfxVATDistLocal__disclosure,
-"CBMhMaterialEM106Local__disclosure":CBMhMaterialEM106Local__disclosure,
-"CBMhMaterialVfxFakeInnerLocal__disclosure":CBMhMaterialVfxFakeInnerLocal__disclosure,
-"CBComputeSkinning":CBComputeSkinning,
-"CBBokehComposite":CBBokehComposite,
-"CBWaterWave":CBWaterWave,
-"CBSnowField3Geometry":CBSnowField3Geometry,
-"CBDecal":CBDecal,
-"CBMhMaterialBTK001Local__disclosure":CBMhMaterialBTK001Local__disclosure,
-"CBCAS":CBCAS,
-"CBMhMaterialEM032Local__disclosure":CBMhMaterialEM032Local__disclosure,
-"CBMhMaterialEMGlobal":CBMhMaterialEMGlobal,
-"CBVR_Debug":CBVR_Debug,
-"CBMhSky2PS":CBMhSky2PS,
-"CBMhMaterialPLSkinLocal__disclosure":CBMhMaterialPLSkinLocal__disclosure,
-"CBVignetting":CBVignetting,
-"CBMhMaterialEM102Local__disclosure":CBMhMaterialEM102Local__disclosure,
-"CBMhMaterialEM111Local__disclosure":CBMhMaterialEM111Local__disclosure,
-"CBAtmosphere":CBAtmosphere,
-"CBSHDiffuse":CBSHDiffuse,
-"CBWaterDebug":CBWaterDebug,
-"CBBlink":CBBlink,
-"CBMhMaterialEM118Local__disclosure":CBMhMaterialEM118Local__disclosure,
-"CBUpdateBufferFromMeshConditions2":CBUpdateBufferFromMeshConditions2,
-"CBSnowFieldPreDepth":CBSnowFieldPreDepth,
-"CBMhMaterialVfxSandFallLocal__disclosure":CBMhMaterialVfxSandFallLocal__disclosure,
-"CBMhMaterialEMSLocal__disclosure":CBMhMaterialEMSLocal__disclosure,
-"CBCubeCopy":CBCubeCopy,
-"CBGUIGlobal":CBGUIGlobal,
-"CBWater":CBWater,
-"CBMhMaterialEM100_01Local__disclosure":CBMhMaterialEM100_01Local__disclosure,
-"CBPrimitivePick":CBPrimitivePick,
-"CBMhMaterialFakeRefractionLocal__disclosure":CBMhMaterialFakeRefractionLocal__disclosure,
-"CBColorCorrect":CBColorCorrect,
-"CBMhMaterialDynamicSnow__disclosure":CBMhMaterialDynamicSnow__disclosure,
-"CBCapsuleAOGeomParam":CBCapsuleAOGeomParam,
-"CBCapsuleAOGeomParam_AOGeometryParam":CBCapsuleAOGeomParam_AOGeometryParam,
-"CBMotionBlurReconion":CBMotionBlurReconion,
-"CBBokehCOCSettings":CBBokehCOCSettings,
-"CBMhMaterialVfxDistDispLocal__disclosure":CBMhMaterialVfxDistDispLocal__disclosure,
-"CBFXAAParam":CBFXAAParam,
-"CBGUINoiseAndFade":CBGUINoiseAndFade,
-"CBMhSky2VS":CBMhSky2VS,
-"CBMaterialSnow__disclosure":CBMaterialSnow__disclosure,
-"CBSpeedTreeLocalWind":CBSpeedTreeLocalWind,
-"CBSpeedTreeLocalWind_SpeedTreeLocalWind":CBSpeedTreeLocalWind_SpeedTreeLocalWind,
-"CB_CombinedFilter":CB_CombinedFilter,
-"CBBloomSample":CBBloomSample,
-"CBMhMaterialUberIceLocal__disclosure":CBMhMaterialUberIceLocal__disclosure,
-"CBNewDOFFilter2":CBNewDOFFilter2,
-"CBSpeedTreeSystem":CBSpeedTreeSystem,
-"CBLayoutCache":CBLayoutCache,
-"CBMhMaterialVfxAuroraLocal__disclosure":CBMhMaterialVfxAuroraLocal__disclosure,
-"CBMhMaterialFakeSphereLocal__disclosure":CBMhMaterialFakeSphereLocal__disclosure,
-"CBMhMaterialEM044Local__disclosure":CBMhMaterialEM044Local__disclosure,
-"CBMhSky2Sun":CBMhSky2Sun,
-"CBSpeedTreeCollision__disclosure":CBSpeedTreeCollision__disclosure,
-"CBUpdateBufferFromMeshData":CBUpdateBufferFromMeshData,
-"CBDepthColor":CBDepthColor,
-"CBLightShaft_LightParam":CBLightShaft_LightParam,
-"CBMhMaterialEM109Local__disclosure":CBMhMaterialEM109Local__disclosure,
-"CBMhMaterialSpeedTreeStdBlendSnowLocal__disclosure":CBMhMaterialSpeedTreeStdBlendSnowLocal__disclosure,
-"CBGodRaysIterator":CBGodRaysIterator,
-"CBMhMaterialVfxDistDispWLocal__disclosure":CBMhMaterialVfxDistDispWLocal__disclosure,
-"CBMhMaterialOZK001Local__disclosure":CBMhMaterialOZK001Local__disclosure,
-"CBPrimitiveMetaDataOcclusion":CBPrimitiveMetaDataOcclusion,}
+    "CBUpdateBufferFromMesh":CBUpdateBufferFromMesh,
+    "CBMhMaterialUberLocal__disclosure":CBMhMaterialUberLocal__disclosure,
+    "CBSystemSnow":CBSystemSnow,
+    "CBMhSky2SimpleGBuffer":CBMhSky2SimpleGBuffer,
+    "CBWaterMaterial":CBWaterMaterial,
+    "CBMhMaterialVfxTornadoLocal__disclosure":CBMhMaterialVfxTornadoLocal__disclosure,
+    "CBMhMaterialIvyFloorLocal__disclosure":CBMhMaterialIvyFloorLocal__disclosure,
+    "CBMhMaterialEM057Local__disclosure":CBMhMaterialEM057Local__disclosure,
+    "CBDevelopColorPick":CBDevelopColorPick,
+    "CBPrimGpuSystem":CBPrimGpuSystem,
+    "CBRadialBlurFunction":CBRadialBlurFunction,
+    "CBFilter2":CBFilter2,
+    "CBMhMaterialVfxWaveLocal__disclosure":CBMhMaterialVfxWaveLocal__disclosure,
+    "CBMhMaterialNPCHairLocal__disclosure":CBMhMaterialNPCHairLocal__disclosure,
+    "CBGUIGBuffer":CBGUIGBuffer,
+    "CBMhSkyPS":CBMhSkyPS,
+    "CBAtmosphere":CBAtmosphere,
+    "CBCubeBlend":CBCubeBlend,
+    "CBCreateMipmap":CBCreateMipmap,
+    "CBMhMaterialEMLocal__disclosure":CBMhMaterialEMLocal__disclosure,
+    "CBMaterialCommon__disclosure":CBMaterialCommon__disclosure,
+    "CBGlobalIllumination":CBGlobalIllumination,
+    "CBMhMaterialEM117Local__disclosure":CBMhMaterialEM117Local__disclosure,
+    "CBMhMaterialSKM001Local__disclosure":CBMhMaterialSKM001Local__disclosure,
+    "CBSpeedTreePrimitiveInfo":CBSpeedTreePrimitiveInfo,
+    "CBMhMaterialEM100Local__disclosure":CBMhMaterialEM100Local__disclosure,
+    "CBOutline":CBOutline,
+    "SeaDisplacement":SeaDisplacement,
+    "CBBitonicSort":CBBitonicSort,
+    "CBStarrySky":CBStarrySky,
+    "CBMhMaterialVfxWaterLocal__disclosure":CBMhMaterialVfxWaterLocal__disclosure,
+    "cbHDAO":cbHDAO,
+    "CBPartialColor":CBPartialColor,
+    "CBSystemGamma":CBSystemGamma,
+    "CBVRCompute":CBVRCompute,
+    "CBSSSSS_Profile":CBSSSSS_Profile,
+    "CBMhMaterialSlantFloorLocal__disclosure":CBMhMaterialSlantFloorLocal__disclosure,
+    "CBConstant":CBConstant,
+    "CBViewProjection":CBViewProjection,
+    "CBMhMaterialFlowDirLocal__disclosure":CBMhMaterialFlowDirLocal__disclosure,
+    "CBLGTPRBDebug":CBLGTPRBDebug,
+    "CBVRCommon":CBVRCommon,
+    "CB_CombinedFilter_ImagePlane":CB_CombinedFilter_ImagePlane,
+    "pix_clear_constants":pix_clear_constants,
+    "CBGaussian":CBGaussian,
+    "CBMhMaterialEM080_01Local__disclosure":CBMhMaterialEM080_01Local__disclosure,
+    "CBLuminance":CBLuminance,
+    "CBMhMaterialSpeedTreeStdFurLocal__disclosure":CBMhMaterialSpeedTreeStdFurLocal__disclosure,
+    "CBMhMaterialPLEditFaceLocal__disclosure":CBMhMaterialPLEditFaceLocal__disclosure,
+    "CBMhMaterialNPCEditFaceLocal__disclosure":CBMhMaterialNPCEditFaceLocal__disclosure,
+    "CBMhMaterialStdLocal__disclosure":CBMhMaterialStdLocal__disclosure,
+    "CBPrimSystem":CBPrimSystem,
+    "CBTest":CBTest,
+    "CBTSAO":CBTSAO,
+    "CBMhMaterialNPCFaceLocal__disclosure":CBMhMaterialNPCFaceLocal__disclosure,
+    "CBGodRaysConfiguration":CBGodRaysConfiguration,
+    "CBMhSky2SimpleVS":CBMhSky2SimpleVS,
+    "CBNormalMerge":CBNormalMerge,
+    "CBMhMaterialEC021Local__disclosure":CBMhMaterialEC021Local__disclosure,
+    "CBVRGaussian":CBVRGaussian,
+    "CBInstancing":CBInstancing,
+    "CBSnowHeightPick":CBSnowHeightPick,
+    "CBColorCorrectToneCurve":CBColorCorrectToneCurve,
+    "CBShapeMesh":CBShapeMesh,
+    "CB_DL":CB_DL,
+    "CBMhMaterialLandscapeFlowLocal__disclosure":CBMhMaterialLandscapeFlowLocal__disclosure,
+    "CBAmbientOccluder":CBAmbientOccluder,
+    "CBSnowField2Material":CBSnowField2Material,
+    "CBToneMappingSdrSim":CBToneMappingSdrSim,
+    "CBMhMaterialSpeedTreeStdBlendLocal__disclosure":CBMhMaterialSpeedTreeStdBlendLocal__disclosure,
+    "CBSSSSS":CBSSSSS,
+    "CBRenderFrame":CBRenderFrame,
+    "CBMhMaterialFakeEyeLocal__disclosure":CBMhMaterialFakeEyeLocal__disclosure,
+    "CBSystem":CBSystem,
+    "CBModelChain":CBModelChain,
+    "CBPick":CBPick,
+    "CBSky":CBSky,
+    "CBSnowField2Debug":CBSnowField2Debug,
+    "CB_TemporalAA2":CB_TemporalAA2,
+    "CBLUTMaking":CBLUTMaking,
+    "CBMhEmissiveFog__disclosure":CBMhEmissiveFog__disclosure,
+    "CBNormalRecalc":CBNormalRecalc,
+    "CBConstantHaltonSequence":CBConstantHaltonSequence,
+    "CBSpeedTreeLocalWindPF":CBSpeedTreeLocalWindPF,
+    "CBSpeedTreeLocalWindPF_SpeedTreeLocalWind":CBSpeedTreeLocalWindPF_SpeedTreeLocalWind,
+    "CBMhMaterialFakeLensLocal__disclosure":CBMhMaterialFakeLensLocal__disclosure,
+    "CBPrimGpuOcclusionVoxelSystem":CBPrimGpuOcclusionVoxelSystem,
+    "CBMhMaterialVfxWave":CBMhMaterialVfxWave,
+    "CBTestLight":CBTestLight,
+    "CBMhMaterialFurnitureLocal__disclosure":CBMhMaterialFurnitureLocal__disclosure,
+    "CBSnowFall":CBSnowFall,
+    "CBSSLR":CBSSLR,
+    "CBGUIIcon":CBGUIIcon,
+    "CBSnowFieldGeometry":CBSnowFieldGeometry,
+    "CBResample":CBResample,
+    "CBGUIDevelop":CBGUIDevelop,
+    "CBSnowField4Geometry":CBSnowField4Geometry,
+    "CBMhMaterialTestLocal__disclosure":CBMhMaterialTestLocal__disclosure,
+    "CBMhDecal":CBMhDecal,
+    "CBViewFrustum":CBViewFrustum,
+    "CBFog":CBFog,
+    "CBMhMaterialEM124Local__disclosure":CBMhMaterialEM124Local__disclosure,
+    "CBVRRecompute":CBVRRecompute,
+    "CBLuminanceDebugDisp":CBLuminanceDebugDisp,
+    "CBLGTPRBGen":CBLGTPRBGen,
+    "CBMhMaterialStdBlendLocal__disclosure":CBMhMaterialStdBlendLocal__disclosure,
+    "CBBokehAutoFocus":CBBokehAutoFocus,
+    "CBMotionBlur":CBMotionBlur,
+    "CBMhMaterialEM103Local__disclosure":CBMhMaterialEM103Local__disclosure,
+    "CBBloomSettings":CBBloomSettings,
+    "CBLightProbes":CBLightProbes,
+    "CBSpeedTreeGlobalWind":CBSpeedTreeGlobalWind,
+    "CBSpeedTreeGlobalWind_SpeedTreeGlobalWind":CBSpeedTreeGlobalWind_SpeedTreeGlobalWind,
+    "CBMhMaterialLandscapeLocal__disclosure":CBMhMaterialLandscapeLocal__disclosure,
+    "CBPickObject":CBPickObject,
+    "CBHermiteCurveRGB":CBHermiteCurveRGB,
+    "CBMhSkyVS":CBMhSkyVS,
+    "CBMhMaterialIridescentBlendLocal__disclosure":CBMhMaterialIridescentBlendLocal__disclosure,
+    "CBMhMaterialEM002Local__disclosure":CBMhMaterialEM002Local__disclosure,
+    "CBMhMaterialEM080Local__disclosure":CBMhMaterialEM080Local__disclosure,
+    "CBCapsuleAO":CBCapsuleAO,
+    "CBMhMaterialFakeInnerEmitLocal__disclosure":CBMhMaterialFakeInnerEmitLocal__disclosure,
+    "CBImagePlane2":CBImagePlane2,
+    "CBMhMaterialNikuLocal__disclosure":CBMhMaterialNikuLocal__disclosure,
+    "CBMhMaterialVfxDispWaveLocal__disclosure":CBMhMaterialVfxDispWaveLocal__disclosure,
+    "CBSpeedTree":CBSpeedTree,
+    "CBWaterPick":CBWaterPick,
+    "CBPrimitiveDebug":CBPrimitiveDebug,
+    "CBSystemColor":CBSystemColor,
+    "CBAmbientOcclusion":CBAmbientOcclusion,
+    "CBMhMaterialSlantFloor":CBMhMaterialSlantFloor,
+    "CBMhMaterialScrIceBlendNoFurLocal__disclosure":CBMhMaterialScrIceBlendNoFurLocal__disclosure,
+    "CBMhMaterialFlowLavaLocal__disclosure":CBMhMaterialFlowLavaLocal__disclosure,
+    "CBMhMaterialSpeedTreeStdLocal__disclosure":CBMhMaterialSpeedTreeStdLocal__disclosure,
+    "CBWaterModel":CBWaterModel,
+    "CBLightParameters":CBLightParameters,
+    "CBLightParameters_LightParameter":CBLightParameters_LightParameter,
+    "CB_TemporalAA":CB_TemporalAA,
+    "CB_PlantOnSurface":CB_PlantOnSurface,
+    "CBImagePlane":CBImagePlane,
+    "CBMhMaterialEM125Local__disclosure":CBMhMaterialEM125Local__disclosure,
+    "CBPrimitiveEx":CBPrimitiveEx,
+    "cbHBAO":cbHBAO,
+    "CBMhMaterialNPCEyeLocal__disclosure":CBMhMaterialNPCEyeLocal__disclosure,
+    "CBMhMaterialFlagWaveLocal__disclosure":CBMhMaterialFlagWaveLocal__disclosure,
+    "CBMhMaterialVfxDebufBodyLocal__disclosure":CBMhMaterialVfxDebufBodyLocal__disclosure,
+    "CBContactShadowInfo":CBContactShadowInfo,
+    "CBSnowShoveler":CBSnowShoveler,
+    "CBLUTBlending":CBLUTBlending,
+    "CBPrimitive":CBPrimitive,
+    "CBErrorUnit":CBErrorUnit,
+    "CBMhMaterialSpeedTreeStdIceLocal__disclosure":CBMhMaterialSpeedTreeStdIceLocal__disclosure,
+    "CBSnowFieldMaterial":CBSnowFieldMaterial,
+    "CBWaterWaveMaterial":CBWaterWaveMaterial,
+    "CBSnowPreProcess":CBSnowPreProcess,
+    "CBMhMaterialFlagWaveBlendLocal__disclosure":CBMhMaterialFlagWaveBlendLocal__disclosure,
+    "CBMhMaterialScrIceLocal__disclosure":CBMhMaterialScrIceLocal__disclosure,
+    "CBVRVolumeParams":CBVRVolumeParams,
+    "CBVRVolumeParams_VolumeParam":CBVRVolumeParams_VolumeParam,
+    "CBVRVolumeParams_Constant":CBVRVolumeParams_Constant,
+    "CBVRVolumeParams_Cuboid":CBVRVolumeParams_Cuboid,
+    "CBVRVolumeParams_Spherical":CBVRVolumeParams_Spherical,
+    "CBVRVolumeParams_Spotlight":CBVRVolumeParams_Spotlight,
+    "CBDecalCommon":CBDecalCommon,
+    "CBMhMaterialVfxIceLocal__disclosure":CBMhMaterialVfxIceLocal__disclosure,
+    "CBDebug":CBDebug,
+    "CBMhMaterialArrayLocal__disclosure":CBMhMaterialArrayLocal__disclosure,
+    "CBColorCorrectCube":CBColorCorrectCube,
+    "CBMhDecalSM":CBMhDecalSM,
+    "CBMhMaterial_EM105_EVCLocal__disclosure":CBMhMaterial_EM105_EVCLocal__disclosure,
+    "CBMhMaterialEM115Local__disclosure":CBMhMaterialEM115Local__disclosure,
+    "CBHeightToNormal":CBHeightToNormal,
+    "CBMhMaterialPLHairLocal__disclosure":CBMhMaterialPLHairLocal__disclosure,
+    "CBSpeedTreeGlobalWindPF":CBSpeedTreeGlobalWindPF,
+    "CBSpeedTreeGlobalWindPF_SpeedTreeGlobalWind":CBSpeedTreeGlobalWindPF_SpeedTreeGlobalWind,
+    "CBScreen":CBScreen,
+    "CBMhMaterialEM032Local__disclosure":CBMhMaterialEM032Local__disclosure,
+    "CB_BGTexture":CB_BGTexture,
+    "CBHermiteCurve":CBHermiteCurve,
+    "CBMhMaterialScrWaterLocal__disclosure":CBMhMaterialScrWaterLocal__disclosure,
+    "CBTubeLight":CBTubeLight,
+    "CBModel":CBModel,
+    "CBPrimBufferDescription":CBPrimBufferDescription,
+    "CBMhMaterialSZK001Local__disclosure":CBMhMaterialSZK001Local__disclosure,
+    "CBGUIDistanceField":CBGUIDistanceField,
+    "CBMhSky2SimplePS":CBMhSky2SimplePS,
+    "CBWorkaround":CBWorkaround,
+    "CBLight":CBLight,
+    "CBImageEvaluator":CBImageEvaluator,
+    "CBMhMaterialGlobal":CBMhMaterialGlobal,
+    "CBMhMaterialScrIceBlendLocal__disclosure":CBMhMaterialScrIceBlendLocal__disclosure,
+    "CBMhMaterialFurLocal__disclosure":CBMhMaterialFurLocal__disclosure,
+    "CBMhMaterialNPCLocal__disclosure":CBMhMaterialNPCLocal__disclosure,
+    "CBTexturePosScaleFactor":CBTexturePosScaleFactor,
+    "CBNewDOFFilter":CBNewDOFFilter,
+    "CBMhSkyLpPS":CBMhSkyLpPS,
+    "CBMhMaterialEM024Local__disclosure":CBMhMaterialEM024Local__disclosure,
+    "CBMhMaterialEM063Local__disclosure":CBMhMaterialEM063Local__disclosure,
+    "CBMhMaterialEM011Local__disclosure":CBMhMaterialEM011Local__disclosure,
+    "CBCSClear":CBCSClear,
+    "CBROPTest":CBROPTest,
+    "CBMhMaterialSimpleLocal__disclosure":CBMhMaterialSimpleLocal__disclosure,
+    "CBRadialBlurFilter":CBRadialBlurFilter,
+    "CBMhMaterialNPCSkinLocal__disclosure":CBMhMaterialNPCSkinLocal__disclosure,
+    "CBMhSky2GBuffer":CBMhSky2GBuffer,
+    "CBMhMaterialPLLocal__disclosure":CBMhMaterialPLLocal__disclosure,
+    "CBHazeFilter":CBHazeFilter,
+    "CBDOFFilter":CBDOFFilter,
+    "CBGodRaysFilter":CBGodRaysFilter,
+    "CBMhMaterialIvyFloor":CBMhMaterialIvyFloor,
+    "CBVRFilter":CBVRFilter,
+    "CBFilter":CBFilter,
+    "CBMhMaterialStdBlendNoFurLocal__disclosure":CBMhMaterialStdBlendNoFurLocal__disclosure,
+    "CBMhMaterialPLEyeLocal__disclosure":CBMhMaterialPLEyeLocal__disclosure,
+    "CBMhMaterialEM105Local__disclosure":CBMhMaterialEM105Local__disclosure,
+    "CBMhSkyGBuffer":CBMhSkyGBuffer,
+    "CB_CombinedFilter_ColorCorrect":CB_CombinedFilter_ColorCorrect,
+    "CBLightShaft":CBLightShaft,
+    "CBWaterCustomLight":CBWaterCustomLight,
+    "CBMhMaterialSpeedTreeStdSnowLocal__disclosure":CBMhMaterialSpeedTreeStdSnowLocal__disclosure,
+    "CBSparkleParam":CBSparkleParam,
+    "CBWaterCustom":CBWaterCustom,
+    "CBMhMaterialEM036Local__disclosure":CBMhMaterialEM036Local__disclosure,
+    "CBUpdateBufferFromMeshConditions":CBUpdateBufferFromMeshConditions,
+    "CBMhMaterialVfxFloodLocal__disclosure":CBMhMaterialVfxFloodLocal__disclosure,
+    "CBBloom":CBBloom,
+    "CBMhMaterialBurnLocal__disclosure":CBMhMaterialBurnLocal__disclosure,
+    "CBPrimCopyState":CBPrimCopyState,
+    "CBToneMapping":CBToneMapping,
+    "CBMhMaterialVfxVATDistLocal__disclosure":CBMhMaterialVfxVATDistLocal__disclosure,
+    "CBMhMaterialEM106Local__disclosure":CBMhMaterialEM106Local__disclosure,
+    "CBMhMaterialVfxFakeInnerLocal__disclosure":CBMhMaterialVfxFakeInnerLocal__disclosure,
+    "CBComputeSkinning":CBComputeSkinning,
+    "CBBokehComposite":CBBokehComposite,
+    "CBWaterWave":CBWaterWave,
+    "CBSnowField3Geometry":CBSnowField3Geometry,
+    "CBDecal":CBDecal,
+    "CBMhMaterialBTK001Local__disclosure":CBMhMaterialBTK001Local__disclosure,
+    "CBCAS":CBCAS,
+    "CBMaterialDebug":CBMaterialDebug,
+    "CBMhMaterialEMGlobal":CBMhMaterialEMGlobal,
+    "CBVR_Debug":CBVR_Debug,
+    "CBMhSky2PS":CBMhSky2PS,
+    "CBMhMaterialPLSkinLocal__disclosure":CBMhMaterialPLSkinLocal__disclosure,
+    "CBVignetting":CBVignetting,
+    "CBMhMaterialEM102Local__disclosure":CBMhMaterialEM102Local__disclosure,
+    "CBMhMaterialEM111Local__disclosure":CBMhMaterialEM111Local__disclosure,
+    "CBDevelopFlags":CBDevelopFlags,
+    "CBSHDiffuse":CBSHDiffuse,
+    "CBWaterDebug":CBWaterDebug,
+    "CBBlink":CBBlink,
+    "CBMhMaterialEM118Local__disclosure":CBMhMaterialEM118Local__disclosure,
+    "CBUpdateBufferFromMeshConditions2":CBUpdateBufferFromMeshConditions2,
+    "CBSnowFieldPreDepth":CBSnowFieldPreDepth,
+    "CBMhMaterialVfxSandFallLocal__disclosure":CBMhMaterialVfxSandFallLocal__disclosure,
+    "CBMhMaterialEMSLocal__disclosure":CBMhMaterialEMSLocal__disclosure,
+    "CBCubeCopy":CBCubeCopy,
+    "CBGUIGlobal":CBGUIGlobal,
+    "CBWater":CBWater,
+    "CBMhMaterialEM100_01Local__disclosure":CBMhMaterialEM100_01Local__disclosure,
+    "CBPrimitivePick":CBPrimitivePick,
+    "CBMhMaterialFakeRefractionLocal__disclosure":CBMhMaterialFakeRefractionLocal__disclosure,
+    "CBColorCorrect":CBColorCorrect,
+    "CBMhMaterialDynamicSnow__disclosure":CBMhMaterialDynamicSnow__disclosure,
+    "CBCapsuleAOGeomParam":CBCapsuleAOGeomParam,
+    "CBCapsuleAOGeomParam_AOGeometryParam":CBCapsuleAOGeomParam_AOGeometryParam,
+    "CBMotionBlurReconion":CBMotionBlurReconion,
+    "CBBokehCOCSettings":CBBokehCOCSettings,
+    "CBMhMaterialVfxDistDispLocal__disclosure":CBMhMaterialVfxDistDispLocal__disclosure,
+    "CBFXAAParam":CBFXAAParam,
+    "CBGUINoiseAndFade":CBGUINoiseAndFade,
+    "CBMhSky2VS":CBMhSky2VS,
+    "CBMaterialSnow__disclosure":CBMaterialSnow__disclosure,
+    "CBSpeedTreeLocalWind":CBSpeedTreeLocalWind,
+    "CBSpeedTreeLocalWind_SpeedTreeLocalWind":CBSpeedTreeLocalWind_SpeedTreeLocalWind,
+    "CB_CombinedFilter":CB_CombinedFilter,
+    "CBMhMaterialUberIceLocal__disclosure":CBMhMaterialUberIceLocal__disclosure,
+    "CBNewDOFFilter2":CBNewDOFFilter2,
+    "CBSpeedTreeSystem":CBSpeedTreeSystem,
+    "CBLayoutCache":CBLayoutCache,
+    "CBMhMaterialVfxAuroraLocal__disclosure":CBMhMaterialVfxAuroraLocal__disclosure,
+    "CBMhMaterialFakeSphereLocal__disclosure":CBMhMaterialFakeSphereLocal__disclosure,
+    "CBMhMaterialEM044Local__disclosure":CBMhMaterialEM044Local__disclosure,
+    "CBMhSky2Sun":CBMhSky2Sun,
+    "CBSpeedTreeCollision__disclosure":CBSpeedTreeCollision__disclosure,
+    "CBUpdateBufferFromMeshData":CBUpdateBufferFromMeshData,
+    "CBDepthColor":CBDepthColor,
+    "CBLightShaft_LightParam":CBLightShaft_LightParam,
+    "CBMhMaterialEM109Local__disclosure":CBMhMaterialEM109Local__disclosure,
+    "CBMhMaterialSpeedTreeStdBlendSnowLocal__disclosure":CBMhMaterialSpeedTreeStdBlendSnowLocal__disclosure,
+    "CBGodRaysIterator":CBGodRaysIterator,
+    "CBMhMaterialVfxDistDispWLocal__disclosure":CBMhMaterialVfxDistDispWLocal__disclosure,
+    "CBBloomSample":CBBloomSample,
+    "CBPrimitiveMetaDataOcclusion":CBPrimitiveMetaDataOcclusion,}
 
 generalhash =  lambda x:  CrcJamcrc.calc(x.encode())
 shaderTranslation = {generalhash(key) & 0xFFFFF:shaderListing[key] for key in shaderListing}
-
-if __name__=="__main__":
-    import sys, inspect
-    fieldTypes = set()
-    for name, obj in inspect.getmembers(sys.modules[__name__]):
-        if inspect.isclass(obj):
-            try:
-                fieldTypes.union(set(obj.fields.values()))
-            except:
-                pass
-    print(fieldTypes)
