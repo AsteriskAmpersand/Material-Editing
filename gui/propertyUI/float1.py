@@ -29,6 +29,7 @@ class Ui_Form(object):
         self.v0
         self.v0.setProperty("value", 0.0)
         self.v0.setObjectName("v0")
+        self.v0.decimals = 4
         self.horizontalLayout.addWidget(self.v0)
 
         self.retranslateUi(Form)

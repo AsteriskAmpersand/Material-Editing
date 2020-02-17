@@ -105,7 +105,7 @@ class Ui_Form(object):
         self.ResourceIx = QtWidgets.QSpinBox(self.frame_7)
         self.ResourceIx.setMinimumSize(QtCore.QSize(50, 20))
         self.ResourceIx.setMaximumSize(QtCore.QSize(20, 16777215))
-        self.ResourceIx.setMaximum(255)
+        self.ResourceIx.setMaximum(429467296)
         self.ResourceIx.setObjectName("ResourceIx")
         self.horizontalLayout_6.addWidget(self.ResourceIx)
         self.ResourceLabel = QtWidgets.QLabel(self.frame_7)

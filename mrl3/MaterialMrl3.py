@@ -46,6 +46,9 @@ class MRL3Header(CS.PyCStruct):
             ("textureOffset","uint64"),
             ("materialOffset","uint64")            
             ])
+    def marshall(self,data):
+        super().marshall(data)
+        self.unknArr = self.iceborneSignature
     def create(self):
         self.headId = 0x4C524D
         self.unknArr = self.iceborneSignature

@@ -324,7 +324,7 @@
                 </size>
                </property>
                <property name="maximum">
-                <number>255</number>
+                <number>429467296</number>
                </property>
               </widget>
              </item>

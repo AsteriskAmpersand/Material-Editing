@@ -240,6 +240,8 @@ class Ui_Form(object):
         self.horizontalLayout_5.addWidget(self.v33)
         self.verticalLayout.addWidget(self.frame_5)
         self.horizontalLayout.addWidget(self.frame)
+        for i,j in [(i,j) for i in range(4) for j in range(4)]:
+            getattr(self,"v%d%d"%(i,j)).decimals = 4
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)

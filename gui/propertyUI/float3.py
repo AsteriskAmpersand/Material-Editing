@@ -52,7 +52,9 @@ class Ui_Form(object):
         self.v2.setProperty("value", 0.0)
         self.v2.setObjectName("v2")
         self.horizontalLayout.addWidget(self.v2)
-
+        for i in range(3):
+            getattr(self,"v%d"%(i)).decimals = 4
+            
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
