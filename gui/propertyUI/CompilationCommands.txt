@@ -1,11 +1,12 @@
-"D:\Program Files (x86)\Microsoft Visual Studio\Shared\Python36_64\Scripts\pyuic5.exe" -x bbool1.ui -o bbool1.py
-"D:\Program Files (x86)\Microsoft Visual Studio\Shared\Python36_64\Scripts\pyuic5.exe" -x bbool2.ui -o bbool2.py
-"D:\Program Files (x86)\Microsoft Visual Studio\Shared\Python36_64\Scripts\pyuic5.exe" -x bbool3.ui -o bbool3.py
-"D:\Program Files (x86)\Microsoft Visual Studio\Shared\Python36_64\Scripts\pyuic5.exe" -x int4.ui -o int4.py
-"D:\Program Files (x86)\Microsoft Visual Studio\Shared\Python36_64\Scripts\pyuic5.exe" -x float1.ui -o float1.py
-"D:\Program Files (x86)\Microsoft Visual Studio\Shared\Python36_64\Scripts\pyuic5.exe" -x float2.ui -o float2.py
-"D:\Program Files (x86)\Microsoft Visual Studio\Shared\Python36_64\Scripts\pyuic5.exe" -x float3.ui -o float3.py
-"D:\Program Files (x86)\Microsoft Visual Studio\Shared\Python36_64\Scripts\pyuic5.exe" -x float4.ui -o float4.py
-"D:\Program Files (x86)\Microsoft Visual Studio\Shared\Python36_64\Scripts\pyuic5.exe" -x float3x4.ui -o float3x4.py
-"D:\Program Files (x86)\Microsoft Visual Studio\Shared\Python36_64\Scripts\pyuic5.exe" -x float4x4.ui -o float4x4.py
-"D:\Program Files (x86)\Microsoft Visual Studio\Shared\Python36_64\Scripts\pyuic5.exe" -x int4x4.ui -o int4x4.py
+"D:\Program Files\WinPython-64bit-3.5.3.0Qt5\python-3.5.3.amd64\Scripts\pyuic5.bat" -x bbool1.ui -o bbool1.py
+"D:\Program Files\WinPython-64bit-3.5.3.0Qt5\python-3.5.3.amd64\Scripts\pyuic5.bat" -x bbool2.ui -o bbool2.py
+"D:\Program Files\WinPython-64bit-3.5.3.0Qt5\python-3.5.3.amd64\Scripts\pyuic5.bat" -x bbool3.ui -o bbool3.py
+"D:\Program Files\WinPython-64bit-3.5.3.0Qt5\python-3.5.3.amd64\Scripts\pyuic5.bat" -x int4.ui -o int4.py
+"D:\Program Files\WinPython-64bit-3.5.3.0Qt5\python-3.5.3.amd64\Scripts\pyuic5.bat" -x float1.ui -o float1.py
+"D:\Program Files\WinPython-64bit-3.5.3.0Qt5\python-3.5.3.amd64\Scripts\pyuic5.bat" -x float2.ui -o float2.py
+"D:\Program Files\WinPython-64bit-3.5.3.0Qt5\python-3.5.3.amd64\Scripts\pyuic5.bat" -x float3.ui -o float3.py
+"D:\Program Files\WinPython-64bit-3.5.3.0Qt5\python-3.5.3.amd64\Scripts\pyuic5.bat" -x float4.ui -o float4.py
+"D:\Program Files\WinPython-64bit-3.5.3.0Qt5\python-3.5.3.amd64\Scripts\pyuic5.bat" -x float3x4.ui -o float3x4.py
+"D:\Program Files\WinPython-64bit-3.5.3.0Qt5\python-3.5.3.amd64\Scripts\pyuic5.bat" -x float4x4.ui -o float4x4.py
+"D:\Program Files\WinPython-64bit-3.5.3.0Qt5\python-3.5.3.amd64\Scripts\pyuic5.bat" -x int4x4.ui -o int4x4.py
+"D:\Program Files\WinPython-64bit-3.5.3.0Qt5\python-3.5.3.amd64\Scripts\pyuic5.bat" -x string.ui -o string.py

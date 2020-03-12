@@ -24,7 +24,7 @@ class Mrl3Resolver():
                     application_path = sys._MEIPASS#os.path.dirname(sys.executable)
                 elif __file__:
                     application_path = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
-                path_to_resolution = application_path+r"\HashToMaterial.ryo"
+                path_to_resolution = application_path+r"\IBHashToMaterial.ryo"
                 resolution = open(path_to_resolution,"r")
                 self.knownResolutions = {generalhash(string):string for string in resolution.read().split(',')}
             except:

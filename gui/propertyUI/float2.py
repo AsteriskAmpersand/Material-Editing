@@ -26,10 +26,10 @@ class Ui_Form(object):
         self.v0.setProperty("showGroupSeparator", False)
         self.v0.setMinimum(-1e+97)
         self.v0.setMaximum(1e+51)
+        self.v0.decimals = 4
         self.v0
         self.v0.setProperty("value", 0.0)
         self.v0.setObjectName("v0")
-        self.v0.decimals = 4
         self.horizontalLayout.addWidget(self.v0)
         self.v1 = QtWidgets.QDoubleSpinBox(Form)
         self.v1.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
@@ -38,10 +38,10 @@ class Ui_Form(object):
         self.v1.setProperty("showGroupSeparator", False)
         self.v1.setMinimum(-1e+97)
         self.v1.setMaximum(1e+51)
+        self.v1.decimals = 4
         self.v1
         self.v1.setProperty("value", 0.0)
         self.v1.setObjectName("v1")
-        self.v1.decimals = 4
         self.horizontalLayout.addWidget(self.v1)
 
         self.retranslateUi(Form)

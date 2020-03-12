@@ -1,0 +1,570 @@
+//------------------------------------------------
+//--- 010 Editor v8.0.1 Binary Template
+//
+//      File: 
+//   Authors: CrazyT
+//   Version: 
+//   Purpose: 
+//  Category: 
+// File Mask: *.mod3
+//  ID Bytes: 
+//   History: 
+//------------------------------------------------
+const float WEIGHT_MULTIPLIER = 1.0/1023;
+const float WEIGHT_MULTIPLIER2 = 1.0/255.0;
+const float C8S = 0.0078125;
+
+struct MODVertexBufferIANonSkin1UV;
+struct MODVertexBufferIANonSkin2UV;
+struct MODVertexBufferIANonSkin3UVColor;
+struct MODVertexBufferIANonSkin4UVColor;
+struct MODVertexBufferIANonSkin1UVColor;
+struct MODVertexBufferIANonSkin2UVColor;
+struct MODVertexBufferIASkin4wt1UV;
+struct MODVertexBufferIASkin4wt2UV;
+struct MODVertexBufferIASkin4wt1UVColor;
+struct MODVertexBufferIASkin4wt2UVColor;
+struct MODVertexBufferIASkin8wt1UV;
+struct MODVertexBufferIASkin8wt2UV;
+struct MODVertexBufferIASkin8wt1UVColor;
+struct MODVertexBufferIASkin8wt2UVColor;
+
+struct Bone;
+struct LMatrix;
+struct AMatrix;
+struct Vector3{
+    float x;
+    float y;
+    float z;
+};
+struct Header{
+    long id<format=hex>;
+    ubyte version;
+    ubyte version2;
+    short boneCount;
+    short meshCount;
+    short materialCount;
+    long vertexCount;
+    long faceCount;
+    long vertexIds;
+    long vertexBufferSize;
+    long secondBufferSize;
+    if(version<190){
+        long unknCount;
+    }
+    uint64 groupCount;
+    if((version<190)||(version>220)){
+        uint64 boneMapCount;
+    }
+    uint64 boneOffset<format=hex>;
+    uint64 groupOffset<format=hex>;
+    uint64 materialNamesOffset<format=hex>;
+    uint64 meshOffset<format=hex>;
+    uint64 VertexOffset<format=hex>;
+    if(version<190){
+        long vertex2Offset<format=hex>;
+    }
+    uint64 FacesOffset<format=hex>;
+    uint64 unknOffset<format=hex>;
+    if(version<190){
+        long unkOffset2<format=hex>;
+        Vector3 bbsphereposition;
+        float bspereradius;
+        Vector3 bbmin;
+        long unkn;
+        Vector3 bbmax;
+        long unkn;
+        
+    }
+    float unkn1[38];
+    byte unkn2[64];
+};
+struct MeshPartV3{
+    short unkn;
+    short VertexCount;
+    short visibleCondition; //0 is visible at all times; 1 is visible when drawn; 2 is visible when on the back; ...
+    short materialIdx;
+    long lod;
+    short unkn2;
+    byte blockSize;
+    byte unkn3;
+    long VertexSub;
+    long VertexOffset <format=hex>;
+    long blocktype <format=hex>;
+    long FaceOffset <format=hex>;
+    long FaceCount;
+    long vertexBase;
+    ubyte bonremapid;
+    ubyte unkn7[3];
+    ubyte unkn8;
+    ubyte unkn9[35];
+};
+struct Face{
+    short v1;
+    short v2;
+    short v3;
+};
+
+string readMODVertexBufferIANonSkin1UV(MODVertexBufferIANonSkin1UV& v){
+        string s;
+        SPrintf( s );
+        return s;
+};
+string readMODVertexBufferIANonSkin2UV(MODVertexBufferIANonSkin2UV& v){
+        string s;
+        SPrintf( s );
+        return s;
+};
+string readMODVertexBufferIANonSkin3UVColor(MODVertexBufferIANonSkin3UVColor& v){
+        string s;
+        SPrintf( s );
+        return s;
+};
+string readMODVertexBufferIANonSkin4UVColor(MODVertexBufferIANonSkin4UVColor& v){
+        string s;
+        SPrintf( s );
+        return s;
+};
+string readMODVertexBufferIANonSkin1UVColor(MODVertexBufferIANonSkin1UVColor& v){
+        string s;
+        SPrintf( s );
+        return s;
+};
+string readMODVertexBufferIANonSkin2UVColor(MODVertexBufferIANonSkin2UVColor& v){
+        string s;
+        SPrintf( s );
+        return s;
+};
+string readMODVertexBufferIASkin4wt1UV(MODVertexBufferIASkin4wt1UV& v){
+        string s;
+        SPrintf( s );
+        return s;
+};
+string readMODVertexBufferIASkin4wt2UV(MODVertexBufferIASkin4wt2UV& v){
+        string s;
+        SPrintf( s );
+        return s;
+};
+string readMODVertexBufferIASkin4wt1UVColor(MODVertexBufferIASkin4wt1UVColor& v){
+        string s;
+        SPrintf( s );
+        return s;
+};
+string readMODVertexBufferIASkin4wt2UVColor(MODVertexBufferIASkin4wt2UVColor& v){
+        string s;
+        SPrintf( s );
+        return s;
+};
+string readMODVertexBufferIASkin8wt1UV(MODVertexBufferIASkin8wt1UV& v){
+        string s;
+        SPrintf( s );
+        return s;
+};
+string readMODVertexBufferIASkin8wt2UV(MODVertexBufferIASkin8wt2UV& v){
+        string s;
+        SPrintf( s );
+        return s;
+};
+string readMODVertexBufferIASkin8wt1UVColor(MODVertexBufferIASkin8wt1UVColor& v){
+        string s;
+        SPrintf( s );
+        return s;
+};
+string readMODVertexBufferIASkin8wt2UVColor(MODVertexBufferIASkin8wt2UVColor& v){
+        string s;
+        SPrintf( s );
+        return s;
+};
+
+string readC8S(byte x){
+    string s;
+    SPrintf( s, "%f [raw=%d]",x*C8S,x);
+    return s;
+}
+
+struct Position{
+    float x;
+    float y;
+    float z;
+};
+
+struct Normal{
+    byte normalX<read=readC8S>;
+    byte normalY<read=readC8S>;
+    byte normalZ<read=readC8S>;
+    byte normalW<read=readC8S>;
+};
+
+struct Tangent{
+    byte tangentX<read=readC8S>;
+    byte tangentY<read=readC8S>;
+    byte tangentZ<read=readC8S>;
+    byte tangentW<read=readC8S>;
+};
+
+struct Uv{
+    hfloat uvX;
+    hfloat uvY;
+};
+
+struct BaseWeight{
+    long weight;
+    local float weight1 = (weight & 0x3ff)*WEIGHT_MULTIPLIER;
+    local float weight2 = ((weight>>10) & 0x3ff)*WEIGHT_MULTIPLIER;
+    local float weight3 = ((weight>>20) & 0x3ff)*WEIGHT_MULTIPLIER;
+    local float weight4 = 1-weight3-weight2-weight1;
+};
+
+struct ExtendedWeight{
+    byte weight2_0;
+    byte weight2_1;
+    byte weight2_2;
+    byte weight2_3;
+    local float weight5 = ((float)weight2_0)*WEIGHT_MULTIPLIER2;
+    local float weight6 = ((float)weight2_1)*WEIGHT_MULTIPLIER2;
+    local float weight7 = ((float)weight2_2)*WEIGHT_MULTIPLIER2;
+    local float weight8 = ((float)weight2_3)*WEIGHT_MULTIPLIER2;
+};
+
+struct Colour{
+    ubyte red;
+    ubyte green;
+    ubyte blue;
+    ubyte alpha;
+};
+
+struct MODVertexBufferIANonSkin1UV{
+    Position position;
+    Normal normal;
+    Tangent tangent;
+    Uv uv;
+};
+struct MODVertexBufferIANonSkin2UV{
+    Position position;
+    Normal normal;
+    Tangent tangent;
+    Uv uv;
+    Uv uv2;
+};
+struct MODVertexBufferIANonSkin3UVColor{
+    Position position;
+    Normal normal;
+    Tangent tangent;
+    Uv uv;
+    Uv uv2;
+    Uv uv3;
+    Colour colour;
+};
+struct MODVertexBufferIANonSkin4UVColor{
+    Position position;
+    Normal normal;
+    Tangent tangent;
+    Uv uv;
+    Uv uv2;
+    Uv uv3;
+    Uv uv4;
+    Colour colour;
+};
+struct MODVertexBufferIANonSkin1UVColor{
+    Position position;
+    Normal normal;
+    Tangent tangent;
+    Uv uv;
+    Colour colour;
+};
+struct MODVertexBufferIANonSkin2UVColor{
+    Position position;
+    Normal normal;
+    Tangent tangent;
+    Uv uv;
+    Uv uv2;
+    Colour colour;
+};
+struct MODVertexBufferIASkin4wt1UV{
+    Position position;
+    Normal normal;
+    Tangent tangent;
+    Uv uv;
+    BaseWeight baseweight;
+    ubyte bone[4];
+};
+struct MODVertexBufferIASkin4wt2UV{
+    Position position;
+    Normal normal;
+    Tangent tangent;
+    Uv uv;
+    Uv uv2;
+    BaseWeight baseweight;
+    ubyte bone[4];
+};
+struct MODVertexBufferIASkin4wt1UVColor{
+    Position position;
+    Normal normal;
+    Tangent tangent;
+    Uv uv;
+    BaseWeight baseweight;
+    ubyte bone[4];
+    Colour colour;
+};
+struct MODVertexBufferIASkin4wt2UVColor{
+    Position position;
+    Normal normal;
+    Tangent tangent;
+    Uv uv;
+    Uv uv2;
+    BaseWeight baseweight;
+    ubyte bone[4];
+    Colour colour;
+};
+struct MODVertexBufferIASkin8wt1UV{
+    Position position;
+    Normal normal;
+    Tangent tangent;
+    Uv uv;
+    BaseWeight baseweight;
+    ExtendedWeight extendedweight;
+    ubyte bone[8];
+};
+struct MODVertexBufferIASkin8wt2UV{
+    Position position;
+    Normal normal;
+    Tangent tangent;
+    Uv uv;
+    Uv uv2;
+    BaseWeight baseweight;
+    ExtendedWeight extendedweight;
+    ubyte bone[8];
+};
+struct MODVertexBufferIASkin8wt1UVColor{
+    Position position;
+    Normal normal;
+    Tangent tangent;
+    Uv uv;
+    BaseWeight baseweight;
+    ExtendedWeight extendedweight;
+    ubyte bone[8];
+    Colour colour;
+};
+struct MODVertexBufferIASkin8wt2UVColor{
+    Position position;
+    Normal normal;
+    Tangent tangent;
+    Uv uv;
+    Uv uv2;
+    BaseWeight baseweight;
+    ExtendedWeight extendedweight;
+    ubyte bone[8];
+    Colour colour;
+};
+
+struct Faces (int i){
+    local int meshPartIdx = i;
+    Face faces[meshPart[i].FaceCount/3]<read=readFace>;
+};
+
+struct VertexBufferIANonSkin1UV(int i, int hasdata){
+        local int meshPartIdx = i;
+        if(hasdata){
+                MODVertexBufferIANonSkin1UV vertexes[meshPart[i].VertexCount]<optimize=false,read=readMODVertexBufferIANonSkin1UV>;
+        }
+};
+struct VertexBufferIANonSkin2UV(int i, int hasdata){
+        local int meshPartIdx = i;
+        if(hasdata){
+                MODVertexBufferIANonSkin2UV vertexes[meshPart[i].VertexCount]<optimize=false,read=readMODVertexBufferIANonSkin2UV>;
+        }
+};
+struct VertexBufferIANonSkin3UVColor(int i, int hasdata){
+        local int meshPartIdx = i;
+        if(hasdata){
+                MODVertexBufferIANonSkin3UVColor vertexes[meshPart[i].VertexCount]<optimize=false,read=readMODVertexBufferIANonSkin3UVColor>;
+        }
+};
+struct VertexBufferIANonSkin4UVColor(int i, int hasdata){
+        local int meshPartIdx = i;
+        if(hasdata){
+                MODVertexBufferIANonSkin4UVColor vertexes[meshPart[i].VertexCount]<optimize=false,read=readMODVertexBufferIANonSkin4UVColor>;
+        }
+};
+struct VertexBufferIANonSkin1UVColor(int i, int hasdata){
+        local int meshPartIdx = i;
+        if(hasdata){
+                MODVertexBufferIANonSkin1UVColor vertexes[meshPart[i].VertexCount]<optimize=false,read=readMODVertexBufferIANonSkin1UVColor>;
+        }
+};
+struct VertexBufferIANonSkin2UVColor(int i, int hasdata){
+        local int meshPartIdx = i;
+        if(hasdata){
+                MODVertexBufferIANonSkin2UVColor vertexes[meshPart[i].VertexCount]<optimize=false,read=readMODVertexBufferIANonSkin2UVColor>;
+        }
+};
+struct VertexBufferIASkin4wt1UV(int i, int hasdata){
+        local int meshPartIdx = i;
+        if(hasdata){
+                MODVertexBufferIASkin4wt1UV vertexes[meshPart[i].VertexCount]<optimize=false,read=readMODVertexBufferIASkin4wt1UV>;
+        }
+};
+struct VertexBufferIASkin4wt2UV(int i, int hasdata){
+        local int meshPartIdx = i;
+        if(hasdata){
+                MODVertexBufferIASkin4wt2UV vertexes[meshPart[i].VertexCount]<optimize=false,read=readMODVertexBufferIASkin4wt2UV>;
+        }
+};
+struct VertexBufferIASkin4wt1UVColor(int i, int hasdata){
+        local int meshPartIdx = i;
+        if(hasdata){
+                MODVertexBufferIASkin4wt1UVColor vertexes[meshPart[i].VertexCount]<optimize=false,read=readMODVertexBufferIASkin4wt1UVColor>;
+        }
+};
+struct VertexBufferIASkin4wt2UVColor(int i, int hasdata){
+        local int meshPartIdx = i;
+        if(hasdata){
+                MODVertexBufferIASkin4wt2UVColor vertexes[meshPart[i].VertexCount]<optimize=false,read=readMODVertexBufferIASkin4wt2UVColor>;
+        }
+};
+struct VertexBufferIASkin8wt1UV(int i, int hasdata){
+        local int meshPartIdx = i;
+        if(hasdata){
+                MODVertexBufferIASkin8wt1UV vertexes[meshPart[i].VertexCount]<optimize=false,read=readMODVertexBufferIASkin8wt1UV>;
+        }
+};
+struct VertexBufferIASkin8wt2UV(int i, int hasdata){
+        local int meshPartIdx = i;
+        if(hasdata){
+                MODVertexBufferIASkin8wt2UV vertexes[meshPart[i].VertexCount]<optimize=false,read=readMODVertexBufferIASkin8wt2UV>;
+        }
+};
+struct VertexBufferIASkin8wt1UVColor(int i, int hasdata){
+        local int meshPartIdx = i;
+        if(hasdata){
+                MODVertexBufferIASkin8wt1UVColor vertexes[meshPart[i].VertexCount]<optimize=false,read=readMODVertexBufferIASkin8wt1UVColor>;
+        }
+};
+struct VertexBufferIASkin8wt2UVColor(int i, int hasdata){
+        local int meshPartIdx = i;
+        if(hasdata){
+                MODVertexBufferIASkin8wt2UVColor vertexes[meshPart[i].VertexCount]<optimize=false,read=readMODVertexBufferIASkin8wt2UVColor>;
+        }
+};
+
+
+struct UnknMeshStuff{
+    uint count;
+    struct UnknMeshStuffSubStruct{
+        float unkn[36];
+    } unknMeshStuffSubStruct[count];
+};
+string readFace(Face &v){
+    string s;
+    SPrintf( s, "%d %d %d", v.v1,v.v2,v.v3 );
+    return s;
+}
+string readMeshPart(MeshPartV3 &v){
+    string s;
+    string mn = "";
+    if(v.materialIdx<head.materialCount){
+        mn = materialNames[v.materialIdx].name;
+    }
+    SPrintf( s, "lod:%05d materialIdx:%03d [%s] unkn:%03d unkn7[1]:%03d", (int)v.lod,v.materialIdx,mn,v.unkn,v.unkn7[1] );
+    return s;
+}
+string readBone(Bone &b){
+    string s;
+    SPrintf( s, "parentId:%03d child:%03d length:% 6.2f x:% 6.2f y:% 6.2f z:% 6.2f", (int)b.parentId, (int)b.child,b.length,b.x,b.y,b.z);
+    return s;
+}
+string readLMatrix(LMatrix &v){
+    string s;
+    SPrintf( s, "%f %f %f %f|%f %f %f %f|%f %f %f %f|%f %f %f %f",
+     v.c[0].r1,v.c[0].r2,v.c[0].r3,v.c[0].r4,
+     v.c[1].r1,v.c[1].r2,v.c[1].r3,v.c[1].r4,
+     v.c[2].r1,v.c[2].r2,v.c[2].r3,v.c[2].r4,
+     v.c[3].r1,v.c[3].r2,v.c[3].r3,v.c[3].r4);
+    return s;
+}
+string readAMatrix(AMatrix &v){
+    string s;
+    SPrintf( s, "%f %f %f %f|%f %f %f %f|%f %f %f %f|%f %f %f %f",
+     v.c[0].r1,v.c[0].r2,v.c[0].r3,v.c[0].r4,
+     v.c[1].r1,v.c[1].r2,v.c[1].r3,v.c[1].r4,
+     v.c[2].r1,v.c[2].r2,v.c[2].r3,v.c[2].r4,
+     v.c[3].r1,v.c[3].r2,v.c[3].r3,v.c[3].r4);
+    return s;
+}
+
+Header head<bgcolor=0x00ff00>;
+
+FSeek(head.materialNamesOffset);
+struct MaterialName{
+    char name[128];
+}materialNames[head.materialCount]<optimize=false,bgcolor=0xcc00cc>;
+
+FSeek(head.meshOffset);
+ local int BOFF = 0;
+if(head.version==237){
+    MeshPartV3 meshPart[head.meshCount]<read=readMeshPart,bgcolor=0xff0000>;
+    UnknMeshStuff unknMeshStuff<bgcolor=0xaa0000>;
+    //float unknMeshStuff[2556]<bgcolor=0xaa0000>; //two010
+    //float unknMeshStuff[216]<bgcolor=0xaa0000>;  //stm730_000_03
+    local int i=0;
+    local int unknBlockType = 0;
+    for(i=0;i<head.meshCount;i++){
+        if(meshPart[i].VertexCount>0){
+                        BOFF=meshPart[i].VertexSub+meshPart[i].vertexBase;
+                        FSeek(head.VertexOffset+meshPart[i].VertexOffset+meshPart[i].blockSize*BOFF);
+
+                        if(meshPart[i].blocktype==0xa756f2f9){VertexBufferIANonSkin1UV vertexes(i,true)<bgcolor=0xff00ff>;}
+                        if(meshPart[i].blocktype==0xa5104ca0){VertexBufferIANonSkin2UV vertexes(i,true)<bgcolor=0xff00ff>;}
+                        if(meshPart[i].blocktype==0xc3ac03a1){VertexBufferIANonSkin3UVColor vertexes(i,true)<bgcolor=0xff00ff>;}
+                        if(meshPart[i].blocktype==0xc9690ab8){VertexBufferIANonSkin4UVColor vertexes(i,true)<bgcolor=0xff00ff>;}
+                        if(meshPart[i].blocktype==0x818904dc){VertexBufferIANonSkin1UVColor vertexes(i,true)<bgcolor=0xff00ff>;}
+                        if(meshPart[i].blocktype==0xf06033f){VertexBufferIANonSkin2UVColor vertexes(i,true)<bgcolor=0xff00ff>;}
+                        if(meshPart[i].blocktype==0xf637401c){VertexBufferIASkin4wt1UV vertexes(i,true)<bgcolor=0xff00ff>;}
+                        if(meshPart[i].blocktype==0xf471fe45){VertexBufferIASkin4wt2UV vertexes(i,true)<bgcolor=0xff00ff>;}
+                        if(meshPart[i].blocktype==0x3c730760){VertexBufferIASkin4wt1UVColor vertexes(i,true)<bgcolor=0xff00ff>;}
+                        if(meshPart[i].blocktype==0xb2fc0083){VertexBufferIASkin4wt2UVColor vertexes(i,true)<bgcolor=0xff00ff>;}
+                        if(meshPart[i].blocktype==0x81f58067){VertexBufferIASkin8wt1UV vertexes(i,true)<bgcolor=0xff00ff>;}
+                        if(meshPart[i].blocktype==0x83b33e3e){VertexBufferIASkin8wt2UV vertexes(i,true)<bgcolor=0xff00ff>;}
+                        if(meshPart[i].blocktype==0x366995a7){VertexBufferIASkin8wt1UVColor vertexes(i,true)<bgcolor=0xff00ff>;}
+                        if(meshPart[i].blocktype==0xb8e69244){VertexBufferIASkin8wt2UVColor vertexes(i,true)<bgcolor=0xff00ff>;}
+        }
+    }
+    for(i=0;i<head.meshCount;i++){
+        if(meshPart[i].FaceCount>0){
+            FSeek(head.FacesOffset+meshPart[i].FaceOffset*2);
+            Faces faces(i)<bgcolor=0x0000ff>;
+        }
+    }
+}
+if(head.boneCount>0){
+FSeek(head.boneOffset);
+struct Bone{
+    short unkn1;
+    ubyte parentId;
+    ubyte child;
+    float unkn2;
+    float length;
+    float x;
+    float y;
+    float z;
+}bone[head.boneCount]<read=readBone,bgcolor=0x330066>;
+struct LMatrix{
+    struct C{
+        float r1;
+        float r2;
+        float r3;
+        float r4;
+    }c[4];
+}lmatrices[head.boneCount]<bgcolor=0x660033,read=readLMatrix>;
+struct AMatrix{
+    struct D{
+        float r1;
+        float r2;
+        float r3;
+        float r4;
+    }c[4];
+}amatrices[head.boneCount]<bgcolor=0x663333,read=readAMatrix>;
+byte remaptable[512]<bgcolor=0xAA3333>;
+}
+FSeek(head.groupOffset);
+float unknGroupStuff[head.groupCount*8]<bgcolor=0xAAAA33>;
