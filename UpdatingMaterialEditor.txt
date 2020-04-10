@@ -1,0 +1,6 @@
+Run template on shader, run extractor script
+Run slimshader on the dir of the extracted shaders to convert them to src.
+Run the python list bindings and shader extractor to create the template.
+Run the cstruct converter on the template truncated without the prologue
+Paste the hash to map on the shaderstring on maptype generator
+Run Material Enumeration
