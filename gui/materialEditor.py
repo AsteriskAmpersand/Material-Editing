@@ -108,7 +108,11 @@ class EditorTab(QtWidgets.QWidget):
         replaceTexture = QtWidgets.QAction("Global Replace", self.ui.ResourceList)
         replaceTexture.triggered.connect(self.globalReplaceTex)
         self.ui.ResourceList.addAction(replaceTexture)
-        
+
+        cleanTexture = QtWidgets.QAction("Delete Unused", self.ui.ResourceList)
+        cleanTexture.triggered.connect(self.cleanTex)
+        self.ui.ResourceList.addAction(cleanTexture)
+
         self.ui.ResourceList.model().swapOcurred.connect(self.swapTex)
     
     def resourceWidgets(self):
@@ -154,6 +158,10 @@ class EditorTab(QtWidgets.QWidget):
             self.material.Textures.globalReplace(dialog.Find.text(),dialog.Replace.text(),dialog.Regexp.isChecked())
             for resourceWidget in self.resourceWidgets():
                resourceWidget.resync()
+    def cleanTex(self):
+        self.material.cleanTexture()
+        for resourceWidget in self.resourceWidgets():
+           resourceWidget.resync()
     def repointTex(self):
         texture=self.ui.ResourceList.currentIndex().row()
         dialog = RepointDialog(self.material.Textures,texture)

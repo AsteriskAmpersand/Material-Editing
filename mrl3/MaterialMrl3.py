@@ -126,8 +126,11 @@ class MRL3ResourceBinding(CS.PyCStruct):
             return self.resourceTypeName+": "+self.mapTypeName.replace("__disclosure","")
         
     def setIdx(self, value):
-        if self.resourceType&0xF == 2:
+        if self.isTex():
             self.texIdx = value
+    
+    def isTex(self):
+        return self.resourceType&0xF == 2
         
 
 class MRL3MaterialHeader(CS.PyCStruct):
@@ -315,7 +318,17 @@ class MRL3():
                 elif ix+1 < resource.texIdx < len(self.Textures)+1:
                     resource.setIdx( resource.texIdx - 1 )
         self.Textures.removeRows(ix, 1, QtCore.QModelIndex())
-        
+
+    def cleanTexture(self):
+        usedIndices = set()
+        for material in self.Materials:
+            for resource in material.resourceBindings:
+                if resource.isTex():
+                    usedIndices.add(resource.texIdx-1)
+        for ix,_ in reversed(list(enumerate(material.resourceBindings))):
+            if ix not in usedIndices:
+                self.delTexture(ix)
+
     def swapTex(self, ixFro, ixTo):
         for material in self.Materials:
             for resource in material.resourceBindings:
