@@ -325,7 +325,7 @@ class MRL3():
             for resource in material.resourceBindings:
                 if resource.isTex():
                     usedIndices.add(resource.texIdx-1)
-        for ix,_ in reversed(list(enumerate(material.resourceBindings))):
+        for ix in range(len(self.Textures)-1,-1,-1):
             if ix not in usedIndices:
                 self.delTexture(ix)
 
