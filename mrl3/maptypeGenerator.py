@@ -29,6 +29,7 @@ def extractShaderNames(inf):
     startResources = False
     startResourceData = False
     varNames = set()
+    varType = {}
     for line in inf:        
         if line[:2] == "//":
             line = line[2:].strip()
@@ -42,7 +43,9 @@ def extractShaderNames(inf):
                 startBuffer = False
             else:
                 line = combine_white(line)
-                varNames.add(line.split(" ")[1])
+                varName = line.split(" ")[1].split("[")[0].replace(";","")
+                varNames.add(varName)
+                varType[varName] = line.split(" ")[0]
         if startResources:
             if startResourceData:
                 if not line:
@@ -50,7 +53,9 @@ def extractShaderNames(inf):
                     startResourceData = False
                 else:
                     line = combine_white(line)
-                    varNames.add(line.split(" ")[0])
+                    varName = line.split(" ")[0].split("[")[0].replace(";","")
+                    varNames.add(varName)
+                    varType[varName] = line.split(" ")[1]
             else:
                 if "-" in line:
                     startResourceData = True
@@ -59,19 +64,18 @@ def extractShaderNames(inf):
                 startBuffer = True
             if line[:len(bindings)] == bindings:
                 startResources = True
-    return varNames
+    return varNames,varType
                 
 
 from pathlib import Path
 rootPath = r"E:\MHW Shader Research\MHW-Research\shdr\src"
 typeListings = set()
+varTypes = {}
 for src in Path(rootPath).rglob("*.src"):
     with open(src) as inf:
-        names = extractShaderNames(inf)
+        names, varType = extractShaderNames(inf)
         typeListings.update(names)
-
-
-
+        varTypes.update(varType)
 
 maptypes = [hex(generalhash(resource)) for resource in typeListings]#shaderstring.split(',')]
 maptypeTranslation = {generalhash(resource)&0xFFFFF:resource for resource in typeListings}#shaderstring.split(',')}
@@ -85,7 +89,7 @@ import struct
 def swap32(i):
     return struct.unpack("<I", struct.pack(">I", i))[0]
 with open("shader_property_hash.tsv","w") as outf:
-    outf.write("bend_hex\tbend_int\tlend_hex\tlend_int\tproperty\n")
+    outf.write("bend_hex\tbend_int\tlend_hex\tlend_int\ttype\tproperty\n")
     for key,val in {generalhash(resource):resource for resource in typeListings}.items():
-        outf.write("%08X\t%10d\t%08X\t%10d\t%s\n"%(swap32(key),key,swap32(key),key,val))
+        outf.write("%08X\t%10d\t%08X\t%10d\t%s\t%s\n"%(swap32(key),key,swap32(key),key,varTypes[val].ljust(5),val))
     outf.write("")

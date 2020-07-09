@@ -17,7 +17,6 @@ if __name__=="__main__":
 class CBViewProjection(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fViewProj", "float4x4"),
 		("fView", "float4x4"),
 		("fProj", "float4x4"),
@@ -51,14 +50,12 @@ class CBViewProjection(EPyCStruct):
 		("fNoJitterViewProjIViewProjPF", "float4x4"),
 		("fPassThroughCorrect", "float2"),
 		("bWideMonitor", "bbool"),
-
 	])
 
 
 #CBScreen : 9999.shdr.src
 class CBScreen(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fScreenOffset", "float2"),
 		("fScreenScale", "float2"),
@@ -78,14 +75,12 @@ class CBScreen(EPyCStruct):
 		("fContentScaleActualInverse", "float"),
 		("fContentScalePassScreen", "float"),
 		("bCheckerboard", "bbool"),
-
 	])
 
 
 #CBLightParameters : 9999.shdr.src
 class CBLightParameters_LightParameter(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("position_boundingRadius", "float4"),
 		("direction_falloff", "float4"),
@@ -96,7 +91,6 @@ class CBLightParameters_LightParameter(EPyCStruct):
 		("texproj_mat", "float4x4"),
 		("shadow_extra", "float4"),
 		("shadowmap_size_region", "uint4"),
-
 	])
 class CBLightParameters (Mod3Container):
 	Mod3Classes = CBLightParameters_LightParameter
@@ -107,7 +101,6 @@ class CBLightParameters (Mod3Container):
 #CBVRCommon : 9999.shdr.src
 class CBVRCommon(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("iNumVolumes", "uint"),
 		("fGIFactor", "float"),
@@ -138,7 +131,6 @@ class CBVRCommon(EPyCStruct):
 
 		("align5", "ubyte[8]"),
 		("fDistanceFadeParam", "float4"),
-
 	])
 
 
@@ -146,9 +138,7 @@ class CBVRCommon(EPyCStruct):
 class CBVRCompute(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iCountOffset", "uint"),
-
 	])
 
 
@@ -156,19 +146,16 @@ class CBVRCompute(EPyCStruct):
 class CBVRFilter(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fDimensions", "float4"),
 		("fFilterRegion", "float4"),
 		("fFilterMipLevel", "float"),
 		("vertical", "bbool"),
-
 	])
 
 
 #CBModel : 9990.shdr.src
 class CBModel(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fWorld", "float3x4"),
 		("fWorldI", "float3x4"),
@@ -183,14 +170,12 @@ class CBModel(EPyCStruct):
 		("bPassThrough", "bbool"),
 		("bInstanceMaterialEdit", "bbool"),
 		("bInstanceEffect", "bbool"),
-
 	])
 
 
 #CBROPTest : 999.shdr.src
 class CBROPTest(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("bAlphaTestEnable", "bbool"),
 		("fAlphaRef", "float"),
@@ -203,7 +188,6 @@ class CBROPTest(EPyCStruct):
 		("align0", "ubyte[4]"),
 		("CapturePixelOffset", "float2"),
 		("CaptureScale", "float"),
-
 	])
 
 
@@ -211,16 +195,13 @@ class CBROPTest(EPyCStruct):
 class CBUpdateBufferFromMeshData(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iUpdateBufferOffset", "uint"),
-
 	])
 
 
 #CBMhMaterialOZK001Local__disclosure : 99.shdr.src
 class CBMhMaterialOZK001Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -306,14 +287,12 @@ class CBMhMaterialOZK001Local__disclosure(EPyCStruct):
 
 		("align6", "ubyte[12]"),
 		("fSnowControl", "float4"),
-
 	])
 
 
 #CBMhMaterialEM032Local__disclosure : 999.shdr.src
 class CBMhMaterialEM032Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -392,14 +371,12 @@ class CBMhMaterialEM032Local__disclosure(EPyCStruct):
 
 		("align6", "ubyte[12]"),
 		("fSnowControl", "float4"),
-
 	])
 
 
 #CBLight : 9999.shdr.src
 class CBLight(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("iLightOffset", "uint"),
 		("iLightNum", "uint"),
@@ -417,7 +394,6 @@ class CBLight(EPyCStruct):
 		("iLightInfiniteRange", "uint2"),
 		("iLightPointRange", "uint2"),
 		("iLightSpotRange", "uint2"),
-
 	])
 
 
@@ -425,16 +401,13 @@ class CBLight(EPyCStruct):
 class CBInstancing(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iInstanceIndex", "uint"),
-
 	])
 
 
 #CBBokehCOCSettings : 9564.shdr.src
 class CBBokehCOCSettings(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("BokehNearColor", "float3"),
 		("BokehColorFadeSmooth", "float"),
@@ -471,14 +444,12 @@ class CBBokehCOCSettings(EPyCStruct):
 		("align1", "ubyte[12]"),
 		("BokehFarFetchOffset", "float4"),
 		("AlwaysZeroValue", "int"),
-
 	])
 
 
 #CBLightProbes : 9998.shdr.src
 class CBLightProbes(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("bLightProbesEnable", "bbool"),
 		("probesGridInvCellSize", "float3"),
@@ -502,7 +473,6 @@ class CBLightProbes(EPyCStruct):
 		("fDaytimeInterpolation", "float"),
 		("bEnableNeighborSearch", "bbool"),
 		("iTocCollisionOffset", "uint"),
-
 	])
 
 
@@ -510,11 +480,9 @@ class CBLightProbes(EPyCStruct):
 class CBLGTPRBDebug(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fProbeSize", "float"),
 		("lineColor", "float3"),
 		("iProbeDebugType", "uint"),
-
 	])
 
 
@@ -522,19 +490,16 @@ class CBLGTPRBDebug(EPyCStruct):
 class CBPrimSystem(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fPrimGammaCorrect", "float"),
 		("fPrimAlphaLowerLimit", "float"),
 		("fPrimGlobalLightReflectance", "float"),
 		("iPrimSystemFalgs", "uint"),
-
 	])
 
 
 #CBPrimitive : 9686.shdr.src
 class CBPrimitive(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fPrimParam0", "float4"),
 		("fPrimParam1", "float4"),
@@ -547,14 +512,12 @@ class CBPrimitive(EPyCStruct):
 		("fPrimParam8", "float4"),
 		("fPrimParam9", "float4"),
 		("iPrimParam0", "uint4"),
-
 	])
 
 
 #CBMhMaterialVfxFloodLocal__disclosure : 10090.shdr.src
 class CBMhMaterialVfxFloodLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float3"),
 
@@ -600,7 +563,6 @@ class CBMhMaterialVfxFloodLocal__disclosure(EPyCStruct):
 		("fVelocityAttn", "float"),
 		("fNormalDecalBlend__uiUNorm", "float"),
 		("bUseUVPrimaryOM", "bbool"),
-
 	])
 
 
@@ -608,20 +570,17 @@ class CBMhMaterialVfxFloodLocal__disclosure(EPyCStruct):
 class CBMaterialCommon__disclosure(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("bBypass", "bbool"),
 		("bDecalMask", "bbool"),
 		("bEmissive", "bbool"),
 		("iGBufferId", "uint"),
 		("iOutlineId", "uint"),
-
 	])
 
 
 #CBFog : 9981.shdr.src
 class CBFog(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("iFogType", "uint"),
 		("iDistanceFogFlags", "uint"),
@@ -651,14 +610,12 @@ class CBFog(EPyCStruct):
 		("fMipFogLimitLevel", "float"),
 		("fMipFogRotSin", "float"),
 		("fMipFogRotCos", "float"),
-
 	])
 
 
 #CBRenderFrame : 9987.shdr.src
 class CBRenderFrame(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("iRenderFrame", "uint"),
 		("iTotalTime", "uint"),
@@ -676,7 +633,6 @@ class CBRenderFrame(EPyCStruct):
 		("fHdrOutputGamutMappingRatio", "float"),
 		("fHdrOutputGamma", "float"),
 		("bIsGUIHdrGamma", "bbool"),
-
 	])
 
 
@@ -684,12 +640,10 @@ class CBRenderFrame(EPyCStruct):
 class CBTestLight(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fTestLightDir", "float3"),
 
 		("align0", "ubyte[4]"),
 		("fTestLightColor", "float3"),
-
 	])
 
 
@@ -697,16 +651,13 @@ class CBTestLight(EPyCStruct):
 class CBPick(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iPickPoint", "uint2"),
-
 	])
 
 
 #CBMhMaterialEMGlobal : 994.shdr.src
 class CBMhMaterialEMGlobal(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fMaterialPaintNum", "uint"),
 
@@ -731,14 +682,12 @@ class CBMhMaterialEMGlobal(EPyCStruct):
 		("align4", "ubyte[4]"),
 		("fMaterialDamageColor", "float4"),
 		("fMaterialDamageBlendRange", "float2"),
-
 	])
 
 
 
 class CBMotionBlurReconion(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("iTileSize", "int2"),
 		("uNumSamples", "uint"),
@@ -751,14 +700,12 @@ class CBMotionBlurReconion(EPyCStruct):
 		("iDebugViewType", "int"),
 		("bIsPrevious", "bbool"),
 		("bIsLegacy", "bbool"),
-
 	])
 
 
 #CBVRVolumeParams : 9977.shdr.src
 class CBVRVolumeParams_VolumeParam(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("packedData", "uint"),
 		("emissive", "float3"),
@@ -768,44 +715,35 @@ class CBVRVolumeParams_VolumeParam(EPyCStruct):
 		("moveSpeed", "float"),
 		("moveDir", "float3"),
 		("dispelFactor", "float"),
-
 	])
 class CBVRVolumeParams_Constant(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("limits", "float3"),
 		("extra", "uint"),
-
 	])
 class CBVRVolumeParams_Cuboid(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("model", "float4x4"),
 		("modelI", "float4x4"),
 		("minAABB", "float4"),
 		("maxAABB", "float4"),
-
 	])
 class CBVRVolumeParams_Spherical(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("model", "float4x4"),
 		("modelI", "float4x4"),
 		("extra", "uint4"),
-
 	])
 class CBVRVolumeParams_Spotlight(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("origin", "float3"),
 		("height", "float"),
 		("dir", "float3"),
 		("cosAngle", "float"),
-
 	])
 class CBVRVolumeParams (Mod3Collection):
 	Mod3Classes = ['CBVRVolumeParams_VolumeParam', 'CBVRVolumeParams_Constant', 'CBVRVolumeParams_Cuboid', 'CBVRVolumeParams_Spherical', 'CBVRVolumeParams_Spotlight']
@@ -817,20 +755,17 @@ class CBVRVolumeParams (Mod3Collection):
 class CBGaussian(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fOffset0", "float4"),
 		("fOffset1", "float4"),
 		("fWeight0", "float4"),
 		("fWeight1", "float4"),
 		("fEdgeSharpness", "float"),
-
 	])
 
 
 #CBMhSky2SimplePS : 8007.shdr.src
 class CBMhSky2SimplePS(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fSkyGlobalIntensity", "float3"),
 
@@ -866,7 +801,6 @@ class CBMhSky2SimplePS(EPyCStruct):
 		("fSkyBackgroundCloudHighlightColors", "float4[4]"),
 		("fSkyBackgroundCloudShadowColors", "float4[4]"),
 		("fSkyCloudAlpha", "float[4]"),
-
 	])
 
 
@@ -874,16 +808,13 @@ class CBMhSky2SimplePS(EPyCStruct):
 class CBSystemColor(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fSystemColor", "float4"),
-
 	])
 
 
 #CBNewDOFFilter : 9814.shdr.src
 class CBNewDOFFilter(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("coc_bias", "float"),
 		("coc_scale", "float"),
@@ -907,14 +838,12 @@ class CBNewDOFFilter(EPyCStruct):
 
 		("align0", "ubyte[4]"),
 		("fVignettingColor", "float3"),
-
 	])
 
 
 #CBAmbientOcclusion : 9984.shdr.src
 class CBAmbientOcclusion(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("iSSAOPrimaryReductionLevel", "int"),
 		("iSSAOPrimaryFactor", "uint"),
@@ -931,7 +860,6 @@ class CBAmbientOcclusion(EPyCStruct):
 		("fPrimaryShadowUpsampleThresholdMin", "float"),
 		("fPrimaryShadowUpsampleThresholdMax", "float"),
 		("fPrimaryShadowUpsampleThresholdDiffInv", "float"),
-
 	])
 
 
@@ -939,12 +867,10 @@ class CBAmbientOcclusion(EPyCStruct):
 class CB_TemporalAA2(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fBlendRate", "float"),
 		("bVelocityBase", "bbool"),
 		("fVarianceGamma", "float"),
 		("fSharpenAmount", "float"),
-
 	])
 
 
@@ -952,9 +878,7 @@ class CB_TemporalAA2(EPyCStruct):
 class pix_clear_constants(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("m_color", "float4"),
-
 	])
 
 
@@ -962,16 +886,13 @@ class pix_clear_constants(EPyCStruct):
 class CBWaterCustomLight(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("bShadowCascadeBias", "bbool"),
-
 	])
 
 
 #CBWaterMaterial : 9981.shdr.src
 class CBWaterMaterial(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fReflectionViewProj", "float4x4"),
 		("fReflectionFactor", "float"),
@@ -1019,14 +940,12 @@ class CBWaterMaterial(EPyCStruct):
 		("fWhitecapHeightWPosThreshold", "float"),
 		("fWhitecapHeightFade", "float"),
 		("fWhitecapHeightPower", "float"),
-
 	])
 
 
 #CBWaterCustom : 9981.shdr.src
 class CBWaterCustom(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fWaterCustomBaseMapFactor", "float4"),
 		("fWaterCustomBlendBaseMapFactor", "float4"),
@@ -1063,7 +982,6 @@ class CBWaterCustom(EPyCStruct):
 		("fWaterCustomNormalXZAttn", "float"),
 		("iWaterCustomEnvMapAttn", "uint"),
 		("fWaterCustomShadowDistortion", "float"),
-
 	])
 
 
@@ -1071,9 +989,7 @@ class CBWaterCustom(EPyCStruct):
 class CBCubeCopy(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("regions", "int4[6]"),
-
 	])
 
 
@@ -1081,9 +997,7 @@ class CBCubeCopy(EPyCStruct):
 class CBViewFrustum(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fViewFrustum", "float4[6]"),
-
 	])
 
 
@@ -1091,20 +1005,17 @@ class CBViewFrustum(EPyCStruct):
 class CBTest(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fTestParam", "float4"),
 		("fTestDirection", "float3"),
 		("fTestType", "float"),
 		("fTestColor", "float4"),
 		("fDummyColor", "float4"),
-
 	])
 
 
 #CBUpdateBufferFromMesh : 955.shdr.src
 class CBUpdateBufferFromMesh(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("iVertexNum", "uint"),
 		("iVertexBufferOffset", "uint"),
@@ -1113,7 +1024,6 @@ class CBUpdateBufferFromMesh(EPyCStruct):
 		("iInputLayoutOffset0", "uint4"),
 		("iInputLayoutOffset1", "uint4"),
 		("iInputLayoutOffset2", "uint4"),
-
 	])
 
 
@@ -1121,20 +1031,17 @@ class CBUpdateBufferFromMesh(EPyCStruct):
 class CBUpdateBufferFromMeshConditions2(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iConditions2TargetNum", "uint"),
 
 		("align0", "ubyte[12]"),
 		("fConditions2TargetParam", "float4[16]"),
 		("fConditions2TargetParam2", "float4[16]"),
-
 	])
 
 
 #CBLuminance : 903.shdr.src
 class CBLuminance(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("iView", "uint"),
 		("fKeyValue", "float"),
@@ -1149,7 +1056,6 @@ class CBLuminance(EPyCStruct):
 		("fLightSensitivity", "float"),
 		("fDarkAdaptationLimit", "float"),
 		("fLightAdaptationLimit", "float"),
-
 	])
 
 
@@ -1157,18 +1063,15 @@ class CBLuminance(EPyCStruct):
 class CBSHDiffuse(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fSHDiffuseScale", "float"),
 		("fSHDiffuseScaleInv", "float"),
 		("bSHDiffuseUpsampling", "bbool"),
-
 	])
 
 
 #CBMhMaterialVfxWaveLocal__disclosure : 10254.shdr.src
 class CBMhMaterialVfxWaveLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fConstant", "float"),
 
@@ -1199,7 +1102,6 @@ class CBMhMaterialVfxWaveLocal__disclosure(EPyCStruct):
 		("fNoiseLength__uiUNorm", "float"),
 		("fNoiseDetail__uiUNorm", "float"),
 		("fSplashSpeed", "float"),
-
 	])
 
 
@@ -1207,17 +1109,14 @@ class CBMhMaterialVfxWaveLocal__disclosure(EPyCStruct):
 class CBMhMaterialVfxWave(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iPointNum", "uint"),
 		("fViewTime", "float"),
-
 	])
 
 
 #CB_PlantOnSurface : 10260.shdr.src
 class CB_PlantOnSurface(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fScale", "float3"),
 		("iNumPerTriangle", "uint"),
@@ -1226,7 +1125,6 @@ class CB_PlantOnSurface(EPyCStruct):
 		("fRotRandomize", "float"),
 		("fDirRandomize", "float"),
 		("fScaleRandomize", "float"),
-
 	])
 
 
@@ -1234,16 +1132,13 @@ class CB_PlantOnSurface(EPyCStruct):
 class CBMhSkyGBuffer(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iSkyGBufferId", "uint"),
-
 	])
 
 
 #CBPrimGpuOcclusionVoxelSystem : 4681.shdr.src
 class CBPrimGpuOcclusionVoxelSystem(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("gActiveOcclusionAreaMinPos", "float3"),
 		("gActiveOcclusionAreaSize", "float"),
@@ -1254,14 +1149,12 @@ class CBPrimGpuOcclusionVoxelSystem(EPyCStruct):
 		("gOcclusionAreaMinPos", "float3"),
 		("gOcclusionVoxelInfoNum", "uint"),
 		("gOcclusionVoxelSize", "float"),
-
 	])
 
 
 #CBSnowFieldMaterial : 9165.shdr.src
 class CBSnowFieldMaterial(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor", "float4"),
 		("fEmissiveMapFactor", "float3"),
@@ -1281,7 +1174,6 @@ class CBSnowFieldMaterial(EPyCStruct):
 		("fUVRotationSin", "float"),
 		("fUVRotationCos", "float"),
 		("fUnderTextureBlendFactor", "float2"),
-
 	])
 
 
@@ -1289,9 +1181,7 @@ class CBSnowFieldMaterial(EPyCStruct):
 class CBConstantHaltonSequence(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fHaltonSequence", "float4[64]"),
-
 	])
 
 
@@ -1299,13 +1189,11 @@ class CBConstantHaltonSequence(EPyCStruct):
 class CBCapsuleAO(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fLightDirectionXYZAngle", "float4"),
 		("fDistanceFallCoef", "float"),
 		("fCapsuleAOIntensity", "float"),
 		("uGeometryNum", "uint"),
 		("uLightChannelMask", "uint"),
-
 	])
 
 
@@ -1313,11 +1201,9 @@ class CBCapsuleAO(EPyCStruct):
 class CBCapsuleAOGeomParam_AOGeometryParam(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("ppdlVectorLengthSqInv", "float4"),
 		("StPointVecRadius", "float4"),
 		("LineVecMaxArea", "float4"),
-
 	])
 class CBCapsuleAOGeomParam (Mod3Container):
 	Mod3Classes = CBCapsuleAOGeomParam_AOGeometryParam
@@ -1328,7 +1214,6 @@ class CBCapsuleAOGeomParam (Mod3Container):
 #CBMhMaterialFlowLavaLocal__disclosure : 10325.shdr.src
 class CBMhMaterialFlowLavaLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -1351,14 +1236,12 @@ class CBMhMaterialFlowLavaLocal__disclosure(EPyCStruct):
 		("bFlowDirLocalSpace", "bbool"),
 		("fFlowControl", "float"),
 		("fEmitControl__uiUNorm", "float2"),
-
 	])
 
 
 #CBSSLR : 9987.shdr.src
 class CBSSLR(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fSSLREffectReflectionParam", "float4"),
 		("iSSLRReductionLevel", "int"),
@@ -1378,14 +1261,12 @@ class CBSSLR(EPyCStruct):
 		("fSSLRLightProbeIntensity", "float"),
 		("iSSLRMip0CountThreshold", "int"),
 		("bSSLRTemporalReset", "bbool"),
-
 	])
 
 
 #CBMhMaterialVfxDebufBodyLocal__disclosure : 1084.shdr.src
 class CBMhMaterialVfxDebufBodyLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fUVTransformA", "float4"),
 		("fBaseMapFactor__uiColor", "float4"),
@@ -1408,14 +1289,12 @@ class CBMhMaterialVfxDebufBodyLocal__disclosure(EPyCStruct):
 		("fInnerOffsetScale", "float"),
 		("fVelocityAttn", "float"),
 		("fNormalDecalBlend__uiUNorm", "float"),
-
 	])
 
 
 #CBLightShaft : 2569.shdr.src
 class CBLightShaft(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fModelMat", "float4x4"),
 		("fInvModelMat", "float4x4"),
@@ -1428,14 +1307,12 @@ class CBLightShaft(EPyCStruct):
 		("fTransparency", "float"),
 		("fReductionScale", "float"),
 		("fMiePhaseK", "float3"),
-
 	])
 
 
 #CBMhSky2PS : 8095.shdr.src
 class CBMhSky2PS(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fSkyGlobalIntensity", "float3"),
 
@@ -1503,7 +1380,6 @@ class CBMhSky2PS(EPyCStruct):
 		("fSkyBlendBackgroundCloudHighlightColors", "float4[4]"),
 		("fSkyBlendBackgroundCloudShadowColors", "float4[4]"),
 		("fSkyBlendCloudAlpha", "float[4]"),
-
 	])
 
 
@@ -1511,11 +1387,9 @@ class CBMhSky2PS(EPyCStruct):
 class CBPrimBufferDescription(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iPrimVertexBufferOffset", "uint"),
 		("iPrimTotalVertexNum", "uint"),
 		("iPrimRequestNum", "uint"),
-
 	])
 
 
@@ -1523,12 +1397,10 @@ class CBPrimBufferDescription(EPyCStruct):
 class CBPrimitiveEx(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fPrimParamEx0", "float4"),
 		("fPrimParamEx1", "float4"),
 		("fPrimParamEx2", "float4"),
 		("iPrimParamEx3", "uint4"),
-
 	])
 
 
@@ -1536,16 +1408,13 @@ class CBPrimitiveEx(EPyCStruct):
 class CBPrimitivePick(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iPrimAddress", "uint2"),
-
 	])
 
 
 #CBComputeSkinning : 7532.shdr.src
 class CBComputeSkinning(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("iSrcStride", "uint"),
 		("iSrcOffset", "uint"),
@@ -1559,7 +1428,6 @@ class CBComputeSkinning(EPyCStruct):
 		("iDestNormalOffset", "uint"),
 		("iVertexCount", "uint"),
 		("iInstanceID", "uint"),
-
 	])
 
 
@@ -1567,16 +1435,13 @@ class CBComputeSkinning(EPyCStruct):
 class CBCubeBlend(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fCubeBlendRate", "float"),
-
 	])
 
 
 #CBWaterWave : 9116.shdr.src
 class CBWaterWave(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fWorldMat", "float4x4"),
 		("fHeightMapSize", "float2"),
@@ -1606,14 +1471,12 @@ class CBWaterWave(EPyCStruct):
 		("bCullingByFrustum", "bbool"),
 		("fFrustumCullAcceptXZ", "float"),
 		("fCircleCullDistanceSq", "float"),
-
 	])
 
 
 #CBSystemSnow : 9892.shdr.src
 class CBSystemSnow(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("bSnowFieldEnabled", "bbool"),
 		("iSnowFieldDivisionNum", "uint"),
@@ -1626,14 +1489,12 @@ class CBSystemSnow(EPyCStruct):
 		("fMaxHeightDent", "float"),
 		("fMaxHeightBump", "float"),
 		("fShovelEdgeBlendRate", "float"),
-
 	])
 
 
 #CBSnowField4Geometry : 567.shdr.src
 class CBSnowField4Geometry(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fWorldPositionMin", "float3"),
 
@@ -1647,7 +1508,6 @@ class CBSnowField4Geometry(EPyCStruct):
 		("fShovelCornerBlendRate", "float"),
 		("fEdgeHeightBlendRate", "float"),
 		("fEdgesPerScreenHeight", "float"),
-
 	])
 
 
@@ -1655,16 +1515,13 @@ class CBSnowField4Geometry(EPyCStruct):
 class CBWorkaround(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iWorkaroundConstant", "uint"),
-
 	])
 
 
 #CBSnowField2Material : 665.shdr.src
 class CBSnowField2Material(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor", "float4"),
 		("fEmissiveMapFactor", "float3"),
@@ -1688,14 +1545,12 @@ class CBSnowField2Material(EPyCStruct):
 		("align1", "ubyte[4]"),
 		("fUnderTextureBlendFactor", "float2"),
 		("fSnowFieldDitherRate", "float"),
-
 	])
 
 
 #CBMhMaterialVfxDistDispWLocal__disclosure : 1214.shdr.src
 class CBMhMaterialVfxDistDispWLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fCubeMapFactor__uiColor", "float3"),
@@ -1733,7 +1588,6 @@ class CBMhMaterialVfxDistDispWLocal__disclosure(EPyCStruct):
 		("bWorldPosOffsetScale", "bbool"),
 		("fVelocityAttn", "float"),
 		("fNormalDecalBlend__uiUNorm", "float"),
-
 	])
 
 
@@ -1741,14 +1595,12 @@ class CBMhMaterialVfxDistDispWLocal__disclosure(EPyCStruct):
 class CBBloom(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fBloomThreshold", "float"),
 		("fBloomRenormalize", "float"),
 		("bGamutSrgb", "bbool"),
 
 		("align0", "ubyte[4]"),
 		("fDirtColor", "float4"),
-
 	])
 
 
@@ -1756,17 +1608,14 @@ class CBBloom(EPyCStruct):
 class CBFilter(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fFilterRegion", "float4"),
 		("fFilterMipLevel", "float"),
-
 	])
 
 
 #CBGUIGlobal : 8867.shdr.src
 class CBGUIGlobal(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fGUIWMatrix", "float4x4"),
 		("fGUIWMatrixPF", "float4x4"),
@@ -1783,7 +1632,6 @@ class CBGUIGlobal(EPyCStruct):
 		("fGUIInvTextureSize2", "float2"),
 		("fGUIZBias", "float"),
 		("iGUIShaderState", "uint"),
-
 	])
 
 
@@ -1791,11 +1639,9 @@ class CBGUIGlobal(EPyCStruct):
 class CBGUIGBuffer(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iGUIGBufferLightChannel", "uint"),
 		("fGUIGBufferEmissiveColor", "float3"),
 		("fGUIGBufferParam", "float3"),
-
 	])
 
 
@@ -1803,17 +1649,14 @@ class CBGUIGBuffer(EPyCStruct):
 class CBWaterModel(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fMWorldViewProjMat", "float4x4"),
 		("fMWorldMat", "float4x4"),
-
 	])
 
 
 #CBMhMaterialEM105Local__disclosure : 188.shdr.src
 class CBMhMaterialEM105Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -1908,7 +1751,6 @@ class CBMhMaterialEM105Local__disclosure(EPyCStruct):
 
 		("align8", "ubyte[12]"),
 		("fSnowControl", "float4"),
-
 	])
 
 
@@ -1916,12 +1758,10 @@ class CBMhMaterialEM105Local__disclosure(EPyCStruct):
 class CBSystem(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iRegion", "uint4"),
 		("fSourceMipLevel", "float"),
 		("fGammaCorrect", "float"),
 		("fGammaCorrectEx", "float"),
-
 	])
 
 
@@ -1929,18 +1769,15 @@ class CBSystem(EPyCStruct):
 class CBVRGaussian(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fOffsets", "float4"),
 		("fWeights", "float[5]"),
 		("fEdgeSharpness", "float"),
-
 	])
 
 
 #CB_DL : 1289.shdr.src
 class CB_DL(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("time", "float3"),
 		("customUInt", "uint"),
@@ -1950,14 +1787,12 @@ class CB_DL(EPyCStruct):
 		("viewProjMatrix", "float4x4"),
 		("crViewProjMatrix", "float4x4"),
 		("prevViewProjMatrix", "float4x4"),
-
 	])
 
 
 #CBSnowField3Geometry : 406.shdr.src
 class CBSnowField3Geometry(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fWorldPositionMin", "float3"),
 
@@ -1975,14 +1810,12 @@ class CBSnowField3Geometry(EPyCStruct):
 		("fInnerSubdiv", "float2"),
 		("fEdgeHeightBlendRate", "float"),
 		("fEdgesPerScreenHeight", "float"),
-
 	])
 
 
 #CBShapeMesh : 9990.shdr.src
 class CBShapeMesh(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("iVertexNum", "uint"),
 		("iVertexOffset", "uint"),
@@ -1993,7 +1826,6 @@ class CBShapeMesh(EPyCStruct):
 		("iWeightsOffset", "uint"),
 		("iJointsOffset", "uint"),
 		("iOutputVertexOffset", "uint"),
-
 	])
 
 
@@ -2001,20 +1833,17 @@ class CBShapeMesh(EPyCStruct):
 class CBNormalRecalc(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iIBOffset", "uint"),
 		("iSkinningVertexBase", "uint"),
 		("iTriangleCount", "uint"),
 		("iVertexOffset", "uint"),
 		("iRedirectOffset", "uint"),
-
 	])
 
 
 #CBMhSky2Sun : 5052.shdr.src
 class CBMhSky2Sun(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fRotMatrix", "float4x4"),
 		("fSize", "float2"),
@@ -2029,7 +1858,6 @@ class CBMhSky2Sun(EPyCStruct):
 		("fSkySunWaterReflectionFactor", "float3"),
 		("fBloomTransparencyCoefficient", "float"),
 		("fRenderTargetInverseSize", "float2"),
-
 	])
 
 
@@ -2037,18 +1865,15 @@ class CBMhSky2Sun(EPyCStruct):
 class CBAmbientOccluder(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fSceneTextureScale", "float2"),
 		("fIntensity", "float"),
 		("fTransparency", "float"),
-
 	])
 
 
 #CBMhMaterialEMSLocal__disclosure : 1379.shdr.src
 class CBMhMaterialEMSLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -2082,7 +1907,6 @@ class CBMhMaterialEMSLocal__disclosure(EPyCStruct):
 		("fMummyColor__uiColor", "float4"),
 		("fMummyMatControl__uiUNorm", "float4"),
 		("fMummyEmitColor__uiColor", "float3"),
-
 	])
 
 
@@ -2090,13 +1914,11 @@ class CBMhMaterialEMSLocal__disclosure(EPyCStruct):
 class CBMhMaterialGlobal(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fMaterialWetBlend", "float"),
 		("fMaterialWetRoughness", "float"),
 		("bMaterialCustomLighting", "bbool"),
 		("iMaterialCustomLightingGBufferIdMask", "uint"),
 		("fMaterialHiddenSurfaceDrawIntensity", "float"),
-
 	])
 
 
@@ -2104,19 +1926,16 @@ class CBMhMaterialGlobal(EPyCStruct):
 class CBLUTBlending(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fLUTBlend", "float"),
 		("fVfxLUTBlend", "float"),
 		("bIsBlend", "bbool"),
 		("bIsVfxBlend", "bbool"),
-
 	])
 
 
 #CBVRRecompute : 8315.shdr.src
 class CBVRRecompute(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fDepthTreshold", "float"),
 		("fAngleTreshold", "float"),
@@ -2130,14 +1949,12 @@ class CBVRRecompute(EPyCStruct):
 
 		("align2", "ubyte[4]"),
 		("fMaxDepth2", "float3"),
-
 	])
 
 
 #CBMhMaterialStdLocal__disclosure : 4437.shdr.src
 class CBMhMaterialStdLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -2170,14 +1987,12 @@ class CBMhMaterialStdLocal__disclosure(EPyCStruct):
 		("bWetNormalBlend", "bbool"),
 		("fWetNormalBlendRange__uiUNorm", "float2"),
 		("fVolumeBlend__uiSNorm", "float"),
-
 	])
 
 
 #CBDOFFilter : 9040.shdr.src
 class CBDOFFilter(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fDOFPoissonOffsets", "float2[8]"),
 		("fDOFPixelSizeLow", "float2"),
@@ -2198,7 +2013,6 @@ class CBDOFFilter(EPyCStruct):
 
 		("align1", "ubyte[12]"),
 		("fDOFVelocityFactor", "float4"),
-
 	])
 
 
@@ -2206,14 +2020,12 @@ class CBDOFFilter(EPyCStruct):
 class CBImagePlane(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fImagePlaneColor", "float4"),
 		("fImagePlaneUVTransform", "float4x4"),
 		("fImagePlaneTechnique", "uint"),
 		("fBlendType", "uint"),
 		("bIsScreenPass", "bbool"),
 		("fGamma", "float"),
-
 	])
 
 
@@ -2221,17 +2033,14 @@ class CBImagePlane(EPyCStruct):
 class CBImagePlane2(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fFilterUVMin", "float2"),
 		("fFilterUVMax", "float2"),
-
 	])
 
 
 #CBHazeFilter : 1524.shdr.src
 class CBHazeFilter(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("iHazeTech", "uint"),
 		("fHazeFilterStart", "float"),
@@ -2242,14 +2051,12 @@ class CBHazeFilter(EPyCStruct):
 		("align0", "ubyte[12]"),
 		("fHazeFilterUVWOffset", "float4"),
 		("fHazeFilterScale", "float"),
-
 	])
 
 
 #CBMhMaterialVfxVATDistLocal__disclosure : 1608.shdr.src
 class CBMhMaterialVfxVATDistLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float3"),
 
@@ -2290,14 +2097,12 @@ class CBMhMaterialVfxVATDistLocal__disclosure(EPyCStruct):
 		("bSceneEnvMap", "bbool"),
 		("bEnableOpaque", "bbool"),
 		("bVertexColor", "bbool"),
-
 	])
 
 
 #CBBokehComposite : 6050.shdr.src
 class CBBokehComposite(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBokehMipBias", "float"),
 		("fBokehMipScale", "float"),
@@ -2308,7 +2113,6 @@ class CBBokehComposite(EPyCStruct):
 
 		("align0", "ubyte[8]"),
 		("fBokehTap", "float2[25]"),
-
 	])
 
 
@@ -2316,20 +2120,17 @@ class CBBokehComposite(EPyCStruct):
 class CBDecal(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iDecalMode", "uint"),
 		("fDecalMetallic", "float"),
 		("fDecalRoughness", "float"),
 		("fDecalNonMetallicFresnel", "float"),
 		("fDecalLimitAngle", "float"),
-
 	])
 
 
 #CBMhMaterialFakeLensLocal__disclosure : 1686.shdr.src
 class CBMhMaterialFakeLensLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -2360,14 +2161,12 @@ class CBMhMaterialFakeLensLocal__disclosure(EPyCStruct):
 		("fCoating_D__uiColor", "float3"),
 		("fWakuIntensity__uiUNorm", "float"),
 		("fWakuSize__uiUNorm", "float"),
-
 	])
 
 
 #CBFilter2 : 9498.shdr.src
 class CBFilter2(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fFilterUVMin", "float2"),
 		("fFilterUVMax", "float2"),
@@ -2376,14 +2175,12 @@ class CBFilter2(EPyCStruct):
 		("align0", "ubyte[12]"),
 		("fFilterSampleWeights", "float[11]"),
 		("fFilterThreshold", "float"),
-
 	])
 
 
 #CBMhMaterialVfxDispWaveLocal__disclosure : 1772.shdr.src
 class CBMhMaterialVfxDispWaveLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fUVTransformA", "float4"),
 		("fUVTransformB", "float4"),
@@ -2420,14 +2217,12 @@ class CBMhMaterialVfxDispWaveLocal__disclosure(EPyCStruct):
 		("fInnerOffsetScale", "float"),
 		("fVelocityAttn", "float"),
 		("fNormalDecalBlend__uiUNorm", "float"),
-
 	])
 
 
 #CBMhMaterialFlowDirLocal__disclosure : 1883.shdr.src
 class CBMhMaterialFlowDirLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -2449,7 +2244,6 @@ class CBMhMaterialFlowDirLocal__disclosure(EPyCStruct):
 		("fFlowDirUVPhaseShift__uiUNorm", "float"),
 		("bFlowDirLocalSpace", "bbool"),
 		("fFlowDirFlowSpeed__uiUNorm", "float"),
-
 	])
 
 
@@ -2457,16 +2251,13 @@ class CBMhMaterialFlowDirLocal__disclosure(EPyCStruct):
 class CBCreateMipmap(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iRegion", "uint4"),
-
 	])
 
 
 #CBWater : 6095.shdr.src
 class CBWater(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("cWorldMat", "float4x4"),
 		("cLodEnabled", "bbool"),
@@ -2478,14 +2269,12 @@ class CBWater(EPyCStruct):
 		("cAttenuation", "float"),
 		("cTest", "uint"),
 		("cNumWaveFunctionParam", "uint"),
-
 	])
 
 
 #CBMhMaterialEM103Local__disclosure : 2008.shdr.src
 class CBMhMaterialEM103Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -2571,14 +2360,12 @@ class CBMhMaterialEM103Local__disclosure(EPyCStruct):
 
 		("align6", "ubyte[12]"),
 		("fSnowControl", "float4"),
-
 	])
 
 
 #CBPrimGpuSystem : 9490.shdr.src
 class CBPrimGpuSystem(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("iEmitterCount", "uint"),
 		("iTotalSpawnCount", "uint"),
@@ -2601,7 +2388,6 @@ class CBPrimGpuSystem(EPyCStruct):
 		("gForceWindScale", "float"),
 		("gForceWindMass", "float"),
 		("gForceWindCurve", "float"),
-
 	])
 
 
@@ -2609,9 +2395,7 @@ class CBPrimGpuSystem(EPyCStruct):
 class CBVR_Debug(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iMode", "uint"),
-
 	])
 
 
@@ -2619,19 +2403,16 @@ class CBVR_Debug(EPyCStruct):
 class CBBitonicSort(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iSortArrayLength", "uint"),
 		("iCompareFlipSize", "uint"),
 		("iCompareStride", "uint"),
 		("iCompareDir", "uint"),
-
 	])
 
 
 #CBTSAO : 5754.shdr.src
 class CBTSAO(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("iDepthRegion", "uint4"),
 		("projConstant", "float4"),
@@ -2647,14 +2428,12 @@ class CBTSAO(EPyCStruct):
 		("intensity", "float"),
 		("fAcceptThresholdCoef", "float"),
 		("fRenderTargetSizeScale", "float"),
-
 	])
 
 
 #CBMhMaterialDynamicSnow__disclosure : 2134.shdr.src
 class CBMhMaterialDynamicSnow__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -2679,14 +2458,12 @@ class CBMhMaterialDynamicSnow__disclosure(EPyCStruct):
 		("fHeightScale", "float"),
 		("fVertexColorMapMask__uiUNorm", "float4"),
 		("fTessLevel", "float"),
-
 	])
 
 
 #CBGodRaysFilter : 779.shdr.src
 class CBGodRaysFilter(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fGodRaysOrigin", "float3"),
 		("fGodRaysMaskWeight", "float"),
@@ -2700,7 +2477,6 @@ class CBGodRaysFilter(EPyCStruct):
 		("fGodRaysShadowThreshold", "float"),
 		("fGodRaysBlurWidthScale", "float"),
 		("fGodRaysBlurWidthOffset", "float"),
-
 	])
 
 
@@ -2708,16 +2484,13 @@ class CBGodRaysFilter(EPyCStruct):
 class CBBloomSample(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fBloomFilterRegion", "float4"),
-
 	])
 
 
 #CBMhDecal : 8234.shdr.src
 class CBMhDecal(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("iDecalShadingMode", "int"),
 		("iDecalBlendMode", "int"),
@@ -2754,14 +2527,12 @@ class CBMhDecal(EPyCStruct):
 		("fDecalDistortionAngle", "float"),
 		("fDecalDistortionColor", "float3"),
 		("fDecalDistanceFade", "float"),
-
 	])
 
 
 #CBMhDecalSM : 8234.shdr.src
 class CBMhDecalSM(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fFireFactor", "float"),
 		("fFireLifeFactor", "float"),
@@ -2789,7 +2560,6 @@ class CBMhDecalSM(EPyCStruct):
 		("fWaterIntensityCubeMap", "float"),
 		("fWaterNormalSharpness", "float"),
 		("fWaterIntensityAlpha", "float"),
-
 	])
 
 
@@ -2797,14 +2567,12 @@ class CBMhDecalSM(EPyCStruct):
 class CBDebug(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iDebugView", "int"),
 		("iDebugViewChannel", "int"),
 		("iDebugLightMaxCount", "int"),
 		("fDebugViewBgAlpha", "float"),
 		("fDebugViewFgAlpha", "float"),
 		("fDebugViewScaling", "float2"),
-
 	])
 
 
@@ -2812,16 +2580,13 @@ class CBDebug(EPyCStruct):
 class CBMhSky2VS(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fSkyWorld", "float3x4"),
-
 	])
 
 
 #CBMhMaterialEM100_01Local__disclosure : 2276.shdr.src
 class CBMhMaterialEM100_01Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -2915,7 +2680,6 @@ class CBMhMaterialEM100_01Local__disclosure(EPyCStruct):
 
 		("align8", "ubyte[12]"),
 		("fSnowControl", "float4"),
-
 	])
 
 
@@ -2923,13 +2687,11 @@ class CBMhMaterialEM100_01Local__disclosure(EPyCStruct):
 class CBGodRaysConfiguration(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("isUseOcclusionFactorFromTexture", "bbool"),
 		("isUseAlphaOcclusion", "bbool"),
 		("isUseScaleOcclusion", "bbool"),
 		("isGrayColor", "bbool"),
 		("iThreshold", "int"),
-
 	])
 
 
@@ -2937,11 +2699,9 @@ class CBGodRaysConfiguration(EPyCStruct):
 class CBSSSSS(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fBlurMaxDist", "float"),
 		("fBlurEdgeSharpness", "float"),
 		("iDiviserFactor", "uint"),
-
 	])
 
 
@@ -2949,18 +2709,15 @@ class CBSSSSS(EPyCStruct):
 class CBSSSSS_Profile(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fRGBBlurWeight", "float4[16]"),
 		("fBlurOffset", "float4[8]"),
 		("fBlurTargetDist", "float4"),
-
 	])
 
 
 #CBNewDOFFilter2 : 9528.shdr.src
 class CBNewDOFFilter2(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("coc_bias", "float"),
 		("coc_scale", "float"),
@@ -2984,7 +2741,6 @@ class CBNewDOFFilter2(EPyCStruct):
 		("bVignetting", "bbool"),
 		("fVignettingEllipticity", "float"),
 		("fVignettingColor", "float3"),
-
 	])
 
 
@@ -2992,20 +2748,17 @@ class CBNewDOFFilter2(EPyCStruct):
 class CBMaterialDebug(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iMaterialDebugView", "uint"),
 		("bMaterialDebugZeroCheck", "bbool"),
 
 		("align0", "ubyte[8]"),
 		("fMaterialDebugColor", "float4"),
-
 	])
 
 
 #CBAtmosphere : 8399.shdr.src
 class CBAtmosphere(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fLightColor", "float3"),
 
@@ -3027,7 +2780,6 @@ class CBAtmosphere(EPyCStruct):
 		("fAerosolMieK", "float"),
 		("fAerosolPhaseK", "float"),
 		("fAerosolEccentricity", "float2"),
-
 	])
 
 
@@ -3035,9 +2787,7 @@ class CBAtmosphere(EPyCStruct):
 class CBPrimitiveMetaDataOcclusion(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fPrimOcclusionSphere", "float4"),
-
 	])
 
 
@@ -3045,10 +2795,8 @@ class CBPrimitiveMetaDataOcclusion(EPyCStruct):
 class CBSparkleParam(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fSparkleLightDir", "float4"),
 		("fSparkleSize", "float"),
-
 	])
 
 
@@ -3056,20 +2804,17 @@ class CBSparkleParam(EPyCStruct):
 class CBDevelopFlags(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iDispChannel", "int"),
 		("iDispCubeFace", "int"),
 		("iDispMode", "int"),
 		("fDispMipLevel", "float"),
 		("fDispArraySlice", "float"),
-
 	])
 
 
 #CBMhMaterialEM100Local__disclosure : 2483.shdr.src
 class CBMhMaterialEM100Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -3155,14 +2900,12 @@ class CBMhMaterialEM100Local__disclosure(EPyCStruct):
 
 		("align7", "ubyte[12]"),
 		("fSnowControl", "float4"),
-
 	])
 
 
 #CBMhMaterialLandscapeLocal__disclosure : 2566.shdr.src
 class CBMhMaterialLandscapeLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -3193,14 +2936,12 @@ class CBMhMaterialLandscapeLocal__disclosure(EPyCStruct):
 		("bSpecialBlend", "bbool"),
 		("bWetNormalBlend", "bbool"),
 		("fWetNormalBlendRange__uiUNorm", "float2"),
-
 	])
 
 
 #CBLightShaft_LightParam : 2569.shdr.src
 class CBLightShaft_LightParam(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fLightShaftPosition", "float3"),
 		("fLightShaftBoundingRadius", "float"),
@@ -3214,14 +2955,12 @@ class CBLightShaft_LightParam(EPyCStruct):
 		("fLightShaftShadowExtra", "float4"),
 		("fLightShaftShadowMapSize", "uint"),
 		("fLightShaftShadowMapRegion", "uint3"),
-
 	])
 
 
 #CBMhMaterialLandscapeFlowLocal__disclosure : 2653.shdr.src
 class CBMhMaterialLandscapeFlowLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -3258,7 +2997,6 @@ class CBMhMaterialLandscapeFlowLocal__disclosure(EPyCStruct):
 		("fFlowDirUVPhaseShift__uiUNorm", "float2"),
 		("fFlowDirFlowSpeed__uiUNorm", "float"),
 		("bFlowDirVfxNormalBlend", "bbool"),
-
 	])
 
 
@@ -3266,9 +3004,7 @@ class CBMhMaterialLandscapeFlowLocal__disclosure(EPyCStruct):
 class CBHermiteCurve(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fHermiteParam", "float4[8]"),
-
 	])
 
 
@@ -3276,11 +3012,9 @@ class CBHermiteCurve(EPyCStruct):
 class CBErrorUnit(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iErrorUnitAddress", "uint2"),
 		("iErrorUnitPass", "uint"),
 		("iErrorUnitPrio", "uint"),
-
 	])
 
 
@@ -3288,9 +3022,7 @@ class CBErrorUnit(EPyCStruct):
 class CBSnowFieldBake(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iSnowFieldBakeAttr", "uint"),
-
 	])
 
 
@@ -3298,9 +3030,7 @@ class CBSnowFieldBake(EPyCStruct):
 class CBHeightToNormal(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fFactor", "float"),
-
 	])
 
 
@@ -3308,11 +3038,9 @@ class CBHeightToNormal(EPyCStruct):
 class CBColorCorrectCube(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fLinearFactor", "float"),
 		("fDepthNear", "float"),
 		("fDepthFar", "float"),
-
 	])
 
 
@@ -3320,16 +3048,13 @@ class CBColorCorrectCube(EPyCStruct):
 class CBPrimCopyState(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fNormalSlope", "float"),
-
 	])
 
 
 #CBColorCorrect : 2810.shdr.src
 class CBColorCorrect(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fMatrix", "float4x4"),
 		("fBlendRate", "float"),
@@ -3339,14 +3064,12 @@ class CBColorCorrect(EPyCStruct):
 		("bVignetting", "bbool"),
 		("bVignettingEllipse", "bbool"),
 		("fScreenAlpha", "float"),
-
 	])
 
 
 #CBMhMaterialEM115Local__disclosure : 2874.shdr.src
 class CBMhMaterialEM115Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -3434,14 +3157,12 @@ class CBMhMaterialEM115Local__disclosure(EPyCStruct):
 
 		("align8", "ubyte[12]"),
 		("fSnowControl", "float4"),
-
 	])
 
 
 #CBMhMaterialFakeEyeLocal__disclosure : 2953.shdr.src
 class CBMhMaterialFakeEyeLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -3459,14 +3180,12 @@ class CBMhMaterialFakeEyeLocal__disclosure(EPyCStruct):
 		("fParallaxFactor__uiUNorm", "float"),
 		("fUV_Blend__uiUNorm", "float"),
 		("bBaseColorEmissive", "bbool"),
-
 	])
 
 
 #CBWaterWaveMaterial : 8116.shdr.src
 class CBWaterWaveMaterial(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fReflectionViewProj", "float4x4"),
 		("fUserNormalTiling", "float2"),
@@ -3498,7 +3217,6 @@ class CBWaterWaveMaterial(EPyCStruct):
 		("fSunlightReflectionIntensity", "float"),
 		("fCubemapBlendRate", "float"),
 		("iLightGroup", "uint"),
-
 	])
 
 
@@ -3506,20 +3224,17 @@ class CBWaterWaveMaterial(EPyCStruct):
 class CBStarrySky(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fRotMatrix", "float4x4"),
 		("fSize", "float2"),
 		("fFactor", "float"),
 		("fIntensity", "float"),
 		("fScintillation", "float"),
-
 	])
 
 
 #CBMhMaterialEM109Local__disclosure : 3105.shdr.src
 class CBMhMaterialEM109Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -3607,7 +3322,6 @@ class CBMhMaterialEM109Local__disclosure(EPyCStruct):
 
 		("align7", "ubyte[12]"),
 		("fSnowControl", "float4"),
-
 	])
 
 
@@ -3615,21 +3329,18 @@ class CBMhMaterialEM109Local__disclosure(EPyCStruct):
 class CBUpdateBufferFromMeshConditions(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fConditionsBlendAxis", "float3"),
 		("fConditionsBlendHeightLimit", "float"),
 		("fConditionsBlendHeightLimitOffset", "float"),
 		("fConditionsBlendAngleLimit", "float"),
 		("fConditionsBlendAngleScale", "float"),
 		("fConditionsBlendAdd", "float"),
-
 	])
 
 
 #CBMhMaterialSZK001Local__disclosure : 3171.shdr.src
 class CBMhMaterialSZK001Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -3718,7 +3429,6 @@ class CBMhMaterialSZK001Local__disclosure(EPyCStruct):
 
 		("align8", "ubyte[12]"),
 		("fSnowControl", "float4"),
-
 	])
 
 
@@ -3726,10 +3436,8 @@ class CBMhMaterialSZK001Local__disclosure(EPyCStruct):
 class CBLGTPRBGen(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iCurrentIndex", "uint"),
 		("iWindowType", "uint"),
-
 	])
 
 
@@ -3737,12 +3445,10 @@ class CBLGTPRBGen(EPyCStruct):
 class CBLUTMaking(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iLUTSize", "uint"),
 		("iMaxWidth", "uint"),
 		("fMaxLuminance", "float"),
 		("bIsPQToLinear", "bbool"),
-
 	])
 
 
@@ -3750,11 +3456,9 @@ class CBLUTMaking(EPyCStruct):
 class CBSnowPreProcess(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fNoiseBlendSVScale", "float"),
 		("fNoiseHeightScale", "float"),
 		("fNoiseBlendBias", "float"),
-
 	])
 
 
@@ -3762,12 +3466,10 @@ class CBSnowPreProcess(EPyCStruct):
 class CBBloomSettings(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("AdjustParams", "float4"),
 		("CenterAndScale", "float4"),
 		("Coefficient", "float4"),
 		("TexHalfSizes", "float4"),
-
 	])
 
 
@@ -3775,9 +3477,7 @@ class CBBloomSettings(EPyCStruct):
 class CBPrimitiveDebug(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fWorldOffset", "float3"),
-
 	])
 
 
@@ -3785,9 +3485,7 @@ class CBPrimitiveDebug(EPyCStruct):
 class CBWaterDebug(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iWaterDebugMode", "int"),
-
 	])
 
 
@@ -3795,16 +3493,13 @@ class CBWaterDebug(EPyCStruct):
 class CBSnowField2Debug(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iSnowField2DebugType", "uint"),
-
 	])
 
 
 #CBMaterialSnow__disclosure : 3370.shdr.src
 class CBMaterialSnow__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -3817,7 +3512,6 @@ class CBMaterialSnow__disclosure(EPyCStruct):
 		("fWorldPositionMax", "float3"),
 		("fWorldPositionMin", "float3"),
 		("fHeightScale", "float"),
-
 	])
 
 
@@ -3825,16 +3519,13 @@ class CBMaterialSnow__disclosure(EPyCStruct):
 class CBGUIDevelop(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fGUIOverlapDrawColor", "float3"),
-
 	])
 
 
 #CBToneMapping : 3371.shdr.src
 class CBToneMapping(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("iToneMapType", "uint"),
 		("bLuminanceVersion", "bbool"),
@@ -3849,14 +3540,12 @@ class CBToneMapping(EPyCStruct):
 		("bIsLinearToPQ", "bbool"),
 		("bIsPQToLinear", "bbool"),
 		("bEnableColorGrading", "bbool"),
-
 	])
 
 
 #CB_TemporalAA : 6076.shdr.src
 class CB_TemporalAA(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fReprojectionOffset", "float2"),
 		("fReprojectionScale", "float2"),
@@ -3866,14 +3555,12 @@ class CB_TemporalAA(EPyCStruct):
 		("fTemporalClampMax", "float2"),
 		("fBlendRate", "float"),
 		("bVelocityBase", "bbool"),
-
 	])
 
 
 #CBMhMaterialNPCEyeLocal__disclosure : 3419.shdr.src
 class CBMhMaterialNPCEyeLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -3892,14 +3579,12 @@ class CBMhMaterialNPCEyeLocal__disclosure(EPyCStruct):
 
 		("align0", "ubyte[4]"),
 		("fUVTransformDetailNormal", "float4"),
-
 	])
 
 
 #CBSpeedTreeLocalWind : 7364.shdr.src
 class CBSpeedTreeLocalWind_SpeedTreeLocalWind(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("pos", "float3"),
 		("radius", "float"),
@@ -3909,7 +3594,6 @@ class CBSpeedTreeLocalWind_SpeedTreeLocalWind(EPyCStruct):
 		("oscillateSpeed", "float"),
 		("moveType", "uint"),
 		("padding", "float"),
-
 	])
 class CBSpeedTreeLocalWind (Mod3Container):
 	Mod3Classes = CBSpeedTreeLocalWind_SpeedTreeLocalWind
@@ -3921,9 +3605,7 @@ class CBSpeedTreeLocalWind (Mod3Container):
 class CBGodRaysIterator(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fGodRayParams", "float4[8]"),
-
 	])
 
 
@@ -3931,10 +3613,8 @@ class CBGodRaysIterator(EPyCStruct):
 class CBCAS(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iConst0", "uint4"),
 		("iConst1", "uint4"),
-
 	])
 
 
@@ -3942,12 +3622,10 @@ class CBCAS(EPyCStruct):
 class CBSnowFieldGeometry(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fEdgesPerScreenHeight", "float"),
 		("fWorldPositionMax", "float3"),
 		("fWorldPositionMin", "float3"),
 		("fShovelCornerBlendRate", "float"),
-
 	])
 
 
@@ -3955,9 +3633,7 @@ class CBSnowFieldGeometry(EPyCStruct):
 class CBSnowShoveler(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fMinMaxRangeWorldY", "float4"),
-
 	])
 
 
@@ -3965,16 +3641,13 @@ class CBSnowShoveler(EPyCStruct):
 class CBSnowFall(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("SnowAmount", "float"),
-
 	])
 
 
 #CBMhMaterialEM002Local__disclosure : 3581.shdr.src
 class CBMhMaterialEM002Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -4055,14 +3728,12 @@ class CBMhMaterialEM002Local__disclosure(EPyCStruct):
 
 		("align6", "ubyte[12]"),
 		("fSnowControl", "float4"),
-
 	])
 
 
 #CBMhMaterialNPCHairLocal__disclosure : 3686.shdr.src
 class CBMhMaterialNPCHairLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -4104,7 +3775,6 @@ class CBMhMaterialNPCHairLocal__disclosure(EPyCStruct):
 
 		("align3", "ubyte[4]"),
 		("fUVTransformDetailNormal", "float4"),
-
 	])
 
 
@@ -4112,9 +3782,7 @@ class CBMhMaterialNPCHairLocal__disclosure(EPyCStruct):
 class CBBokehAutoFocus(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("SelectedFocusPoint", "uint2"),
-
 	])
 
 
@@ -4122,18 +3790,15 @@ class CBBokehAutoFocus(EPyCStruct):
 class CBTexturePosScaleFactor(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("drawStage", "float4"),
 		("sceneFFTStage", "float4"),
 		("kernelFFTStage", "float4"),
-
 	])
 
 
 #CBMhMaterialSimpleLocal__disclosure : 3785.shdr.src
 class CBMhMaterialSimpleLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -4146,14 +3811,12 @@ class CBMhMaterialSimpleLocal__disclosure(EPyCStruct):
 
 		("align0", "ubyte[12]"),
 		("fUVTransformA", "float4"),
-
 	])
 
 
 #CBMhMaterialPLSkinLocal__disclosure : 3848.shdr.src
 class CBMhMaterialPLSkinLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -4175,7 +3838,6 @@ class CBMhMaterialPLSkinLocal__disclosure(EPyCStruct):
 
 		("align0", "ubyte[12]"),
 		("fUVTransformDetailNormal", "float4"),
-
 	])
 
 
@@ -4183,21 +3845,18 @@ class CBMhMaterialPLSkinLocal__disclosure(EPyCStruct):
 class CBSnowHeightPick(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("WriteOffset", "uint"),
 		("SnowPickRenderFrame", "uint"),
 		("PickRequestCount", "uint"),
 
 		("align0", "ubyte[4]"),
 		("PickPositionArray", "int4[31]"),
-
 	])
 
 
 #CBNormalMerge : 3941.shdr.src
 class CBNormalMerge(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("iNmSrcOffset", "uint"),
 		("iNmVertexCount", "uint"),
@@ -4208,14 +3867,12 @@ class CBNormalMerge(EPyCStruct):
 		("iNmStride", "uint"),
 		("iNmOffset", "uint"),
 		("iNmRateOffset", "uint"),
-
 	])
 
 
 #CBMhMaterialStdBlendNoFurLocal__disclosure : 4004.shdr.src
 class CBMhMaterialStdBlendNoFurLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -4257,14 +3914,12 @@ class CBMhMaterialStdBlendNoFurLocal__disclosure(EPyCStruct):
 		("bSpecialBlend", "bbool"),
 		("bWetNormalBlend", "bbool"),
 		("fWetNormalBlendRange__uiUNorm", "float2"),
-
 	])
 
 
 #CBDecalCommon : 40.shdr.src
 class CBDecalCommon(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fDecalColor", "float4"),
 		("fDecalCenter", "float3"),
@@ -4278,7 +3933,6 @@ class CBDecalCommon(EPyCStruct):
 
 		("align2", "ubyte[4]"),
 		("fDecalBinormal", "float3"),
-
 	])
 
 
@@ -4286,18 +3940,15 @@ class CBDecalCommon(EPyCStruct):
 class CBGUINoiseAndFade(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fGUINoiseOffset", "float4"),
 		("fGUINoiseAndFadeParam", "float4"),
 		("fGUIFadeColor", "float4"),
-
 	])
 
 
 #CBMhMaterialEM063Local__disclosure : 4092.shdr.src
 class CBMhMaterialEM063Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -4384,7 +4035,6 @@ class CBMhMaterialEM063Local__disclosure(EPyCStruct):
 
 		("align7", "ubyte[12]"),
 		("fSnowControl", "float4"),
-
 	])
 
 
@@ -4392,16 +4042,13 @@ class CBMhMaterialEM063Local__disclosure(EPyCStruct):
 class CBMhSkyVS(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fSkyWorld", "float3x4"),
-
 	])
 
 
 #CBMhSkyLpPS : 4517.shdr.src
 class CBMhSkyLpPS(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fSkyGlobalIntensity", "float3"),
 
@@ -4435,14 +4082,12 @@ class CBMhSkyLpPS(EPyCStruct):
 		("fSkyBlendCloudSpeed2", "float2"),
 		("fSkyBlendCloudSpeed3", "float2"),
 		("iSkyAddress", "uint2"),
-
 	])
 
 
 #CBSnowFieldPreDepth : 4152.shdr.src
 class CBSnowFieldPreDepth(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fSnowFieldPreDepthRegion", "float4"),
 		("fSnowFieldPreDepthRegionY", "float2"),
@@ -4451,14 +4096,12 @@ class CBSnowFieldPreDepth(EPyCStruct):
 		("fSnowFieldPreDepthBoundings", "float4[16]"),
 		("fSnowFieldPreDepthMinMaxY", "float4[16]"),
 		("fSnowFieldResolution", "float4"),
-
 	])
 
 
 #CBSpeedTreeCollision__disclosure : 7364.shdr.src
 class CBSpeedTreeCollision__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fLocalHeightAdjust", "float"),
 		("fLocalWindOverallFactor", "float"),
@@ -4468,7 +4111,6 @@ class CBSpeedTreeCollision__disclosure(EPyCStruct):
 		("fWindOneSidedBias", "float"),
 		("bWindOneSidedUvFlip", "bbool"),
 		("bSpeedTreeLodSmooth", "bbool"),
-
 	])
 
 
@@ -4476,9 +4118,7 @@ class CBSpeedTreeCollision__disclosure(EPyCStruct):
 class CBSpeedTreePrimitiveInfo(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iPrimitiveInfo", "uint4"),
-
 	])
 
 
@@ -4486,17 +4126,14 @@ class CBSpeedTreePrimitiveInfo(EPyCStruct):
 class CBSpeedTreeSystem(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fSpeedTreeSystemParam", "float4"),
 		("iSpeedTreeSystemParam", "uint3"),
-
 	])
 
 
 #CBMhMaterialSpeedTreeStdBlendLocal__disclosure : 8071.shdr.src
 class CBMhMaterialSpeedTreeStdBlendLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -4539,7 +4176,6 @@ class CBMhMaterialSpeedTreeStdBlendLocal__disclosure(EPyCStruct):
 		("bSpecialBlend", "bbool"),
 		("bWetNormalBlend", "bbool"),
 		("fWetNormalBlendRange__uiUNorm", "float2"),
-
 	])
 
 
@@ -4547,19 +4183,16 @@ class CBMhMaterialSpeedTreeStdBlendLocal__disclosure(EPyCStruct):
 class CBSpeedTree(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fSpeedTreeParam", "float2"),
 
 		("align0", "ubyte[8]"),
 		("iSpeedTreeParam", "int3"),
-
 	])
 
 
 #CBSpeedTreeGlobalWind : 7364.shdr.src
 class CBSpeedTreeGlobalWind_SpeedTreeGlobalWind(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBillboardTexCoords", "uint4x4[3]"),
 		("fWindVector", "float4"),
@@ -4585,7 +4218,6 @@ class CBSpeedTreeGlobalWind_SpeedTreeGlobalWind(EPyCStruct):
 		("fLocalBranchDistance", "float2"),
 		("iWindAttr", "uint"),
 		("padding_0", "float"),
-
 	])
 class CBSpeedTreeGlobalWind (Mod3Container):
 	Mod3Classes = CBSpeedTreeGlobalWind_SpeedTreeGlobalWind
@@ -4597,7 +4229,6 @@ class CBSpeedTreeGlobalWind (Mod3Container):
 class CBSpeedTreeGlobalWindPF_SpeedTreeGlobalWind(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fBillboardTexCoords", "uint4x4[3]"),
 		("fWindVector", "float4"),
 		("fWindGlobal", "float4"),
@@ -4622,7 +4253,6 @@ class CBSpeedTreeGlobalWindPF_SpeedTreeGlobalWind(EPyCStruct):
 		("fLocalBranchDistance", "float2"),
 		("iWindAttr", "uint"),
 		("padding_0", "float"),
-
 	])
 class CBSpeedTreeGlobalWindPF (Mod3Container):
 	Mod3Classes = CBSpeedTreeGlobalWindPF_SpeedTreeGlobalWind
@@ -4634,7 +4264,6 @@ class CBSpeedTreeGlobalWindPF (Mod3Container):
 class CBSpeedTreeLocalWindPF_SpeedTreeLocalWind(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("pos", "float3"),
 		("radius", "float"),
 		("dir", "float3"),
@@ -4643,7 +4272,6 @@ class CBSpeedTreeLocalWindPF_SpeedTreeLocalWind(EPyCStruct):
 		("oscillateSpeed", "float"),
 		("moveType", "uint"),
 		("padding", "float"),
-
 	])
 class CBSpeedTreeLocalWindPF (Mod3Container):
 	Mod3Classes = CBSpeedTreeLocalWindPF_SpeedTreeLocalWind
@@ -4655,18 +4283,15 @@ class CBSpeedTreeLocalWindPF (Mod3Container):
 class CBGlobalIllumination(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fSpecularIntensity", "float"),
 		("fSpecularTemporalBlendRate", "float"),
 		("fSpecularDifference", "float"),
-
 	])
 
 
 #CBMhMaterialEM024Local__disclosure : 488.shdr.src
 class CBMhMaterialEM024Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -4747,14 +4372,12 @@ class CBMhMaterialEM024Local__disclosure(EPyCStruct):
 
 		("align6", "ubyte[12]"),
 		("fSnowControl", "float4"),
-
 	])
 
 
 #CBMhMaterialVfxWaterLocal__disclosure : 4332.shdr.src
 class CBMhMaterialVfxWaterLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fDistortionFactor__uiColor", "float3"),
@@ -4786,14 +4409,12 @@ class CBMhMaterialVfxWaterLocal__disclosure(EPyCStruct):
 		("fInnerOffsetScale", "float"),
 		("fVelocityAttn", "float"),
 		("fNormalDecalBlend__uiUNorm", "float"),
-
 	])
 
 
 #CBMhMaterialIvyFloorLocal__disclosure : 4445.shdr.src
 class CBMhMaterialIvyFloorLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fWaveLength", "float"),
 		("fSinkLength", "float"),
@@ -4802,7 +4423,6 @@ class CBMhMaterialIvyFloorLocal__disclosure(EPyCStruct):
 		("fIceConstSinkLength", "float"),
 		("fIceMaxSlant", "float"),
 		("fIceSlantRange", "float"),
-
 	])
 
 
@@ -4810,19 +4430,16 @@ class CBMhMaterialIvyFloorLocal__disclosure(EPyCStruct):
 class CBMhMaterialIvyFloor(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iIvyFloorWindIndex", "int"),
 		("iIvyFloorWindIndexPF", "int"),
 		("iIvyFloorId", "uint2"),
 		("fIvyFloorWindScale", "float"),
-
 	])
 
 
 #CBGUIDistanceField : 4448.shdr.src
 class CBGUIDistanceField(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fGUIDFParam0", "float3"),
 
@@ -4832,14 +4449,12 @@ class CBGUIDistanceField(EPyCStruct):
 
 		("align1", "ubyte[4]"),
 		("fGUIDFColor1", "float4"),
-
 	])
 
 
 #CBMhMaterialEC021Local__disclosure : 4489.shdr.src
 class CBMhMaterialEC021Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -4878,14 +4493,12 @@ class CBMhMaterialEC021Local__disclosure(EPyCStruct):
 
 		("align3", "ubyte[4]"),
 		("fFinColor__uiColor", "float3"),
-
 	])
 
 
 #CBMhMaterialSpeedTreeStdFurLocal__disclosure : 4572.shdr.src
 class CBMhMaterialSpeedTreeStdFurLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -4919,7 +4532,6 @@ class CBMhMaterialSpeedTreeStdFurLocal__disclosure(EPyCStruct):
 		("fFurMapBlend__uiUNorm", "float"),
 		("fFurEdgeBlend__uiUNorm", "float"),
 		("fFurTile", "float"),
-
 	])
 
 
@@ -4927,16 +4539,13 @@ class CBMhMaterialSpeedTreeStdFurLocal__disclosure(EPyCStruct):
 class CBCSClear(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iSize", "uint"),
-
 	])
 
 
 #CBGUIIcon : 4605.shdr.src
 class CBGUIIcon(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fGUINoiseColor", "float4"),
 		("fGUIEmissiveColor", "float4"),
@@ -4947,7 +4556,6 @@ class CBGUIIcon(EPyCStruct):
 
 		("align1", "ubyte[4]"),
 		("fGUIIconLightDir", "float3"),
-
 	])
 
 
@@ -4955,12 +4563,10 @@ class CBGUIIcon(EPyCStruct):
 class CBMhMaterialSlantFloorLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fSinkLength", "float"),
 		("fConstSinkLength", "float"),
 		("fMaxSlant", "float"),
 		("fSlantRange", "float"),
-
 	])
 
 
@@ -4968,10 +4574,8 @@ class CBMhMaterialSlantFloorLocal__disclosure(EPyCStruct):
 class CBMhMaterialSlantFloor(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iSlantFloorWindIndex", "int"),
 		("fSlantFloorWindScale", "float"),
-
 	])
 
 
@@ -4979,9 +4583,7 @@ class CBMhMaterialSlantFloor(EPyCStruct):
 class CBMhSky2GBuffer(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iSkyGBufferId", "uint"),
-
 	])
 
 
@@ -4989,20 +4591,17 @@ class CBMhSky2GBuffer(EPyCStruct):
 class CBLuminanceDebugDisp(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iLuminanceDispMode", "uint"),
 
 		("align0", "ubyte[12]"),
 		("fLuminanceDebugDispColor", "float4"),
 		("fLuminanceDebugDispMinMax", "float2"),
-
 	])
 
 
 #CBOutline : 7518.shdr.src
 class CBOutline(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fLineColor", "float4"),
 		("iTargetID", "uint"),
@@ -5016,14 +4615,12 @@ class CBOutline(EPyCStruct):
 		("fBlinkSpeed", "float"),
 		("fBlinkMin", "float"),
 		("bDepthTest", "bbool"),
-
 	])
 
 
 #CBMhMaterialEM125Local__disclosure : 4823.shdr.src
 class CBMhMaterialEM125Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -5119,7 +4716,6 @@ class CBMhMaterialEM125Local__disclosure(EPyCStruct):
 
 		("align8", "ubyte[12]"),
 		("fSnowControl", "float4"),
-
 	])
 
 
@@ -5127,9 +4723,7 @@ class CBMhMaterialEM125Local__disclosure(EPyCStruct):
 class CB_BGTexture(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fBGTextureColor", "float4"),
-
 	])
 
 
@@ -5137,19 +4731,16 @@ class CB_BGTexture(EPyCStruct):
 class CBMhMaterialFakeInnerEmitLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fEmissiveMapFactor__uiColor", "float3"),
 		("fInnerOffsetScale", "float"),
 		("fRimAlphaPower__uiUNorm", "float"),
 		("fVolumeBlend__uiSNorm", "float"),
-
 	])
 
 
 #CBBlink : 491.shdr.src
 class CBBlink(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fOffset", "float"),
 		("fPow", "float"),
@@ -5158,14 +4749,12 @@ class CBBlink(EPyCStruct):
 		("fColor", "float3"),
 		("fBlinkRate", "float"),
 		("fHeightOffset", "float"),
-
 	])
 
 
 #CBMhMaterialEM011Local__disclosure : 5017.shdr.src
 class CBMhMaterialEM011Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -5249,14 +4838,12 @@ class CBMhMaterialEM011Local__disclosure(EPyCStruct):
 
 		("align7", "ubyte[12]"),
 		("fSnowControl", "float4"),
-
 	])
 
 
 #CBMhMaterialNPCFaceLocal__disclosure : 5133.shdr.src
 class CBMhMaterialNPCFaceLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -5282,14 +4869,12 @@ class CBMhMaterialNPCFaceLocal__disclosure(EPyCStruct):
 
 		("align1", "ubyte[8]"),
 		("fUVTransformDetailNormal", "float4"),
-
 	])
 
 
 #CBMotionBlur : 5151.shdr.src
 class CBMotionBlur(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("iMotionBlurSampleNum", "int"),
 		("fMotionBlurShutterSpeed", "float"),
@@ -5298,14 +4883,12 @@ class CBMotionBlur(EPyCStruct):
 		("align0", "ubyte[4]"),
 		("fTransform", "float4x4"),
 		("fMotionBlurFurShutterSpeed", "float"),
-
 	])
 
 
 #CBMhMaterialVfxTornadoLocal__disclosure : 5228.shdr.src
 class CBMhMaterialVfxTornadoLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -5350,14 +4933,12 @@ class CBMhMaterialVfxTornadoLocal__disclosure(EPyCStruct):
 		("bGBufferIdMaskEnable", "bbool"),
 		("iGBufferIdMask", "uint"),
 		("fNormalDecalBlend__uiUNorm", "float"),
-
 	])
 
 
 #CBContactShadowInfo : 5469.shdr.src
 class CBContactShadowInfo(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fContactShadowLengthCoefs", "float4"),
 		("fContactShadowOptimizeParams", "float3"),
@@ -5366,14 +4947,12 @@ class CBContactShadowInfo(EPyCStruct):
 		("fContactShadowDirection", "float3"),
 		("bIsUseNoise", "bbool"),
 		("bIsUseContactShadow", "bbool"),
-
 	])
 
 
 #CBMhMaterialNPCEditFaceLocal__disclosure : 5265.shdr.src
 class CBMhMaterialNPCEditFaceLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -5447,7 +5026,6 @@ class CBMhMaterialNPCEditFaceLocal__disclosure(EPyCStruct):
 
 		("align7", "ubyte[8]"),
 		("fUVTransformDetailNormal", "float4"),
-
 	])
 
 
@@ -5455,17 +5033,14 @@ class CBMhMaterialNPCEditFaceLocal__disclosure(EPyCStruct):
 class CBDevelopColorPick(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("mousePos", "uint2"),
 		("gammaCorrect", "bbool"),
-
 	])
 
 
 #CBMhMaterialVfxSandFallLocal__disclosure : 5338.shdr.src
 class CBMhMaterialVfxSandFallLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fCubeMapFactor__uiColor", "float3"),
@@ -5495,14 +5070,12 @@ class CBMhMaterialVfxSandFallLocal__disclosure(EPyCStruct):
 		("bSceneEnvMap", "bbool"),
 		("bDisplacement", "bbool"),
 		("bRTBlend", "bbool"),
-
 	])
 
 
 #CBMhMaterialSpeedTreeStdBlendSnowLocal__disclosure : 5395.shdr.src
 class CBMhMaterialSpeedTreeStdBlendSnowLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -5561,14 +5134,12 @@ class CBMhMaterialSpeedTreeStdBlendSnowLocal__disclosure(EPyCStruct):
 		("fSnowOp", "float3"),
 		("bUseUVSecondarySnowMt", "bbool"),
 		("bUseUVSecondarySnowMtBM", "bbool"),
-
 	])
 
 
 #CBMhMaterialPLEditFaceLocal__disclosure : 5471.shdr.src
 class CBMhMaterialPLEditFaceLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -5642,7 +5213,6 @@ class CBMhMaterialPLEditFaceLocal__disclosure(EPyCStruct):
 
 		("align7", "ubyte[8]"),
 		("fUVTransformDetailNormal", "float4"),
-
 	])
 
 
@@ -5650,16 +5220,13 @@ class CBMhMaterialPLEditFaceLocal__disclosure(EPyCStruct):
 class CBWaterPick(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iWaterAddress", "uint2"),
-
 	])
 
 
 #CBMhMaterialEM044Local__disclosure : 5540.shdr.src
 class CBMhMaterialEM044Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -5737,14 +5304,12 @@ class CBMhMaterialEM044Local__disclosure(EPyCStruct):
 
 		("align6", "ubyte[12]"),
 		("fSnowControl", "float4"),
-
 	])
 
 
 #CBMhMaterialPLHairLocal__disclosure : 5623.shdr.src
 class CBMhMaterialPLHairLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -5786,14 +5351,12 @@ class CBMhMaterialPLHairLocal__disclosure(EPyCStruct):
 
 		("align3", "ubyte[4]"),
 		("fUVTransformDetailNormal", "float4"),
-
 	])
 
 
 #CBMhMaterialArrayLocal__disclosure : 5735.shdr.src
 class CBMhMaterialArrayLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -5810,7 +5373,6 @@ class CBMhMaterialArrayLocal__disclosure(EPyCStruct):
 
 		("align1", "ubyte[12]"),
 		("fArrayOrig", "float4"),
-
 	])
 
 
@@ -5818,21 +5380,18 @@ class CBMhMaterialArrayLocal__disclosure(EPyCStruct):
 class CBVignetting(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fOffset", "float"),
 		("fPow", "float"),
 		("fEllipticity", "float"),
 
 		("align0", "ubyte[4]"),
 		("fColor", "float3"),
-
 	])
 
 
 #CBMhEmissiveFog__disclosure : 5840.shdr.src
 class CBMhEmissiveFog__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float4"),
@@ -5865,14 +5424,12 @@ class CBMhEmissiveFog__disclosure(EPyCStruct):
 		("fVelocityAttn", "float"),
 		("fNormalDecalBlend__uiUNorm", "float"),
 		("bUseUVPrimaryAM", "bbool"),
-
 	])
 
 
 #CBMhMaterialSpeedTreeStdLocal__disclosure : 7063.shdr.src
 class CBMhMaterialSpeedTreeStdLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -5901,14 +5458,12 @@ class CBMhMaterialSpeedTreeStdLocal__disclosure(EPyCStruct):
 
 		("align2", "ubyte[4]"),
 		("fWetNormalBlendRange__uiUNorm", "float2"),
-
 	])
 
 
 #CBMhMaterialNPCSkinLocal__disclosure : 5940.shdr.src
 class CBMhMaterialNPCSkinLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -5930,14 +5485,12 @@ class CBMhMaterialNPCSkinLocal__disclosure(EPyCStruct):
 
 		("align0", "ubyte[12]"),
 		("fUVTransformDetailNormal", "float4"),
-
 	])
 
 
 #CBMhMaterialScrWaterLocal__disclosure : 6557.shdr.src
 class CBMhMaterialScrWaterLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -5967,14 +5520,12 @@ class CBMhMaterialScrWaterLocal__disclosure(EPyCStruct):
 		("fFlowStrength", "float"),
 		("fFlowSpeed", "float"),
 		("bDecalMode", "bbool"),
-
 	])
 
 
 #CBMhMaterialEM106Local__disclosure : 658.shdr.src
 class CBMhMaterialEM106Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -6063,7 +5614,6 @@ class CBMhMaterialEM106Local__disclosure(EPyCStruct):
 
 		("align7", "ubyte[12]"),
 		("fSnowControl", "float4"),
-
 	])
 
 
@@ -6071,9 +5621,7 @@ class CBMhMaterialEM106Local__disclosure(EPyCStruct):
 class CBMhSky2SimpleVS(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fSkyWorld", "float3x4"),
-
 	])
 
 
@@ -6081,17 +5629,14 @@ class CBMhSky2SimpleVS(EPyCStruct):
 class CBPartialColor(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("color_matrix", "float4x4"),
 		("compensate", "float"),
-
 	])
 
 
 #CBToneMappingSdrSim : 6067.shdr.src
 class CBToneMappingSdrSim(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("iToneMapType", "uint"),
 		("bLuminanceVersion", "bbool"),
@@ -6108,7 +5653,6 @@ class CBToneMappingSdrSim(EPyCStruct):
 		("bEnableColorGrading", "bbool"),
 		("bEnableSdrSimulation", "bbool"),
 		("bEnableMaxLuminanceTest", "bbool"),
-
 	])
 
 
@@ -6116,13 +5660,11 @@ class CBToneMappingSdrSim(EPyCStruct):
 class CB_CombinedFilter_ImagePlane(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iBlendType", "uint"),
 
 		("align0", "ubyte[12]"),
 		("fUVTransform", "float4x4"),
 		("fPlaneColor", "float4"),
-
 	])
 
 
@@ -6130,12 +5672,10 @@ class CB_CombinedFilter_ImagePlane(EPyCStruct):
 class CB_CombinedFilter(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("bEnableFXAA", "bbool"),
 		("bEnableTemporalAA", "bbool"),
 		("bEnableColorCorrect", "bbool"),
 		("bEnableImagePlane", "bbool"),
-
 	])
 
 
@@ -6143,19 +5683,16 @@ class CB_CombinedFilter(EPyCStruct):
 class CB_CombinedFilter_ColorCorrect(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fDepthNear", "float"),
 		("fDepthFar", "float"),
 		("bHdrExtrapolation", "bbool"),
 		("fHdrIntensityRangeInv", "float"),
-
 	])
 
 
 #cbHBAO : 9669.shdr.src
 class cbHBAO(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("HBAORadiusToScreen", "float"),
 		("HBAONegInvR2", "float"),
@@ -6164,14 +5701,12 @@ class cbHBAO(EPyCStruct):
 		("HBAOSmallScaleAOAmount", "float"),
 		("HBAOLargeScaleAOAmount", "float"),
 		("HBAONormalBlendRate", "float"),
-
 	])
 
 
 #CBMhMaterialFlagWaveBlendLocal__disclosure : 6261.shdr.src
 class CBMhMaterialFlagWaveBlendLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -6206,14 +5741,12 @@ class CBMhMaterialFlagWaveBlendLocal__disclosure(EPyCStruct):
 		("align3", "ubyte[4]"),
 		("fBlendUVTransformA", "float4"),
 		("bUseUVSecondaryMtBM", "bbool"),
-
 	])
 
 
 #CBMhMaterial_EM105_EVCLocal__disclosure : 6329.shdr.src
 class CBMhMaterial_EM105_EVCLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -6301,7 +5834,6 @@ class CBMhMaterial_EM105_EVCLocal__disclosure(EPyCStruct):
 		("fRimAlphaPower__uiSNorm", "float"),
 		("fRimTranslucency__uiUNorm", "float"),
 		("fRimNormal__uiUNorm", "float"),
-
 	])
 
 
@@ -6309,21 +5841,18 @@ class CBMhMaterial_EM105_EVCLocal__disclosure(EPyCStruct):
 class cbHDAO(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("HDAORejectRadius", "float"),
 		("HDAOAcceptRadius", "float"),
 		("HDAOIntensity", "float"),
 		("HDAOAcceptAngle", "float"),
 		("HDAONormalScale", "float"),
 		("HDAOUseNormal", "int"),
-
 	])
 
 
 #CBMhMaterialScrIceBlendNoFurLocal__disclosure : 6425.shdr.src
 class CBMhMaterialScrIceBlendNoFurLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -6388,14 +5917,12 @@ class CBMhMaterialScrIceBlendNoFurLocal__disclosure(EPyCStruct):
 		("fIceFresnelFactor__uiUNorm", "float"),
 		("fIceColorBlend__uiUNorm", "float"),
 		("bUseUVSecondaryMtIce", "bbool"),
-
 	])
 
 
 #CBMhMaterialEM117Local__disclosure : 6486.shdr.src
 class CBMhMaterialEM117Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -6484,14 +6011,12 @@ class CBMhMaterialEM117Local__disclosure(EPyCStruct):
 
 		("align7", "ubyte[12]"),
 		("fSnowControl", "float4"),
-
 	])
 
 
 #CBMhMaterialSKM001Local__disclosure : 6676.shdr.src
 class CBMhMaterialSKM001Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -6577,14 +6102,12 @@ class CBMhMaterialSKM001Local__disclosure(EPyCStruct):
 
 		("align6", "ubyte[12]"),
 		("fSnowControl", "float4"),
-
 	])
 
 
 #CBMhMaterialEM036Local__disclosure : 6752.shdr.src
 class CBMhMaterialEM036Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -6663,7 +6186,6 @@ class CBMhMaterialEM036Local__disclosure(EPyCStruct):
 
 		("align6", "ubyte[12]"),
 		("fSnowControl", "float4"),
-
 	])
 
 
@@ -6671,16 +6193,13 @@ class CBMhMaterialEM036Local__disclosure(EPyCStruct):
 class CBConstant(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iUserConstant", "uint"),
-
 	])
 
 
 #CBMhMaterialTMG001Local__disclosure : 6836.shdr.src
 class CBMhMaterialTMG001Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -6772,14 +6291,12 @@ class CBMhMaterialTMG001Local__disclosure(EPyCStruct):
 
 		("align7", "ubyte[12]"),
 		("fSnowControl", "float4"),
-
 	])
 
 
 #CBMhMaterialNikuLocal__disclosure : 6889.shdr.src
 class CBMhMaterialNikuLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -6793,14 +6310,12 @@ class CBMhMaterialNikuLocal__disclosure(EPyCStruct):
 		("align0", "ubyte[12]"),
 		("fUVTransformA", "float4"),
 		("fNikuMode__uiUNorm", "float4"),
-
 	])
 
 
 #CBMhMaterialVfxFakeInnerLocal__disclosure : 766.shdr.src
 class CBMhMaterialVfxFakeInnerLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fEmissiveMapFactor__uiColor", "float3"),
 
@@ -6816,14 +6331,12 @@ class CBMhMaterialVfxFakeInnerLocal__disclosure(EPyCStruct):
 		("bGBufferIdMaskEnable", "bbool"),
 		("iGBufferIdMask", "uint"),
 		("fNormalDecalBlend__uiUNorm", "float"),
-
 	])
 
 
 #CBMhMaterialEM102Local__disclosure : 6964.shdr.src
 class CBMhMaterialEM102Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -6910,14 +6423,12 @@ class CBMhMaterialEM102Local__disclosure(EPyCStruct):
 
 		("align7", "ubyte[12]"),
 		("fSnowControl", "float4"),
-
 	])
 
 
 #CBMhMaterialPLLocal__disclosure : 7169.shdr.src
 class CBMhMaterialPLLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -6968,14 +6479,12 @@ class CBMhMaterialPLLocal__disclosure(EPyCStruct):
 		("fEmissiveBlendRimParam", "float3"),
 		("fDetailNormalBlend__uiUNorm", "float"),
 		("fUVTransformDetailNormal", "float4"),
-
 	])
 
 
 #CBMhSkyPS : 7419.shdr.src
 class CBMhSkyPS(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fSkyMode", "uint"),
 		("fEmissiveMapFactor", "float3"),
@@ -6993,14 +6502,12 @@ class CBMhSkyPS(EPyCStruct):
 		("fSkyWaterReflectionFactor", "float3"),
 		("bSkyIsRenderingWater", "bbool"),
 		("iSkyAddress", "uint2"),
-
 	])
 
 
 #CBMhMaterialScrIceBlendLocal__disclosure : 7290.shdr.src
 class CBMhMaterialScrIceBlendLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -7070,7 +6577,6 @@ class CBMhMaterialScrIceBlendLocal__disclosure(EPyCStruct):
 		("fIceFresnelFactor__uiUNorm", "float"),
 		("fIceColorBlend__uiUNorm", "float"),
 		("bUseUVSecondaryMtIce", "bbool"),
-
 	])
 
 
@@ -7078,16 +6584,13 @@ class CBMhMaterialScrIceBlendLocal__disclosure(EPyCStruct):
 class CBMhSky2SimpleGBuffer(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iSkyGBufferId", "uint"),
-
 	])
 
 
 #CBMhMaterialIridescentBlendLocal__disclosure : 7417.shdr.src
 class CBMhMaterialIridescentBlendLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -7138,14 +6641,12 @@ class CBMhMaterialIridescentBlendLocal__disclosure(EPyCStruct):
 		("fFilmBlend__uiUNorm", "float"),
 		("fRefraction__uiUNorm", "float"),
 		("fRefractionBlend__uiUNorm", "float"),
-
 	])
 
 
 #CBMhMaterialEM057Local__disclosure : 7517.shdr.src
 class CBMhMaterialEM057Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -7236,14 +6737,12 @@ class CBMhMaterialEM057Local__disclosure(EPyCStruct):
 
 		("align7", "ubyte[12]"),
 		("fSnowControl", "float4"),
-
 	])
 
 
 #CBDepthColor : 7531.shdr.src
 class CBDepthColor(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fDepthColorBlendMode", "uint"),
 		("fDepthColorBlendRate", "float"),
@@ -7255,14 +6754,12 @@ class CBDepthColor(EPyCStruct):
 
 		("align1", "ubyte[12]"),
 		("fDepthColorBlendCurve", "float[256]"),
-
 	])
 
 
 #CBMhMaterialStdBlendLocal__disclosure : 7603.shdr.src
 class CBMhMaterialStdBlendLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -7309,14 +6806,12 @@ class CBMhMaterialStdBlendLocal__disclosure(EPyCStruct):
 		("bSpecialBlend", "bbool"),
 		("bWetNormalBlend", "bbool"),
 		("fWetNormalBlendRange__uiUNorm", "float2"),
-
 	])
 
 
 #CBMhMaterialEM111Local__disclosure : 7695.shdr.src
 class CBMhMaterialEM111Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -7402,14 +6897,12 @@ class CBMhMaterialEM111Local__disclosure(EPyCStruct):
 
 		("align7", "ubyte[12]"),
 		("fSnowControl", "float4"),
-
 	])
 
 
 #CBMhMaterialUberLocal__disclosure : 7827.shdr.src
 class CBMhMaterialUberLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -7480,14 +6973,12 @@ class CBMhMaterialUberLocal__disclosure(EPyCStruct):
 		("fSnowMatControl__uiUNorm", "float4"),
 		("fSnowUVOffset__uiUNorm", "float2"),
 		("bUseSnowDistance", "bbool"),
-
 	])
 
 
 #CBMhMaterialFurLocal__disclosure : 886.shdr.src
 class CBMhMaterialFurLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -7509,14 +7000,12 @@ class CBMhMaterialFurLocal__disclosure(EPyCStruct):
 		("fFurMapBlend__uiUNorm", "float"),
 		("fFurEdgeBlend__uiUNorm", "float"),
 		("fFurTile", "float"),
-
 	])
 
 
 #CBMhMaterialVfxDistDispLocal__disclosure : 7927.shdr.src
 class CBMhMaterialVfxDistDispLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fCubeMapFactor__uiColor", "float3"),
@@ -7549,14 +7038,12 @@ class CBMhMaterialVfxDistDispLocal__disclosure(EPyCStruct):
 		("fInnerOffsetScale", "float"),
 		("fVelocityAttn", "float"),
 		("fNormalDecalBlend__uiUNorm", "float"),
-
 	])
 
 
 #CBMhMaterialEMLocal__disclosure : 7993.shdr.src
 class CBMhMaterialEMLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -7634,14 +7121,12 @@ class CBMhMaterialEMLocal__disclosure(EPyCStruct):
 
 		("align6", "ubyte[12]"),
 		("fSnowControl", "float4"),
-
 	])
 
 
 #CBMhMaterialSpeedTreeStdIceLocal__disclosure : 8224.shdr.src
 class CBMhMaterialSpeedTreeStdIceLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -7692,14 +7177,12 @@ class CBMhMaterialSpeedTreeStdIceLocal__disclosure(EPyCStruct):
 		("fIceFresnelFactor__uiUNorm", "float"),
 		("fIceColorBlend__uiUNorm", "float"),
 		("bUseUVSecondaryMtIce", "bbool"),
-
 	])
 
 
 #CBMhMaterialNPCLocal__disclosure : 8309.shdr.src
 class CBMhMaterialNPCLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -7746,7 +7229,6 @@ class CBMhMaterialNPCLocal__disclosure(EPyCStruct):
 		("fEmissiveBlendRimParam", "float3"),
 		("fDetailNormalBlend__uiUNorm", "float"),
 		("fUVTransformDetailNormal", "float4"),
-
 	])
 
 
@@ -7754,17 +7236,14 @@ class CBMhMaterialNPCLocal__disclosure(EPyCStruct):
 class CBResample(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fResampleScreenSize", "float2"),
 		("fResampleScale", "float2"),
-
 	])
 
 
 #CBMhMaterialEM124Local__disclosure : 8387.shdr.src
 class CBMhMaterialEM124Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -7857,7 +7336,6 @@ class CBMhMaterialEM124Local__disclosure(EPyCStruct):
 
 		("align8", "ubyte[12]"),
 		("fSnowControl", "float4"),
-
 	])
 
 
@@ -7865,16 +7343,13 @@ class CBMhMaterialEM124Local__disclosure(EPyCStruct):
 class CBSky(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fSunSolidAngle", "float"),
-
 	])
 
 
 #CBMhMaterialTestLocal__disclosure : 8491.shdr.src
 class CBMhMaterialTestLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("iShaderMode", "int"),
 
@@ -7916,14 +7391,12 @@ class CBMhMaterialTestLocal__disclosure(EPyCStruct):
 		("fVPushSpeed", "float"),
 		("fVAnimPosScale", "float"),
 		("fVAnimV__uiUNorm", "float"),
-
 	])
 
 
 #CBMhMaterialFurnitureLocal__disclosure : 8572.shdr.src
 class CBMhMaterialFurnitureLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -7970,14 +7443,12 @@ class CBMhMaterialFurnitureLocal__disclosure(EPyCStruct):
 		("fBlendFurMapBlend__uiUNorm", "float"),
 		("fBlendFurEdgeBlend__uiUNorm", "float"),
 		("fBlendFurTile", "float"),
-
 	])
 
 
 #CBMhMaterialBurnLocal__disclosure : 8709.shdr.src
 class CBMhMaterialBurnLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -8007,14 +7478,12 @@ class CBMhMaterialBurnLocal__disclosure(EPyCStruct):
 		("align4", "ubyte[4]"),
 		("fSnowMatControl__uiUNorm", "float4"),
 		("fSnowUVOffset__uiUNorm", "float2"),
-
 	])
 
 
 #SeaDisplacement : 8711.shdr.src
 class SeaDisplacement(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fWorldMat", "float4x4"),
 		("iVBStride", "uint"),
@@ -8029,14 +7498,12 @@ class SeaDisplacement(EPyCStruct):
 		("fWindParam", "float2"),
 		("fNoiseDensity", "float"),
 		("fChoppyCoef", "float"),
-
 	])
 
 
 #CBMhMaterialSpeedTreeStdSnowLocal__disclosure : 8772.shdr.src
 class CBMhMaterialSpeedTreeStdSnowLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -8083,7 +7550,6 @@ class CBMhMaterialSpeedTreeStdSnowLocal__disclosure(EPyCStruct):
 		("fSnowOp", "float3"),
 		("bUseUVSecondarySnowMt", "bbool"),
 		("bUseUVSecondarySnowMtBM", "bbool"),
-
 	])
 
 
@@ -8091,16 +7557,13 @@ class CBMhMaterialSpeedTreeStdSnowLocal__disclosure(EPyCStruct):
 class CBTubeLight(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iTubeLightCount", "uint"),
-
 	])
 
 
 #CBMhMaterialFakeRefractionLocal__disclosure : 8844.shdr.src
 class CBMhMaterialFakeRefractionLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -8116,7 +7579,6 @@ class CBMhMaterialFakeRefractionLocal__disclosure(EPyCStruct):
 		("fUVTransformB", "float4"),
 		("fTranslucency__uiUNorm", "float"),
 		("fRefraction__uiUNorm", "float"),
-
 	])
 
 
@@ -8124,16 +7586,13 @@ class CBMhMaterialFakeRefractionLocal__disclosure(EPyCStruct):
 class CBImageEvaluator(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fCentralRegion", "float3"),
-
 	])
 
 
 #CBMhMaterialEM118Local__disclosure : 8948.shdr.src
 class CBMhMaterialEM118Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -8223,14 +7682,12 @@ class CBMhMaterialEM118Local__disclosure(EPyCStruct):
 
 		("align7", "ubyte[12]"),
 		("fSnowControl", "float4"),
-
 	])
 
 
 #CBMhMaterialEM080Local__disclosure : 9014.shdr.src
 class CBMhMaterialEM080Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -8310,7 +7767,6 @@ class CBMhMaterialEM080Local__disclosure(EPyCStruct):
 
 		("align6", "ubyte[12]"),
 		("fSnowControl", "float4"),
-
 	])
 
 
@@ -8318,21 +7774,18 @@ class CBMhMaterialEM080Local__disclosure(EPyCStruct):
 class CBModelChain(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fStartFrame", "float"),
 		("fMotionKeyAlpha", "float"),
 		("fStartRotation", "float"),
 		("fNextModelFrame", "float"),
 		("fNextModelRotation", "float"),
 		("iMotionDataNum", "int"),
-
 	])
 
 
 #CBMhMaterialPLEyeLocal__disclosure : 940.shdr.src
 class CBMhMaterialPLEyeLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -8351,7 +7804,6 @@ class CBMhMaterialPLEyeLocal__disclosure(EPyCStruct):
 
 		("align0", "ubyte[4]"),
 		("fUVTransformDetailNormal", "float4"),
-
 	])
 
 
@@ -8359,20 +7811,17 @@ class CBMhMaterialPLEyeLocal__disclosure(EPyCStruct):
 class CBLayoutCache(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iEmitterID", "uint"),
 		("iParticleStride", "uint"),
 		("iParticleMaxNum", "uint"),
 		("iOutputOffset", "uint"),
 		("iOutputFlags", "uint"),
-
 	])
 
 
 #CBRadialBlurFilter : 9147.shdr.src
 class CBRadialBlurFilter(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fRadialBlurCenter", "float2"),
 		("fRadialBlurStart", "float"),
@@ -8385,7 +7834,6 @@ class CBRadialBlurFilter(EPyCStruct):
 		("fRadialBlurChromaticAberration", "float3"),
 		("fRadialBlurBlurScreenAlpha", "float"),
 		("fRadialBlurBlurCurve", "float4[64]"),
-
 	])
 
 
@@ -8393,12 +7841,10 @@ class CBRadialBlurFilter(EPyCStruct):
 class CBRadialBlurFunction(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("iRadialFilterSampleColorScale", "int"),
 		("iRadialFilterAlpha", "int"),
 		("iRadialBlurWidth", "int"),
 		("iRadialBlurAlpha", "int"),
-
 	])
 
 
@@ -8406,16 +7852,13 @@ class CBRadialBlurFunction(EPyCStruct):
 class CBPickObject(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fPickObjectColor", "float4"),
-
 	])
 
 
 #CBMhMaterialVfxAuroraLocal__disclosure : 9239.shdr.src
 class CBMhMaterialVfxAuroraLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveFactor__uiColor", "float3"),
@@ -8431,14 +7874,12 @@ class CBMhMaterialVfxAuroraLocal__disclosure(EPyCStruct):
 		("align0", "ubyte[4]"),
 		("fUVTransformA", "float4"),
 		("fUVTransformB", "float4"),
-
 	])
 
 
 #CBMhMaterialVfxIceLocal__disclosure : 9357.shdr.src
 class CBMhMaterialVfxIceLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -8483,14 +7924,12 @@ class CBMhMaterialVfxIceLocal__disclosure(EPyCStruct):
 		("fAlbedoBlendMapGFactor__uiColor", "float3"),
 		("fIceFresnelFactor__uiUNorm", "float"),
 		("fIceColorBlend__uiUNorm", "float"),
-
 	])
 
 
 #CBMhMaterialFlagWaveLocal__disclosure : 9457.shdr.src
 class CBMhMaterialFlagWaveLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -8513,7 +7952,6 @@ class CBMhMaterialFlagWaveLocal__disclosure(EPyCStruct):
 		("fFlagControl", "float4"),
 		("fDisplaceControl", "float4"),
 		("fDispFactor", "float"),
-
 	])
 
 
@@ -8521,14 +7959,12 @@ class CBMhMaterialFlagWaveLocal__disclosure(EPyCStruct):
 class CBFXAAParam(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fFXAAQualitySubpix", "float"),
 		("fFXAAQualityEdgeThreshold", "float"),
 		("fFXAAQualityEdgeThresholdMin", "float"),
 
 		("align0", "ubyte[4]"),
 		("fFXAATexOnePitch", "float2"),
-
 	])
 
 
@@ -8536,16 +7972,13 @@ class CBFXAAParam(EPyCStruct):
 class CBSystemGamma(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fSystemCopyGamma", "float"),
-
 	])
 
 
 #CBHermiteCurveRGB : 9580.shdr.src
 class CBHermiteCurveRGB(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fHermiteParamR", "float2[64]"),
 
@@ -8554,14 +7987,12 @@ class CBHermiteCurveRGB(EPyCStruct):
 
 		("align1", "ubyte[8]"),
 		("fHermiteParamB", "float2[64]"),
-
 	])
 
 
 #CBMhMaterialScrIceLocal__disclosure : 9666.shdr.src
 class CBMhMaterialScrIceLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -8616,14 +8047,12 @@ class CBMhMaterialScrIceLocal__disclosure(EPyCStruct):
 		("fAlbedoBlendMapGFactor__uiColor", "float3"),
 		("fIceFresnelFactor__uiUNorm", "float"),
 		("fIceColorBlend__uiUNorm", "float"),
-
 	])
 
 
 #CBMhMaterialBTK001Local__disclosure : 9749.shdr.src
 class CBMhMaterialBTK001Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -8710,14 +8139,12 @@ class CBMhMaterialBTK001Local__disclosure(EPyCStruct):
 
 		("align7", "ubyte[12]"),
 		("fSnowControl", "float4"),
-
 	])
 
 
 #CBMhMaterialFakeSphereLocal__disclosure : 9789.shdr.src
 class CBMhMaterialFakeSphereLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -8734,14 +8161,12 @@ class CBMhMaterialFakeSphereLocal__disclosure(EPyCStruct):
 		("fTranslucency__uiUNorm", "float"),
 		("bForwardFog", "bbool"),
 		("bAddSphere", "bbool"),
-
 	])
 
 
 #CBMhMaterialEM080_01Local__disclosure : 9879.shdr.src
 class CBMhMaterialEM080_01Local__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -8829,14 +8254,12 @@ class CBMhMaterialEM080_01Local__disclosure(EPyCStruct):
 
 		("align7", "ubyte[12]"),
 		("fSnowControl", "float4"),
-
 	])
 
 
 #CBMhMaterialUberIceLocal__disclosure : 9974.shdr.src
 class CBMhMaterialUberIceLocal__disclosure(EPyCStruct):
 	fields = OrderedDict([
-
 
 		("fBaseMapFactor__uiColor", "float4"),
 		("fEmissiveMapFactor__uiColor", "float3"),
@@ -8914,7 +8337,6 @@ class CBMhMaterialUberIceLocal__disclosure(EPyCStruct):
 		("fSnowMatControl__uiUNorm", "float4"),
 		("fSnowUVOffset__uiUNorm", "float2"),
 		("bUseSnowDistance", "bbool"),
-
 	])
 
 
@@ -8922,9 +8344,7 @@ class CBMhMaterialUberIceLocal__disclosure(EPyCStruct):
 class CBColorCorrectToneCurve(EPyCStruct):
 	fields = OrderedDict([
 
-
 		("fToneColor", "float4[256]"),
-
 	])
 
 

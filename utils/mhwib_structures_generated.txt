@@ -1,7 +1,6 @@
 //CBViewProjection : 9999.shdr.src
 struct CBViewProjection {
 
-
   row_major float4x4 fViewProj;      // Offset:    0 Size:    64 [unused]
   row_major float4x4 fView;          // Offset:   64 Size:    64 [unused]
   row_major float4x4 fProj;          // Offset:  128 Size:    64 [unused]
@@ -35,12 +34,10 @@ struct CBViewProjection {
   row_major float4x4 fNoJitterViewProjIViewProjPF;// Offset:  992 Size:    64 [unused]
   float2 fPassThroughCorrect;        // Offset: 1056 Size:     8 [unused]
   bool bWideMonitor;                 // Offset: 1064 Size:     4 [unused]
-
 };
 
 //CBScreen : 9999.shdr.src
 struct CBScreen {
-
 
   float2 fScreenOffset;              // Offset:    0 Size:     8 [unused]
   float2 fScreenScale;               // Offset:    8 Size:     8 [unused]
@@ -60,16 +57,13 @@ struct CBScreen {
   float fContentScaleActualInverse;  // Offset:   96 Size:     4 [unused]
   float fContentScalePassScreen;     // Offset:  100 Size:     4 [unused]
   bool bCheckerboard;                // Offset:  104 Size:     4 [unused]
-
 };
 
 //CBLightParameters : 9999.shdr.src
 struct CBLightParameters {
 
-
   struct CBLightParameters_LightParameter
   {
-
       float4 position_boundingRadius;// Offset:    0
       float4 direction_falloff;      // Offset:   16
       uint4 misc_attenuation;        // Offset:   32
@@ -79,14 +73,11 @@ struct CBLightParameters {
       row_major float4x4 texproj_mat;// Offset:  128
       float4 shadow_extra;           // Offset:  192
       uint4 shadowmap_size_region;   // Offset:  208
-
   } gLightParameters[256];           // Offset:    0 Size: 57344
-
 };
 
 //CBVRCommon : 9999.shdr.src
 struct CBVRCommon {
-
 
   uint iNumVolumes;                  // Offset:    0 Size:     4 [unused]
   float fGIFactor;                   // Offset:    4 Size:     4 [unused]
@@ -117,31 +108,25 @@ struct CBVRCommon {
   // align: 1624 to 1632
   ubyte align5[8];
   float4 fDistanceFadeParam;         // Offset: 1632 Size:    16
-
 };
 
 //CBVRCompute : 9999.shdr.src
 struct CBVRCompute {
 
-
   uint iCountOffset;                 // Offset:    0 Size:     4
-
 };
 
 //CBVRFilter : 1279.shdr.src
 struct CBVRFilter {
 
-
   float4 fDimensions;                // Offset:    0 Size:    16
   float4 fFilterRegion;              // Offset:   16 Size:    16 [unused]
   float fFilterMipLevel;             // Offset:   32 Size:     4 [unused]
   bool vertical;                     // Offset:   36 Size:     4
-
 };
 
 //CBModel : 9990.shdr.src
 struct CBModel {
-
 
   row_major float3x4 fWorld;         // Offset:    0 Size:    48 [unused]
   row_major float3x4 fWorldI;        // Offset:   48 Size:    48
@@ -156,12 +141,10 @@ struct CBModel {
   bool bPassThrough;                 // Offset:  172 Size:     4 [unused]
   bool bInstanceMaterialEdit;        // Offset:  176 Size:     4 [unused]
   bool bInstanceEffect;              // Offset:  180 Size:     4 [unused]
-
 };
 
 //CBROPTest : 999.shdr.src
 struct CBROPTest {
-
 
   bool bAlphaTestEnable;             // Offset:    0 Size:     4 [unused]
   float fAlphaRef;                   // Offset:    4 Size:     4 [unused]
@@ -174,20 +157,16 @@ struct CBROPTest {
   ubyte align0[4];
   float2 CapturePixelOffset;         // Offset:   32 Size:     8 [unused]
   float CaptureScale;                // Offset:   40 Size:     4 [unused]
-
 };
 
 //CBUpdateBufferFromMeshData : 999.shdr.src
 struct CBUpdateBufferFromMeshData {
 
-
   uint iUpdateBufferOffset;          // Offset:    0 Size:     4
-
 };
 
 //CBMhMaterialOZK001Local__disclosure : 99.shdr.src
 struct CBMhMaterialOZK001Local__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -273,12 +252,10 @@ struct CBMhMaterialOZK001Local__disclosure {
   // align: 500 to 512
   ubyte align6[12];
   float4 fSnowControl;               // Offset:  512 Size:    16
-
 };
 
 //CBMhMaterialEM032Local__disclosure : 999.shdr.src
 struct CBMhMaterialEM032Local__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -357,12 +334,10 @@ struct CBMhMaterialEM032Local__disclosure {
   // align: 468 to 480
   ubyte align6[12];
   float4 fSnowControl;               // Offset:  480 Size:    16
-
 };
 
 //CBLight : 9999.shdr.src
 struct CBLight {
-
 
   uint iLightOffset;                 // Offset:    0 Size:     4 [unused]
   uint iLightNum;                    // Offset:    4 Size:     4 [unused]
@@ -380,20 +355,16 @@ struct CBLight {
   uint2 iLightInfiniteRange;         // Offset:  280 Size:     8 [unused]
   uint2 iLightPointRange;            // Offset:  288 Size:     8 [unused]
   uint2 iLightSpotRange;             // Offset:  296 Size:     8 [unused]
-
 };
 
 //CBInstancing : 999.shdr.src
 struct CBInstancing {
 
-
   uint iInstanceIndex;               // Offset:    0 Size:     4
-
 };
 
 //CBBokehCOCSettings : 9564.shdr.src
 struct CBBokehCOCSettings {
-
 
   float3 BokehNearColor;             // Offset:    0 Size:    12
   float BokehColorFadeSmooth;        // Offset:   12 Size:     4 [unused]
@@ -430,12 +401,10 @@ struct CBBokehCOCSettings {
   ubyte align1[12];
   float4 BokehFarFetchOffset;        // Offset:  176 Size:    16 [unused]
   int AlwaysZeroValue;               // Offset:  192 Size:     4 [unused]
-
 };
 
 //CBLightProbes : 9998.shdr.src
 struct CBLightProbes {
-
 
   bool bLightProbesEnable;           // Offset:    0 Size:     4 [unused]
   float3 probesGridInvCellSize;      // Offset:    4 Size:    12
@@ -459,33 +428,27 @@ struct CBLightProbes {
   float fDaytimeInterpolation;       // Offset:  316 Size:     4 [unused]
   bool bEnableNeighborSearch;        // Offset:  320 Size:     4
   uint iTocCollisionOffset;          // Offset:  324 Size:     4
-
 };
 
 //CBLGTPRBDebug : 905.shdr.src
 struct CBLGTPRBDebug {
 
-
   float fProbeSize;                  // Offset:    0 Size:     4 [unused]
   float3 lineColor;                  // Offset:    4 Size:    12
   uint iProbeDebugType;              // Offset:   16 Size:     4 [unused]
-
 };
 
 //CBPrimSystem : 9686.shdr.src
 struct CBPrimSystem {
 
-
   float fPrimGammaCorrect;           // Offset:    0 Size:     4
   float fPrimAlphaLowerLimit;        // Offset:    4 Size:     4
   float fPrimGlobalLightReflectance; // Offset:    8 Size:     4 [unused]
   uint iPrimSystemFalgs;             // Offset:   12 Size:     4 [unused]
-
 };
 
 //CBPrimitive : 9686.shdr.src
 struct CBPrimitive {
-
 
   float4 fPrimParam0;                // Offset:    0 Size:    16 [unused]
   float4 fPrimParam1;                // Offset:   16 Size:    16 [unused]
@@ -498,12 +461,10 @@ struct CBPrimitive {
   float4 fPrimParam8;                // Offset:  128 Size:    16 [unused]
   float4 fPrimParam9;                // Offset:  144 Size:    16 [unused]
   uint4 iPrimParam0;                 // Offset:  160 Size:    16
-
 };
 
 //CBMhMaterialVfxFloodLocal__disclosure : 10090.shdr.src
 struct CBMhMaterialVfxFloodLocal__disclosure {
-
 
   float3 fBaseMapFactor__uiColor;    // Offset:    0 Size:    12 [unused]
   // align: 12 to 16
@@ -549,24 +510,20 @@ struct CBMhMaterialVfxFloodLocal__disclosure {
   float fVelocityAttn;               // Offset:  220 Size:     4 [unused]
   float fNormalDecalBlend__uiUNorm;  // Offset:  224 Size:     4 [unused]
   bool bUseUVPrimaryOM;              // Offset:  228 Size:     4 [unused]
-
 };
 
 //CBMaterialCommon__disclosure : 9960.shdr.src
 struct CBMaterialCommon__disclosure {
-
 
   bool bBypass;                      // Offset:    0 Size:     4
   bool bDecalMask;                   // Offset:    4 Size:     4 [unused]
   bool bEmissive;                    // Offset:    8 Size:     4
   uint iGBufferId;                   // Offset:   12 Size:     4 [unused]
   uint iOutlineId;                   // Offset:   16 Size:     4 [unused]
-
 };
 
 //CBFog : 9981.shdr.src
 struct CBFog {
-
 
   uint iFogType;                     // Offset:    0 Size:     4
   uint iDistanceFogFlags;            // Offset:    4 Size:     4
@@ -596,12 +553,10 @@ struct CBFog {
   float fMipFogLimitLevel;           // Offset:  144 Size:     4
   float fMipFogRotSin;               // Offset:  148 Size:     4
   float fMipFogRotCos;               // Offset:  152 Size:     4
-
 };
 
 //CBRenderFrame : 9987.shdr.src
 struct CBRenderFrame {
-
 
   uint iRenderFrame;                 // Offset:    0 Size:     4
   uint iTotalTime;                   // Offset:    4 Size:     4 [unused]
@@ -619,31 +574,25 @@ struct CBRenderFrame {
   float fHdrOutputGamutMappingRatio; // Offset:   56 Size:     4 [unused]
   float fHdrOutputGamma;             // Offset:   60 Size:     4 [unused]
   bool bIsGUIHdrGamma;               // Offset:   64 Size:     4 [unused]
-
 };
 
 //CBTestLight : 9960.shdr.src
 struct CBTestLight {
 
-
   float3 fTestLightDir;              // Offset:    0 Size:    12
   // align: 12 to 16
   ubyte align0[4];
   float3 fTestLightColor;            // Offset:   16 Size:    12
-
 };
 
 //CBPick : 9966.shdr.src
 struct CBPick {
 
-
   uint2 iPickPoint;                  // Offset:    0 Size:     8
-
 };
 
 //CBMhMaterialEMGlobal : 994.shdr.src
 struct CBMhMaterialEMGlobal {
-
 
   uint fMaterialPaintNum;            // Offset:    0 Size:     4
   // align: 4 to 16
@@ -668,12 +617,10 @@ struct CBMhMaterialEMGlobal {
   ubyte align4[4];
   float4 fMaterialDamageColor;       // Offset: 1824 Size:    16
   float2 fMaterialDamageBlendRange;  // Offset: 1840 Size:     8
-
 };
 
 //CBMotionBlurReconstruction : 9983.shdr.src
 struct CBMotionBlurReconstruction {
-
 
   int2 iTileSize;                    // Offset:    0 Size:     8 [unused]
   uint uNumSamples;                  // Offset:    8 Size:     4 [unused]
@@ -686,16 +633,13 @@ struct CBMotionBlurReconstruction {
   int iDebugViewType;                // Offset:   40 Size:     4 [unused]
   bool bIsPrevious;                  // Offset:   44 Size:     4 [unused]
   bool bIsLegacy;                    // Offset:   48 Size:     4 [unused]
-
 };
 
 //CBVRVolumeParams : 9977.shdr.src
 struct CBVRVolumeParams {
 
-
   struct CBVRVolumeParams_VolumeParam
   {
-
       uint packedData;               // Offset:    0
       float3 emissive;               // Offset:    4
       float3 scattering;             // Offset:   16
@@ -704,63 +648,46 @@ struct CBVRVolumeParams {
       float moveSpeed;               // Offset:   44
       float3 moveDir;                // Offset:   48
       float dispelFactor;            // Offset:   60
-
   } volumeList[128];                 // Offset:    0 Size:  8192
-
   struct CBVRVolumeParams_Constant
   {
-
       float3 limits;                 // Offset: 8192
       uint extra;                    // Offset: 8204
-
   } constantVolumes[128];            // Offset: 8192 Size:  2048
-
   struct CBVRVolumeParams_Cuboid
   {
-
       row_major float4x4 model;      // Offset: 10240
       row_major float4x4 modelI;     // Offset: 10304
       float4 minAABB;                // Offset: 10368
       float4 maxAABB;                // Offset: 10384
-
   } cuboidVolumes[128];              // Offset: 10240 Size: 20480 [unused]
-
   struct CBVRVolumeParams_Spherical
   {
-
       row_major float4x4 model;      // Offset: 30720
       row_major float4x4 modelI;     // Offset: 30784
       uint4 extra;                   // Offset: 30848
-
   } sphericalVolumes[128];           // Offset: 30720 Size: 18432 [unused]
-
   struct CBVRVolumeParams_Spotlight
   {
-
       float3 origin;                 // Offset: 49152
       float height;                  // Offset: 49164
       float3 dir;                    // Offset: 49168
       float cosAngle;                // Offset: 49180
-
   } spotlightVolumes[128];           // Offset: 49152 Size:  4096 [unused]
-
 };
 
 //CBGaussian : 9668.shdr.src
 struct CBGaussian {
-
 
   float4 fOffset0;                   // Offset:    0 Size:    16
   float4 fOffset1;                   // Offset:   16 Size:    16
   float4 fWeight0;                   // Offset:   32 Size:    16
   float4 fWeight1;                   // Offset:   48 Size:    16 [unused]
   float fEdgeSharpness;              // Offset:   64 Size:     4
-
 };
 
 //CBMhSky2SimplePS : 8007.shdr.src
 struct CBMhSky2SimplePS {
-
 
   float3 fSkyGlobalIntensity;        // Offset:    0 Size:    12
   // align: 12 to 16
@@ -796,20 +723,16 @@ struct CBMhSky2SimplePS {
   float4 fSkyBackgroundCloudHighlightColors[4];// Offset:  464 Size:    64
   float4 fSkyBackgroundCloudShadowColors[4];// Offset:  528 Size:    64
   float fSkyCloudAlpha[4];           // Offset:  592 Size:    52
-
 };
 
 //CBSystemColor : 54.shdr.src
 struct CBSystemColor {
 
-
   float4 fSystemColor;               // Offset:    0 Size:    16
-
 };
 
 //CBNewDOFFilter : 9814.shdr.src
 struct CBNewDOFFilter {
-
 
   float coc_bias;                    // Offset:    0 Size:     4
   float coc_scale;                   // Offset:    4 Size:     4
@@ -833,12 +756,10 @@ struct CBNewDOFFilter {
   // align: 76 to 80
   ubyte align0[4];
   float3 fVignettingColor;           // Offset:   80 Size:    12 [unused]
-
 };
 
 //CBAmbientOcclusion : 9984.shdr.src
 struct CBAmbientOcclusion {
-
 
   int iSSAOPrimaryReductionLevel;    // Offset:    0 Size:     4
   uint iSSAOPrimaryFactor;           // Offset:    4 Size:     4
@@ -855,39 +776,31 @@ struct CBAmbientOcclusion {
   float fPrimaryShadowUpsampleThresholdMin;// Offset:  108 Size:     4 [unused]
   float fPrimaryShadowUpsampleThresholdMax;// Offset:  112 Size:     4 [unused]
   float fPrimaryShadowUpsampleThresholdDiffInv;// Offset:  116 Size:     4 [unused]
-
 };
 
 //CB_TemporalAA2 : 8845.shdr.src
 struct CB_TemporalAA2 {
 
-
   float fBlendRate;                  // Offset:    0 Size:     4
   bool bVelocityBase;                // Offset:    4 Size:     4
   float fVarianceGamma;              // Offset:    8 Size:     4
   float fSharpenAmount;              // Offset:   12 Size:     4 [unused]
-
 };
 
 //pix_clear_constants : 10166.shdr.src
 struct pix_clear_constants {
 
-
   float4 m_color;                    // Offset:    0 Size:    16
-
 };
 
 //CBWaterCustomLight : 9552.shdr.src
 struct CBWaterCustomLight {
 
-
   bool bShadowCascadeBias;           // Offset:    0 Size:     4
-
 };
 
 //CBWaterMaterial : 9981.shdr.src
 struct CBWaterMaterial {
-
 
   row_major float4x4 fReflectionViewProj;// Offset:    0 Size:    64 [unused]
   float fReflectionFactor;           // Offset:   64 Size:     4 [unused]
@@ -935,12 +848,10 @@ struct CBWaterMaterial {
   float fWhitecapHeightWPosThreshold;// Offset:  300 Size:     4 [unused]
   float fWhitecapHeightFade;         // Offset:  304 Size:     4 [unused]
   float fWhitecapHeightPower;        // Offset:  308 Size:     4 [unused]
-
 };
 
 //CBWaterCustom : 9981.shdr.src
 struct CBWaterCustom {
-
 
   float4 fWaterCustomBaseMapFactor;  // Offset:    0 Size:    16
   float4 fWaterCustomBlendBaseMapFactor;// Offset:   16 Size:    16 [unused]
@@ -977,40 +888,32 @@ struct CBWaterCustom {
   float fWaterCustomNormalXZAttn;    // Offset:  220 Size:     4 [unused]
   uint iWaterCustomEnvMapAttn;       // Offset:  224 Size:     4
   float fWaterCustomShadowDistortion;// Offset:  228 Size:     4 [unused]
-
 };
 
 //CBCubeCopy : 10173.shdr.src
 struct CBCubeCopy {
 
-
   int4 regions[6];                   // Offset:    0 Size:    96
-
 };
 
 //CBViewFrustum : 340.shdr.src
 struct CBViewFrustum {
 
-
   float4 fViewFrustum[6];            // Offset:    0 Size:    96
-
 };
 
 //CBTest : 10178.shdr.src
 struct CBTest {
-
 
   float4 fTestParam;                 // Offset:    0 Size:    16
   float3 fTestDirection;             // Offset:   16 Size:    12 [unused]
   float fTestType;                   // Offset:   28 Size:     4 [unused]
   float4 fTestColor;                 // Offset:   32 Size:    16 [unused]
   float4 fDummyColor;                // Offset:   48 Size:    16 [unused]
-
 };
 
 //CBUpdateBufferFromMesh : 955.shdr.src
 struct CBUpdateBufferFromMesh {
-
 
   uint iVertexNum;                   // Offset:    0 Size:     4
   uint iVertexBufferOffset;          // Offset:    4 Size:     4
@@ -1019,24 +922,20 @@ struct CBUpdateBufferFromMesh {
   uint4 iInputLayoutOffset0;         // Offset:   16 Size:    16
   uint4 iInputLayoutOffset1;         // Offset:   32 Size:    16
   uint4 iInputLayoutOffset2;         // Offset:   48 Size:    16 [unused]
-
 };
 
 //CBUpdateBufferFromMeshConditions2 : 955.shdr.src
 struct CBUpdateBufferFromMeshConditions2 {
-
 
   uint iConditions2TargetNum;        // Offset:    0 Size:     4
   // align: 4 to 16
   ubyte align0[12];
   float4 fConditions2TargetParam[16];// Offset:   16 Size:   256
   float4 fConditions2TargetParam2[16];// Offset:  272 Size:   256
-
 };
 
 //CBLuminance : 903.shdr.src
 struct CBLuminance {
-
 
   uint iView;                        // Offset:    0 Size:     4
   float fKeyValue;                   // Offset:    4 Size:     4 [unused]
@@ -1051,22 +950,18 @@ struct CBLuminance {
   float fLightSensitivity;           // Offset:   40 Size:     4 [unused]
   float fDarkAdaptationLimit;        // Offset:   44 Size:     4 [unused]
   float fLightAdaptationLimit;       // Offset:   48 Size:     4 [unused]
-
 };
 
 //CBSHDiffuse : 6972.shdr.src
 struct CBSHDiffuse {
 
-
   float fSHDiffuseScale;             // Offset:    0 Size:     4
   float fSHDiffuseScaleInv;          // Offset:    4 Size:     4
   bool bSHDiffuseUpsampling;         // Offset:    8 Size:     4 [unused]
-
 };
 
 //CBMhMaterialVfxWaveLocal__disclosure : 10254.shdr.src
 struct CBMhMaterialVfxWaveLocal__disclosure {
-
 
   float fConstant;                   // Offset:    0 Size:     4
   // align: 4 to 16
@@ -1097,21 +992,17 @@ struct CBMhMaterialVfxWaveLocal__disclosure {
   float fNoiseLength__uiUNorm;       // Offset:  180 Size:     4 [unused]
   float fNoiseDetail__uiUNorm;       // Offset:  184 Size:     4 [unused]
   float fSplashSpeed;                // Offset:  188 Size:     4 [unused]
-
 };
 
 //CBMhMaterialVfxWave : 10254.shdr.src
 struct CBMhMaterialVfxWave {
 
-
   uint iPointNum;                    // Offset:    0 Size:     4
   float fViewTime;                   // Offset:    4 Size:     4 [unused]
-
 };
 
 //CB_PlantOnSurface : 10260.shdr.src
 struct CB_PlantOnSurface {
-
 
   float3 fScale;                     // Offset:    0 Size:    12
   uint iNumPerTriangle;              // Offset:   12 Size:     4
@@ -1120,20 +1011,16 @@ struct CB_PlantOnSurface {
   float fRotRandomize;               // Offset:   24 Size:     4
   float fDirRandomize;               // Offset:   28 Size:     4
   float fScaleRandomize;             // Offset:   32 Size:     4
-
 };
 
 //CBMhSkyGBuffer : 10267.shdr.src
 struct CBMhSkyGBuffer {
 
-
   uint iSkyGBufferId;                // Offset:    0 Size:     4
-
 };
 
 //CBPrimGpuOcclusionVoxelSystem : 4681.shdr.src
 struct CBPrimGpuOcclusionVoxelSystem {
-
 
   float3 gActiveOcclusionAreaMinPos; // Offset:    0 Size:    12
   float gActiveOcclusionAreaSize;    // Offset:   12 Size:     4 [unused]
@@ -1144,12 +1031,10 @@ struct CBPrimGpuOcclusionVoxelSystem {
   float3 gOcclusionAreaMinPos;       // Offset:   32 Size:    12
   uint gOcclusionVoxelInfoNum;       // Offset:   44 Size:     4 [unused]
   float gOcclusionVoxelSize;         // Offset:   48 Size:     4
-
 };
 
 //CBSnowFieldMaterial : 9165.shdr.src
 struct CBSnowFieldMaterial {
-
 
   float4 fBaseMapFactor;             // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor;         // Offset:   16 Size:    12 [unused]
@@ -1169,47 +1054,37 @@ struct CBSnowFieldMaterial {
   float fUVRotationSin;              // Offset:  112 Size:     4 [unused]
   float fUVRotationCos;              // Offset:  116 Size:     4 [unused]
   float2 fUnderTextureBlendFactor;   // Offset:  120 Size:     8 [unused]
-
 };
 
 //CBConstantHaltonSequence : 9984.shdr.src
 struct CBConstantHaltonSequence {
 
-
   float4 fHaltonSequence[64];        // Offset:    0 Size:  1024
-
 };
 
 //CBCapsuleAO : 9752.shdr.src
 struct CBCapsuleAO {
-
 
   float4 fLightDirectionXYZAngle;    // Offset:    0 Size:    16
   float fDistanceFallCoef;           // Offset:   16 Size:     4
   float fCapsuleAOIntensity;         // Offset:   20 Size:     4
   uint uGeometryNum;                 // Offset:   24 Size:     4
   uint uLightChannelMask;            // Offset:   28 Size:     4
-
 };
 
 //CBCapsuleAOGeomParam : 9752.shdr.src
 struct CBCapsuleAOGeomParam {
 
-
   struct CBCapsuleAOGeomParam_AOGeometryParam
   {
-
       float4 ppdlVectorLengthSqInv;  // Offset:    0
       float4 StPointVecRadius;       // Offset:   16
       float4 LineVecMaxArea;         // Offset:   32
-
   } InAOGeometryParam[256];          // Offset:    0 Size: 12288
-
 };
 
 //CBMhMaterialFlowLavaLocal__disclosure : 10325.shdr.src
 struct CBMhMaterialFlowLavaLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -1232,12 +1107,10 @@ struct CBMhMaterialFlowLavaLocal__disclosure {
   bool bFlowDirLocalSpace;           // Offset:  144 Size:     4
   float fFlowControl;                // Offset:  148 Size:     4
   float2 fEmitControl__uiUNorm;      // Offset:  152 Size:     8 [unused]
-
 };
 
 //CBSSLR : 9987.shdr.src
 struct CBSSLR {
-
 
   float4 fSSLREffectReflectionParam; // Offset:    0 Size:    16 [unused]
   int iSSLRReductionLevel;           // Offset:   16 Size:     4 [unused]
@@ -1257,12 +1130,10 @@ struct CBSSLR {
   float fSSLRLightProbeIntensity;    // Offset:   72 Size:     4
   int iSSLRMip0CountThreshold;       // Offset:   76 Size:     4 [unused]
   bool bSSLRTemporalReset;           // Offset:   80 Size:     4
-
 };
 
 //CBMhMaterialVfxDebufBodyLocal__disclosure : 1084.shdr.src
 struct CBMhMaterialVfxDebufBodyLocal__disclosure {
-
 
   float4 fUVTransformA;              // Offset:    0 Size:    16 [unused]
   float4 fBaseMapFactor__uiColor;    // Offset:   16 Size:    16 [unused]
@@ -1285,12 +1156,10 @@ struct CBMhMaterialVfxDebufBodyLocal__disclosure {
   float fInnerOffsetScale;           // Offset:  108 Size:     4
   float fVelocityAttn;               // Offset:  112 Size:     4 [unused]
   float fNormalDecalBlend__uiUNorm;  // Offset:  116 Size:     4 [unused]
-
 };
 
 //CBLightShaft : 2569.shdr.src
 struct CBLightShaft {
-
 
   row_major float4x4 fModelMat;      // Offset:    0 Size:    64
   row_major float4x4 fInvModelMat;   // Offset:   64 Size:    64
@@ -1303,12 +1172,10 @@ struct CBLightShaft {
   float fTransparency;               // Offset:  152 Size:     4 [unused]
   float fReductionScale;             // Offset:  156 Size:     4
   float3 fMiePhaseK;                 // Offset:  160 Size:    12
-
 };
 
 //CBMhSky2PS : 8095.shdr.src
 struct CBMhSky2PS {
-
 
   float3 fSkyGlobalIntensity;        // Offset:    0 Size:    12
   // align: 12 to 16
@@ -1376,41 +1243,33 @@ struct CBMhSky2PS {
   float4 fSkyBlendBackgroundCloudHighlightColors[4];// Offset: 1104 Size:    64
   float4 fSkyBlendBackgroundCloudShadowColors[4];// Offset: 1168 Size:    64
   float fSkyBlendCloudAlpha[4];      // Offset: 1232 Size:    52
-
 };
 
 //CBPrimBufferDescription : 9979.shdr.src
 struct CBPrimBufferDescription {
 
-
   uint iPrimVertexBufferOffset;      // Offset:    0 Size:     4 [unused]
   uint iPrimTotalVertexNum;          // Offset:    4 Size:     4 [unused]
   uint iPrimRequestNum;              // Offset:    8 Size:     4
-
 };
 
 //CBPrimitiveEx : 954.shdr.src
 struct CBPrimitiveEx {
 
-
   float4 fPrimParamEx0;              // Offset:    0 Size:    16
   float4 fPrimParamEx1;              // Offset:   16 Size:    16 [unused]
   float4 fPrimParamEx2;              // Offset:   32 Size:    16 [unused]
   uint4 iPrimParamEx3;               // Offset:   48 Size:    16 [unused]
-
 };
 
 //CBPrimitivePick : 9686.shdr.src
 struct CBPrimitivePick {
 
-
   uint2 iPrimAddress;                // Offset:    0 Size:     8
-
 };
 
 //CBComputeSkinning : 7532.shdr.src
 struct CBComputeSkinning {
-
 
   uint iSrcStride;                   // Offset:    0 Size:     4
   uint iSrcOffset;                   // Offset:    4 Size:     4
@@ -1424,20 +1283,16 @@ struct CBComputeSkinning {
   uint iDestNormalOffset;            // Offset:   36 Size:     4
   uint iVertexCount;                 // Offset:   40 Size:     4
   uint iInstanceID;                  // Offset:   44 Size:     4 [unused]
-
 };
 
 //CBCubeBlend : 685.shdr.src
 struct CBCubeBlend {
 
-
   float fCubeBlendRate;              // Offset:    0 Size:     4
-
 };
 
 //CBWaterWave : 9116.shdr.src
 struct CBWaterWave {
-
 
   row_major float4x4 fWorldMat;      // Offset:    0 Size:    64 [unused]
   float2 fHeightMapSize;             // Offset:   64 Size:     8 [unused]
@@ -1467,12 +1322,10 @@ struct CBWaterWave {
   bool bCullingByFrustum;            // Offset:  200 Size:     4 [unused]
   float fFrustumCullAcceptXZ;        // Offset:  204 Size:     4 [unused]
   float fCircleCullDistanceSq;       // Offset:  208 Size:     4 [unused]
-
 };
 
 //CBSystemSnow : 9892.shdr.src
 struct CBSystemSnow {
-
 
   bool bSnowFieldEnabled;            // Offset:    0 Size:     4
   uint iSnowFieldDivisionNum;        // Offset:    4 Size:     4 [unused]
@@ -1485,12 +1338,10 @@ struct CBSystemSnow {
   float fMaxHeightDent;              // Offset:   68 Size:     4
   float fMaxHeightBump;              // Offset:   72 Size:     4
   float fShovelEdgeBlendRate;        // Offset:   76 Size:     4 [unused]
-
 };
 
 //CBSnowField4Geometry : 567.shdr.src
 struct CBSnowField4Geometry {
-
 
   float3 fWorldPositionMin;          // Offset:    0 Size:    12
   // align: 12 to 16
@@ -1504,20 +1355,16 @@ struct CBSnowField4Geometry {
   float fShovelCornerBlendRate;      // Offset:   64 Size:     4
   float fEdgeHeightBlendRate;        // Offset:   68 Size:     4 [unused]
   float fEdgesPerScreenHeight;       // Offset:   72 Size:     4 [unused]
-
 };
 
 //CBWorkaround : 564.shdr.src
 struct CBWorkaround {
 
-
   uint iWorkaroundConstant;          // Offset:    0 Size:     4
-
 };
 
 //CBSnowField2Material : 665.shdr.src
 struct CBSnowField2Material {
-
 
   float4 fBaseMapFactor;             // Offset:    0 Size:    16
   float3 fEmissiveMapFactor;         // Offset:   16 Size:    12
@@ -1541,12 +1388,10 @@ struct CBSnowField2Material {
   ubyte align1[4];
   float2 fUnderTextureBlendFactor;   // Offset:  128 Size:     8
   float fSnowFieldDitherRate;        // Offset:  136 Size:     4 [unused]
-
 };
 
 //CBMhMaterialVfxDistDispWLocal__disclosure : 1214.shdr.src
 struct CBMhMaterialVfxDistDispWLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fCubeMapFactor__uiColor;    // Offset:   16 Size:    12 [unused]
@@ -1584,12 +1429,10 @@ struct CBMhMaterialVfxDistDispWLocal__disclosure {
   bool bWorldPosOffsetScale;         // Offset:  204 Size:     4
   float fVelocityAttn;               // Offset:  208 Size:     4 [unused]
   float fNormalDecalBlend__uiUNorm;  // Offset:  212 Size:     4 [unused]
-
 };
 
 //CBBloom : 6755.shdr.src
 struct CBBloom {
-
 
   float fBloomThreshold;             // Offset:    0 Size:     4
   float fBloomRenormalize;           // Offset:    4 Size:     4
@@ -1597,21 +1440,17 @@ struct CBBloom {
   // align: 12 to 16
   ubyte align0[4];
   float4 fDirtColor;                 // Offset:   16 Size:    16 [unused]
-
 };
 
 //CBFilter : 9668.shdr.src
 struct CBFilter {
 
-
   float4 fFilterRegion;              // Offset:    0 Size:    16
   float fFilterMipLevel;             // Offset:   16 Size:     4
-
 };
 
 //CBGUIGlobal : 8867.shdr.src
 struct CBGUIGlobal {
-
 
   row_major float4x4 fGUIWMatrix;    // Offset:    0 Size:    64 [unused]
   row_major float4x4 fGUIWMatrixPF;  // Offset:   64 Size:    64 [unused]
@@ -1628,31 +1467,25 @@ struct CBGUIGlobal {
   float2 fGUIInvTextureSize2;        // Offset:  376 Size:     8 [unused]
   float fGUIZBias;                   // Offset:  384 Size:     4 [unused]
   uint iGUIShaderState;              // Offset:  388 Size:     4
-
 };
 
 //CBGUIGBuffer : 1225.shdr.src
 struct CBGUIGBuffer {
 
-
   uint iGUIGBufferLightChannel;      // Offset:    0 Size:     4
   float3 fGUIGBufferEmissiveColor;   // Offset:    4 Size:    12
   float3 fGUIGBufferParam;           // Offset:   16 Size:    12
-
 };
 
 //CBWaterModel : 544.shdr.src
 struct CBWaterModel {
 
-
   row_major float4x4 fMWorldViewProjMat;// Offset:    0 Size:    64
   row_major float4x4 fMWorldMat;     // Offset:   64 Size:    64
-
 };
 
 //CBMhMaterialEM105Local__disclosure : 188.shdr.src
 struct CBMhMaterialEM105Local__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -1747,33 +1580,27 @@ struct CBMhMaterialEM105Local__disclosure {
   // align: 564 to 576
   ubyte align8[12];
   float4 fSnowControl;               // Offset:  576 Size:    16
-
 };
 
 //CBSystem : 9807.shdr.src
 struct CBSystem {
 
-
   uint4 iRegion;                     // Offset:    0 Size:    16 [unused]
   float fSourceMipLevel;             // Offset:   16 Size:     4 [unused]
   float fGammaCorrect;               // Offset:   20 Size:     4 [unused]
   float fGammaCorrectEx;             // Offset:   24 Size:     4
-
 };
 
 //CBVRGaussian : 1279.shdr.src
 struct CBVRGaussian {
 
-
   float4 fOffsets;                   // Offset:    0 Size:    16
   float fWeights[5];                 // Offset:   16 Size:    68
   float fEdgeSharpness;              // Offset:   84 Size:     4
-
 };
 
 //CB_DL : 1289.shdr.src
 struct CB_DL {
-
 
   float3 time;                       // Offset:    0 Size:    12 [unused]
   uint customUInt;                   // Offset:   12 Size:     4 [unused]
@@ -1783,12 +1610,10 @@ struct CB_DL {
   float4x4 viewProjMatrix;           // Offset:  160 Size:    64 [unused]
   float4x4 crViewProjMatrix;         // Offset:  224 Size:    64 [unused]
   float4x4 prevViewProjMatrix;       // Offset:  288 Size:    64 [unused]
-
 };
 
 //CBSnowField3Geometry : 406.shdr.src
 struct CBSnowField3Geometry {
-
 
   float3 fWorldPositionMin;          // Offset:    0 Size:    12
   // align: 12 to 16
@@ -1806,12 +1631,10 @@ struct CBSnowField3Geometry {
   float2 fInnerSubdiv;               // Offset:  224 Size:     8 [unused]
   float fEdgeHeightBlendRate;        // Offset:  232 Size:     4 [unused]
   float fEdgesPerScreenHeight;       // Offset:  236 Size:     4 [unused]
-
 };
 
 //CBShapeMesh : 9990.shdr.src
 struct CBShapeMesh {
-
 
   uint iVertexNum;                   // Offset:    0 Size:     4
   uint iVertexOffset;                // Offset:    4 Size:     4
@@ -1822,24 +1645,20 @@ struct CBShapeMesh {
   uint iWeightsOffset;               // Offset:   24 Size:     4
   uint iJointsOffset;                // Offset:   28 Size:     4
   uint iOutputVertexOffset;          // Offset:   32 Size:     4
-
 };
 
 //CBNormalRecalc : 1309.shdr.src
 struct CBNormalRecalc {
-
 
   uint iIBOffset;                    // Offset:    0 Size:     4
   uint iSkinningVertexBase;          // Offset:    4 Size:     4
   uint iTriangleCount;               // Offset:    8 Size:     4
   uint iVertexOffset;                // Offset:   12 Size:     4
   uint iRedirectOffset;              // Offset:   16 Size:     4
-
 };
 
 //CBMhSky2Sun : 5052.shdr.src
 struct CBMhSky2Sun {
-
 
   row_major float4x4 fRotMatrix;     // Offset:    0 Size:    64
   float2 fSize;                      // Offset:   64 Size:     8
@@ -1854,22 +1673,18 @@ struct CBMhSky2Sun {
   float3 fSkySunWaterReflectionFactor;// Offset:  112 Size:    12 [unused]
   float fBloomTransparencyCoefficient;// Offset:  124 Size:     4 [unused]
   float2 fRenderTargetInverseSize;   // Offset:  128 Size:     8 [unused]
-
 };
 
 //CBAmbientOccluder : 9159.shdr.src
 struct CBAmbientOccluder {
 
-
   float2 fSceneTextureScale;         // Offset:    0 Size:     8
   float fIntensity;                  // Offset:    8 Size:     4 [unused]
   float fTransparency;               // Offset:   12 Size:     4
-
 };
 
 //CBMhMaterialEMSLocal__disclosure : 1379.shdr.src
 struct CBMhMaterialEMSLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -1903,35 +1718,29 @@ struct CBMhMaterialEMSLocal__disclosure {
   float4 fMummyColor__uiColor;       // Offset:  208 Size:    16 [unused]
   float4 fMummyMatControl__uiUNorm;  // Offset:  224 Size:    16 [unused]
   float3 fMummyEmitColor__uiColor;   // Offset:  240 Size:    12 [unused]
-
 };
 
 //CBMhMaterialGlobal : 9960.shdr.src
 struct CBMhMaterialGlobal {
-
 
   float fMaterialWetBlend;           // Offset:    0 Size:     4
   float fMaterialWetRoughness;       // Offset:    4 Size:     4
   bool bMaterialCustomLighting;      // Offset:    8 Size:     4 [unused]
   uint iMaterialCustomLightingGBufferIdMask;// Offset:   12 Size:     4 [unused]
   float fMaterialHiddenSurfaceDrawIntensity;// Offset:   16 Size:     4 [unused]
-
 };
 
 //CBLUTBlending : 1388.shdr.src
 struct CBLUTBlending {
 
-
   float fLUTBlend;                   // Offset:    0 Size:     4
   float fVfxLUTBlend;                // Offset:    4 Size:     4
   bool bIsBlend;                     // Offset:    8 Size:     4
   bool bIsVfxBlend;                  // Offset:   12 Size:     4
-
 };
 
 //CBVRRecompute : 8315.shdr.src
 struct CBVRRecompute {
-
 
   float fDepthTreshold;              // Offset:    0 Size:     4
   float fAngleTreshold;              // Offset:    4 Size:     4
@@ -1945,12 +1754,10 @@ struct CBVRRecompute {
   // align: 44 to 48
   ubyte align2[4];
   float3 fMaxDepth2;                 // Offset:   48 Size:    12 [unused]
-
 };
 
 //CBMhMaterialStdLocal__disclosure : 4437.shdr.src
 struct CBMhMaterialStdLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -1983,12 +1790,10 @@ struct CBMhMaterialStdLocal__disclosure {
   bool bWetNormalBlend;              // Offset:  204 Size:     4 [unused]
   float2 fWetNormalBlendRange__uiUNorm;// Offset:  208 Size:     8 [unused]
   float fVolumeBlend__uiSNorm;       // Offset:  216 Size:     4 [unused]
-
 };
 
 //CBDOFFilter : 9040.shdr.src
 struct CBDOFFilter {
-
 
   float2 fDOFPoissonOffsets[8];      // Offset:    0 Size:   120 [unused]
   float2 fDOFPixelSizeLow;           // Offset:  120 Size:     8 [unused]
@@ -2009,12 +1814,10 @@ struct CBDOFFilter {
   // align: 196 to 208
   ubyte align1[12];
   float4 fDOFVelocityFactor;         // Offset:  208 Size:    16 [unused]
-
 };
 
 //CBImagePlane : 1497.shdr.src
 struct CBImagePlane {
-
 
   float4 fImagePlaneColor;           // Offset:    0 Size:    16
   row_major float4x4 fImagePlaneUVTransform;// Offset:   16 Size:    64 [unused]
@@ -2022,21 +1825,17 @@ struct CBImagePlane {
   uint fBlendType;                   // Offset:   84 Size:     4
   bool bIsScreenPass;                // Offset:   88 Size:     4
   float fGamma;                      // Offset:   92 Size:     4
-
 };
 
 //CBImagePlane2 : 1496.shdr.src
 struct CBImagePlane2 {
 
-
   float2 fFilterUVMin;               // Offset:    0 Size:     8
   float2 fFilterUVMax;               // Offset:    8 Size:     8
-
 };
 
 //CBHazeFilter : 1524.shdr.src
 struct CBHazeFilter {
-
 
   uint iHazeTech;                    // Offset:    0 Size:     4
   float fHazeFilterStart;            // Offset:    4 Size:     4
@@ -2047,12 +1846,10 @@ struct CBHazeFilter {
   ubyte align0[12];
   float4 fHazeFilterUVWOffset;       // Offset:   32 Size:    16
   float fHazeFilterScale;            // Offset:   48 Size:     4
-
 };
 
 //CBMhMaterialVfxVATDistLocal__disclosure : 1608.shdr.src
 struct CBMhMaterialVfxVATDistLocal__disclosure {
-
 
   float3 fBaseMapFactor__uiColor;    // Offset:    0 Size:    12 [unused]
   // align: 12 to 16
@@ -2093,12 +1890,10 @@ struct CBMhMaterialVfxVATDistLocal__disclosure {
   bool bSceneEnvMap;                 // Offset:  192 Size:     4 [unused]
   bool bEnableOpaque;                // Offset:  196 Size:     4 [unused]
   bool bVertexColor;                 // Offset:  200 Size:     4 [unused]
-
 };
 
 //CBBokehComposite : 6050.shdr.src
 struct CBBokehComposite {
-
 
   float fBokehMipBias;               // Offset:    0 Size:     4
   float fBokehMipScale;              // Offset:    4 Size:     4
@@ -2109,24 +1904,20 @@ struct CBBokehComposite {
   // align: 24 to 32
   ubyte align0[8];
   float2 fBokehTap[25];              // Offset:   32 Size:   392
-
 };
 
 //CBDecal : 8234.shdr.src
 struct CBDecal {
-
 
   uint iDecalMode;                   // Offset:    0 Size:     4 [unused]
   float fDecalMetallic;              // Offset:    4 Size:     4
   float fDecalRoughness;             // Offset:    8 Size:     4
   float fDecalNonMetallicFresnel;    // Offset:   12 Size:     4
   float fDecalLimitAngle;            // Offset:   16 Size:     4
-
 };
 
 //CBMhMaterialFakeLensLocal__disclosure : 1686.shdr.src
 struct CBMhMaterialFakeLensLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -2157,12 +1948,10 @@ struct CBMhMaterialFakeLensLocal__disclosure {
   float3 fCoating_D__uiColor;        // Offset:  160 Size:    12 [unused]
   float fWakuIntensity__uiUNorm;     // Offset:  172 Size:     4 [unused]
   float fWakuSize__uiUNorm;          // Offset:  176 Size:     4 [unused]
-
 };
 
 //CBFilter2 : 9498.shdr.src
 struct CBFilter2 {
-
 
   float2 fFilterUVMin;               // Offset:    0 Size:     8
   float2 fFilterUVMax;               // Offset:    8 Size:     8
@@ -2171,12 +1960,10 @@ struct CBFilter2 {
   ubyte align0[12];
   float fFilterSampleWeights[11];    // Offset:  192 Size:   164
   float fFilterThreshold;            // Offset:  356 Size:     4 [unused]
-
 };
 
 //CBMhMaterialVfxDispWaveLocal__disclosure : 1772.shdr.src
 struct CBMhMaterialVfxDispWaveLocal__disclosure {
-
 
   float4 fUVTransformA;              // Offset:    0 Size:    16
   float4 fUVTransformB;              // Offset:   16 Size:    16
@@ -2213,12 +2000,10 @@ struct CBMhMaterialVfxDispWaveLocal__disclosure {
   float fInnerOffsetScale;           // Offset:  192 Size:     4
   float fVelocityAttn;               // Offset:  196 Size:     4 [unused]
   float fNormalDecalBlend__uiUNorm;  // Offset:  200 Size:     4 [unused]
-
 };
 
 //CBMhMaterialFlowDirLocal__disclosure : 1883.shdr.src
 struct CBMhMaterialFlowDirLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -2240,20 +2025,16 @@ struct CBMhMaterialFlowDirLocal__disclosure {
   float fFlowDirUVPhaseShift__uiUNorm;// Offset:  140 Size:     4
   bool bFlowDirLocalSpace;           // Offset:  144 Size:     4
   float fFlowDirFlowSpeed__uiUNorm;  // Offset:  148 Size:     4
-
 };
 
 //CBCreateMipmap : 9166.shdr.src
 struct CBCreateMipmap {
 
-
   uint4 iRegion;                     // Offset:    0 Size:    16
-
 };
 
 //CBWater : 6095.shdr.src
 struct CBWater {
-
 
   row_major float4x4 cWorldMat;      // Offset:    0 Size:    64
   bool cLodEnabled;                  // Offset:   64 Size:     4 [unused]
@@ -2265,12 +2046,10 @@ struct CBWater {
   float cAttenuation;                // Offset:  104 Size:     4 [unused]
   uint cTest;                        // Offset:  108 Size:     4 [unused]
   uint cNumWaveFunctionParam;        // Offset:  112 Size:     4 [unused]
-
 };
 
 //CBMhMaterialEM103Local__disclosure : 2008.shdr.src
 struct CBMhMaterialEM103Local__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -2356,12 +2135,10 @@ struct CBMhMaterialEM103Local__disclosure {
   // align: 500 to 512
   ubyte align6[12];
   float4 fSnowControl;               // Offset:  512 Size:    16
-
 };
 
 //CBPrimGpuSystem : 9490.shdr.src
 struct CBPrimGpuSystem {
-
 
   uint iEmitterCount;                // Offset:    0 Size:     4
   uint iTotalSpawnCount;             // Offset:    4 Size:     4 [unused]
@@ -2384,31 +2161,25 @@ struct CBPrimGpuSystem {
   float gForceWindScale;             // Offset:   92 Size:     4 [unused]
   float gForceWindMass;              // Offset:   96 Size:     4 [unused]
   float gForceWindCurve;             // Offset:  100 Size:     4 [unused]
-
 };
 
 //CBVR_Debug : 202.shdr.src
 struct CBVR_Debug {
 
-
   uint iMode;                        // Offset:    0 Size:     4
-
 };
 
 //CBBitonicSort : 8000.shdr.src
 struct CBBitonicSort {
 
-
   uint iSortArrayLength;             // Offset:    0 Size:     4
   uint iCompareFlipSize;             // Offset:    4 Size:     4
   uint iCompareStride;               // Offset:    8 Size:     4 [unused]
   uint iCompareDir;                  // Offset:   12 Size:     4
-
 };
 
 //CBTSAO : 5754.shdr.src
 struct CBTSAO {
-
 
   uint4 iDepthRegion;                // Offset:    0 Size:    16
   float4 projConstant;               // Offset:   16 Size:    16 [unused]
@@ -2424,12 +2195,10 @@ struct CBTSAO {
   float intensity;                   // Offset:   88 Size:     4 [unused]
   float fAcceptThresholdCoef;        // Offset:   92 Size:     4 [unused]
   float fRenderTargetSizeScale;      // Offset:   96 Size:     4 [unused]
-
 };
 
 //CBMhMaterialDynamicSnow__disclosure : 2134.shdr.src
 struct CBMhMaterialDynamicSnow__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -2454,12 +2223,10 @@ struct CBMhMaterialDynamicSnow__disclosure {
   float fHeightScale;                // Offset:  140 Size:     4 [unused]
   float4 fVertexColorMapMask__uiUNorm;// Offset:  144 Size:    16 [unused]
   float fTessLevel;                  // Offset:  160 Size:     4 [unused]
-
 };
 
 //CBGodRaysFilter : 779.shdr.src
 struct CBGodRaysFilter {
-
 
   float3 fGodRaysOrigin;             // Offset:    0 Size:    12
   float fGodRaysMaskWeight;          // Offset:   12 Size:     4
@@ -2473,20 +2240,16 @@ struct CBGodRaysFilter {
   float fGodRaysShadowThreshold;     // Offset:   64 Size:     4
   float fGodRaysBlurWidthScale;      // Offset:   68 Size:     4 [unused]
   float fGodRaysBlurWidthOffset;     // Offset:   72 Size:     4 [unused]
-
 };
 
 //CBBloomSample : 2158.shdr.src
 struct CBBloomSample {
 
-
   float4 fBloomFilterRegion;         // Offset:    0 Size:    16
-
 };
 
 //CBMhDecal : 8234.shdr.src
 struct CBMhDecal {
-
 
   int iDecalShadingMode;             // Offset:    0 Size:     4
   int iDecalBlendMode;               // Offset:    4 Size:     4
@@ -2523,12 +2286,10 @@ struct CBMhDecal {
   float fDecalDistortionAngle;       // Offset:  172 Size:     4
   float3 fDecalDistortionColor;      // Offset:  176 Size:    12
   float fDecalDistanceFade;          // Offset:  188 Size:     4
-
 };
 
 //CBMhDecalSM : 8234.shdr.src
 struct CBMhDecalSM {
-
 
   float fFireFactor;                 // Offset:    0 Size:     4
   float fFireLifeFactor;             // Offset:    4 Size:     4
@@ -2556,12 +2317,10 @@ struct CBMhDecalSM {
   float fWaterIntensityCubeMap;      // Offset:  116 Size:     4
   float fWaterNormalSharpness;       // Offset:  120 Size:     4
   float fWaterIntensityAlpha;        // Offset:  124 Size:     4
-
 };
 
 //CBDebug : 5060.shdr.src
 struct CBDebug {
-
 
   int iDebugView;                    // Offset:    0 Size:     4
   int iDebugViewChannel;             // Offset:    4 Size:     4
@@ -2569,20 +2328,16 @@ struct CBDebug {
   float fDebugViewBgAlpha;           // Offset:   12 Size:     4 [unused]
   float fDebugViewFgAlpha;           // Offset:   16 Size:     4 [unused]
   float2 fDebugViewScaling;          // Offset:   20 Size:     8
-
 };
 
 //CBMhSky2VS : 2210.shdr.src
 struct CBMhSky2VS {
 
-
   row_major float3x4 fSkyWorld;      // Offset:    0 Size:    48
-
 };
 
 //CBMhMaterialEM100_01Local__disclosure : 2276.shdr.src
 struct CBMhMaterialEM100_01Local__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -2676,44 +2431,36 @@ struct CBMhMaterialEM100_01Local__disclosure {
   // align: 564 to 576
   ubyte align8[12];
   float4 fSnowControl;               // Offset:  576 Size:    16
-
 };
 
 //CBGodRaysConfiguration : 779.shdr.src
 struct CBGodRaysConfiguration {
-
 
   bool isUseOcclusionFactorFromTexture;// Offset:    0 Size:     4 [unused]
   bool isUseAlphaOcclusion;          // Offset:    4 Size:     4 [unused]
   bool isUseScaleOcclusion;          // Offset:    8 Size:     4 [unused]
   bool isGrayColor;                  // Offset:   12 Size:     4
   int iThreshold;                    // Offset:   16 Size:     4
-
 };
 
 //CBSSSSS : 8506.shdr.src
 struct CBSSSSS {
 
-
   float fBlurMaxDist;                // Offset:    0 Size:     4
   float fBlurEdgeSharpness;          // Offset:    4 Size:     4 [unused]
   uint iDiviserFactor;               // Offset:    8 Size:     4
-
 };
 
 //CBSSSSS_Profile : 2306.shdr.src
 struct CBSSSSS_Profile {
 
-
   float4 fRGBBlurWeight[16];         // Offset:    0 Size:   256
   float4 fBlurOffset[8];             // Offset:  256 Size:   128
   float4 fBlurTargetDist;            // Offset:  384 Size:    16
-
 };
 
 //CBNewDOFFilter2 : 9528.shdr.src
 struct CBNewDOFFilter2 {
-
 
   float coc_bias;                    // Offset:    0 Size:     4
   float coc_scale;                   // Offset:    4 Size:     4
@@ -2737,24 +2484,20 @@ struct CBNewDOFFilter2 {
   bool bVignetting;                  // Offset:   76 Size:     4 [unused]
   float fVignettingEllipticity;      // Offset:   80 Size:     4 [unused]
   float3 fVignettingColor;           // Offset:   84 Size:    12 [unused]
-
 };
 
 //CBMaterialDebug : 2321.shdr.src
 struct CBMaterialDebug {
-
 
   uint iMaterialDebugView;           // Offset:    0 Size:     4
   bool bMaterialDebugZeroCheck;      // Offset:    4 Size:     4
   // align: 8 to 16
   ubyte align0[8];
   float4 fMaterialDebugColor;        // Offset:   16 Size:    16
-
 };
 
 //CBAtmosphere : 8399.shdr.src
 struct CBAtmosphere {
-
 
   float3 fLightColor;                // Offset:    0 Size:    12
   // align: 12 to 16
@@ -2776,41 +2519,33 @@ struct CBAtmosphere {
   float fAerosolMieK;                // Offset:   88 Size:     4
   float fAerosolPhaseK;              // Offset:   92 Size:     4
   float2 fAerosolEccentricity;       // Offset:   96 Size:     8
-
 };
 
 //CBPrimitiveMetaDataOcclusion : 5746.shdr.src
 struct CBPrimitiveMetaDataOcclusion {
 
-
   float4 fPrimOcclusionSphere;       // Offset:    0 Size:    16
-
 };
 
 //CBSparkleParam : 3733.shdr.src
 struct CBSparkleParam {
 
-
   float4 fSparkleLightDir;           // Offset:    0 Size:    16
   float fSparkleSize;                // Offset:   16 Size:     4
-
 };
 
 //CBDevelopFlags : 7526.shdr.src
 struct CBDevelopFlags {
-
 
   int iDispChannel;                  // Offset:    0 Size:     4
   int iDispCubeFace;                 // Offset:    4 Size:     4
   int iDispMode;                     // Offset:    8 Size:     4
   float fDispMipLevel;               // Offset:   12 Size:     4
   float fDispArraySlice;             // Offset:   16 Size:     4
-
 };
 
 //CBMhMaterialEM100Local__disclosure : 2483.shdr.src
 struct CBMhMaterialEM100Local__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -2896,12 +2631,10 @@ struct CBMhMaterialEM100Local__disclosure {
   // align: 516 to 528
   ubyte align7[12];
   float4 fSnowControl;               // Offset:  528 Size:    16
-
 };
 
 //CBMhMaterialLandscapeLocal__disclosure : 2566.shdr.src
 struct CBMhMaterialLandscapeLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -2932,12 +2665,10 @@ struct CBMhMaterialLandscapeLocal__disclosure {
   bool bSpecialBlend;                // Offset:  192 Size:     4 [unused]
   bool bWetNormalBlend;              // Offset:  196 Size:     4 [unused]
   float2 fWetNormalBlendRange__uiUNorm;// Offset:  200 Size:     8 [unused]
-
 };
 
 //CBLightShaft_LightParam : 2569.shdr.src
 struct CBLightShaft_LightParam {
-
 
   float3 fLightShaftPosition;        // Offset:    0 Size:    12
   float fLightShaftBoundingRadius;   // Offset:   12 Size:     4
@@ -2951,12 +2682,10 @@ struct CBLightShaft_LightParam {
   float4 fLightShaftShadowExtra;     // Offset:  128 Size:    16
   uint fLightShaftShadowMapSize;     // Offset:  144 Size:     4
   uint3 fLightShaftShadowMapRegion;  // Offset:  148 Size:    12
-
 };
 
 //CBMhMaterialLandscapeFlowLocal__disclosure : 2653.shdr.src
 struct CBMhMaterialLandscapeFlowLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -2993,64 +2722,50 @@ struct CBMhMaterialLandscapeFlowLocal__disclosure {
   float2 fFlowDirUVPhaseShift__uiUNorm;// Offset:  224 Size:     8 [unused]
   float fFlowDirFlowSpeed__uiUNorm;  // Offset:  232 Size:     4 [unused]
   bool bFlowDirVfxNormalBlend;       // Offset:  236 Size:     4 [unused]
-
 };
 
 //CBHermiteCurve : 2660.shdr.src
 struct CBHermiteCurve {
 
-
   float4 fHermiteParam[8];           // Offset:    0 Size:   128
-
 };
 
 //CBErrorUnit : 2668.shdr.src
 struct CBErrorUnit {
 
-
   uint2 iErrorUnitAddress;           // Offset:    0 Size:     8
   uint iErrorUnitPass;               // Offset:    8 Size:     4
   uint iErrorUnitPrio;               // Offset:   12 Size:     4
-
 };
 
 //CBSnowFieldBake : 425.shdr.src
 struct CBSnowFieldBake {
 
-
   uint iSnowFieldBakeAttr;           // Offset:    0 Size:     4
-
 };
 
 //CBHeightToNormal : 6337.shdr.src
 struct CBHeightToNormal {
 
-
   float fFactor;                     // Offset:    0 Size:     4
-
 };
 
 //CBColorCorrectCube : 9089.shdr.src
 struct CBColorCorrectCube {
 
-
   float fLinearFactor;               // Offset:    0 Size:     4
   float fDepthNear;                  // Offset:    4 Size:     4 [unused]
   float fDepthFar;                   // Offset:    8 Size:     4 [unused]
-
 };
 
 //CBPrimCopyState : 9816.shdr.src
 struct CBPrimCopyState {
 
-
   float fNormalSlope;                // Offset:    0 Size:     4
-
 };
 
 //CBColorCorrect : 2810.shdr.src
 struct CBColorCorrect {
-
 
   row_major float4x4 fMatrix;        // Offset:    0 Size:    64
   float fBlendRate;                  // Offset:   64 Size:     4
@@ -3060,12 +2775,10 @@ struct CBColorCorrect {
   bool bVignetting;                  // Offset:   80 Size:     4
   bool bVignettingEllipse;           // Offset:   84 Size:     4
   float fScreenAlpha;                // Offset:   88 Size:     4
-
 };
 
 //CBMhMaterialEM115Local__disclosure : 2874.shdr.src
 struct CBMhMaterialEM115Local__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -3153,12 +2866,10 @@ struct CBMhMaterialEM115Local__disclosure {
   // align: 532 to 544
   ubyte align8[12];
   float4 fSnowControl;               // Offset:  544 Size:    16
-
 };
 
 //CBMhMaterialFakeEyeLocal__disclosure : 2953.shdr.src
 struct CBMhMaterialFakeEyeLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -3176,12 +2887,10 @@ struct CBMhMaterialFakeEyeLocal__disclosure {
   float fParallaxFactor__uiUNorm;    // Offset:  100 Size:     4
   float fUV_Blend__uiUNorm;          // Offset:  104 Size:     4
   bool bBaseColorEmissive;           // Offset:  108 Size:     4 [unused]
-
 };
 
 //CBWaterWaveMaterial : 8116.shdr.src
 struct CBWaterWaveMaterial {
-
 
   row_major float4x4 fReflectionViewProj;// Offset:    0 Size:    64 [unused]
   float2 fUserNormalTiling;          // Offset:   64 Size:     8
@@ -3213,24 +2922,20 @@ struct CBWaterWaveMaterial {
   float fSunlightReflectionIntensity;// Offset:  216 Size:     4
   float fCubemapBlendRate;           // Offset:  220 Size:     4
   uint iLightGroup;                  // Offset:  224 Size:     4
-
 };
 
 //CBStarrySky : 8773.shdr.src
 struct CBStarrySky {
-
 
   row_major float4x4 fRotMatrix;     // Offset:    0 Size:    64 [unused]
   float2 fSize;                      // Offset:   64 Size:     8
   float fFactor;                     // Offset:   72 Size:     4 [unused]
   float fIntensity;                  // Offset:   76 Size:     4 [unused]
   float fScintillation;              // Offset:   80 Size:     4 [unused]
-
 };
 
 //CBMhMaterialEM109Local__disclosure : 3105.shdr.src
 struct CBMhMaterialEM109Local__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -3318,12 +3023,10 @@ struct CBMhMaterialEM109Local__disclosure {
   // align: 516 to 528
   ubyte align7[12];
   float4 fSnowControl;               // Offset:  528 Size:    16
-
 };
 
 //CBUpdateBufferFromMeshConditions : 9491.shdr.src
 struct CBUpdateBufferFromMeshConditions {
-
 
   float3 fConditionsBlendAxis;       // Offset:    0 Size:    12
   float fConditionsBlendHeightLimit; // Offset:   12 Size:     4
@@ -3331,12 +3034,10 @@ struct CBUpdateBufferFromMeshConditions {
   float fConditionsBlendAngleLimit;  // Offset:   20 Size:     4
   float fConditionsBlendAngleScale;  // Offset:   24 Size:     4
   float fConditionsBlendAdd;         // Offset:   28 Size:     4
-
 };
 
 //CBMhMaterialSZK001Local__disclosure : 3171.shdr.src
 struct CBMhMaterialSZK001Local__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -3425,77 +3126,61 @@ struct CBMhMaterialSZK001Local__disclosure {
   // align: 532 to 544
   ubyte align8[12];
   float4 fSnowControl;               // Offset:  544 Size:    16
-
 };
 
 //CBLGTPRBGen : 9361.shdr.src
 struct CBLGTPRBGen {
 
-
   uint iCurrentIndex;                // Offset:    0 Size:     4
   uint iWindowType;                  // Offset:    4 Size:     4
-
 };
 
 //CBLUTMaking : 4731.shdr.src
 struct CBLUTMaking {
 
-
   uint iLUTSize;                     // Offset:    0 Size:     4
   uint iMaxWidth;                    // Offset:    4 Size:     4
   float fMaxLuminance;               // Offset:    8 Size:     4
   bool bIsPQToLinear;                // Offset:   12 Size:     4
-
 };
 
 //CBSnowPreProcess : 8591.shdr.src
 struct CBSnowPreProcess {
 
-
   float fNoiseBlendSVScale;          // Offset:    0 Size:     4
   float fNoiseHeightScale;           // Offset:    4 Size:     4
   float fNoiseBlendBias;             // Offset:    8 Size:     4
-
 };
 
 //CBBloomSettings : 3946.shdr.src
 struct CBBloomSettings {
 
-
   float4 AdjustParams;               // Offset:    0 Size:    16
   float4 CenterAndScale;             // Offset:   16 Size:    16 [unused]
   float4 Coefficient;                // Offset:   32 Size:    16 [unused]
   float4 TexHalfSizes;               // Offset:   48 Size:    16 [unused]
-
 };
 
 //CBPrimitiveDebug : 3249.shdr.src
 struct CBPrimitiveDebug {
 
-
   float3 fWorldOffset;               // Offset:    0 Size:    12
-
 };
 
 //CBWaterDebug : 576.shdr.src
 struct CBWaterDebug {
 
-
   int iWaterDebugMode;               // Offset:    0 Size:     4
-
 };
 
 //CBSnowField2Debug : 326.shdr.src
 struct CBSnowField2Debug {
 
-
   uint iSnowField2DebugType;         // Offset:    0 Size:     4
-
 };
 
 //CBMaterialSnow__disclosure : 3370.shdr.src
 struct CBMaterialSnow__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -3508,20 +3193,16 @@ struct CBMaterialSnow__disclosure {
   float3 fWorldPositionMax;          // Offset:   52 Size:    12
   float3 fWorldPositionMin;          // Offset:   64 Size:    12
   float fHeightScale;                // Offset:   76 Size:     4 [unused]
-
 };
 
 //CBGUIDevelop : 334.shdr.src
 struct CBGUIDevelop {
 
-
   float3 fGUIOverlapDrawColor;       // Offset:    0 Size:    12
-
 };
 
 //CBToneMapping : 3371.shdr.src
 struct CBToneMapping {
-
 
   uint iToneMapType;                 // Offset:    0 Size:     4
   bool bLuminanceVersion;            // Offset:    4 Size:     4
@@ -3536,12 +3217,10 @@ struct CBToneMapping {
   bool bIsLinearToPQ;                // Offset:   40 Size:     4
   bool bIsPQToLinear;                // Offset:   44 Size:     4
   bool bEnableColorGrading;          // Offset:   48 Size:     4
-
 };
 
 //CB_TemporalAA : 6076.shdr.src
 struct CB_TemporalAA {
-
 
   float2 fReprojectionOffset;        // Offset:    0 Size:     8
   float2 fReprojectionScale;         // Offset:    8 Size:     8
@@ -3551,12 +3230,10 @@ struct CB_TemporalAA {
   float2 fTemporalClampMax;          // Offset:   40 Size:     8
   float fBlendRate;                  // Offset:   48 Size:     4
   bool bVelocityBase;                // Offset:   52 Size:     4
-
 };
 
 //CBMhMaterialNPCEyeLocal__disclosure : 3419.shdr.src
 struct CBMhMaterialNPCEyeLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -3575,16 +3252,13 @@ struct CBMhMaterialNPCEyeLocal__disclosure {
   // align: 76 to 80
   ubyte align0[4];
   float4 fUVTransformDetailNormal;   // Offset:   80 Size:    16 [unused]
-
 };
 
 //CBSpeedTreeLocalWind : 7364.shdr.src
 struct CBSpeedTreeLocalWind {
 
-
   struct CBSpeedTreeLocalWind_SpeedTreeLocalWind
   {
-
       float3 pos;                    // Offset:    0
       float radius;                  // Offset:   12
       float3 dir;                    // Offset:   16
@@ -3593,58 +3267,45 @@ struct CBSpeedTreeLocalWind {
       float oscillateSpeed;          // Offset:   36
       uint moveType;                 // Offset:   40
       float padding;                 // Offset:   44
-
   } gSpeedTreeLocalWindBuffer[128];  // Offset:    0 Size:  6144
-
 };
 
 //CBGodRaysIterator : 6159.shdr.src
 struct CBGodRaysIterator {
 
-
   float4 fGodRayParams[8];           // Offset:    0 Size:   128
-
 };
 
 //CBCAS : 9471.shdr.src
 struct CBCAS {
 
-
   uint4 iConst0;                     // Offset:    0 Size:    16 [unused]
   uint4 iConst1;                     // Offset:   16 Size:    16
-
 };
 
 //CBSnowFieldGeometry : 9892.shdr.src
 struct CBSnowFieldGeometry {
 
-
   float fEdgesPerScreenHeight;       // Offset:    0 Size:     4 [unused]
   float3 fWorldPositionMax;          // Offset:    4 Size:    12
   float3 fWorldPositionMin;          // Offset:   16 Size:    12
   float fShovelCornerBlendRate;      // Offset:   28 Size:     4
-
 };
 
 //CBSnowShoveler : 3494.shdr.src
 struct CBSnowShoveler {
 
-
   float4 fMinMaxRangeWorldY;         // Offset:    0 Size:    16
-
 };
 
 //CBSnowFall : 3494.shdr.src
 struct CBSnowFall {
 
-
   float SnowAmount;                  // Offset:    0 Size:     4
-
 };
 
 //CBMhMaterialEM002Local__disclosure : 3581.shdr.src
 struct CBMhMaterialEM002Local__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -3725,12 +3386,10 @@ struct CBMhMaterialEM002Local__disclosure {
   // align: 484 to 496
   ubyte align6[12];
   float4 fSnowControl;               // Offset:  496 Size:    16
-
 };
 
 //CBMhMaterialNPCHairLocal__disclosure : 3686.shdr.src
 struct CBMhMaterialNPCHairLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -3772,30 +3431,24 @@ struct CBMhMaterialNPCHairLocal__disclosure {
   // align: 236 to 240
   ubyte align3[4];
   float4 fUVTransformDetailNormal;   // Offset:  240 Size:    16 [unused]
-
 };
 
 //CBBokehAutoFocus : 3713.shdr.src
 struct CBBokehAutoFocus {
 
-
   uint2 SelectedFocusPoint;          // Offset:    0 Size:     8
-
 };
 
 //CBTexturePosScaleFactor : 5740.shdr.src
 struct CBTexturePosScaleFactor {
 
-
   float4 drawStage;                  // Offset:    0 Size:    16
   float4 sceneFFTStage;              // Offset:   16 Size:    16 [unused]
   float4 kernelFFTStage;             // Offset:   32 Size:    16 [unused]
-
 };
 
 //CBMhMaterialSimpleLocal__disclosure : 3785.shdr.src
 struct CBMhMaterialSimpleLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -3808,12 +3461,10 @@ struct CBMhMaterialSimpleLocal__disclosure {
   // align: 52 to 64
   ubyte align0[12];
   float4 fUVTransformA;              // Offset:   64 Size:    16
-
 };
 
 //CBMhMaterialPLSkinLocal__disclosure : 3848.shdr.src
 struct CBMhMaterialPLSkinLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -3835,12 +3486,10 @@ struct CBMhMaterialPLSkinLocal__disclosure {
   // align: 116 to 128
   ubyte align0[12];
   float4 fUVTransformDetailNormal;   // Offset:  128 Size:    16 [unused]
-
 };
 
 //CBSnowHeightPick : 389.shdr.src
 struct CBSnowHeightPick {
-
 
   uint WriteOffset;                  // Offset:    0 Size:     4
   uint SnowPickRenderFrame;          // Offset:    4 Size:     4
@@ -3848,12 +3497,10 @@ struct CBSnowHeightPick {
   // align: 12 to 16
   ubyte align0[4];
   int4 PickPositionArray[31];        // Offset:   16 Size:   496
-
 };
 
 //CBNormalMerge : 3941.shdr.src
 struct CBNormalMerge {
-
 
   uint iNmSrcOffset;                 // Offset:    0 Size:     4 [unused]
   uint iNmVertexCount;               // Offset:    4 Size:     4
@@ -3864,12 +3511,10 @@ struct CBNormalMerge {
   uint iNmStride;                    // Offset:   24 Size:     4
   uint iNmOffset;                    // Offset:   28 Size:     4
   uint iNmRateOffset;                // Offset:   32 Size:     4
-
 };
 
 //CBMhMaterialStdBlendNoFurLocal__disclosure : 4004.shdr.src
 struct CBMhMaterialStdBlendNoFurLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -3911,12 +3556,10 @@ struct CBMhMaterialStdBlendNoFurLocal__disclosure {
   bool bSpecialBlend;                // Offset:  284 Size:     4 [unused]
   bool bWetNormalBlend;              // Offset:  288 Size:     4 [unused]
   float2 fWetNormalBlendRange__uiUNorm;// Offset:  292 Size:     8 [unused]
-
 };
 
 //CBDecalCommon : 40.shdr.src
 struct CBDecalCommon {
-
 
   float4 fDecalColor;                // Offset:    0 Size:    16
   float3 fDecalCenter;               // Offset:   16 Size:    12
@@ -3930,22 +3573,18 @@ struct CBDecalCommon {
   // align: 76 to 80
   ubyte align2[4];
   float3 fDecalBinormal;             // Offset:   80 Size:    12
-
 };
 
 //CBGUINoiseAndFade : 4032.shdr.src
 struct CBGUINoiseAndFade {
 
-
   float4 fGUINoiseOffset;            // Offset:    0 Size:    16
   float4 fGUINoiseAndFadeParam;      // Offset:   16 Size:    16
   float4 fGUIFadeColor;              // Offset:   32 Size:    16
-
 };
 
 //CBMhMaterialEM063Local__disclosure : 4092.shdr.src
 struct CBMhMaterialEM063Local__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -4032,20 +3671,16 @@ struct CBMhMaterialEM063Local__disclosure {
   // align: 500 to 512
   ubyte align7[12];
   float4 fSnowControl;               // Offset:  512 Size:    16
-
 };
 
 //CBMhSkyVS : 7177.shdr.src
 struct CBMhSkyVS {
 
-
   row_major float3x4 fSkyWorld;      // Offset:    0 Size:    48
-
 };
 
 //CBMhSkyLpPS : 4517.shdr.src
 struct CBMhSkyLpPS {
-
 
   float3 fSkyGlobalIntensity;        // Offset:    0 Size:    12 [unused]
   // align: 12 to 16
@@ -4079,12 +3714,10 @@ struct CBMhSkyLpPS {
   float2 fSkyBlendCloudSpeed2;       // Offset:  304 Size:     8 [unused]
   float2 fSkyBlendCloudSpeed3;       // Offset:  312 Size:     8 [unused]
   uint2 iSkyAddress;                 // Offset:  320 Size:     8
-
 };
 
 //CBSnowFieldPreDepth : 4152.shdr.src
 struct CBSnowFieldPreDepth {
-
 
   float4 fSnowFieldPreDepthRegion;   // Offset:    0 Size:    16
   float2 fSnowFieldPreDepthRegionY;  // Offset:   16 Size:     8
@@ -4093,12 +3726,10 @@ struct CBSnowFieldPreDepth {
   float4 fSnowFieldPreDepthBoundings[16];// Offset:   32 Size:   256
   float4 fSnowFieldPreDepthMinMaxY[16];// Offset:  288 Size:   256
   float4 fSnowFieldResolution;       // Offset:  544 Size:    16
-
 };
 
 //CBSpeedTreeCollision__disclosure : 7364.shdr.src
 struct CBSpeedTreeCollision__disclosure {
-
 
   float fLocalHeightAdjust;          // Offset:    0 Size:     4
   float fLocalWindOverallFactor;     // Offset:    4 Size:     4
@@ -4108,29 +3739,23 @@ struct CBSpeedTreeCollision__disclosure {
   float fWindOneSidedBias;           // Offset:   20 Size:     4
   bool bWindOneSidedUvFlip;          // Offset:   24 Size:     4
   bool bSpeedTreeLodSmooth;          // Offset:   28 Size:     4
-
 };
 
 //CBSpeedTreePrimitiveInfo : 8768.shdr.src
 struct CBSpeedTreePrimitiveInfo {
 
-
   uint4 iPrimitiveInfo;              // Offset:    0 Size:    16
-
 };
 
 //CBSpeedTreeSystem : 7364.shdr.src
 struct CBSpeedTreeSystem {
 
-
   float4 fSpeedTreeSystemParam;      // Offset:    0 Size:    16
   uint3 iSpeedTreeSystemParam;       // Offset:   16 Size:    12 [unused]
-
 };
 
 //CBMhMaterialSpeedTreeStdBlendLocal__disclosure : 8071.shdr.src
 struct CBMhMaterialSpeedTreeStdBlendLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -4173,27 +3798,22 @@ struct CBMhMaterialSpeedTreeStdBlendLocal__disclosure {
   bool bSpecialBlend;                // Offset:  268 Size:     4 [unused]
   bool bWetNormalBlend;              // Offset:  272 Size:     4 [unused]
   float2 fWetNormalBlendRange__uiUNorm;// Offset:  276 Size:     8 [unused]
-
 };
 
 //CBSpeedTree : 7364.shdr.src
 struct CBSpeedTree {
 
-
   float2 fSpeedTreeParam;            // Offset:    0 Size:     8
   // align: 8 to 16
   ubyte align0[8];
   int3 iSpeedTreeParam;              // Offset:   16 Size:    12
-
 };
 
 //CBSpeedTreeGlobalWind : 7364.shdr.src
 struct CBSpeedTreeGlobalWind {
 
-
   struct CBSpeedTreeGlobalWind_SpeedTreeGlobalWind
   {
-
       row_major uint4x4 fBillboardTexCoords[3];// Offset:    0
       float4 fWindVector;            // Offset:  192
       float4 fWindGlobal;            // Offset:  208
@@ -4218,18 +3838,14 @@ struct CBSpeedTreeGlobalWind {
       float2 fLocalBranchDistance;   // Offset:  384
       uint iWindAttr;                // Offset:  392
       float padding_0;               // Offset:  396
-
   } gSpeedTreeGlobalWindBuffer[160]; // Offset:    0 Size: 64000
-
 };
 
 //CBSpeedTreeGlobalWindPF : 7324.shdr.src
 struct CBSpeedTreeGlobalWindPF {
 
-
   struct CBSpeedTreeGlobalWindPF_SpeedTreeGlobalWind
   {
-
       row_major uint4x4 fBillboardTexCoords[3];// Offset:    0
       float4 fWindVector;            // Offset:  192
       float4 fWindGlobal;            // Offset:  208
@@ -4254,18 +3870,14 @@ struct CBSpeedTreeGlobalWindPF {
       float2 fLocalBranchDistance;   // Offset:  384
       uint iWindAttr;                // Offset:  392
       float padding_0;               // Offset:  396
-
   } gSpeedTreeGlobalWindBufferPF[160];// Offset:    0 Size: 64000
-
 };
 
 //CBSpeedTreeLocalWindPF : 7324.shdr.src
 struct CBSpeedTreeLocalWindPF {
 
-
   struct CBSpeedTreeLocalWindPF_SpeedTreeLocalWind
   {
-
       float3 pos;                    // Offset:    0
       float radius;                  // Offset:   12
       float3 dir;                    // Offset:   16
@@ -4274,24 +3886,19 @@ struct CBSpeedTreeLocalWindPF {
       float oscillateSpeed;          // Offset:   36
       uint moveType;                 // Offset:   40
       float padding;                 // Offset:   44
-
   } gSpeedTreeLocalWindBufferPF[128];// Offset:    0 Size:  6144
-
 };
 
 //CBGlobalIllumination : 8864.shdr.src
 struct CBGlobalIllumination {
 
-
   float fSpecularIntensity;          // Offset:    0 Size:     4
   float fSpecularTemporalBlendRate;  // Offset:    4 Size:     4
   float fSpecularDifference;         // Offset:    8 Size:     4 [unused]
-
 };
 
 //CBMhMaterialEM024Local__disclosure : 488.shdr.src
 struct CBMhMaterialEM024Local__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -4372,12 +3979,10 @@ struct CBMhMaterialEM024Local__disclosure {
   // align: 484 to 496
   ubyte align6[12];
   float4 fSnowControl;               // Offset:  496 Size:    16
-
 };
 
 //CBMhMaterialVfxWaterLocal__disclosure : 4332.shdr.src
 struct CBMhMaterialVfxWaterLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fDistortionFactor__uiColor; // Offset:   16 Size:    12 [unused]
@@ -4409,12 +4014,10 @@ struct CBMhMaterialVfxWaterLocal__disclosure {
   float fInnerOffsetScale;           // Offset:  148 Size:     4
   float fVelocityAttn;               // Offset:  152 Size:     4 [unused]
   float fNormalDecalBlend__uiUNorm;  // Offset:  156 Size:     4 [unused]
-
 };
 
 //CBMhMaterialIvyFloorLocal__disclosure : 4445.shdr.src
 struct CBMhMaterialIvyFloorLocal__disclosure {
-
 
   float fWaveLength;                 // Offset:    0 Size:     4
   float fSinkLength;                 // Offset:    4 Size:     4
@@ -4423,23 +4026,19 @@ struct CBMhMaterialIvyFloorLocal__disclosure {
   float fIceConstSinkLength;         // Offset:   16 Size:     4
   float fIceMaxSlant;                // Offset:   20 Size:     4
   float fIceSlantRange;              // Offset:   24 Size:     4
-
 };
 
 //CBMhMaterialIvyFloor : 4445.shdr.src
 struct CBMhMaterialIvyFloor {
 
-
   int iIvyFloorWindIndex;            // Offset:    0 Size:     4
   int iIvyFloorWindIndexPF;          // Offset:    4 Size:     4 [unused]
   uint2 iIvyFloorId;                 // Offset:    8 Size:     8
   float fIvyFloorWindScale;          // Offset:   16 Size:     4
-
 };
 
 //CBGUIDistanceField : 4448.shdr.src
 struct CBGUIDistanceField {
-
 
   float3 fGUIDFParam0;               // Offset:    0 Size:    12
   // align: 12 to 16
@@ -4449,12 +4048,10 @@ struct CBGUIDistanceField {
   // align: 44 to 48
   ubyte align1[4];
   float4 fGUIDFColor1;               // Offset:   48 Size:    16
-
 };
 
 //CBMhMaterialEC021Local__disclosure : 4489.shdr.src
 struct CBMhMaterialEC021Local__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -4493,12 +4090,10 @@ struct CBMhMaterialEC021Local__disclosure {
   // align: 284 to 288
   ubyte align3[4];
   float3 fFinColor__uiColor;         // Offset:  288 Size:    12 [unused]
-
 };
 
 //CBMhMaterialSpeedTreeStdFurLocal__disclosure : 4572.shdr.src
 struct CBMhMaterialSpeedTreeStdFurLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -4532,20 +4127,16 @@ struct CBMhMaterialSpeedTreeStdFurLocal__disclosure {
   float fFurMapBlend__uiUNorm;       // Offset:  192 Size:     4 [unused]
   float fFurEdgeBlend__uiUNorm;      // Offset:  196 Size:     4 [unused]
   float fFurTile;                    // Offset:  200 Size:     4 [unused]
-
 };
 
 //CBCSClear : 4584.shdr.src
 struct CBCSClear {
 
-
   uint iSize;                        // Offset:    0 Size:     4
-
 };
 
 //CBGUIIcon : 4605.shdr.src
 struct CBGUIIcon {
-
 
   float4 fGUINoiseColor;             // Offset:    0 Size:    16
   float4 fGUIEmissiveColor;          // Offset:   16 Size:    16
@@ -4556,52 +4147,42 @@ struct CBGUIIcon {
   // align: 60 to 64
   ubyte align1[4];
   float3 fGUIIconLightDir;           // Offset:   64 Size:    12
-
 };
 
 //CBMhMaterialSlantFloorLocal__disclosure : 4643.shdr.src
 struct CBMhMaterialSlantFloorLocal__disclosure {
 
-
   float fSinkLength;                 // Offset:    0 Size:     4
   float fConstSinkLength;            // Offset:    4 Size:     4
   float fMaxSlant;                   // Offset:    8 Size:     4
   float fSlantRange;                 // Offset:   12 Size:     4
-
 };
 
 //CBMhMaterialSlantFloor : 4643.shdr.src
 struct CBMhMaterialSlantFloor {
 
-
   int iSlantFloorWindIndex;          // Offset:    0 Size:     4
   float fSlantFloorWindScale;        // Offset:    4 Size:     4
-
 };
 
 //CBMhSky2GBuffer : 4667.shdr.src
 struct CBMhSky2GBuffer {
 
-
   uint iSkyGBufferId;                // Offset:    0 Size:     4
-
 };
 
 //CBLuminanceDebugDisp : 4673.shdr.src
 struct CBLuminanceDebugDisp {
-
 
   uint iLuminanceDispMode;           // Offset:    0 Size:     4
   // align: 4 to 16
   ubyte align0[12];
   float4 fLuminanceDebugDispColor;   // Offset:   16 Size:    16
   float2 fLuminanceDebugDispMinMax;  // Offset:   32 Size:     8
-
 };
 
 //CBOutline : 7518.shdr.src
 struct CBOutline {
-
 
   float4 fLineColor;                 // Offset:    0 Size:    16 [unused]
   uint iTargetID;                    // Offset:   16 Size:     4 [unused]
@@ -4615,12 +4196,10 @@ struct CBOutline {
   float fBlinkSpeed;                 // Offset:   88 Size:     4 [unused]
   float fBlinkMin;                   // Offset:   92 Size:     4 [unused]
   bool bDepthTest;                   // Offset:   96 Size:     4 [unused]
-
 };
 
 //CBMhMaterialEM125Local__disclosure : 4823.shdr.src
 struct CBMhMaterialEM125Local__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -4716,31 +4295,25 @@ struct CBMhMaterialEM125Local__disclosure {
   // align: 564 to 576
   ubyte align8[12];
   float4 fSnowControl;               // Offset:  576 Size:    16
-
 };
 
 //CB_BGTexture : 4843.shdr.src
 struct CB_BGTexture {
 
-
   float4 fBGTextureColor;            // Offset:    0 Size:    16
-
 };
 
 //CBMhMaterialFakeInnerEmitLocal__disclosure : 4951.shdr.src
 struct CBMhMaterialFakeInnerEmitLocal__disclosure {
 
-
   float3 fEmissiveMapFactor__uiColor;// Offset:    0 Size:    12 [unused]
   float fInnerOffsetScale;           // Offset:   12 Size:     4
   float fRimAlphaPower__uiUNorm;     // Offset:   16 Size:     4 [unused]
   float fVolumeBlend__uiSNorm;       // Offset:   20 Size:     4 [unused]
-
 };
 
 //CBBlink : 491.shdr.src
 struct CBBlink {
-
 
   float fOffset;                     // Offset:    0 Size:     4
   float fPow;                        // Offset:    4 Size:     4
@@ -4749,12 +4322,10 @@ struct CBBlink {
   float3 fColor;                     // Offset:   16 Size:    12
   float fBlinkRate;                  // Offset:   28 Size:     4
   float fHeightOffset;               // Offset:   32 Size:     4
-
 };
 
 //CBMhMaterialEM011Local__disclosure : 5017.shdr.src
 struct CBMhMaterialEM011Local__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -4838,12 +4409,10 @@ struct CBMhMaterialEM011Local__disclosure {
   // align: 500 to 512
   ubyte align7[12];
   float4 fSnowControl;               // Offset:  512 Size:    16
-
 };
 
 //CBMhMaterialNPCFaceLocal__disclosure : 5133.shdr.src
 struct CBMhMaterialNPCFaceLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -4869,12 +4438,10 @@ struct CBMhMaterialNPCFaceLocal__disclosure {
   // align: 152 to 160
   ubyte align1[8];
   float4 fUVTransformDetailNormal;   // Offset:  160 Size:    16 [unused]
-
 };
 
 //CBMotionBlur : 5151.shdr.src
 struct CBMotionBlur {
-
 
   int iMotionBlurSampleNum;          // Offset:    0 Size:     4
   float fMotionBlurShutterSpeed;     // Offset:    4 Size:     4
@@ -4883,12 +4450,10 @@ struct CBMotionBlur {
   ubyte align0[4];
   row_major float4x4 fTransform;     // Offset:   16 Size:    64
   float fMotionBlurFurShutterSpeed;  // Offset:   80 Size:     4
-
 };
 
 //CBMhMaterialVfxTornadoLocal__disclosure : 5228.shdr.src
 struct CBMhMaterialVfxTornadoLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -4933,12 +4498,10 @@ struct CBMhMaterialVfxTornadoLocal__disclosure {
   bool bGBufferIdMaskEnable;         // Offset:  232 Size:     4 [unused]
   uint iGBufferIdMask;               // Offset:  236 Size:     4 [unused]
   float fNormalDecalBlend__uiUNorm;  // Offset:  240 Size:     4 [unused]
-
 };
 
 //CBContactShadowInfo : 5469.shdr.src
 struct CBContactShadowInfo {
-
 
   float4 fContactShadowLengthCoefs;  // Offset:    0 Size:    16 [unused]
   float3 fContactShadowOptimizeParams;// Offset:   16 Size:    12
@@ -4947,12 +4510,10 @@ struct CBContactShadowInfo {
   float3 fContactShadowDirection;    // Offset:   32 Size:    12 [unused]
   bool bIsUseNoise;                  // Offset:   44 Size:     4
   bool bIsUseContactShadow;          // Offset:   48 Size:     4
-
 };
 
 //CBMhMaterialNPCEditFaceLocal__disclosure : 5265.shdr.src
 struct CBMhMaterialNPCEditFaceLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -5026,21 +4587,17 @@ struct CBMhMaterialNPCEditFaceLocal__disclosure {
   // align: 440 to 448
   ubyte align7[8];
   float4 fUVTransformDetailNormal;   // Offset:  448 Size:    16 [unused]
-
 };
 
 //CBDevelopColorPick : 5273.shdr.src
 struct CBDevelopColorPick {
 
-
   uint2 mousePos;                    // Offset:    0 Size:     8
   bool gammaCorrect;                 // Offset:    8 Size:     4
-
 };
 
 //CBMhMaterialVfxSandFallLocal__disclosure : 5338.shdr.src
 struct CBMhMaterialVfxSandFallLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fCubeMapFactor__uiColor;    // Offset:   16 Size:    12 [unused]
@@ -5070,12 +4627,10 @@ struct CBMhMaterialVfxSandFallLocal__disclosure {
   bool bSceneEnvMap;                 // Offset:  156 Size:     4 [unused]
   bool bDisplacement;                // Offset:  160 Size:     4
   bool bRTBlend;                     // Offset:  164 Size:     4 [unused]
-
 };
 
 //CBMhMaterialSpeedTreeStdBlendSnowLocal__disclosure : 5395.shdr.src
 struct CBMhMaterialSpeedTreeStdBlendSnowLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -5134,12 +4689,10 @@ struct CBMhMaterialSpeedTreeStdBlendSnowLocal__disclosure {
   float3 fSnowOp;                    // Offset:  384 Size:    12 [unused]
   bool bUseUVSecondarySnowMt;        // Offset:  396 Size:     4 [unused]
   bool bUseUVSecondarySnowMtBM;      // Offset:  400 Size:     4 [unused]
-
 };
 
 //CBMhMaterialPLEditFaceLocal__disclosure : 5471.shdr.src
 struct CBMhMaterialPLEditFaceLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -5213,20 +4766,16 @@ struct CBMhMaterialPLEditFaceLocal__disclosure {
   // align: 440 to 448
   ubyte align7[8];
   float4 fUVTransformDetailNormal;   // Offset:  448 Size:    16 [unused]
-
 };
 
 //CBWaterPick : 545.shdr.src
 struct CBWaterPick {
 
-
   uint2 iWaterAddress;               // Offset:    0 Size:     8
-
 };
 
 //CBMhMaterialEM044Local__disclosure : 5540.shdr.src
 struct CBMhMaterialEM044Local__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -5304,12 +4853,10 @@ struct CBMhMaterialEM044Local__disclosure {
   // align: 452 to 464
   ubyte align6[12];
   float4 fSnowControl;               // Offset:  464 Size:    16
-
 };
 
 //CBMhMaterialPLHairLocal__disclosure : 5623.shdr.src
 struct CBMhMaterialPLHairLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -5351,12 +4898,10 @@ struct CBMhMaterialPLHairLocal__disclosure {
   // align: 236 to 240
   ubyte align3[4];
   float4 fUVTransformDetailNormal;   // Offset:  240 Size:    16 [unused]
-
 };
 
 //CBMhMaterialArrayLocal__disclosure : 5735.shdr.src
 struct CBMhMaterialArrayLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -5373,12 +4918,10 @@ struct CBMhMaterialArrayLocal__disclosure {
   // align: 84 to 96
   ubyte align1[12];
   float4 fArrayOrig;                 // Offset:   96 Size:    16
-
 };
 
 //CBVignetting : 5742.shdr.src
 struct CBVignetting {
-
 
   float fOffset;                     // Offset:    0 Size:     4
   float fPow;                        // Offset:    4 Size:     4
@@ -5386,12 +4929,10 @@ struct CBVignetting {
   // align: 12 to 16
   ubyte align0[4];
   float3 fColor;                     // Offset:   16 Size:    12
-
 };
 
 //CBMhEmissiveFog__disclosure : 5840.shdr.src
 struct CBMhEmissiveFog__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float4 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    16 [unused]
@@ -5424,12 +4965,10 @@ struct CBMhEmissiveFog__disclosure {
   float fVelocityAttn;               // Offset:  168 Size:     4 [unused]
   float fNormalDecalBlend__uiUNorm;  // Offset:  172 Size:     4 [unused]
   bool bUseUVPrimaryAM;              // Offset:  176 Size:     4 [unused]
-
 };
 
 //CBMhMaterialSpeedTreeStdLocal__disclosure : 7063.shdr.src
 struct CBMhMaterialSpeedTreeStdLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -5458,12 +4997,10 @@ struct CBMhMaterialSpeedTreeStdLocal__disclosure {
   // align: 172 to 176
   ubyte align2[4];
   float2 fWetNormalBlendRange__uiUNorm;// Offset:  176 Size:     8 [unused]
-
 };
 
 //CBMhMaterialNPCSkinLocal__disclosure : 5940.shdr.src
 struct CBMhMaterialNPCSkinLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -5485,12 +5022,10 @@ struct CBMhMaterialNPCSkinLocal__disclosure {
   // align: 116 to 128
   ubyte align0[12];
   float4 fUVTransformDetailNormal;   // Offset:  128 Size:    16 [unused]
-
 };
 
 //CBMhMaterialScrWaterLocal__disclosure : 6557.shdr.src
 struct CBMhMaterialScrWaterLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -5520,12 +5055,10 @@ struct CBMhMaterialScrWaterLocal__disclosure {
   float fFlowStrength;               // Offset:  164 Size:     4
   float fFlowSpeed;                  // Offset:  168 Size:     4
   bool bDecalMode;                   // Offset:  172 Size:     4 [unused]
-
 };
 
 //CBMhMaterialEM106Local__disclosure : 658.shdr.src
 struct CBMhMaterialEM106Local__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -5614,29 +5147,23 @@ struct CBMhMaterialEM106Local__disclosure {
   // align: 596 to 608
   ubyte align7[12];
   float4 fSnowControl;               // Offset:  608 Size:    16
-
 };
 
 //CBMhSky2SimpleVS : 6013.shdr.src
 struct CBMhSky2SimpleVS {
 
-
   row_major float3x4 fSkyWorld;      // Offset:    0 Size:    48
-
 };
 
 //CBPartialColor : 6016.shdr.src
 struct CBPartialColor {
 
-
   row_major float4x4 color_matrix;   // Offset:    0 Size:    64
   float compensate;                  // Offset:   64 Size:     4
-
 };
 
 //CBToneMappingSdrSim : 6067.shdr.src
 struct CBToneMappingSdrSim {
-
 
   uint iToneMapType;                 // Offset:    0 Size:     4
   bool bLuminanceVersion;            // Offset:    4 Size:     4
@@ -5653,46 +5180,38 @@ struct CBToneMappingSdrSim {
   bool bEnableColorGrading;          // Offset:   48 Size:     4
   bool bEnableSdrSimulation;         // Offset:   52 Size:     4
   bool bEnableMaxLuminanceTest;      // Offset:   56 Size:     4
-
 };
 
 //CB_CombinedFilter_ImagePlane : 9499.shdr.src
 struct CB_CombinedFilter_ImagePlane {
-
 
   uint iBlendType;                   // Offset:    0 Size:     4
   // align: 4 to 16
   ubyte align0[12];
   row_major float4x4 fUVTransform;   // Offset:   16 Size:    64 [unused]
   float4 fPlaneColor;                // Offset:   80 Size:    16
-
 };
 
 //CB_CombinedFilter : 9499.shdr.src
 struct CB_CombinedFilter {
 
-
   bool bEnableFXAA;                  // Offset:    0 Size:     4
   bool bEnableTemporalAA;            // Offset:    4 Size:     4 [unused]
   bool bEnableColorCorrect;          // Offset:    8 Size:     4
   bool bEnableImagePlane;            // Offset:   12 Size:     4
-
 };
 
 //CB_CombinedFilter_ColorCorrect : 9499.shdr.src
 struct CB_CombinedFilter_ColorCorrect {
 
-
   float fDepthNear;                  // Offset:    0 Size:     4
   float fDepthFar;                   // Offset:    4 Size:     4
   bool bHdrExtrapolation;            // Offset:    8 Size:     4
   float fHdrIntensityRangeInv;       // Offset:   12 Size:     4
-
 };
 
 //cbHBAO : 9669.shdr.src
 struct cbHBAO {
-
 
   float HBAORadiusToScreen;          // Offset:    0 Size:     4
   float HBAONegInvR2;                // Offset:    4 Size:     4
@@ -5701,12 +5220,10 @@ struct cbHBAO {
   float HBAOSmallScaleAOAmount;      // Offset:   16 Size:     4
   float HBAOLargeScaleAOAmount;      // Offset:   20 Size:     4
   float HBAONormalBlendRate;         // Offset:   24 Size:     4
-
 };
 
 //CBMhMaterialFlagWaveBlendLocal__disclosure : 6261.shdr.src
 struct CBMhMaterialFlagWaveBlendLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -5741,12 +5258,10 @@ struct CBMhMaterialFlagWaveBlendLocal__disclosure {
   ubyte align3[4];
   float4 fBlendUVTransformA;         // Offset:  224 Size:    16 [unused]
   bool bUseUVSecondaryMtBM;          // Offset:  240 Size:     4 [unused]
-
 };
 
 //CBMhMaterial_EM105_EVCLocal__disclosure : 6329.shdr.src
 struct CBMhMaterial_EM105_EVCLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -5834,12 +5349,10 @@ struct CBMhMaterial_EM105_EVCLocal__disclosure {
   float fRimAlphaPower__uiSNorm;     // Offset:  496 Size:     4 [unused]
   float fRimTranslucency__uiUNorm;   // Offset:  500 Size:     4 [unused]
   float fRimNormal__uiUNorm;         // Offset:  504 Size:     4 [unused]
-
 };
 
 //cbHDAO : 9168.shdr.src
 struct cbHDAO {
-
 
   float HDAORejectRadius;            // Offset:    0 Size:     4
   float HDAOAcceptRadius;            // Offset:    4 Size:     4
@@ -5847,12 +5360,10 @@ struct cbHDAO {
   float HDAOAcceptAngle;             // Offset:   12 Size:     4 [unused]
   float HDAONormalScale;             // Offset:   16 Size:     4
   int HDAOUseNormal;                 // Offset:   20 Size:     4
-
 };
 
 //CBMhMaterialScrIceBlendNoFurLocal__disclosure : 6425.shdr.src
 struct CBMhMaterialScrIceBlendNoFurLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -5917,12 +5428,10 @@ struct CBMhMaterialScrIceBlendNoFurLocal__disclosure {
   float fIceFresnelFactor__uiUNorm;  // Offset:  412 Size:     4 [unused]
   float fIceColorBlend__uiUNorm;     // Offset:  416 Size:     4 [unused]
   bool bUseUVSecondaryMtIce;         // Offset:  420 Size:     4 [unused]
-
 };
 
 //CBMhMaterialEM117Local__disclosure : 6486.shdr.src
 struct CBMhMaterialEM117Local__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -6011,12 +5520,10 @@ struct CBMhMaterialEM117Local__disclosure {
   // align: 596 to 608
   ubyte align7[12];
   float4 fSnowControl;               // Offset:  608 Size:    16
-
 };
 
 //CBMhMaterialSKM001Local__disclosure : 6676.shdr.src
 struct CBMhMaterialSKM001Local__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -6102,12 +5609,10 @@ struct CBMhMaterialSKM001Local__disclosure {
   // align: 516 to 528
   ubyte align6[12];
   float4 fSnowControl;               // Offset:  528 Size:    16
-
 };
 
 //CBMhMaterialEM036Local__disclosure : 6752.shdr.src
 struct CBMhMaterialEM036Local__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -6186,20 +5691,16 @@ struct CBMhMaterialEM036Local__disclosure {
   // align: 468 to 480
   ubyte align6[12];
   float4 fSnowControl;               // Offset:  480 Size:    16
-
 };
 
 //CBConstant : 6769.shdr.src
 struct CBConstant {
 
-
   uint iUserConstant;                // Offset:    0 Size:     4
-
 };
 
 //CBMhMaterialTMG001Local__disclosure : 6836.shdr.src
 struct CBMhMaterialTMG001Local__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -6291,12 +5792,10 @@ struct CBMhMaterialTMG001Local__disclosure {
   // align: 628 to 640
   ubyte align7[12];
   float4 fSnowControl;               // Offset:  640 Size:    16
-
 };
 
 //CBMhMaterialNikuLocal__disclosure : 6889.shdr.src
 struct CBMhMaterialNikuLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -6310,12 +5809,10 @@ struct CBMhMaterialNikuLocal__disclosure {
   ubyte align0[12];
   float4 fUVTransformA;              // Offset:   64 Size:    16
   float4 fNikuMode__uiUNorm;         // Offset:   80 Size:    16
-
 };
 
 //CBMhMaterialVfxFakeInnerLocal__disclosure : 766.shdr.src
 struct CBMhMaterialVfxFakeInnerLocal__disclosure {
-
 
   float3 fEmissiveMapFactor__uiColor;// Offset:    0 Size:    12 [unused]
   // align: 12 to 16
@@ -6331,12 +5828,10 @@ struct CBMhMaterialVfxFakeInnerLocal__disclosure {
   bool bGBufferIdMaskEnable;         // Offset:   60 Size:     4 [unused]
   uint iGBufferIdMask;               // Offset:   64 Size:     4 [unused]
   float fNormalDecalBlend__uiUNorm;  // Offset:   68 Size:     4 [unused]
-
 };
 
 //CBMhMaterialEM102Local__disclosure : 6964.shdr.src
 struct CBMhMaterialEM102Local__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -6423,12 +5918,10 @@ struct CBMhMaterialEM102Local__disclosure {
   // align: 516 to 528
   ubyte align7[12];
   float4 fSnowControl;               // Offset:  528 Size:    16
-
 };
 
 //CBMhMaterialPLLocal__disclosure : 7169.shdr.src
 struct CBMhMaterialPLLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -6479,12 +5972,10 @@ struct CBMhMaterialPLLocal__disclosure {
   float3 fEmissiveBlendRimParam;     // Offset:  304 Size:    12 [unused]
   float fDetailNormalBlend__uiUNorm; // Offset:  316 Size:     4 [unused]
   float4 fUVTransformDetailNormal;   // Offset:  320 Size:    16 [unused]
-
 };
 
 //CBMhSkyPS : 7419.shdr.src
 struct CBMhSkyPS {
-
 
   uint fSkyMode;                     // Offset:    0 Size:     4 [unused]
   float3 fEmissiveMapFactor;         // Offset:    4 Size:    12 [unused]
@@ -6502,12 +5993,10 @@ struct CBMhSkyPS {
   float3 fSkyWaterReflectionFactor;  // Offset:   96 Size:    12 [unused]
   bool bSkyIsRenderingWater;         // Offset:  108 Size:     4 [unused]
   uint2 iSkyAddress;                 // Offset:  112 Size:     8
-
 };
 
 //CBMhMaterialScrIceBlendLocal__disclosure : 7290.shdr.src
 struct CBMhMaterialScrIceBlendLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -6577,20 +6066,16 @@ struct CBMhMaterialScrIceBlendLocal__disclosure {
   float fIceFresnelFactor__uiUNorm;  // Offset:  428 Size:     4 [unused]
   float fIceColorBlend__uiUNorm;     // Offset:  432 Size:     4 [unused]
   bool bUseUVSecondaryMtIce;         // Offset:  436 Size:     4 [unused]
-
 };
 
 //CBMhSky2SimpleGBuffer : 7292.shdr.src
 struct CBMhSky2SimpleGBuffer {
 
-
   uint iSkyGBufferId;                // Offset:    0 Size:     4
-
 };
 
 //CBMhMaterialIridescentBlendLocal__disclosure : 7417.shdr.src
 struct CBMhMaterialIridescentBlendLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -6641,12 +6126,10 @@ struct CBMhMaterialIridescentBlendLocal__disclosure {
   float fFilmBlend__uiUNorm;         // Offset:  320 Size:     4 [unused]
   float fRefraction__uiUNorm;        // Offset:  324 Size:     4 [unused]
   float fRefractionBlend__uiUNorm;   // Offset:  328 Size:     4 [unused]
-
 };
 
 //CBMhMaterialEM057Local__disclosure : 7517.shdr.src
 struct CBMhMaterialEM057Local__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -6737,12 +6220,10 @@ struct CBMhMaterialEM057Local__disclosure {
   // align: 532 to 544
   ubyte align7[12];
   float4 fSnowControl;               // Offset:  544 Size:    16
-
 };
 
 //CBDepthColor : 7531.shdr.src
 struct CBDepthColor {
-
 
   uint fDepthColorBlendMode;         // Offset:    0 Size:     4
   float fDepthColorBlendRate;        // Offset:    4 Size:     4
@@ -6754,12 +6235,10 @@ struct CBDepthColor {
   // align: 36 to 48
   ubyte align1[12];
   float fDepthColorBlendCurve[256];  // Offset:   48 Size:  4084
-
 };
 
 //CBMhMaterialStdBlendLocal__disclosure : 7603.shdr.src
 struct CBMhMaterialStdBlendLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -6806,12 +6285,10 @@ struct CBMhMaterialStdBlendLocal__disclosure {
   bool bSpecialBlend;                // Offset:  300 Size:     4 [unused]
   bool bWetNormalBlend;              // Offset:  304 Size:     4 [unused]
   float2 fWetNormalBlendRange__uiUNorm;// Offset:  308 Size:     8 [unused]
-
 };
 
 //CBMhMaterialEM111Local__disclosure : 7695.shdr.src
 struct CBMhMaterialEM111Local__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -6897,12 +6374,10 @@ struct CBMhMaterialEM111Local__disclosure {
   // align: 516 to 528
   ubyte align7[12];
   float4 fSnowControl;               // Offset:  528 Size:    16
-
 };
 
 //CBMhMaterialUberLocal__disclosure : 7827.shdr.src
 struct CBMhMaterialUberLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -6973,12 +6448,10 @@ struct CBMhMaterialUberLocal__disclosure {
   float4 fSnowMatControl__uiUNorm;   // Offset:  416 Size:    16 [unused]
   float2 fSnowUVOffset__uiUNorm;     // Offset:  432 Size:     8 [unused]
   bool bUseSnowDistance;             // Offset:  440 Size:     4 [unused]
-
 };
 
 //CBMhMaterialFurLocal__disclosure : 886.shdr.src
 struct CBMhMaterialFurLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -7000,12 +6473,10 @@ struct CBMhMaterialFurLocal__disclosure {
   float fFurMapBlend__uiUNorm;       // Offset:  132 Size:     4 [unused]
   float fFurEdgeBlend__uiUNorm;      // Offset:  136 Size:     4 [unused]
   float fFurTile;                    // Offset:  140 Size:     4 [unused]
-
 };
 
 //CBMhMaterialVfxDistDispLocal__disclosure : 7927.shdr.src
 struct CBMhMaterialVfxDistDispLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fCubeMapFactor__uiColor;    // Offset:   16 Size:    12 [unused]
@@ -7038,12 +6509,10 @@ struct CBMhMaterialVfxDistDispLocal__disclosure {
   float fInnerOffsetScale;           // Offset:  176 Size:     4
   float fVelocityAttn;               // Offset:  180 Size:     4 [unused]
   float fNormalDecalBlend__uiUNorm;  // Offset:  184 Size:     4 [unused]
-
 };
 
 //CBMhMaterialEMLocal__disclosure : 7993.shdr.src
 struct CBMhMaterialEMLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -7121,12 +6590,10 @@ struct CBMhMaterialEMLocal__disclosure {
   // align: 452 to 464
   ubyte align6[12];
   float4 fSnowControl;               // Offset:  464 Size:    16
-
 };
 
 //CBMhMaterialSpeedTreeStdIceLocal__disclosure : 8224.shdr.src
 struct CBMhMaterialSpeedTreeStdIceLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -7177,12 +6644,10 @@ struct CBMhMaterialSpeedTreeStdIceLocal__disclosure {
   float fIceFresnelFactor__uiUNorm;  // Offset:  320 Size:     4 [unused]
   float fIceColorBlend__uiUNorm;     // Offset:  324 Size:     4 [unused]
   bool bUseUVSecondaryMtIce;         // Offset:  328 Size:     4 [unused]
-
 };
 
 //CBMhMaterialNPCLocal__disclosure : 8309.shdr.src
 struct CBMhMaterialNPCLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -7229,21 +6694,17 @@ struct CBMhMaterialNPCLocal__disclosure {
   float3 fEmissiveBlendRimParam;     // Offset:  288 Size:    12 [unused]
   float fDetailNormalBlend__uiUNorm; // Offset:  300 Size:     4 [unused]
   float4 fUVTransformDetailNormal;   // Offset:  304 Size:    16 [unused]
-
 };
 
 //CBResample : 8320.shdr.src
 struct CBResample {
 
-
   float2 fResampleScreenSize;        // Offset:    0 Size:     8
   float2 fResampleScale;             // Offset:    8 Size:     8
-
 };
 
 //CBMhMaterialEM124Local__disclosure : 8387.shdr.src
 struct CBMhMaterialEM124Local__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -7336,20 +6797,16 @@ struct CBMhMaterialEM124Local__disclosure {
   // align: 532 to 544
   ubyte align8[12];
   float4 fSnowControl;               // Offset:  544 Size:    16
-
 };
 
 //CBSky : 8399.shdr.src
 struct CBSky {
 
-
   float fSunSolidAngle;              // Offset:    0 Size:     4
-
 };
 
 //CBMhMaterialTestLocal__disclosure : 8491.shdr.src
 struct CBMhMaterialTestLocal__disclosure {
-
 
   int iShaderMode;                   // Offset:    0 Size:     4
   // align: 4 to 16
@@ -7391,12 +6848,10 @@ struct CBMhMaterialTestLocal__disclosure {
   float fVPushSpeed;                 // Offset:  208 Size:     4
   float fVAnimPosScale;              // Offset:  212 Size:     4
   float fVAnimV__uiUNorm;            // Offset:  216 Size:     4
-
 };
 
 //CBMhMaterialFurnitureLocal__disclosure : 8572.shdr.src
 struct CBMhMaterialFurnitureLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -7443,12 +6898,10 @@ struct CBMhMaterialFurnitureLocal__disclosure {
   float fBlendFurMapBlend__uiUNorm;  // Offset:  300 Size:     4 [unused]
   float fBlendFurEdgeBlend__uiUNorm; // Offset:  304 Size:     4 [unused]
   float fBlendFurTile;               // Offset:  308 Size:     4 [unused]
-
 };
 
 //CBMhMaterialBurnLocal__disclosure : 8709.shdr.src
 struct CBMhMaterialBurnLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -7478,12 +6931,10 @@ struct CBMhMaterialBurnLocal__disclosure {
   ubyte align4[4];
   float4 fSnowMatControl__uiUNorm;   // Offset:  160 Size:    16 [unused]
   float2 fSnowUVOffset__uiUNorm;     // Offset:  176 Size:     8 [unused]
-
 };
 
 //SeaDisplacement : 8711.shdr.src
 struct SeaDisplacement {
-
 
   row_major float4x4 fWorldMat;      // Offset:    0 Size:    64
   uint iVBStride;                    // Offset:   64 Size:     4
@@ -7498,12 +6949,10 @@ struct SeaDisplacement {
   float2 fWindParam;                 // Offset:   96 Size:     8
   float fNoiseDensity;               // Offset:  104 Size:     4
   float fChoppyCoef;                 // Offset:  108 Size:     4
-
 };
 
 //CBMhMaterialSpeedTreeStdSnowLocal__disclosure : 8772.shdr.src
 struct CBMhMaterialSpeedTreeStdSnowLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -7550,20 +6999,16 @@ struct CBMhMaterialSpeedTreeStdSnowLocal__disclosure {
   float3 fSnowOp;                    // Offset:  288 Size:    12 [unused]
   bool bUseUVSecondarySnowMt;        // Offset:  300 Size:     4 [unused]
   bool bUseUVSecondarySnowMtBM;      // Offset:  304 Size:     4 [unused]
-
 };
 
 //CBTubeLight : 8794.shdr.src
 struct CBTubeLight {
 
-
   uint iTubeLightCount;              // Offset:    0 Size:     4
-
 };
 
 //CBMhMaterialFakeRefractionLocal__disclosure : 8844.shdr.src
 struct CBMhMaterialFakeRefractionLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -7579,20 +7024,16 @@ struct CBMhMaterialFakeRefractionLocal__disclosure {
   float4 fUVTransformB;              // Offset:   80 Size:    16 [unused]
   float fTranslucency__uiUNorm;      // Offset:   96 Size:     4 [unused]
   float fRefraction__uiUNorm;        // Offset:  100 Size:     4 [unused]
-
 };
 
 //CBImageEvaluator : 8880.shdr.src
 struct CBImageEvaluator {
 
-
   float3 fCentralRegion;             // Offset:    0 Size:    12
-
 };
 
 //CBMhMaterialEM118Local__disclosure : 8948.shdr.src
 struct CBMhMaterialEM118Local__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -7682,12 +7123,10 @@ struct CBMhMaterialEM118Local__disclosure {
   // align: 532 to 544
   ubyte align7[12];
   float4 fSnowControl;               // Offset:  544 Size:    16
-
 };
 
 //CBMhMaterialEM080Local__disclosure : 9014.shdr.src
 struct CBMhMaterialEM080Local__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -7767,12 +7206,10 @@ struct CBMhMaterialEM080Local__disclosure {
   // align: 468 to 480
   ubyte align6[12];
   float4 fSnowControl;               // Offset:  480 Size:    16
-
 };
 
 //CBModelChain : 9081.shdr.src
 struct CBModelChain {
-
 
   float fStartFrame;                 // Offset:    0 Size:     4
   float fMotionKeyAlpha;             // Offset:    4 Size:     4
@@ -7780,12 +7217,10 @@ struct CBModelChain {
   float fNextModelFrame;             // Offset:   12 Size:     4
   float fNextModelRotation;          // Offset:   16 Size:     4
   int iMotionDataNum;                // Offset:   20 Size:     4
-
 };
 
 //CBMhMaterialPLEyeLocal__disclosure : 940.shdr.src
 struct CBMhMaterialPLEyeLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -7804,24 +7239,20 @@ struct CBMhMaterialPLEyeLocal__disclosure {
   // align: 76 to 80
   ubyte align0[4];
   float4 fUVTransformDetailNormal;   // Offset:   80 Size:    16 [unused]
-
 };
 
 //CBLayoutCache : 9107.shdr.src
 struct CBLayoutCache {
-
 
   uint iEmitterID;                   // Offset:    0 Size:     4
   uint iParticleStride;              // Offset:    4 Size:     4
   uint iParticleMaxNum;              // Offset:    8 Size:     4
   uint iOutputOffset;                // Offset:   12 Size:     4
   uint iOutputFlags;                 // Offset:   16 Size:     4
-
 };
 
 //CBRadialBlurFilter : 9147.shdr.src
 struct CBRadialBlurFilter {
-
 
   float2 fRadialBlurCenter;          // Offset:    0 Size:     8
   float fRadialBlurStart;            // Offset:    8 Size:     4
@@ -7834,31 +7265,25 @@ struct CBRadialBlurFilter {
   float3 fRadialBlurChromaticAberration;// Offset:   48 Size:    12
   float fRadialBlurBlurScreenAlpha;  // Offset:   60 Size:     4
   float4 fRadialBlurBlurCurve[64];   // Offset:   64 Size:  1024
-
 };
 
 //CBRadialBlurFunction : 9147.shdr.src
 struct CBRadialBlurFunction {
 
-
   int iRadialFilterSampleColorScale; // Offset:    0 Size:     4
   int iRadialFilterAlpha;            // Offset:    4 Size:     4
   int iRadialBlurWidth;              // Offset:    8 Size:     4
   int iRadialBlurAlpha;              // Offset:   12 Size:     4
-
 };
 
 //CBPickObject : 9151.shdr.src
 struct CBPickObject {
 
-
   float4 fPickObjectColor;           // Offset:    0 Size:    16
-
 };
 
 //CBMhMaterialVfxAuroraLocal__disclosure : 9239.shdr.src
 struct CBMhMaterialVfxAuroraLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveFactor__uiColor;   // Offset:   16 Size:    12 [unused]
@@ -7874,12 +7299,10 @@ struct CBMhMaterialVfxAuroraLocal__disclosure {
   ubyte align0[4];
   float4 fUVTransformA;              // Offset:   64 Size:    16 [unused]
   float4 fUVTransformB;              // Offset:   80 Size:    16
-
 };
 
 //CBMhMaterialVfxIceLocal__disclosure : 9357.shdr.src
 struct CBMhMaterialVfxIceLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -7924,12 +7347,10 @@ struct CBMhMaterialVfxIceLocal__disclosure {
   float3 fAlbedoBlendMapGFactor__uiColor;// Offset:  288 Size:    12 [unused]
   float fIceFresnelFactor__uiUNorm;  // Offset:  300 Size:     4 [unused]
   float fIceColorBlend__uiUNorm;     // Offset:  304 Size:     4 [unused]
-
 };
 
 //CBMhMaterialFlagWaveLocal__disclosure : 9457.shdr.src
 struct CBMhMaterialFlagWaveLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -7952,12 +7373,10 @@ struct CBMhMaterialFlagWaveLocal__disclosure {
   float4 fFlagControl;               // Offset:  128 Size:    16
   float4 fDisplaceControl;           // Offset:  144 Size:    16
   float fDispFactor;                 // Offset:  160 Size:     4
-
 };
 
 //CBFXAAParam : 9890.shdr.src
 struct CBFXAAParam {
-
 
   float fFXAAQualitySubpix;          // Offset:    0 Size:     4
   float fFXAAQualityEdgeThreshold;   // Offset:    4 Size:     4
@@ -7965,20 +7384,16 @@ struct CBFXAAParam {
   // align: 12 to 16
   ubyte align0[4];
   float2 fFXAATexOnePitch;           // Offset:   16 Size:     8
-
 };
 
 //CBSystemGamma : 9522.shdr.src
 struct CBSystemGamma {
 
-
   float fSystemCopyGamma;            // Offset:    0 Size:     4
-
 };
 
 //CBHermiteCurveRGB : 9580.shdr.src
 struct CBHermiteCurveRGB {
-
 
   float2 fHermiteParamR[64];         // Offset:    0 Size:  1016
   // align: 1016 to 1024
@@ -7987,12 +7402,10 @@ struct CBHermiteCurveRGB {
   // align: 2040 to 2048
   ubyte align1[8];
   float2 fHermiteParamB[64];         // Offset: 2048 Size:  1016
-
 };
 
 //CBMhMaterialScrIceLocal__disclosure : 9666.shdr.src
 struct CBMhMaterialScrIceLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -8047,12 +7460,10 @@ struct CBMhMaterialScrIceLocal__disclosure {
   float3 fAlbedoBlendMapGFactor__uiColor;// Offset:  320 Size:    12 [unused]
   float fIceFresnelFactor__uiUNorm;  // Offset:  332 Size:     4 [unused]
   float fIceColorBlend__uiUNorm;     // Offset:  336 Size:     4 [unused]
-
 };
 
 //CBMhMaterialBTK001Local__disclosure : 9749.shdr.src
 struct CBMhMaterialBTK001Local__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -8139,12 +7550,10 @@ struct CBMhMaterialBTK001Local__disclosure {
   // align: 500 to 512
   ubyte align7[12];
   float4 fSnowControl;               // Offset:  512 Size:    16
-
 };
 
 //CBMhMaterialFakeSphereLocal__disclosure : 9789.shdr.src
 struct CBMhMaterialFakeSphereLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -8161,12 +7570,10 @@ struct CBMhMaterialFakeSphereLocal__disclosure {
   float fTranslucency__uiUNorm;      // Offset:   96 Size:     4 [unused]
   bool bForwardFog;                  // Offset:  100 Size:     4 [unused]
   bool bAddSphere;                   // Offset:  104 Size:     4 [unused]
-
 };
 
 //CBMhMaterialEM080_01Local__disclosure : 9879.shdr.src
 struct CBMhMaterialEM080_01Local__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -8254,12 +7661,10 @@ struct CBMhMaterialEM080_01Local__disclosure {
   // align: 500 to 512
   ubyte align7[12];
   float4 fSnowControl;               // Offset:  512 Size:    16
-
 };
 
 //CBMhMaterialUberIceLocal__disclosure : 9974.shdr.src
 struct CBMhMaterialUberIceLocal__disclosure {
-
 
   float4 fBaseMapFactor__uiColor;    // Offset:    0 Size:    16 [unused]
   float3 fEmissiveMapFactor__uiColor;// Offset:   16 Size:    12 [unused]
@@ -8337,14 +7742,11 @@ struct CBMhMaterialUberIceLocal__disclosure {
   float4 fSnowMatControl__uiUNorm;   // Offset:  448 Size:    16 [unused]
   float2 fSnowUVOffset__uiUNorm;     // Offset:  464 Size:     8 [unused]
   bool bUseSnowDistance;             // Offset:  472 Size:     4 [unused]
-
 };
 
 //CBColorCorrectToneCurve : 9993.shdr.src
 struct CBColorCorrectToneCurve {
 
-
   float4 fToneColor[256];            // Offset:    0 Size:  4096
-
 };
 

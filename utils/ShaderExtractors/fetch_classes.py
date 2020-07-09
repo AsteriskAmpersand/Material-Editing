@@ -3,7 +3,10 @@ import os
 import re
 
 sg = open("mhwib_structures_generated.bt","w")
-print = sg.write
+def doubleWrite(*args,**kwargs):
+    sg.write(*args,**kwargs)
+    sg.write("\r\n")
+print = doubleWrite
 
 print("#define row_major\n")
 print("""typedef struct float4{
@@ -50,7 +53,7 @@ typedef struct bool3{
 };
 typedef uint bool;""")
 
-rootPath = r"..\shdr\src"
+rootPath = r"E:\MHW Shader Research\MHW-Research\shdr\src"
 classFiles = {}
 for root, dirs, files in os.walk(rootPath):
     for filename in files:
@@ -76,6 +79,14 @@ print("")
 for key,filename in classFiles.items():
     print("local int crc%s<format=hex> = createJamcrc(\"%s\");" % (key,key));
 
+sg2 = open("..\mhwib_structures_generated.txt","w")
+def tripleWrite(text):
+    if text:
+        sg.write(text)
+        sg.write("\n")
+        sg2.write(text)
+        sg2.write("\n")
+print = tripleWrite
 
 print("")
 for key,filename in classFiles.items():
@@ -113,3 +124,4 @@ for key,filename in classFiles.items():
                     print("struct %s {\n" % key)
                     start = True
 sg.close()
+sg2.close()

@@ -1,5 +1,12 @@
 Run template on shader, run extractor script
+
 Run slimshader on the dir of the extracted shaders to convert them to src.
-Run the python list bindings and shader extractor to create the template.
-Run the cstruct converter on the template truncated without the prologue
-Run Material Enumeration
+cd /d E:\MHW Shader Research\MHW-Research\old_shdr
+"E:\MHW Shader Research\MHW-Research\slimshader\SlimShader.Studio.exe" *
+
+Run the python list bindings
+Run the material enumeration
+Fetch classes to create the template.
+
+Run the cstruct converter
+Run Material Enumeration (Maptype Generator)
