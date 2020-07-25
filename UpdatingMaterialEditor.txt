@@ -9,4 +9,4 @@ Run the material enumeration
 Fetch classes to create the template.
 
 Run the cstruct converter
-Run Material Enumeration (Maptype Generator)
+Run Maptype Generator
