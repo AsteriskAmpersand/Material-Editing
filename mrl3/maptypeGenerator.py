@@ -65,7 +65,6 @@ def extractShaderNames(inf):
             if line[:len(bindings)] == bindings:
                 startResources = True
     return varNames,varType
-                
 
 from pathlib import Path
 rootPath = r"E:\MHW Shader Research\MHW-Research\shdr\src"

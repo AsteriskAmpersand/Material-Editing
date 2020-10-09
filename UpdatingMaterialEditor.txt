@@ -1,7 +1,7 @@
 Run template on shader, run extractor script
 
 Run slimshader on the dir of the extracted shaders to convert them to src.
-cd /d E:\MHW Shader Research\MHW-Research\old_shdr
+cd /d E:\MHW Shader Research\MHW-Research\shdr
 "E:\MHW Shader Research\MHW-Research\slimshader\SlimShader.Studio.exe" *
 
 Run the python list bindings

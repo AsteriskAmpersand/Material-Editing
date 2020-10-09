@@ -4,7 +4,7 @@ Created on Tue Jan 21 21:03:53 2020
 
 @author: AsteriskAmpersand
 """
-import Mod3 as mod3
+import OldCode.Mod3 as mod3
 from pathlib import Path
 
 def shader_strings():
