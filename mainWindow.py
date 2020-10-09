@@ -133,7 +133,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self._openTab(path)
         except Exception as e:
             error_dialog = QtWidgets.QErrorMessage()
-            error_dialog.showMessage('Failed to Open File: %s'%e)
+            error_dialog.showMessage('Failed to Open File: %s: %s'%(str(type(e)),str(e)))
             error_dialog.exec()
             
     def _openTab(self, path):

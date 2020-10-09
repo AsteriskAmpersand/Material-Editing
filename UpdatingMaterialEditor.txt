@@ -4,9 +4,16 @@ Run slimshader on the dir of the extracted shaders to convert them to src.
 cd /d E:\MHW Shader Research\MHW-Research\shdr
 "E:\MHW Shader Research\MHW-Research\slimshader\SlimShader.Studio.exe" *
 
-Run the python list bindings
-Run the material enumeration
+
+Move src to correct folder.
+Run the python list bindings.
+G:\Tools\MaterialEditor\MaterialEditing\utils\ShaderExtractors\list_bindings.py
+Run the material enumeration.
+G:\Tools\MaterialEditor\MaterialEditing\utils\MaterialEnumeration.py
 Fetch classes to create the template.
+G:\Tools\MaterialEditor\MaterialEditing\utils\ShaderExtractors\fetch_classes.py
 
 Run the cstruct converter
+G:\Tools\MaterialEditor\MaterialEditing\utils\cstructParser.py
 Run Maptype Generator
+G:\Tools\MaterialEditor\MaterialEditing\mrl3\maptypeGenerator.py
